@@ -1,1 +1,5 @@
 scraping.log
+*.py[cod]
+__pycache__/
+.vscode/
+.DS_Store
