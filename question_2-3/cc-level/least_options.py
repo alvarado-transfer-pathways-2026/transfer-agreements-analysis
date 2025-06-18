@@ -69,6 +69,9 @@ def analyze_all_colleges(directory):
             file_path = os.path.join(directory, file)
             college_name, transfer_counts = count_transfer_options(file_path)
             
+            # Remove underscores and replace with spaces
+            college_name = college_name.replace('_', ' ')
+            
             # Add college name to each row
             transfer_counts['College'] = college_name
             all_data.append(transfer_counts)
@@ -123,6 +126,50 @@ def create_bar_plot(data):
     plt.savefig(output_path)
     plt.close()
 
+def create_simple_bar_plot(data):
+    """
+    Creates a simplified bar plot showing the distribution of how many UCs
+    each complete has complete articulation with.
+    """
+    # Calculate how many UCs each college has complete articulation with
+    college_complete_counts = {}
+    for college in data['College'].unique():
+        college_data = data[data['College'] == college]
+        complete_count = sum(college_data['counts'])
+        college_complete_counts[college] = complete_count
+    
+    # Count frequency of each number of complete articulations (0-9 UCs)
+    frequency = {i: 0 for i in range(10)}  # 0 to 9 UCs
+    for count in college_complete_counts.values():
+        frequency[count] += 1
+    
+    # Create bar plot
+    plt.figure(figsize=(12, 6))
+    x = list(frequency.keys())
+    y = list(frequency.values())
+    
+    bars = plt.bar(x, y)
+    
+    # Add value labels on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height,
+                f'{int(height)}',
+                ha='center', va='bottom')
+    
+    plt.title('Distribution of Complete UC Articulations per College')
+    plt.xlabel('Number of UCs with Complete Articulation')
+    plt.ylabel('Number of Colleges')
+    plt.xticks(range(10))
+    plt.yticks(range(0, 20, 2))
+    # Save the plot
+    output_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'college_simple_total_transfer_availability.png'
+    )
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+
 def main():
     # Directory containing the filtered CSV files
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -134,21 +181,22 @@ def main():
     # Create visualizations
     create_heatmap(combined_data)
     create_bar_plot(combined_data)
+    create_simple_bar_plot(combined_data)
     
     # Find college with fewest options
-    total_options = combined_data.groupby('College')['counts'].sum()
-    min_college = total_options.idxmin()
-    min_count = total_options.min()
+    # total_options = combined_data.groupby('College')['counts'].sum()
+    # min_college = total_options.idxmin()
+    # min_count = total_options.min()
     
-    print(f"\nCollege with fewest valid UC transfer paths: {min_college}")
-    print(f"Number of UCs with all courses articulated: {min_count}")
+    # print(f"\nCollege with fewest valid UC transfer paths: {min_college}")
+    # print(f"Number of UCs with all courses articulated: {min_count}")
     
-    # Show which UCs have all courses articulated for the college with fewest options
-    college_data = combined_data[combined_data['College'] == min_college]
-    available_ucs = college_data[college_data['counts'] == 1]['UC Name'].tolist()
-    print(f"\nUCs with all courses articulated:")
-    for uc in available_ucs:
-        print(f"- {uc}")
+    # # Show which UCs have all courses articulated for the college with fewest options
+    # college_data = combined_data[combined_data['College'] == min_college]
+    # available_ucs = college_data[college_data['counts'] == 1]['UC Name'].tolist()
+    # print(f"\nUCs with all courses articulated:")
+    # for uc in available_ucs:
+    #     print(f"- {uc}")
 
 if __name__ == "__main__":
     main()
