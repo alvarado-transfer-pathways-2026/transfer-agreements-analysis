@@ -147,3 +147,6 @@ def main():
     combined_data = analyze_all_districts(directory)
 
     create_group_frequency_graph(combined_data)
+
+if __name__ == "__main__":
+    main()
