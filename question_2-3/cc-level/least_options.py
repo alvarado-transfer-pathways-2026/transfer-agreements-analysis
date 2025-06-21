@@ -1,84 +1,8 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-def can_transfer_to_uc(df, uc_name):
-    # Get all requirements for this UC
-    uc_requirements = df[df['UC Name'] == uc_name]
-    
-    # Group requirements by Group ID to handle sets
-    grouped_reqs = uc_requirements.groupby('Group ID')
-    
-    # Check each group of requirements
-    for group_id, group_data in grouped_reqs:
-        # If there are multiple Set IDs, only one needs to be satisfied
-        set_ids = group_data['Set ID'].unique()
-        if len(set_ids) > 1:
-            # Check if at least one set is satisfied
-            set_satisfied = False
-            for set_id in set_ids:
-                set_data = group_data[group_data['Set ID'] == set_id]
-                # Check if this set has any "Not Articulated" courses
-                has_not_articulated = False
-                for _, row in set_data.iterrows():
-                    for col in [col for col in df.columns if col.startswith('Courses Group')]:
-                        if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                            has_not_articulated = True
-                            break
-                    if has_not_articulated:
-                        break
-                if not has_not_articulated:
-                    set_satisfied = True
-                    break
-            if not set_satisfied:
-                return False
-        else:
-            # Single set ID - all courses must be satisfied
-            for _, row in group_data.iterrows():
-                for col in [col for col in df.columns if col.startswith('Courses Group')]:
-                    if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                        return False
-    return True
-
-def count_transfer_options(file_path):
-    # Read the CSV file
-    df = pd.read_csv(file_path)
-    
-    # Get college name from file path
-    college_name = os.path.basename(file_path).replace('_filtered.csv', '')
-    
-    # Get unique UCs
-    unique_ucs = df['UC Name'].unique()
-    
-    # Count UCs where all requirements can be satisfied (no "Not Articulated" courses)
-    transfer_counts = []
-    for uc in unique_ucs:
-        can_transfer = 1 if can_transfer_to_uc(df, uc) else 0
-        transfer_counts.append({'UC Name': uc, 'counts': can_transfer})
-    
-    transfer_counts_df = pd.DataFrame(transfer_counts)
-    return college_name, transfer_counts_df
-
-def analyze_all_colleges(directory):
-    all_data = []
-    
-    # Process all CSV files in the directory
-    for file in os.listdir(directory):
-        if file.endswith('_filtered.csv'):
-            file_path = os.path.join(directory, file)
-            college_name, transfer_counts = count_transfer_options(file_path)
-            
-            # Remove underscores and replace with spaces
-            college_name = college_name.replace('_', ' ')
-            
-            # Add college name to each row
-            transfer_counts['College'] = college_name
-            all_data.append(transfer_counts)
-    
-    # Combine all data
-    combined_data = pd.concat(all_data, ignore_index=True)
-    return combined_data
+from helper import analyze_all_colleges
 
 def create_heatmap(data):
     # Pivot the data for the heatmap
