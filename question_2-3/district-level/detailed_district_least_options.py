@@ -8,7 +8,6 @@ import matplotlib.colors as mcolors
 from district_indices import DISTRICT_INDICES
 from helper import analyze_all_districts, COURSE_GROUPS, COURSE_CATEGORIES
 
-
 def create_course_heatmap(data, directory):
     """
     Draw a grid of (district × UC) cells, each divided into
@@ -141,7 +140,7 @@ def create_heatmap(data):
         vmax=1,
         linewidths=1,
         linecolor='black',
-        square=False,  # Allow rectangular cells
+        square=False,
         annot=False
     )
 
