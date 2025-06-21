@@ -1,0 +1,1013 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.42001210000001,
+          34.94598296835096
+        ]
+      },
+      "properties": {
+        "district": "Allan Hancock Joint Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.18440449733073,
+          34.678094350962034
+        ]
+      },
+      "properties": {
+        "district": "Antelope Valley Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.026179606479,
+          34.873976168350964
+        ]
+      },
+      "properties": {
+        "district": "Barstow Community College District",
+        "region": "Inland Empire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.55635900000001,
+          39.51690876835096
+        ]
+      },
+      "properties": {
+        "district": "Butte-Glenn Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.92732780000001,
+          36.99059378021935
+        ]
+      },
+      "properties": {
+        "district": "Cabrillo Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.09733951875872,
+          33.885120680219345
+        ]
+      },
+      "properties": {
+        "district": "Cerritos Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.95050643461548,
+          37.679430060010105
+        ]
+      },
+      "properties": {
+        "district": "Chabot-Las Positas Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.57037379019464,
+          34.151272418350956
+        ]
+      },
+      "properties": {
+        "district": "Chaffey Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8856927027539,
+          34.13627353021935
+        ]
+      },
+      "properties": {
+        "district": "Citrus Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.94535454515348,
+          33.706509258450644
+        ]
+      },
+      "properties": {
+        "district": "Coast Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.21146786525848,
+          33.87956433021934
+        ]
+      },
+      "properties": {
+        "district": "Compton Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.08826066196309,
+          37.98406798021935
+        ]
+      },
+      "properties": {
+        "district": "Contra Costa Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.315277,
+          34.13816936835096
+        ]
+      },
+      "properties": {
+        "district": "Copper Mountain Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.38682883111667,
+          33.73560021835096
+        ]
+      },
+      "properties": {
+        "district": "Desert Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.33027803674338,
+          33.885803230219345
+        ]
+      },
+      "properties": {
+        "district": "El Camino Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.96801199012201,
+          39.95322366835096
+        ]
+      },
+      "properties": {
+        "district": "Feather River Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.08641438092899,
+          37.34166450521935
+        ]
+      },
+      "properties": {
+        "district": "Foothill-De Anza Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.5684390749517,
+          36.975198768350964
+        ]
+      },
+      "properties": {
+        "district": "Gavilan Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.22844394023382,
+          34.16883848021935
+        ]
+      },
+      "properties": {
+        "district": "Glendale Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.9730751102154,
+          32.78358836835096
+        ]
+      },
+      "properties": {
+        "district": "Grossmont-Cuyamaca Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.66642729999998,
+          36.677673768350964
+        ]
+      },
+      "properties": {
+        "district": "Hartnell Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.51831097986576,
+          32.828771507948275
+        ]
+      },
+      "properties": {
+        "district": "Imperial Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.55214099455623,
+          35.68170278501763
+        ]
+      },
+      "properties": {
+        "district": "Kern Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.97257599999999,
+          38.93029156835096
+        ]
+      },
+      "properties": {
+        "district": "Lake Tahoe Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.65300600000002,
+          40.41941776835096
+        ]
+      },
+      "properties": {
+        "district": "Lassen Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.135706,
+          33.83149548021935
+        ]
+      },
+      "properties": {
+        "district": "Long Beach Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.34506450806072,
+          34.06333206217416
+        ]
+      },
+      "properties": {
+        "district": "Los Angeles Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.34828352253447,
+          38.57967076835096
+        ]
+      },
+      "properties": {
+        "district": "Los Rios Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.54913371204104,
+          37.955214566772405
+        ]
+      },
+      "properties": {
+        "district": "Marin Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.2271886,
+          39.192091868350964
+        ]
+      },
+      "properties": {
+        "district": "Mendocino-Lake Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.47362779333218,
+          37.33779546835096
+        ]
+      },
+      "properties": {
+        "district": "Merced Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.30235989279105,
+          33.19390321835096
+        ]
+      },
+      "properties": {
+        "district": "MiraCosta Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8827434489796,
+          36.59690950712647
+        ]
+      },
+      "properties": {
+        "district": "Monterey Peninsula Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.84160250659797,
+          34.050725380219355
+        ]
+      },
+      "properties": {
+        "district": "Mt. San Antonio Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.9719318,
+          33.78513306835096
+        ]
+      },
+      "properties": {
+        "district": "Mt. San Jacinto Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.27143018181818,
+          38.27218740168429
+        ]
+      },
+      "properties": {
+        "district": "Napa Valley Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.97054755249384,
+          33.85390298021935
+        ]
+      },
+      "properties": {
+        "district": "North Orange County Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.918946,
+          37.53054238021935
+        ]
+      },
+      "properties": {
+        "district": "Ohlone Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.59375370000001,
+          33.61661026835096
+        ]
+      },
+      "properties": {
+        "district": "Palo Verde Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.18081838110943,
+          33.154383568350966
+        ]
+      },
+      "properties": {
+        "district": "Palomar Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.11852064009447,
+          34.14595873021935
+        ]
+      },
+      "properties": {
+        "district": "Pasadena Area Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.24428451323188,
+          37.81087428021935
+        ]
+      },
+      "properties": {
+        "district": "Peralta Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.82789338556199,
+          33.77872475521935
+        ]
+      },
+      "properties": {
+        "district": "Rancho Santiago Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.16737459999999,
+          40.79382066835096
+        ]
+      },
+      "properties": {
+        "district": "Redwoods Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.03230145430211,
+          34.02178728021935
+        ]
+      },
+      "properties": {
+        "district": "Rio Hondo Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.38366647353455,
+          33.92829950168429
+        ]
+      },
+      "properties": {
+        "district": "Riverside Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.20434293489214,
+          34.06707514335096
+        ]
+      },
+      "properties": {
+        "district": "San Bernardino Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.14868988321238,
+          32.81415241120991
+        ]
+      },
+      "properties": {
+        "district": "San Diego Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45116080000001,
+          37.72951698021935
+        ]
+      },
+      "properties": {
+        "district": "San Francisco Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.31930966349557,
+          37.99838921835096
+        ]
+      },
+      "properties": {
+        "district": "San Joaquin Delta Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.84468423005416,
+          37.31019423021935
+        ]
+      },
+      "properties": {
+        "district": "San Jose-Evergreen Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.67096829999998,
+          35.65456106835096
+        ]
+      },
+      "properties": {
+        "district": "San Luis Obispo County Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.35531610265775,
+          37.53975433021935
+        ]
+      },
+      "properties": {
+        "district": "San Mateo County Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.69742037178025,
+          34.40899781835096
+        ]
+      },
+      "properties": {
+        "district": "Santa Barbara Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.56945799999998,
+          34.40506848021935
+        ]
+      },
+      "properties": {
+        "district": "Santa Clarita Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.47184278262614,
+          34.01950083021935
+        ]
+      },
+      "properties": {
+        "district": "Santa Monica Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.31629477064524,
+          36.32741581835096
+        ]
+      },
+      "properties": {
+        "district": "Sequoias Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.31431746401172,
+          40.63050061835096
+        ]
+      },
+      "properties": {
+        "district": "Shasta-Tehama-Trinity Joint Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.20588488594173,
+          38.79736700806804
+        ]
+      },
+      "properties": {
+        "district": "Sierra Joint Community College District",
+        "region": "North Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39554297640206,
+          41.416013735608
+        ]
+      },
+      "properties": {
+        "district": "Siskiyou Joint Community College District",
+        "region": "Northern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.12056356391716,
+          38.23753083021935
+        ]
+      },
+      "properties": {
+        "district": "Solano Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7216064879756,
+          38.45776981835096
+        ]
+      },
+      "properties": {
+        "district": "Sonoma County Junior College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.72239272987615,
+          33.61592758021935
+        ]
+      },
+      "properties": {
+        "district": "South Orange County Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.99804931966207,
+          32.64308111835096
+        ]
+      },
+      "properties": {
+        "district": "Southwestern Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.74691750512163,
+          36.79954524556957
+        ]
+      },
+      "properties": {
+        "district": "State Center Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.0761254080702,
+          34.250591201684294
+        ]
+      },
+      "properties": {
+        "district": "Ventura County Community College District",
+        "region": "South Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.26019793311039,
+          34.47417438139145
+        ]
+      },
+      "properties": {
+        "district": "Victor Valley Community College District",
+        "region": "Southern"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.08908500000001,
+          36.22429248671831
+        ]
+      },
+      "properties": {
+        "district": "West Hills Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.458759,
+          35.15264746835096
+        ]
+      },
+      "properties": {
+        "district": "West Kern Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.99833292960952,
+          37.33146823021935
+        ]
+      },
+      "properties": {
+        "district": "West Valley-Mission Community College District",
+        "region": "Bay Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.6985415231382,
+          37.844098468350964
+        ]
+      },
+      "properties": {
+        "district": "Yosemite Community College District",
+        "region": "Central"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.6409005,
+          38.897764568350965
+        ]
+      },
+      "properties": {
+        "district": "Yuba Community College District",
+        "region": "Northern"
+      }
+    }
+  ]
+}
