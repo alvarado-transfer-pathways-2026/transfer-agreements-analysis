@@ -7,7 +7,7 @@ uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 def generate_combinations(uc_schools):
     # Change the number here for different permutation sizes
-    return list(permutations(uc_schools, 3))
+    return list(permutations(uc_schools, 5))
 
 def get_roles(k):
     suffixes = ['st', 'nd', 'rd'] + ['th'] * 6
@@ -140,7 +140,7 @@ def count_required_courses_global(df, combo):
 
     return articulated_courses, unarticulated_courses, uc_counts
 
-def process_combinations_order_sensitive(df, uc_list, txt_file=None, csv_name=None):
+def process_combinations_order_sensitive(df, uc_list):
     all_combinations = generate_combinations(uc_list)
     k = len(all_combinations[0])
     n = len(uc_list)
@@ -151,27 +151,25 @@ def process_combinations_order_sensitive(df, uc_list, txt_file=None, csv_name=No
         uc: {role: {'articulated': 0, 'unarticulated': 0} for role in roles} for uc in uc_list
     }
 
-    if txt_file:
-        f = open(txt_file, "a")
-        if csv_name:
-            f.write(f"\n=== Processing file: {csv_name} ===\n")
-    else:
-        f = None
-
     for combo in all_combinations:
-        articulated_courses, unarticulated_courses, uc_counts = count_required_courses_global(df, combo)
-        total_unique_courses = len(set([course for (_, course) in articulated_courses] +
-                                       [course for (_, course) in unarticulated_courses]))
-        results = []
-        seen_courses = set()
-        seen_unarticulated = set()
+        articulated_tracker = set()
+        unarticulated_tracker = set()
+
         for idx, uc in enumerate(combo):
             role = roles[idx]
+            art_count, unart_count = 0, 0
+            # Use the greedy logic for each UC in the combo
+            # (simulate the greedy per-UC logic as in total_combination_order.py)
+            # For greedy, we need to run the global greedy for the whole combo, then count for each UC
+            articulated_courses, unarticulated_courses, uc_counts = count_required_courses_global(df, combo)
             uc_lower = uc.lower()
             art_courses = sorted(uc_counts[uc_lower]['articulated'])
             unart_courses = sorted(uc_counts[uc_lower]['unarticulated'])
 
             # Only show new courses/unarticulated for this UC
+            if idx == 0:
+                seen_courses = set()
+                seen_unarticulated = set()
             new_art_courses = [c for c in art_courses if c not in seen_courses]
             new_unart_courses = [c for c in unart_courses if c not in seen_unarticulated]
 
@@ -179,31 +177,16 @@ def process_combinations_order_sensitive(df, uc_list, txt_file=None, csv_name=No
             unart_count = len(new_unart_courses)
             uc_role_totals[uc][role]['articulated'] += art_count
             uc_role_totals[uc][role]['unarticulated'] += unart_count
-            art_str = "; ".join(new_art_courses) if new_art_courses else "-"
-            unart_str = "; ".join(new_unart_courses) if new_unart_courses else "-"
-            results.append(
-                f"{uc} ({role}): {art_count} Courses, {unart_count} Unarticulated "
-                f"{{Courses: {art_str}; Unarticulated: {unart_str}}}"
-            )
 
             seen_courses.update(new_art_courses)
             seen_unarticulated.update(new_unart_courses)
 
-        combo_str = ", ".join(combo)
-        # Only write to file, not print
-        if f:
-            f.write(f"\nProcessing combination: {combo_str}\n")
-            f.write(f"Total Unique Courses Required: {total_unique_courses}\n")
-            for res in results:
-                f.write(res + "\n")
-
-    if f:
-        f.close()
     return uc_role_totals, per_uc_per_position, roles
+
 def process_all_csvs(folder_path):
-    total_txt = "total_combination_order.txt"
-    avg_txt = "average_combination_order.txt"
-    excluded_txt = "excluded_cc_uc_pairs.txt"
+    total_txt = "greedy_total_combination_order.txt"
+    avg_txt = "greedy_average_combination_order.txt"
+    excluded_txt = "greedy_untransferrable_cc_uc_pairs.txt"
 
     open(total_txt, 'w').close()
     open(avg_txt, 'w').close()
@@ -220,7 +203,7 @@ def process_all_csvs(folder_path):
         print(f"Processing {idx+1}/{len(csv_files)}: {file}")
         file_path = os.path.join(folder_path, file)
         df = pd.read_csv(file_path)
-        results, per_uc_per_position, roles = process_combinations_order_sensitive(df, uc_schools, txt_file=total_txt)
+        results, per_uc_per_position, roles = process_combinations_order_sensitive(df, uc_schools)
 
         # Initialize overall_totals on first run
         if not overall_totals:
@@ -234,7 +217,7 @@ def process_all_csvs(folder_path):
                 overall_totals[uc][role]['unarticulated'] += results[uc][role]['unarticulated']
 
         with open(total_txt, "a") as f:
-            f.write(f"\n--- Totals for {file} ---\n\n")
+            f.write(f"--- Processing {file} ---\n\n")
             for uc in uc_schools:
                 f.write(f"{uc}:\n")
                 for role in roles:
@@ -336,7 +319,7 @@ def process_all_csvs(folder_path):
                 transfer_avg_row[col] = 0.0
         df = pd.concat([df, pd.DataFrame([transfer_avg_row])], ignore_index=True)
 
-        df.to_csv(f"order_{idx+1}_averages.csv", index=False)
+        df.to_csv(f"greedy_order_{idx+1}_averages.csv", index=False)
 
         # Append filtered average to average_combination_order.txt
         with open(avg_txt, "a") as f:
@@ -347,7 +330,7 @@ def process_all_csvs(folder_path):
             f.write("\n")
 
         # Write excluded pairs to txt file
-        with open("excluded_cc_uc_pairs.txt", "a") as f:
+        with open(excluded_txt, "a") as f:
             f.write(f"--- Order {idx+1} ---\n")
             cc_grouped = {}
             for cc, uc in filtered_pairs:
@@ -358,5 +341,5 @@ def process_all_csvs(folder_path):
             f.write("\n")
 
 if __name__ == "__main__":
-    folder_path = "/Users/yasminkabir/transfer-agreements-analysis/district_csvs/merced"
+    folder_path = "/Users/yasminkabir/transfer-agreements-analysis/district_csvs"
     process_all_csvs(folder_path)
