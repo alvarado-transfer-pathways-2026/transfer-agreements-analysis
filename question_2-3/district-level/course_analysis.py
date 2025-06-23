@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-
 from helper import analyze_all_districts, COURSE_GROUPS
 
 
@@ -235,6 +234,109 @@ def create_normalized_group_graph(data):
     fig.savefig(out, dpi=300, bbox_inches='tight')
     plt.close(fig)
 
+def create_per_course_graphs(data, output_dir):
+    """
+    For each course‐category in COURSE_GROUPS, draw a bar chart of
+    how many un-articulated groups that category has at each UC campus.
+    Saves one PNG per category into output_dir.
+    """
+
+    # --- 1) Build the uc_category_counts dict ---
+    uc_names = sorted(data['UC Name'].unique())
+    categories = list(COURSE_GROUPS.keys())
+
+    # initialize
+    uc_category_counts = {
+        uc: {cat: 0 for cat in categories}
+        for uc in uc_names
+    }
+
+    # fill
+    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
+        uc = row['UC Name']
+        for line in row['unarticulated_courses'].split('\n'):
+            if ':' not in line:
+                continue
+            gid = line.split(':',1)[0].strip().lower()
+            for cat, info in COURSE_GROUPS.items():
+                if any(pat in gid for pat in info['patterns']):
+                    uc_category_counts[uc][cat] += 1
+                    break
+
+    # --- 2) Make one bar‐chart per category ---
+    os.makedirs(output_dir, exist_ok=True)
+    for cat in categories:
+        heights = [ uc_category_counts[uc][cat] for uc in uc_names ]
+        real_color = COURSE_GROUPS[cat]['color']
+        grey      = '#DDDDDD'
+        colors    = [real_color if h > 0 else grey for h in heights]
+        fig, ax = plt.subplots(figsize=(8,5))
+        ax.bar(uc_names, heights, color=colors)
+        ax.set_title(f"{cat.replace('_',' ').title()}  Un-articulated Groups")
+        ax.set_xlabel("UC Campus")
+        ax.set_ylabel("Count of Groups")
+        ax.set_xticks(np.arange(len(uc_names)))
+        ax.set_xticklabels(uc_names, rotation=30, ha='right')
+        # annotate each bar with its value
+        for i, h in enumerate(heights):
+            if h>0:
+                ax.text(i, h + 0.1, str(h), ha='center', va='bottom', fontsize=8)
+        plt.tight_layout()
+
+        fn = os.path.join(output_dir, f"{cat}_by_campus.png")
+        fig.savefig(fn, dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        
+def create_all_course_graphs(data, output_dir):
+    """
+    For each course‐category in COURSE_GROUPS, draw a bar chart of
+    how many un-articulated groups that category has at each UC campus.
+    Saves one PNG per category into output_dir.
+    """
+
+    # --- 1) Build the uc_category_counts dict ---
+    uc_names = sorted(data['UC Name'].unique())
+    categories = list(COURSE_GROUPS.keys())
+
+    # initialize
+    uc_category_counts = {
+        uc: {cat: 0 for cat in categories}
+        for uc in uc_names
+    }
+
+    # fill
+    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
+        uc = row['UC Name']
+        for line in row['unarticulated_courses'].split('\n'):
+            if ':' not in line:
+                continue
+            gid = line.split(':',1)[0].strip().lower()
+            for cat, info in COURSE_GROUPS.items():
+                if any(pat in gid for pat in info['patterns']):
+                    uc_category_counts[uc][cat] += 1
+                    break
+
+    fig, axes = plt.subplots(2, 3, figsize=(18,10), sharey=True)
+    axes = axes.flatten()
+
+    for ax, cat in zip(axes, categories):
+        heights = [ uc_category_counts[uc][cat] for uc in uc_names ]
+        real_color = COURSE_GROUPS[cat]['color']
+        grey      = '#DDDDDD'
+        colors    = [real_color if h > 0 else grey for h in heights]
+        ax.bar(uc_names, heights, color=colors)
+        ax.set_title(cat.replace('_',' ').title())
+        ax.set_xticks(np.arange(len(uc_names)))
+        ax.set_xticklabels(uc_names, rotation=30, ha='right')
+        for i, h in enumerate(heights):
+            if h>0:
+                ax.text(i, h+0.5, str(h), ha='center', va='bottom', fontsize=7)
+    fig.suptitle("Un-articulated Groups by Campus, per Course Category")
+    fig.tight_layout(rect=[0,0,1,0.96])
+    fig.savefig(os.path.join(output_dir, "all_categories_grid.png"), dpi=300)
+    plt.close(fig)
+
+
 
 def main():
     # Directory containing the district CSV files
@@ -245,6 +347,8 @@ def main():
 
     create_group_frequency_graph(combined_data)
     create_normalized_group_graph(combined_data)
+    create_per_course_graphs(combined_data, os.path.join(script_dir, 'per_course_analysis'))
+    create_all_course_graphs(combined_data, os.path.join(script_dir, 'per_course_analysis'))
 
 if __name__ == "__main__":
     main()
