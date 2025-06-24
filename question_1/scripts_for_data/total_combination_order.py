@@ -7,7 +7,7 @@ uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 def generate_combinations(uc_schools):
     # Change the number here for different permutation sizes
-    return list(permutations(uc_schools, 3))
+    return list(permutations(uc_schools, 9))
 
 def get_roles(k):
     suffixes = ['st', 'nd', 'rd'] + ['th'] * 6
