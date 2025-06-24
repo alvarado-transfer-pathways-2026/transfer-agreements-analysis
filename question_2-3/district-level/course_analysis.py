@@ -235,23 +235,18 @@ def create_normalized_group_graph(data):
     plt.close(fig)
 
 def create_per_course_graphs(data, output_dir):
-    """
-    For each course‐category in COURSE_GROUPS, draw a bar chart of
-    how many un-articulated groups that category has at each UC campus.
-    Saves one PNG per category into output_dir.
-    """
+    # --- Prep: campuses, categories, CC total count ---
+    uc_names    = sorted(data['UC Name'].unique())
+    categories  = list(COURSE_GROUPS.keys())
+    n_districts = data['District'].nunique()  # denominator for percent calc
 
-    # --- 1) Build the uc_category_counts dict ---
-    uc_names = sorted(data['UC Name'].unique())
-    categories = list(COURSE_GROUPS.keys())
+    os.makedirs(output_dir, exist_ok=True)
 
-    # initialize
-    uc_category_counts = {
+    # --- Build missing‐articulation counts ---
+    uc_cat_counts = {
         uc: {cat: 0 for cat in categories}
         for uc in uc_names
     }
-
-    # fill
     for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
         uc = row['UC Name']
         for line in row['unarticulated_courses'].split('\n'):
@@ -260,51 +255,74 @@ def create_per_course_graphs(data, output_dir):
             gid = line.split(':',1)[0].strip().lower()
             for cat, info in COURSE_GROUPS.items():
                 if any(pat in gid for pat in info['patterns']):
-                    uc_category_counts[uc][cat] += 1
+                    uc_cat_counts[uc][cat] += 1
                     break
 
-    # --- 2) Make one bar‐chart per category ---
-    os.makedirs(output_dir, exist_ok=True)
+    # --- Now, per‐category plotting ---
+    grey = '#DDDDDD'
     for cat in categories:
-        heights = [ uc_category_counts[uc][cat] for uc in uc_names ]
+        # raw counts & percent
+        counts   = np.array([uc_cat_counts[uc][cat] for uc in uc_names], dtype=float)
+        percents = counts / n_districts * 100  # percent of CC districts missing articulation
+
+        # decide bar heights & colors
+        #  - if count>0: height = percents[i], color = real
+        #  - if count==0: height = 100,       color = grey
         real_color = COURSE_GROUPS[cat]['color']
-        grey      = '#DDDDDD'
-        colors    = [real_color if h > 0 else grey for h in heights]
+        heights    = np.where(counts>0, percents, 100.0)
+        colors     = [real_color if c>0 else grey for c in counts]
+
+        # plot
         fig, ax = plt.subplots(figsize=(8,5))
-        ax.bar(uc_names, heights, color=colors)
-        ax.set_title(f"{cat.replace('_',' ').title()}  Un-articulated Groups")
-        ax.set_xlabel("UC Campus")
-        ax.set_ylabel("Count of Groups")
+        bars = ax.bar(uc_names, heights, color=colors, edgecolor='k')
+
+        # annotate only the coloured (required) ones with their % value
+        for i,(bar,h,c) in enumerate(zip(bars, heights, counts)):
+            if c > 0 and h > 5:  # only label segments big enough to read
+                ax.text(
+                    bar.get_x() + bar.get_width()/2,
+                    h/2,
+                    f"{percents[i]:.1f}%",
+                    ha='center', va='center',
+                    fontsize=8,
+                    color='white'
+                )
+
+        # styling
+        ax.set_ylim(0, 100)
+        ax.set_title(f"{cat.replace('_',' ').title()}\n% of CC Districts Missing Articulation")
+        ax.set_ylabel("% of All CC Districts")
         ax.set_xticks(np.arange(len(uc_names)))
         ax.set_xticklabels(uc_names, rotation=30, ha='right')
-        # annotate each bar with its value
-        for i, h in enumerate(heights):
-            if h>0:
-                ax.text(i, h + 0.1, str(h), ha='center', va='bottom', fontsize=8)
-        plt.tight_layout()
 
-        fn = os.path.join(output_dir, f"{cat}_by_campus.png")
+        # legend
+        from matplotlib.patches import Patch
+        legend_items = [
+            Patch(facecolor=real_color, edgecolor='k', label='Has Gaps (required)'),
+            Patch(facecolor=grey,       edgecolor='k', label='Not Required')
+        ]
+        ax.legend(handles=legend_items, loc='upper right', fontsize=8)
+
+        plt.tight_layout()
+        fn = os.path.join(output_dir, f"relative_{cat.lower().replace(' ','_')}.png")
         fig.savefig(fn, dpi=300, bbox_inches='tight')
         plt.close(fig)
         
 def create_all_course_graphs(data, output_dir):
     """
-    For each course‐category in COURSE_GROUPS, draw a bar chart of
-    how many un-articulated groups that category has at each UC campus.
-    Saves one PNG per category into output_dir.
+    Draws a 2×3 grid of per-course, 100%-height bars where:
+      • coloured bar = % of all CC districts missing articulation (if >0)
+      • grey bar     = full 100% if 0 gaps (not required)
     """
 
-    # --- 1) Build the uc_category_counts dict ---
-    uc_names = sorted(data['UC Name'].unique())
+    os.makedirs(output_dir, exist_ok=True)
+    uc_names   = sorted(data['UC Name'].unique())
     categories = list(COURSE_GROUPS.keys())
+    grey       = '#DDDDDD'
+    n_districts = data['District'].nunique()
 
-    # initialize
-    uc_category_counts = {
-        uc: {cat: 0 for cat in categories}
-        for uc in uc_names
-    }
-
-    # fill
+    # Build raw counts
+    uc_cat_counts = { uc: {cat:0 for cat in categories} for uc in uc_names }
     for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
         uc = row['UC Name']
         for line in row['unarticulated_courses'].split('\n'):
@@ -313,28 +331,70 @@ def create_all_course_graphs(data, output_dir):
             gid = line.split(':',1)[0].strip().lower()
             for cat, info in COURSE_GROUPS.items():
                 if any(pat in gid for pat in info['patterns']):
-                    uc_category_counts[uc][cat] += 1
+                    uc_cat_counts[uc][cat] += 1
                     break
 
-    fig, axes = plt.subplots(2, 3, figsize=(18,10), sharey=True)
-    axes = axes.flatten()
+    # Create 2×3 grid
+    fig, axes2d = plt.subplots(2, 3, figsize=(18, 10), sharey=True)
+    axes = axes2d.flatten()
 
-    for ax, cat in zip(axes, categories):
-        heights = [ uc_category_counts[uc][cat] for uc in uc_names ]
-        real_color = COURSE_GROUPS[cat]['color']
-        grey      = '#DDDDDD'
-        colors    = [real_color if h > 0 else grey for h in heights]
-        ax.bar(uc_names, heights, color=colors)
-        ax.set_title(cat.replace('_',' ').title())
+    for idx, (ax, cat) in enumerate(zip(axes, categories)):
+        counts  = np.array([uc_cat_counts[uc][cat] for uc in uc_names], dtype=float)
+        perc    = (counts / n_districts * 100).round(1)
+
+        heights = [p if c > 0 else 100.0 for c, p in zip(counts, perc)]
+        colors  = [
+            COURSE_GROUPS[cat]['color'] if c > 0 else grey
+            for c in counts
+        ]
+
+        bars = ax.bar(uc_names, heights, color=colors, edgecolor='k')
+
+        # annotate only coloured bars
+        for rect, c, p in zip(bars, counts, perc):
+            if c > 0 and p > 5: 
+                ax.text(
+                    rect.get_x() + rect.get_width()/2,
+                    p/2,
+                    f"{p:.1f}%",
+                    ha='center', va='center',
+                    fontsize=8,
+                    color='white'
+                )
+
+        ax.set_ylim(0, 100)
+        ax.set_title(cat.replace('_',' ').title(), fontsize=12)
         ax.set_xticks(np.arange(len(uc_names)))
         ax.set_xticklabels(uc_names, rotation=30, ha='right')
-        for i, h in enumerate(heights):
-            if h>0:
-                ax.text(i, h+0.5, str(h), ha='center', va='bottom', fontsize=7)
-    fig.suptitle("Un-articulated Groups by Campus, per Course Category")
-    fig.tight_layout(rect=[0,0,1,0.96])
-    fig.savefig(os.path.join(output_dir, "all_categories_grid.png"), dpi=300)
+        # only the leftmost column gets a ylabel
+        if idx % 3 == 0:
+            ax.set_ylabel("% of CC Districts")
+
+    # Shared title & legend
+    fig.suptitle(
+        "Per‐Course: % of CC Districts Missing Articulation\n"
+        "(Grey = Not Required)",
+        fontsize=14, y=0.95
+    )
+    from matplotlib.patches import Patch
+    legend_items = [
+        Patch(facecolor='w', edgecolor='k', label='Coloured = % missing'),
+        Patch(facecolor=grey, edgecolor='k', label='Grey = not required')
+    ]
+    fig.legend(
+        handles=legend_items,
+        loc='lower center',
+        ncol=2,
+        frameon=False,
+        fontsize=10,
+        bbox_to_anchor=(0.5, 0.02)
+    )
+
+    plt.tight_layout(rect=[0, 0.03, 1, 0.92])
+    out_path = os.path.join(output_dir, "all_courses_relative.png")
+    fig.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)
+
 
 
 
