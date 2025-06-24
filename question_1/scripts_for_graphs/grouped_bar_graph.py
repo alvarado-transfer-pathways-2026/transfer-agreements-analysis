@@ -97,9 +97,9 @@ plot_title = f"Transferable Average Articulated Courses by UC and Order ({source
 # Plot grouped bar chart with more space between groups and thicker bars
 ax = pivot_df.plot(
     kind="bar",
-    figsize=(24, 8),   # even wider and taller figure
+    figsize=(32, 12),   # even wider and taller figure
     color=color_list,
-    width=0.5          # narrower bars for more space between groups
+    width=0.9          # narrower bars for more space between groups
 )
 plt.title(plot_title)
 plt.ylabel("Average Articulated Courses")
