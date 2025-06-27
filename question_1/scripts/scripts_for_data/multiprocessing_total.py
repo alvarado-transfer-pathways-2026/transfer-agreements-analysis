@@ -1,11 +1,19 @@
 import pandas as pd
 from itertools import permutations
 import os
+import math
+from multiprocessing import Pool, cpu_count
+from tqdm import tqdm
 
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 def generate_combinations(uc_schools):
-    return list(permutations(uc_schools, 5))
+    # Change the number here for different permutation sizes
+    return list(permutations(uc_schools, 9))
+
+def get_roles(k):
+    suffixes = ['st', 'nd', 'rd'] + ['th'] * 6
+    return [f"{i+1}{suffixes[i] if i < 3 else 'th'}" for i in range(k)]
 
 def count_required_courses(df, selected_schools, articulated_tracker, unarticulated_tracker):
     df.columns = df.columns.str.strip()
@@ -45,7 +53,7 @@ def count_required_courses(df, selected_schools, articulated_tracker, unarticula
                 articulated_courses.update((uc, course) for course in new_courses)
                 break
 
-            if fallback_receiving is None or len(all_receiving_courses) < len(fallback_receiving or set()):
+            if fallback_receiving is None or len(all_receiving_courses) < len(fallback_receiving):
                 fallback_receiving = all_receiving_courses
 
         if not fulfilled and fallback_receiving:
@@ -60,68 +68,80 @@ def count_required_courses(df, selected_schools, articulated_tracker, unarticula
 
     return len(new_articulated), len(new_unarticulated)
 
+# Helper function for multiprocessing
+def process_combo(args):
+    combo, df_pickle, roles = args
+    import pickle
+    df = pickle.loads(df_pickle)
+    articulated_tracker = set()
+    unarticulated_tracker = set()
+    uc_role_counts = []
+    for idx, uc in enumerate(combo):
+        role = roles[idx]
+        art_count, unart_count = count_required_courses(
+            df, [uc], articulated_tracker, unarticulated_tracker
+        )
+        uc_role_counts.append((uc, role, art_count, unart_count))
+    return uc_role_counts
+
 def process_combinations_order_sensitive(df, uc_list):
     all_combinations = generate_combinations(uc_list)
+    k = len(all_combinations[0])
+    n = len(uc_list)
+    roles = get_roles(k)
+    per_uc_per_position = math.factorial(n-1) // math.factorial(n-k)
 
     uc_role_totals = {
-        uc: {f"{i+1}th": {'articulated': 0, 'unarticulated': 0} for i in range(5)} for uc in uc_list
+        uc: {role: {'articulated': 0, 'unarticulated': 0} for role in roles} for uc in uc_list
     }
-    # Fix ordinal suffixes for 1st, 2nd, 3rd, 4th, 5th
-    for uc in uc_list:
-        uc_role_totals[uc]['1st'] = uc_role_totals[uc].pop('1th')
-        uc_role_totals[uc]['2nd'] = uc_role_totals[uc].pop('2th')
-        uc_role_totals[uc]['3rd'] = uc_role_totals[uc].pop('3th')
-        uc_role_totals[uc]['4th'] = uc_role_totals[uc].pop('4th')
-        uc_role_totals[uc]['5th'] = uc_role_totals[uc].pop('5th')
-    for combo in all_combinations:
-        articulated_tracker = set()
-        unarticulated_tracker = set()
 
-        for idx, uc in enumerate(combo):
-            if idx == 0:
-                role = '1st'
-            elif idx == 1:
-                role = '2nd'
-            elif idx == 2:
-                role = '3rd'
-            elif idx == 3:
-                role = '4th'
-            else:
-                role = '5th'
-            art_count, unart_count = count_required_courses(
-                df, [uc], articulated_tracker, unarticulated_tracker
-            )
+    # To pass DataFrame to Pool workers, pickle it once
+    import pickle
+    df_pickle = pickle.dumps(df)
+
+    # Prepare arguments for parallel processing
+    args = [(combo, df_pickle, roles) for combo in all_combinations]
+
+    with Pool(cpu_count()) as pool:
+        results = list(tqdm(pool.imap(process_combo, args), total=len(args), desc="Processing combinations"))
+
+    for uc_role_counts in results:
+        for uc, role, art_count, unart_count in uc_role_counts:
             uc_role_totals[uc][role]['articulated'] += art_count
             uc_role_totals[uc][role]['unarticulated'] += unart_count
 
-    return uc_role_totals
+    return uc_role_totals, per_uc_per_position, roles
 
 def process_all_csvs(folder_path):
     total_txt = "total_combination_order.txt"
     avg_txt = "average_combination_order.txt"
-    excluded_txt = "excluded_cc_uc_pairs.txt"
+    excluded_txt = "transferrable_cc_uc_pairs.txt"
 
     open(total_txt, 'w').close()
     open(avg_txt, 'w').close()
     open(excluded_txt, 'w').close()
 
-    uc_roles = ['1st', '2nd', '3rd', '4th', '5th']
-    
-    overall_totals = {
-        uc: {role: {'articulated': 0, 'unarticulated': 0} for role in uc_roles} for uc in uc_schools
-    }
-
     csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
     average_results_list = []
+    per_uc_per_position = None
+    roles = None
+
+    overall_totals = {}
 
     for idx, file in enumerate(csv_files):
         print(f"Processing {idx+1}/{len(csv_files)}: {file}")
         file_path = os.path.join(folder_path, file)
         df = pd.read_csv(file_path)
-        results = process_combinations_order_sensitive(df, uc_schools)
+        results, per_uc_per_position, roles = process_combinations_order_sensitive(df, uc_schools)
+
+        # Initialize overall_totals on first run
+        if not overall_totals:
+            overall_totals = {
+                uc: {role: {'articulated': 0, 'unarticulated': 0} for role in roles} for uc in uc_schools
+            }
 
         for uc in uc_schools:
-            for role in uc_roles:
+            for role in roles:
                 overall_totals[uc][role]['articulated'] += results[uc][role]['articulated']
                 overall_totals[uc][role]['unarticulated'] += results[uc][role]['unarticulated']
 
@@ -129,20 +149,17 @@ def process_all_csvs(folder_path):
             f.write(f"--- Processing {file} ---\n\n")
             for uc in uc_schools:
                 f.write(f"{uc}:\n")
-                for role in uc_roles:
+                for role in roles:
                     art = results[uc][role]['articulated']
                     unart = results[uc][role]['unarticulated']
                     f.write(f"  As {role}: {art} Courses, {unart} Unarticulated\n")
                 f.write("\n")
 
-        # 9P5 = 15120 permutations, each UC appears in each position 8P4 = 1680 times
-        per_uc_per_position = 1680  # 8P4 = 1680
-
         avg = {
             uc: {role: {
                 'articulated': round(results[uc][role]['articulated'] / per_uc_per_position, 2),
                 'unarticulated': round(results[uc][role]['unarticulated'] / per_uc_per_position, 2)
-            } for role in uc_roles} for uc in uc_schools
+            } for role in roles} for uc in uc_schools
         }
         average_results_list.append(avg)
 
@@ -150,7 +167,7 @@ def process_all_csvs(folder_path):
             f.write(f"--- Processing {file} ---\n\n")
             for uc in uc_schools:
                 f.write(f"{uc}:\n")
-                for role in uc_roles:
+                for role in roles:
                     art = avg[uc][role]['articulated']
                     unart = avg[uc][role]['unarticulated']
                     f.write(f"  As {role}: {art} Courses, {unart} Unarticulated\n")
@@ -161,7 +178,7 @@ def process_all_csvs(folder_path):
         f.write("\n--- Grand Totals Across All Files ---\n\n")
         for uc in uc_schools:
             f.write(f"{uc}:\n")
-            for role in uc_roles:
+            for role in roles:
                 art = overall_totals[uc][role]['articulated']
                 unart = overall_totals[uc][role]['unarticulated']
                 f.write(f"  As {role}: {art} Courses, {unart} Unarticulated\n")
@@ -171,7 +188,7 @@ def process_all_csvs(folder_path):
         f.write("--- Averages (Total ÷ # Files) ---\n\n")
         for uc in uc_schools:
             f.write(f"{uc}:\n")
-            for role in uc_roles:
+            for role in roles:
                 art_avg = round(overall_totals[uc][role]['articulated'] / n, 2)
                 unart_avg = round(overall_totals[uc][role]['unarticulated'] / n, 2)
                 f.write(f"  As {role}: {art_avg} Courses, {unart_avg} Unarticulated\n")
@@ -182,7 +199,7 @@ def process_all_csvs(folder_path):
         n = len(average_results_list)
         for uc in uc_schools:
             f.write(f"{uc}:\n")
-            for role in uc_roles:
+            for role in roles:
                 art_total = sum(avg[uc][role]['articulated'] for avg in average_results_list)
                 unart_total = sum(avg[uc][role]['unarticulated'] for avg in average_results_list)
                 art_avg = round(art_total / n, 2)
@@ -191,7 +208,7 @@ def process_all_csvs(folder_path):
             f.write("\n")
 
     # Create per-order average CSVs with filtered average row
-    for idx, role in enumerate(uc_roles):
+    for idx, role in enumerate(roles):
         data = []
         filtered_pairs = []
         filtered_sum = {}
@@ -242,7 +259,7 @@ def process_all_csvs(folder_path):
             f.write("\n")
 
         # Write excluded pairs to txt file
-        with open("excluded_cc_uc_pairs.txt", "a") as f:
+        with open(excluded_txt, "a") as f:
             f.write(f"--- Order {idx+1} ---\n")
             cc_grouped = {}
             for cc, uc in filtered_pairs:
