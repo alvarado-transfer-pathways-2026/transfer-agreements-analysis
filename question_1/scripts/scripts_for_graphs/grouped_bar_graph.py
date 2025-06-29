@@ -202,5 +202,12 @@ for h, l in zip(handles, labels):
         seen.add(l)
 ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement",
           loc='upper left', fontsize=22, title_fontsize=24)
+
+# plt.figtext(Add commentMore actions
+#     0.5, -0.05,
+#     "Slashed bars represent the portion of time to degree from the quarter system; solid bars are semester equivalents.",Add commentMore actions
+#     wrap=True, horizontalalignment='center', fontsize=14, color='gray'
+# )
+
 plt.savefig("transferable_averages_by_uc_all_orders.png", dpi=300, bbox_inches='tight')
 plt.show()
