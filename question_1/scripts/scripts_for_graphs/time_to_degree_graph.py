@@ -30,7 +30,7 @@ uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("U
 x = np.arange(len(uc_labels))
 bar_width = 0.6
 
-fig, ax = plt.subplots(figsize=(16, 8))
+fig, ax = plt.subplots(figsize=(18, 10))  # Make the figure itself bigger
 
 transfer_vals = [transfer_courses[uc] for uc in uc_labels]
 after_vals = [after_time_to_degree[uc] for uc in uc_labels]
@@ -39,7 +39,7 @@ total_vals = [transfer_courses[uc] + after_time_to_degree[uc] for uc in uc_label
 # Plot bottom (transferable courses)
 bars_transfer = ax.bar(
     x, transfer_vals, width=bar_width,
-    color="#091FAD", label="Transfer Requirments", zorder=2
+    color="#091FAD", label="Transfer Requirements", zorder=2
 )
 # Plot top (after transfer courses)
 bars_after = ax.bar(
@@ -52,19 +52,19 @@ for i, (trans, after) in enumerate(zip(transfer_vals, after_vals)):
     # Transferable courses (centered in lower segment)
     ax.text(
         x[i], trans / 2, f"{trans:.2f}",
-        ha='center', va='center', fontsize=14, color='white',
+        ha='center', va='center', fontsize=20, color='white',
         rotation=90, zorder=3
     )
     # After transfer courses (centered in upper segment)
     ax.text(
         x[i], trans + after / 2, f"{after:.2f}",
-        ha='center', va='center', fontsize=14, color='white',
+        ha='center', va='center', fontsize=20, color='white',
         rotation=90, zorder=3
     )
     # Total (above the bar)
     ax.text(
-        x[i], trans + after + 0.3, f"{trans + after:.2f}",
-        ha='center', va='bottom', fontsize=14, color='black',
+        x[i], trans + after + 0.5, f"{trans + after:.2f}",
+        ha='center', va='bottom', fontsize=22, color='black',
         rotation=0, zorder=3
     )
 
@@ -72,13 +72,14 @@ for i, (trans, after) in enumerate(zip(transfer_vals, after_vals)):
 ymax = max(total_vals)
 ax.set_ylim(0, ymax * 1.18)
 
+# Axis labels and title
+ax.set_ylabel("Number of Courses", fontsize=22)
+ax.set_xlabel("University of California", fontsize=22)
+plt.title("Total Courses to Degree by UC", fontsize=28)
+
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels, fontsize=16)
-ax.set_ylabel("Number of Courses", fontsize=18)
-ax.set_xlabel("University of California", fontsize=18)
-plt.title("Total Courses to Degree by UC", fontsize=22)
-plt.tight_layout()
-plt.grid(axis='y', linestyle='--', alpha=0.5, zorder=0)
+ax.set_xticklabels(uc_labels, fontsize=20)
+ax.tick_params(axis='y', labelsize=20)
 
 # Custom legend (remove duplicates)
 handles, labels = ax.get_legend_handles_labels()
@@ -88,13 +89,11 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=14, title_fontsize=16, loc='upper left')
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=18, title_fontsize=20, loc='upper left')
 
-# plt.figtext(
-#     0.5, -0.05,
-#     "Each bar is stacked: bottom = transferable courses, top = after transfer courses. Total is shown above each bar.",
-#     wrap=True, horizontalalignment='center', fontsize=14, color='gray'
-# )
+# Optional: make the grid lines lighter and the layout tighter
+plt.tight_layout()
+plt.grid(axis='y', linestyle='--', alpha=0.5, zorder=0)
 
 plt.savefig("time_to_degree_stacked_by_uc.png", dpi=300, bbox_inches='tight')
 plt.show()
