@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-import os, glob, json, math, ast
+# import math
+import os, glob, json, ast
 import pandas as pd
-from itertools import combinations
+# from itertools import combinations
 
-def haversine_km(a, b):
-    lat1, lon1 = a
-    lat2, lon2 = b
-    R = 6371.0
-    φ1, φ2 = math.radians(lat1), math.radians(lat2)
-    Δφ = math.radians(lat2 - lat1)
-    Δλ = math.radians(lon2 - lon1)
-    h = math.sin(Δφ/2)**2 + math.cos(φ1)*math.cos(φ2)*math.sin(Δλ/2)**2
-    return 2*R*math.asin(math.sqrt(h))
+# def haversine_km(a, b):
+#     lat1, lon1 = a
+#     lat2, lon2 = b
+#     R = 6371.0
+#     φ1, φ2 = math.radians(lat1), math.radians(lat2)
+#     Δφ = math.radians(lat2 - lat1)
+#     Δλ = math.radians(lon2 - lon1)
+#     h = math.sin(Δφ/2)**2 + math.cos(φ1)*math.cos(φ2)*math.sin(Δλ/2)**2
+#     return 2*R*math.asin(math.sqrt(h))
 
 # --- locate your CSV ---
 base = os.path.dirname(__file__)

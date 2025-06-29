@@ -363,22 +363,21 @@ def create_all_course_graphs(data, output_dir):
                 )
 
         ax.set_ylim(0, 100)
-        ax.set_title(cat.replace('_',' ').title(), fontsize=12)
+        ax.set_title(cat.replace('_',' ').title(), fontsize=20)
         ax.set_xticks(np.arange(len(uc_names)))
-        ax.set_xticklabels(uc_names, rotation=30, ha='right')
+        ax.set_xticklabels(uc_names, rotation=20, ha='right')
         # only the leftmost column gets a ylabel
         if idx % 3 == 0:
-            ax.set_ylabel("% of CC Districts")
+            ax.set_ylabel("% of CC Districts", fontsize=20)
 
     # Shared title & legend
     fig.suptitle(
-        "Per‐Course: % of CC Districts Missing Articulation\n"
-        "(Grey = Not Required)",
-        fontsize=14, y=0.95
+        "Per‐Course: % of CC Districts Missing Articulation",
+        fontsize=24, y=0.9
     )
     from matplotlib.patches import Patch
     legend_items = [
-        Patch(facecolor='w', edgecolor='k', label='Coloured = % missing'),
+        Patch(facecolor='black', edgecolor='k', label='Coloured = % missing'),
         Patch(facecolor=grey, edgecolor='k', label='Grey = not required')
     ]
     fig.legend(
@@ -386,8 +385,8 @@ def create_all_course_graphs(data, output_dir):
         loc='lower center',
         ncol=2,
         frameon=False,
-        fontsize=10,
-        bbox_to_anchor=(0.5, 0.02)
+        fontsize=18,
+        bbox_to_anchor=(0.5, -0.02)
     )
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.92])
@@ -396,6 +395,89 @@ def create_all_course_graphs(data, output_dir):
     plt.close(fig)
 
 
+def create_course_articulation_scatter(data, output_path):
+    """
+    Draws a 6×9 scatter‐matrix of courses vs. UC campuses.
+    • Dot size ∝ percent of CC districts missing articulation (only for required courses).
+    • Grey dots mark UC–course pairs with zero gaps (not required).
+    """
+    import os
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from helper import COURSE_GROUPS
+
+    # 1) Prep
+    uc_names   = sorted(data['UC Name'].unique())
+    courses    = list(COURSE_GROUPS.keys())
+    n_districts = data['District'].nunique()
+    grey_color  = '#CCCCCC'
+    base_size   = 800  # tweak for overall dot scale
+
+    # 2) Compute missing‐counts
+    uc_cat_counts = { uc: {cat:0 for cat in courses} for uc in uc_names }
+    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
+        uc = row['UC Name']
+        for line in row['unarticulated_courses'].split('\n'):
+            if ':' not in line:
+                continue
+            gid = line.split(':',1)[0].strip().lower()
+            for cat, info in COURSE_GROUPS.items():
+                if any(pat in gid for pat in info['patterns']):
+                    uc_cat_counts[uc][cat] += 1
+                    break
+
+    # 3) Build scatter data
+    xs, ys, sizes, colors = [], [], [], []
+    for i, cat in enumerate(courses):
+        for j, uc in enumerate(uc_names):
+            miss = uc_cat_counts[uc][cat]
+            if miss > 0:
+                pct = miss / n_districts  # fraction missing
+                xs.append(j)
+                ys.append(i)
+                sizes.append(base_size * pct)
+                colors.append(COURSE_GROUPS[cat]['color'])
+            else:
+                # not required → small grey dot
+                xs.append(j)
+                ys.append(i)
+                sizes.append(base_size * 0.1)
+                colors.append(grey_color)
+
+    # 4) Plot
+    fig, ax = plt.subplots(figsize=(12, 6))
+    scatter = ax.scatter(xs, ys, s=sizes, c=colors, edgecolors='k', linewidth=0.3)
+
+    # 5) Axes & labels
+    ax.set_xticks(np.arange(len(uc_names)))
+    ax.set_xticklabels(uc_names, rotation=45, ha='right')
+    ax.set_yticks(np.arange(len(courses)))
+    ax.set_yticklabels([c.replace('_',' ').title() for c in courses])
+    ax.set_xlim(-0.5, len(uc_names)-0.5)
+    ax.set_ylim(-0.5, len(courses)-0.5)
+
+    ax.set_xlabel("UC Campus")
+    ax.set_ylabel("Course Category")
+    ax.set_title("Course Articulation Gaps: % of CC Districts Missing (dot size)")
+
+    # 6) Legend for dot‐size + grey
+    from matplotlib.lines import Line2D
+    legend_elems = [
+        Line2D([0], [0], marker='o', color='w', label='Not required',
+               markerfacecolor=grey_color, markersize=5, markeredgecolor='k'),
+        Line2D([0], [0], marker='o', color='w', label='20% missing',
+               markerfacecolor='k', markersize=np.sqrt(base_size*0.2)/2),
+        Line2D([0], [0], marker='o', color='w', label='50% missing',
+               markerfacecolor='k', markersize=np.sqrt(base_size*0.5)/2),
+    ]
+    ax.legend(handles=legend_elems, title="Example dot sizes", 
+              loc='lower right', fontsize=8, title_fontsize=9,
+              frameon=False)
+
+    plt.tight_layout()
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    fig.savefig(output_path, dpi=300)
+    plt.close(fig)
 
 
 def main():
@@ -409,6 +491,7 @@ def main():
     create_normalized_group_graph(combined_data)
     create_per_course_graphs(combined_data, os.path.join(script_dir, 'per_course_analysis'))
     create_all_course_graphs(combined_data, os.path.join(script_dir, 'per_course_analysis'))
+    create_course_articulation_scatter(combined_data, os.path.join(script_dir, 'course_articulation_scatter.png'))
 
 if __name__ == "__main__":
     main()

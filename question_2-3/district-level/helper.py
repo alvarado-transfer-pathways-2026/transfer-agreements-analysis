@@ -7,7 +7,7 @@ COURSE_GROUPS = {
     'Calculus':             {'color': "#EC2424", 'patterns': ['calc']},
     'Intro Programming':    {'color': "#25ADA7", 'patterns': ['intro', 'program']},
     'Data Structures':      {'color': "#8F35B3", 'patterns': ['data', 'struct']},
-    'Advanced Math':        {'color': "#0B7C3C", 'patterns': ['linear', 'differential']},
+    'Linear Algebra and Differential Equations':        {'color': "#0B7C3C", 'patterns': ['linear', 'differential']},
     'Computer Organization':    {'color': "#0C5382", 'patterns': ['organ', 'system', 'computer']},
     'Discrete Math':        {'color': '#FF9F1C', 'patterns': ['discrete']},
 }
