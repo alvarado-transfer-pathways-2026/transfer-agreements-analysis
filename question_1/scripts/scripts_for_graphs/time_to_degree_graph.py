@@ -1,8 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --- Example time to degree values (edit as needed) ---
-semester_time_to_degree = {
+# --- Example values (edit as needed) ---
+transfer_courses = {
+    "UCSD": 4.67,
+    "UCSB": 4.67,
+    "UCSC": 3.33,
+    "UCLA": 4.67,
+    "UCB": 4,
+    "UCI": 3.33,
+    "UCD": 5.33,
+    "UCR": 3.33,
+    "UCM": 5
+}
+after_time_to_degree = {
     "UCSD": 14.67,
     "UCSB": 14.67,
     "UCSC": 12,
@@ -13,72 +24,77 @@ semester_time_to_degree = {
     "UCR": 16,
     "UCM": 16
 }
-quarter_time_to_degree = {
-    "UCSD": 22,
-    "UCSB": 22,
-    "UCSC": 18,
-    "UCLA": 27,
-    "UCI": 22,
-    "UCD": 14,
-    "UCR": 24
-    # UCB and UCM are not quarter, so not included
-}
-
-quarter_only = {uc: quarter_time_to_degree[uc] - semester_time_to_degree[uc] for uc in quarter_time_to_degree}
 
 # --- Custom UC order: UCB and UCM first ---
-uc_labels = ["UCB", "UCM"] + [uc for uc in semester_time_to_degree if uc not in ("UCB", "UCM")]
+uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("UCB", "UCM")]
 x = np.arange(len(uc_labels))
 bar_width = 0.6
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-for i, uc in enumerate(uc_labels):
-    sem_val = semester_time_to_degree[uc]
-    bar_sem = ax.bar(
-        i, sem_val, width=bar_width,
-        color="#CF1818", label="Semester Equivalent" if i == 0 else "", zorder=2
-    )
-    qtr_val = quarter_only.get(uc, 0)
-    if qtr_val > 0:
-        bar_qtr = ax.bar(
-            i, qtr_val, width=bar_width,
-            bottom=sem_val, color="#D08B8B", hatch="//",
-            label="Quarter Only Portion" if i == 0 else "", zorder=2
-        )
-    # Annotate solid bar (centered, vertical)
+transfer_vals = [transfer_courses[uc] for uc in uc_labels]
+after_vals = [after_time_to_degree[uc] for uc in uc_labels]
+total_vals = [transfer_courses[uc] + after_time_to_degree[uc] for uc in uc_labels]
+
+# Plot bottom (transferable courses)
+bars_transfer = ax.bar(
+    x, transfer_vals, width=bar_width,
+    color="#091FAD", label="Transfer Requirments", zorder=2
+)
+# Plot top (after transfer courses)
+bars_after = ax.bar(
+    x, after_vals, width=bar_width,
+    bottom=transfer_vals, color="#9BB1E7", label="Degree Requirements After Transfer", zorder=2
+)
+
+# Annotate inside each segment (vertical)
+for i, (trans, after) in enumerate(zip(transfer_vals, after_vals)):
+    # Transferable courses (centered in lower segment)
     ax.text(
-        i, sem_val / 2, f"{sem_val:.2f}",
-        ha='center', va='center', fontsize=14, color='black',
+        x[i], trans / 2, f"{trans:.2f}",
+        ha='center', va='center', fontsize=14, color='white',
         rotation=90, zorder=3
     )
-    # Annotate slashed bar (above, vertical)
-    if qtr_val > 0:
-        ax.text(
-            i, sem_val + qtr_val + 0.3, f"{qtr_val:.2f}",
-            ha='center', va='bottom', fontsize=14, color='black',
-            rotation=90, zorder=3
-        )
+    # After transfer courses (centered in upper segment)
+    ax.text(
+        x[i], trans + after / 2, f"{after:.2f}",
+        ha='center', va='center', fontsize=14, color='white',
+        rotation=90, zorder=3
+    )
+    # Total (above the bar)
+    ax.text(
+        x[i], trans + after + 0.3, f"{trans + after:.2f}",
+        ha='center', va='bottom', fontsize=14, color='black',
+        rotation=0, zorder=3
+    )
 
 # Increase y-axis limit for more space above bars
-ymax = max(
-    (semester_time_to_degree[uc] + quarter_only.get(uc, 0)) for uc in uc_labels
-)
+ymax = max(total_vals)
 ax.set_ylim(0, ymax * 1.18)
 
 ax.set_xticks(x)
 ax.set_xticklabels(uc_labels, fontsize=16)
 ax.set_ylabel("Number of Courses", fontsize=18)
 ax.set_xlabel("University of California", fontsize=18)
-plt.title("Time to Degree After Transfer by UC", fontsize=22)
+plt.title("Total Courses to Degree by UC", fontsize=22)
 plt.tight_layout()
 plt.grid(axis='y', linestyle='--', alpha=0.5, zorder=0)
 
-plt.figtext(
-    0.5, -0.05,
-    "Slashed bars represent the portion of time to degree from the quarter system; solid bars are semester equivalents.",
-    wrap=True, horizontalalignment='center', fontsize=14, color='gray'
-)
+# Custom legend (remove duplicates)
+handles, labels = ax.get_legend_handles_labels()
+seen = set()
+unique = []
+for h, l in zip(handles, labels):
+    if l and l not in seen:
+        unique.append((h, l))
+        seen.add(l)
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=14, title_fontsize=16, loc='upper left')
+
+# plt.figtext(
+#     0.5, -0.05,
+#     "Each bar is stacked: bottom = transferable courses, top = after transfer courses. Total is shown above each bar.",
+#     wrap=True, horizontalalignment='center', fontsize=14, color='gray'
+# )
 
 plt.savefig("time_to_degree_stacked_by_uc.png", dpi=300, bbox_inches='tight')
 plt.show()
