@@ -30,7 +30,7 @@ uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("U
 x = np.arange(len(uc_labels))
 bar_width = 0.6
 
-fig, ax = plt.subplots(figsize=(18, 10))  # Make the figure itself bigger
+fig, ax = plt.subplots(figsize=(23, 13))  # Make the figure itself bigger
 
 transfer_vals = [transfer_courses[uc] for uc in uc_labels]
 after_vals = [after_time_to_degree[uc] for uc in uc_labels]
@@ -52,19 +52,19 @@ for i, (trans, after) in enumerate(zip(transfer_vals, after_vals)):
     # Transferable courses (centered in lower segment)
     ax.text(
         x[i], trans / 2, f"{trans:.2f}",
-        ha='center', va='center', fontsize=20, color='white',
+        ha='center', va='center', fontsize=25, color='white',
         rotation=90, zorder=3
     )
     # After transfer courses (centered in upper segment)
     ax.text(
         x[i], trans + after / 2, f"{after:.2f}",
-        ha='center', va='center', fontsize=20, color='white',
+        ha='center', va='center', fontsize=25, color='white',
         rotation=90, zorder=3
     )
     # Total (above the bar)
     ax.text(
         x[i], trans + after + 0.5, f"{trans + after:.2f}",
-        ha='center', va='bottom', fontsize=22, color='black',
+        ha='center', va='bottom', fontsize=25, color='black',
         rotation=0, zorder=3
     )
 
@@ -73,13 +73,13 @@ ymax = max(total_vals)
 ax.set_ylim(0, ymax * 1.18)
 
 # Axis labels and title
-ax.set_ylabel("Number of Courses", fontsize=22)
-ax.set_xlabel("University of California", fontsize=22)
-plt.title("Total Courses to Degree by UC", fontsize=28)
+ax.set_ylabel("Number of Courses", fontsize=30)
+ax.set_xlabel("University of California", fontsize=30)
+plt.title("Total Courses to Degree by UC", fontsize=35)
 
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels, fontsize=20)
-ax.tick_params(axis='y', labelsize=20)
+ax.set_xticklabels(uc_labels, fontsize=28)
+ax.tick_params(axis='y', labelsize=28)
 
 # Custom legend (remove duplicates)
 handles, labels = ax.get_legend_handles_labels()
@@ -89,7 +89,7 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=18, title_fontsize=20, loc='upper left')
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=24, title_fontsize=26, loc='upper left')
 
 # Optional: make the grid lines lighter and the layout tighter
 plt.tight_layout()
