@@ -53,13 +53,13 @@ for i, (trans, after) in enumerate(zip(transfer_vals, after_vals)):
     ax.text(
         x[i], trans / 2, f"{trans:.2f}",
         ha='center', va='center', fontsize=25, color='white',
-        rotation=90, zorder=3
+        rotation=90, zorder=3, fontweight = 'bold'
     )
     # After transfer courses (centered in upper segment)
     ax.text(
         x[i], trans + after / 2, f"{after:.2f}",
         ha='center', va='center', fontsize=25, color='white',
-        rotation=90, zorder=3
+        rotation=90, zorder=3, fontweight = 'bold'
     )
     # Total (above the bar)
     ax.text(
@@ -73,12 +73,12 @@ ymax = max(total_vals)
 ax.set_ylim(0, ymax * 1.18)
 
 # Axis labels and title
-ax.set_ylabel("Number of Courses", fontsize=30)
-ax.set_xlabel("University of California", fontsize=30)
-plt.title("Total Courses to Degree by UC", fontsize=35)
+ax.set_ylabel("Number of Courses", fontsize=35)
+ax.set_xlabel("University of California", fontsize=35)
+plt.title("Total Courses to Degree by UC", fontsize=50)
 
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels, fontsize=28)
+ax.set_xticklabels(uc_labels, fontsize=30)
 ax.tick_params(axis='y', labelsize=28)
 
 # Custom legend (remove duplicates)
