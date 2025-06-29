@@ -10,7 +10,7 @@ os.makedirs("question1/graphs", exist_ok=True)
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "question_1\csvs\order_9_csvs"
+csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_9_csvs"
 
 # Track which prefix was used for each order
 order_sources = []
@@ -143,6 +143,18 @@ for j, col in enumerate([f"Order {i}" for i in range(1, 10)]):
                 rotation=90, zorder=3
             )
 
+# Increase y-axis limit for more space above bars
+ymax = 0
+for i, uc in enumerate(uc_labels):
+    sem_val = semester_values[uc]
+    qtr_val = quarter_only.get(uc, 0)
+    bar_tops = [sem_val + qtr_val]
+    for j, col in enumerate([f"Order {k}" for k in range(1, 10)]):
+        if col in pivot_df.columns:
+            bar_tops.append(pivot_df[col].loc[uc])
+    ymax = max(ymax, max(bar_tops))
+ax.set_ylim(0, ymax * 1.18)
+
 # X-axis labels
 ax.set_xticks(x)
 ax.set_xticklabels(uc_labels, fontsize=20)
@@ -189,5 +201,5 @@ plt.figtext(
     wrap=True, horizontalalignment='center', fontsize=20, color='gray'
 )
 
-plt.savefig("question_1/graphs/transferable_averages_by_uc_all_orders.png", dpi=300, bbox_inches='tight')
+plt.savefig("transferable_averages_by_uc_all_orders.png", dpi=300, bbox_inches='tight')
 # plt.show()
