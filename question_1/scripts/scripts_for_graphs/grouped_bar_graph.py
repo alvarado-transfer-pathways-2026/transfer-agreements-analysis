@@ -2,12 +2,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import cm
+import os
+
+os.makedirs("question1/graphs", exist_ok=True)
 
 # List of UC campuses
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_9_csvs"
+csv_folder = "question_1\csvs\order_9_csvs"
 
 # Track which prefix was used for each order
 order_sources = []
@@ -96,7 +99,7 @@ for i, uc in enumerate(uc_labels):
     # Gold color for semester equivalent
     bar_sem = ax.bar(
         i - 0.4 + bar_width/2, sem_val, width=bar_width,
-        color="#FFD700", label="CS/Math Requirement (Semester Equivalent)" if i == 0 else "", zorder=2
+        color="#FFD700", label="CS/Math Requirement" if i == 0 else "", zorder=2
     )
     qtr_val = quarter_only.get(uc, 0)
     if qtr_val > 0:
@@ -136,13 +139,16 @@ for j, col in enumerate([f"Order {i}" for i in range(1, 10)]):
         for i, val in enumerate(vals):
             ax.text(
                 x[i] - 0.4 + bar_width*(j+1.5), val + 0.1, f"{val:.2f}",
-                ha='center', va='bottom', fontsize=13, color='black',
+                ha='center', va='bottom', fontsize=14, color='black',
                 rotation=90, zorder=3
             )
 
 # X-axis labels
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels)
+ax.set_xticklabels(uc_labels, fontsize=20)
+
+ax.tick_params(axis='y', labelsize=20)
+
 # ---- Dynamic title based on sources ----
 source_types = set(order_sources)
 if source_types == {"order"}:
@@ -160,10 +166,10 @@ else:
     }
     used = [pretty[p] for p in sorted(source_types)]
     source_str = " & ".join(used)
-plot_title = f"Transferable Average Articulated Courses by UC and Order ({source_str} Orders) + CS/Math Course Requirements"
-plt.title(plot_title)
-plt.ylabel("Average Articulated Courses")
-plt.xlabel("University of California")
+plot_title = f"Transferable Courses by Order per UC"
+plt.title(plot_title, fontsize=36)
+plt.ylabel("Average Articulated Courses", fontsize=30)
+plt.xlabel("University of California", fontsize=30)
 plt.tight_layout()
 
 # Custom legend (remove duplicates, ensure all bars are present)
@@ -174,14 +180,14 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement", bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement", bbox_to_anchor=(1, 1), loc='upper right', fontsize=16,  title_fontsize=18,) 
 
 # Add annotation about custom values
 plt.figtext(
     0.5, -0.05,
     "Note: Slashed bars represent the portion of requirements from the quarter system; solid bars are semester equivalents.",
-    wrap=True, horizontalalignment='center', fontsize=12, color='gray'
+    wrap=True, horizontalalignment='center', fontsize=20, color='gray'
 )
 
-plt.savefig("transferable_averages_by_uc_all_orders.png", dpi=300, bbox_inches='tight')
-plt.show()
+plt.savefig("question_1/graphs/transferable_averages_by_uc_all_orders.png", dpi=300, bbox_inches='tight')
+# plt.show()
