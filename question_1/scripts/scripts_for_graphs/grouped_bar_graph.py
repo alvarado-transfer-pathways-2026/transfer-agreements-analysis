@@ -85,7 +85,8 @@ quarter_values = {
 quarter_only = {uc: quarter_values[uc] - semester_values[uc] for uc in quarter_values}
 
 # --- Custom UC order: UCB and UCM first ---
-uc_labels = ["UCB", "UCM"] + [uc for uc in semester_values if uc not in ("UCB", "UCM")]
+#uc_labels = ["UCB", "UCM"] + [uc for uc in semester_values if uc not in ("UCB", "UCM")]
+uc_labels = ["UCD", "UCSD", "UCSB", "UCLA", "UCM", "UCSC", "UCB", "UCI", "UCR"]
 x = np.arange(len(uc_labels))
 n_orders = len(order_range)
 total_bars = n_orders + 1  # 1 for CS/Math bar
@@ -110,7 +111,7 @@ for i, uc in enumerate(uc_labels):
         bar_qtr = ax.bar(
             x[i] + offsets[0], qtr_val, width=bar_width,
             bottom=sem_val, color="#FFF8DC", hatch="//",
-            label="Quarter Only Portion" if i == 0 else "", zorder=2
+            label="", zorder=2  # No legend label
         )
     # Annotate total above the bar (vertical)
     if qtr_val > 0:
@@ -165,9 +166,27 @@ for i, uc in enumerate(uc_labels):
     ymax = max(ymax, max(bar_tops))
 ax.set_ylim(0, ymax * 1.18)
 
+# --- Custom UC order: UCB and UCM first ---
+uc_labels = ["UCD", "UCSD", "UCSB", "UCLA", "UCM", "UCSC", "UCB", "UCI", "UCR"]
+
+# Mapping for display names
+uc_display_names = {
+    "UCD": "UC1",
+    "UCSD": "UC2",
+    "UCSB": "UC3",
+    "UCLA": "UC4",
+    "UCM": "UC5",
+    "UCSC": "UC6",
+    "UCB": "UC7",
+    "UCI": "UC8",
+    "UCR": "UC9"
+}
+
+# ... rest of your plotting code ...
+
 # X-axis labels
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels, fontsize=30)
+ax.set_xticklabels([uc_display_names[uc] for uc in uc_labels], fontsize=30)
 ax.tick_params(axis='y', labelsize=28)
 
 # ---- Dynamic title based on sources ----
@@ -201,7 +220,7 @@ for h, l in zip(handles, labels):
         unique.append((h, l))
         seen.add(l)
 ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement",
-          loc='upper left', fontsize=22, title_fontsize=24)
+          loc='upper right', fontsize=22, title_fontsize=24)
 
 # plt.figtext(Add commentMore actions
 #     0.5, -0.05,
