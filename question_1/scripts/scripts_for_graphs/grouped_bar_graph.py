@@ -86,7 +86,7 @@ quarter_only = {uc: quarter_values[uc] - semester_values[uc] for uc in quarter_v
 
 # --- Custom UC order: UCB and UCM first ---
 #uc_labels = ["UCB", "UCM"] + [uc for uc in semester_values if uc not in ("UCB", "UCM")]
-uc_labels = ["UCD", "UCSD", "UCSB", "UCLA", "UCM", "UCSC", "UCB", "UCI", "UCR"]
+uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
 x = np.arange(len(uc_labels))
 n_orders = len(order_range)
 total_bars = n_orders + 1  # 1 for CS/Math bar
@@ -167,19 +167,19 @@ for i, uc in enumerate(uc_labels):
 ax.set_ylim(0, ymax * 1.18)
 
 # --- Custom UC order: UCB and UCM first ---
-uc_labels = ["UCD", "UCSD", "UCSB", "UCLA", "UCM", "UCSC", "UCB", "UCI", "UCR"]
-
+uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
 # Mapping for display names
+
 uc_display_names = {
-    "UCD": "UC1",
-    "UCSD": "UC2",
-    "UCSB": "UC3",
-    "UCLA": "UC4",
-    "UCM": "UC5",
-    "UCSC": "UC6",
-    "UCB": "UC7",
-    "UCI": "UC8",
-    "UCR": "UC9"
+    "UCD": "UC1*",
+    "UCM": "UC2",
+    "UCSD": "UC3*",
+    "UCSB": "UC4*",
+    "UCLA": "UC5*",
+    "UCB": "UC6",
+    "UCSC": "UC7*",
+    "UCI": "UC8*",
+    "UCR": "UC9*"
 }
 
 # ... rest of your plotting code ...

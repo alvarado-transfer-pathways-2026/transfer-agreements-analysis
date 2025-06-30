@@ -27,7 +27,19 @@ after_time_to_degree = {
 
 # --- Custom UC order: UCB and UCM first ---
 #uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("UCB", "UCM")]
-uc_labels = ["UCSC", "UCI", "UCR", "UCB", "UCSD", "UCSB", "UCLA", "UCM", "UCD"]
+uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
+uc_display_names = {
+    "UCD": "UC1*",
+    "UCM": "UC2",
+    "UCSD": "UC3*",
+    "UCSB": "UC4*",
+    "UCLA": "UC5*",
+    "UCB": "UC6",
+    "UCSC": "UC7*",
+    "UCI": "UC8*",
+    "UCR": "UC9*"
+}
+
 x = np.arange(len(uc_labels))
 bar_width = 0.6
 
@@ -79,7 +91,7 @@ ax.set_xlabel("University of California", fontsize=35)
 plt.title("CS and Math Degree Requirements", fontsize=50)
 
 ax.set_xticks(x)
-ax.set_xticklabels(uc_labels, fontsize=30)
+ax.set_xticklabels([uc_display_names[uc] for uc in uc_labels], fontsize=30)
 ax.tick_params(axis='y', labelsize=28)
 
 # Custom legend (remove duplicates)
