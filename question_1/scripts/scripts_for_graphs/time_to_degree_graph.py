@@ -26,7 +26,8 @@ after_time_to_degree = {
 }
 
 # --- Custom UC order: UCB and UCM first ---
-uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("UCB", "UCM")]
+#uc_labels = ["UCB", "UCM"] + [uc for uc in after_time_to_degree if uc not in ("UCB", "UCM")]
+uc_labels = ["UCSC", "UCI", "UCR", "UCB", "UCSD", "UCSB", "UCLA", "UCM", "UCD"]
 x = np.arange(len(uc_labels))
 bar_width = 0.6
 
