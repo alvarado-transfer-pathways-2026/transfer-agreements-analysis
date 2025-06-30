@@ -206,7 +206,7 @@ else:
     used = [pretty[p] for p in sorted(source_types)]
     source_str = " & ".join(used)
 plot_title = f"Transferable Courses by Order per UC"
-plt.title(plot_title, fontsize=50)
+#plt.title(plot_title, fontsize=50)
 plt.ylabel("Average Articulated Courses", fontsize=35)
 plt.xlabel("University of California", fontsize=35)
 plt.tight_layout()
