@@ -10,13 +10,13 @@ os.makedirs("question1/graphs", exist_ok=True)
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_4_csvs"
+csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_9_csvs"
 
 # Track which prefix was used for each order
 order_sources = []
 
 # Set the number of orders you expect (change to 6 if you only have 5 orders, etc.)
-order_range = range(1, 5)
+order_range = range(1, 10)
 
 # Load and extract TRANSFERABLE AVERAGE row from each order CSV
 order_dfs = []
@@ -92,7 +92,7 @@ n_orders = len(order_range)
 total_bars = n_orders + 1  # 1 for CS/Math bar
 bar_width = 0.8 / total_bars
 
-fig, ax = plt.subplots(figsize=(20, 12))
+fig, ax = plt.subplots(figsize=(30, 12))
 
 # Calculate offsets so all bars are centered at each UC
 offsets = np.linspace(-0.4 + bar_width/2, 0.4 - bar_width/2, total_bars)
