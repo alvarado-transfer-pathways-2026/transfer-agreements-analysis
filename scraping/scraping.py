@@ -49,12 +49,12 @@ def parse_articulations(html):
     rows = soup.find_all("div", class_="articRow")
     
     # Add validation for empty results
-    if not rows:
-        logging.warning(f"No articulation rows found in HTML. Page length: {len(html)}")
-        if "No agreements were found" in html:
-            logging.warning("Page indicates no agreements exist")
-        elif "loading" in html.lower():
-            logging.warning("Page might not have finished loading")
+    # if not rows:
+    #     logging.warning(f"No articulation rows found in HTML. Page length: {len(html)}")
+    #     if "No agreements were found" in html:
+    #         logging.warning("Page indicates no agreements exist")
+    #     elif "loading" in html.lower():
+    #         logging.warning("Page might not have finished loading")
     
     out = []
     for row in rows:
@@ -83,7 +83,15 @@ def extract_sending_courses(row):
     current = []
 
     def code_of(cl):
-        return cl.find("div", class_="prefixCourseNumber").get_text(strip=True)
+        number = cl.find("div", class_="prefixCourseNumber")
+        units = cl.find("div", class_="courseUnits")
+
+        number_text = number.get_text(strip=True) if number else ""
+        units_text = units.get_text(strip=True).replace("units", "").strip() if units else ""
+
+        if units_text:
+            return f"{number_text} ({units_text})"
+        return number_text
 
     # AND‑groups
     for br in row.find_all("div", class_="bracketWrapper"):
@@ -106,14 +114,14 @@ def extract_sending_courses(row):
     # flatten if single OR‑group
     return groups[0] if len(groups)==1 else groups
 
-def parse_articulations(html):
-    soup = BeautifulSoup(html, "html.parser")
-    out = []
-    for row in soup.find_all("div", class_="articRow"):
-        recv = extract_receiving_courses(row.select_one(".rowReceiving"))
-        send = extract_sending_courses(row.select_one(".rowSending"))
-        out.append({"Receiving": recv, "Sending": send})
-    return out
+# def parse_articulations(html):
+#     soup = BeautifulSoup(html, "html.parser")
+#     out = []
+#     for row in soup.find_all("div", class_="articRow"):
+#         recv = extract_receiving_courses(row.select_one(".rowReceiving"))
+#         send = extract_sending_courses(row.select_one(".rowSending"))
+#         out.append({"Receiving": recv, "Sending": send})
+#     return out
 
 def process_sending_courses(sending):
     if not sending or sending == ["Not Articulated"]:
