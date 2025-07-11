@@ -40,7 +40,8 @@ def calculating_cc_years(cc_csv_path, selected_ucs):
     all_cc_courses = []
     all_unarticulated = []
 
-    for group_id, df_group in df.groupby('Group ID'):
+    # Group by both UC Name and Group ID
+    for (uc_name, group_id), df_group in df.groupby(['UC Name', 'Group ID']):
         courses, unarticulated, group_ucs_with_unarticulated, cc_courses, unarticulated_courses = min_courses_for_group(df_group)
         total_courses += courses
         total_unarticulated += unarticulated
@@ -65,5 +66,5 @@ def calculating_cc_years(cc_csv_path, selected_ucs):
 
 if __name__ == "__main__":
     cc_csv_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis/filtered_results/Allan_Hancock_College_filtered.csv"
-    selected_ucs = ['UCSD', 'UCB']
+    selected_ucs = ['UCSD', 'UCB', 'UCI', 'UCSB']
     calculating_cc_years(cc_csv_path, selected_ucs)
