@@ -42,14 +42,14 @@ def scrape_uc_data(uc_name, url):
     print(f"❌ Failed to scrape {uc_name} after 3 retries.")
     return None
 
-def process_sending_courses(sending_courses):
-    if sending_courses == "Not Articulated" or not sending_courses:
-        return ["Not Articulated"]
-    if isinstance(sending_courses, list) and all(isinstance(x, list) for x in sending_courses):
-        return ["; ".join(group) for group in sending_courses]
-    elif isinstance(sending_courses, list):
-        return ["; ".join(sending_courses)]
-    return [str(sending_courses)]
+# def process_sending_courses(sending_courses):
+#     if sending_courses == "Not Articulated" or not sending_courses:
+#         return ["Not Articulated"]
+#     if isinstance(sending_courses, list) and all(isinstance(x, list) for x in sending_courses):
+#         return ["; ".join(group) for group in sending_courses]
+#     elif isinstance(sending_courses, list):
+#         return ["; ".join(sending_courses)]
+#     return [str(sending_courses)]
 
 def write_csv(cc_name, all_rows):
     safe_cc_name = cc_name.replace(" ", "_").replace("/", "-")
@@ -91,14 +91,14 @@ def process_all_ccs():
                 continue
 
             for record in articulations:
-                receiving = record["Receiving Courses"]
-                sending = record["Sending Courses"]
+                receiving = record["Receiving"]
+                sending = record["Sending"]
 
                 row_dict = {
                     "UC Campus": uc_name,
                     "CC": cc_name,
                     "UC Course Requirement": "; ".join(receiving),
-                    "OR Groups": process_sending_courses(sending)
+                    "OR Groups": scraping.process_sending_courses(sending)
                 }
 
                 all_rows.append(row_dict)

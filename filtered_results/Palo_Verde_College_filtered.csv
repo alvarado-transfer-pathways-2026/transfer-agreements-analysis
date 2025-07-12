@@ -17,14 +17,14 @@ UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Calc1,A,1,MATH 2A,Not Articulated
 UCI,Calc2,A,1,MATH 2B,Not Articulated
 UCLA,Intro,A,1,COM SCI 31,Not Articulated
-UCLA,Calc1,A,1,MATH 31A,MAT 220
+UCLA,Calc1,A,1,MATH 31A,MAT 220 (5.00)
 UCLA,Calc2,A,1,MATH 31B,Not Articulated
 UCLA,Calc3,A,1,MATH 32A,Not Articulated
 UCLA,Calc4,A,1,MATH 32B,Not Articulated
 UCLA,LinearAlgebra,A,1,MATH 33A,Not Articulated
 UCLA,DifferentialEquations,A,1,MATH 33B,Not Articulated
 UCM,DataStructures,A,1,CSE 030,Not Articulated
-UCM,Calc1,A,1,MATH 021,MAT 220
+UCM,Calc1,A,1,MATH 021,MAT 220 (5.00)
 UCM,Calc2,A,1,MATH 022,Not Articulated
 UCM,VectorCalc,A,1,MATH 023,Not Articulated
 UCM,LinearAlgebra,A,1,MATH 024,Not Articulated
@@ -39,7 +39,7 @@ UCSD,Intro,B,1,CSE 11,Not Articulated
 UCSD,DataStructures,A,1,CSE 12,Not Articulated
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
 UCSD,LinearAlgebra,A,1,MATH 18,Not Articulated
-UCSD,Calc1,A,1,MATH 20A,MAT 220
+UCSD,Calc1,A,1,MATH 20A,MAT 220 (5.00)
 UCSD,Calc2,A,1,MATH 20B,Not Articulated
 UCSD,Calc3,A,1,MATH 20C,Not Articulated
 UCSB,Calc1,A,1,MATH 3A,Not Articulated
