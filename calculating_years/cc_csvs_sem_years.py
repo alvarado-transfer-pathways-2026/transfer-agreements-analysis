@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import math
 import re
@@ -69,7 +70,6 @@ def distribute_credits_into_semesters(cc_courses, cc_credits, max_per_sem=18):
     semesters = []
     current_semester = []
     current_credits = 0
-    # Sort by credits descending for better packing
     for course, credits in sorted(zip(cc_courses, cc_credits), key=lambda x: -x[1] if x[1] is not None else 0):
         if credits is None:
             credits = 0
@@ -84,73 +84,51 @@ def distribute_credits_into_semesters(cc_courses, cc_credits, max_per_sem=18):
         semesters.append(current_semester)
     return semesters
 
-def calculating_cc_years(cc_csv_path, selected_ucs, output_csv_path=None):
+def process_cc_file(cc_csv_path, selected_ucs, output_csv_path):
     df = pd.read_csv(cc_csv_path)
     df = df[df['UC Name'].isin(selected_ucs)]
-
     total_courses = 0
     total_unarticulated = 0
     ucs_with_unarticulated = set()
-    course_credit_dict = {}  # course name -> credits
+    course_credit_dict = {}
+    course_uc_dict = {}  # course name -> set of UCs it fulfills
     all_unarticulated = []
-
     for (uc_name, group_id), df_group in df.groupby(['UC Name', 'Group ID']):
         courses, unarticulated, group_ucs_with_unarticulated, cc_courses, cc_credits, unarticulated_courses = min_courses_for_group(df_group)
         total_courses += courses
         total_unarticulated += unarticulated
         ucs_with_unarticulated.update(group_ucs_with_unarticulated)
-        # Only add unique courses, and if a course appears with different credits, keep the highest
         for course, credit in zip(cc_courses, cc_credits):
+            # Track highest credit value for each course
             if course not in course_credit_dict or (credit is not None and credit > course_credit_dict[course]):
                 course_credit_dict[course] = credit
+            # Track which UCs this course fulfills
+            if course not in course_uc_dict:
+                course_uc_dict[course] = set()
+            course_uc_dict[course].add(uc_name)
         all_unarticulated.extend(unarticulated_courses)
-
-    # Use only unique courses for all calculations
     unique_cc_courses = list(course_credit_dict.keys())
     unique_cc_credits = [course_credit_dict[c] for c in unique_cc_courses]
-    total_credits = sum(c for c in unique_cc_credits if c is not None)
     semesters = distribute_credits_into_semesters(unique_cc_courses, unique_cc_credits, max_per_sem=18)
-    semesters_credits = []
-    for semester in semesters:
-        credits = sum(
-            course_credit_dict[course]
-            for course in semester
-            if course_credit_dict[course] is not None
-        )
-        semesters_credits.append(credits)
-
-    semesters_needed = len(semesters)
-    years_needed = math.ceil(semesters_needed / 2)
-
-    print(f"To fulfill requirements for {selected_ucs} at this CC:")
-    print(f"  - Total CC COURSES required: {len(unique_cc_courses)}")
-    print(f"  - Total CC CREDITS required: {total_credits}")
-    print(f"  - CC courses counted: {sorted(unique_cc_courses)}")
-    print(f"  - CC credits counted: {unique_cc_credits}")
-    print(f"  - Unarticulated courses: {total_unarticulated}")
-    print(f"  - Unarticulated UC requirements: {sorted(set(all_unarticulated))}")
-    print(f"  - Minimum semesters needed: {semesters_needed}")
-    print(f"  - Minimum years needed: {years_needed}")
-    for i, (semester, credits) in enumerate(zip(semesters, semesters_credits), 1):
-        print(f"    Semester {i}: {credits} credits ({', '.join(semester)})")
-    if ucs_with_unarticulated:
-        print(f"  - UC articulations with unarticulated courses: {sorted(ucs_with_unarticulated)}")
-    else:
-        print("  - No unarticulated courses for selected UCs.")
-
     # --- CSV Output ---
-    if output_csv_path:
-        rows = []
-        for i, semester in enumerate(semesters, 1):
-            for course in semester:
-                credit = course_credit_dict[course]
-                rows.append({'Semester': i, 'Course': course, 'Credits': credit})
-        semester_df = pd.DataFrame(rows)
-        semester_df.to_csv(output_csv_path, index=False)
-        print(f"\nSemester breakdown saved to: {output_csv_path}")
+    rows = []
+    for i, semester in enumerate(semesters, 1):
+        for course in semester:
+            credit = course_credit_dict[course]
+            ucs_fulfilled = "; ".join(sorted(course_uc_dict[course]))
+            rows.append({'Semester': i, 'Course': course, 'Credits': credit, 'UCs Fulfilled': ucs_fulfilled})
+    semester_df = pd.DataFrame(rows)
+    semester_df.to_csv(output_csv_path, index=False)
 
 if __name__ == "__main__":
-    cc_csv_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis/filtered_results/Allan_Hancock_College_filtered.csv"
-    selected_ucs = ['UCSD', 'UCSB', 'UCSC']
-    output_csv_path = "semester_breakdown.csv"
-    calculating_cc_years(cc_csv_path)
+    input_folder = "/Users/yasminkabir/GitHub/transfer-agreements-analysis/filtered_results"  # folder with CC csvs
+    output_folder = "semester_breakdown_ccs"
+    selected_ucs = ['UCSD', 'UCSB', 'UCSC']  # set as needed
+    os.makedirs(output_folder, exist_ok=True)
+    for filename in os.listdir(input_folder):
+        if filename.endswith(".csv"):
+            cc_csv_path = os.path.join(input_folder, filename)
+            cc_name = os.path.splitext(filename)[0]
+            output_csv_path = os.path.join(output_folder, f"{cc_name}_semester_breakdown.csv")
+            process_cc_file(cc_csv_path, selected_ucs, output_csv_path)
+            print(f"Processed {filename} -> {output_csv_path}")
