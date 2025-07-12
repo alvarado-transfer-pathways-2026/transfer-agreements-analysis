@@ -120,8 +120,6 @@ def process_cc_file(cc_csv_path, selected_ucs, output_csv_path):
                 'Credits': credit,
                 'UCs Fulfilled': ucs_fulfilled
             })
-        # Add a blank row after each semester for separation
-        rows.append({'Semester': '', 'Course': '', 'Credits': '', 'UCs Fulfilled': ''})
 
     # Add unarticulated courses as rows labeled "UNARTICULATED"
     for uc, reqs in unarticulated_uc_map.items():
@@ -136,6 +134,7 @@ def process_cc_file(cc_csv_path, selected_ucs, output_csv_path):
     semester_df = pd.DataFrame(rows)
     semester_df.to_csv(output_csv_path, index=False)
 
+    
 if __name__ == "__main__":
     input_folder = "/Users/yasminkabir/GitHub/transfer-agreements-analysis/filtered_results"  # folder with CC csvs
     output_folder = "semester_breakdown_ccs"
