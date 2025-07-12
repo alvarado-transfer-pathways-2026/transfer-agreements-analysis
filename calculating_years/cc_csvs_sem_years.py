@@ -136,9 +136,9 @@ def process_cc_file(cc_csv_path, selected_ucs, output_csv_path):
 
     
 if __name__ == "__main__":
+    selected_ucs = ['UCSD', 'UCSB', 'UCSC', 'UCB', 'UCLA', 'UCI', 'UCM', 'UCD', 'UCR']  # set as needed
     input_folder = "/Users/yasminkabir/GitHub/transfer-agreements-analysis/filtered_results"  # folder with CC csvs
     output_folder = "semester_breakdown_ccs"
-    selected_ucs = ['UCSD', 'UCSB', 'UCSC']  # set as needed
     os.makedirs(output_folder, exist_ok=True)
     for filename in os.listdir(input_folder):
         if filename.endswith(".csv"):
