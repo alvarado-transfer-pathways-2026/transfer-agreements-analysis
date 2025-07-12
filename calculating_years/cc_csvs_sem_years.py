@@ -87,36 +87,52 @@ def distribute_credits_into_semesters(cc_courses, cc_credits, max_per_sem=18):
 def process_cc_file(cc_csv_path, selected_ucs, output_csv_path):
     df = pd.read_csv(cc_csv_path)
     df = df[df['UC Name'].isin(selected_ucs)]
-    total_courses = 0
-    total_unarticulated = 0
-    ucs_with_unarticulated = set()
     course_credit_dict = {}
     course_uc_dict = {}  # course name -> set of UCs it fulfills
-    all_unarticulated = []
+    unarticulated_uc_map = {}  # uc_name -> set of unarticulated requirements
+
     for (uc_name, group_id), df_group in df.groupby(['UC Name', 'Group ID']):
-        courses, unarticulated, group_ucs_with_unarticulated, cc_courses, cc_credits, unarticulated_courses = min_courses_for_group(df_group)
-        total_courses += courses
-        total_unarticulated += unarticulated
-        ucs_with_unarticulated.update(group_ucs_with_unarticulated)
+        _, _, _, cc_courses, cc_credits, unarticulated_courses = min_courses_for_group(df_group)
         for course, credit in zip(cc_courses, cc_credits):
-            # Track highest credit value for each course
             if course not in course_credit_dict or (credit is not None and credit > course_credit_dict[course]):
                 course_credit_dict[course] = credit
-            # Track which UCs this course fulfills
             if course not in course_uc_dict:
                 course_uc_dict[course] = set()
             course_uc_dict[course].add(uc_name)
-        all_unarticulated.extend(unarticulated_courses)
+        if unarticulated_courses:
+            if uc_name not in unarticulated_uc_map:
+                unarticulated_uc_map[uc_name] = set()
+            unarticulated_uc_map[uc_name].update(unarticulated_courses)
+
     unique_cc_courses = list(course_credit_dict.keys())
     unique_cc_credits = [course_credit_dict[c] for c in unique_cc_courses]
     semesters = distribute_credits_into_semesters(unique_cc_courses, unique_cc_credits, max_per_sem=18)
+
     # --- CSV Output ---
     rows = []
     for i, semester in enumerate(semesters, 1):
         for course in semester:
             credit = course_credit_dict[course]
             ucs_fulfilled = "; ".join(sorted(course_uc_dict[course]))
-            rows.append({'Semester': i, 'Course': course, 'Credits': credit, 'UCs Fulfilled': ucs_fulfilled})
+            rows.append({
+                'Semester': i,
+                'Course': course,
+                'Credits': credit,
+                'UCs Fulfilled': ucs_fulfilled
+            })
+        # Add a blank row after each semester for separation
+        rows.append({'Semester': '', 'Course': '', 'Credits': '', 'UCs Fulfilled': ''})
+
+    # Add unarticulated courses as rows labeled "UNARTICULATED"
+    for uc, reqs in unarticulated_uc_map.items():
+        for req in sorted(reqs):
+            rows.append({
+                'Semester': 'UNARTICULATED',
+                'Course': req,
+                'Credits': '',
+                'UCs Fulfilled': uc
+            })
+
     semester_df = pd.DataFrame(rows)
     semester_df.to_csv(output_csv_path, index=False)
 
