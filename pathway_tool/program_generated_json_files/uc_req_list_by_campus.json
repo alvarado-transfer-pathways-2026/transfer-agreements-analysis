@@ -1,0 +1,75 @@
+{
+  "UCB": [
+    "MATH 1A",
+    "MATH 1B",
+    "MATH 53",
+    "MATH 54"
+  ],
+  "UCD": [
+    "ECS 020",
+    "ECS 036A",
+    "ECS 036B",
+    "ECS 036C",
+    "ECS 050",
+    "MAT 021A",
+    "MAT 021B",
+    "MAT 021C",
+    "MAT 021D"
+  ],
+  "UCI": [
+    "I&C SCI 31",
+    "I&C SCI 32",
+    "I&C SCI 33",
+    "MATH 2A",
+    "MATH 2B"
+  ],
+  "UCLA": [
+    "COM SCI 31",
+    "MATH 31A",
+    "MATH 31B",
+    "MATH 32A",
+    "MATH 32B",
+    "MATH 33A",
+    "MATH 33B"
+  ],
+  "UCM": [
+    "CSE 030",
+    "MATH 021",
+    "MATH 022",
+    "MATH 023",
+    "MATH 024"
+  ],
+  "UCR": [
+    "CS 10A",
+    "CS 10B",
+    "MATH 9A",
+    "MATH 9B",
+    "MATH 9C"
+  ],
+  "UCSB": [
+    "CMPSC 16",
+    "CMPSC 24",
+    "CMPSC 40",
+    "MATH 3A",
+    "MATH 3B",
+    "MATH 4A",
+    "MATH 4B"
+  ],
+  "UCSC": [
+    "CSE 12",
+    "CSE 16",
+    "CSE 30",
+    "MATH 19A",
+    "MATH 19B"
+  ],
+  "UCSD": [
+    "CSE 11",
+    "CSE 12",
+    "CSE 20",
+    "CSE 8B",
+    "MATH 18",
+    "MATH 20A",
+    "MATH 20B",
+    "MATH 20C"
+  ]
+}
