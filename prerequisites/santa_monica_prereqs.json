@@ -1,0 +1,98 @@
+[
+  {
+    "courseCode": "MATH 7",
+    "courseName": "Calculus 1",
+    "units": 5,
+    "prerequisites": ["MATH 2", "MATH 3 and MATH 4"]
+  },
+  {
+    "courseCode": "MATH 8",
+    "courseName": "Calculus 2",
+    "units": 5,
+    "prerequisites": ["MATH 7"]
+  },
+  {
+    "courseCode": "MATH 11",
+    "courseName": "Multivariable Calculus",
+    "units": 5,
+    "prerequisites": ["MATH 8"]
+  },
+  {
+    "courseCode": "MATH 13",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": ["MATH 8"]
+  },
+  {
+    "courseCode": "MATH 15",
+    "courseName": "Differential Equations",
+    "units": 3,
+    "prerequisites": ["MATH 8"]
+  },
+  {
+    "courseCode": "MATH 10",
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "prerequisites": ["MATH 8"]
+  },
+  {
+    "courseCode": "CS 20A",
+    "courseName": "Data Structures with C++",
+    "units": 3,
+    "prerequisites": ["CS 52"]
+  },
+  {
+    "courseCode": "CS 20B",
+    "courseName": "Advanced Data Structures with C++",
+    "units": 3,
+    "prerequisites": ["CS 56"]
+  },
+  {
+    "courseCode": "CS 17",
+    "courseName": "Assembly Language Programming",
+    "units": 3,
+    "prerequisites": ["Advisory: CS 50"]
+  },
+  {
+    "courseCode": "CS 18",
+    "courseName": "Computer Programming Laboratory",
+    "units": 3,
+    "prerequisites": ["CS 17", "CS 52"]
+  },
+  {
+    "courseCode": "CS 50",
+    "courseName": "Introduction to Computer Science with C++",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 52",
+    "courseName": "Introduction to Computer Architecture",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 55",
+    "courseName": "Java Programming",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 56",
+    "courseName": "Advanced Java Programming",
+    "units": 3,
+    "prerequisites": ["CS 55"]
+  },
+  {
+    "courseCode": "CS 87A",
+    "courseName": "Python Programming I",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 87B",
+    "courseName": "Python Programming II",
+    "units": 3,
+    "prerequisites": []
+  }
+]
