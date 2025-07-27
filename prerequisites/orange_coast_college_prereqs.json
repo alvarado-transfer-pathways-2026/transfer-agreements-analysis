@@ -1,0 +1,208 @@
+[
+  {
+    "courseCode": "MATH A104",
+    "courseName": "Mathematics for Elementary Teachers",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A030"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A115",
+    "courseName": "College Algebra",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A030"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A120",
+    "courseName": "Trigonometry",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A030"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A170",
+    "courseName": "Precalculus",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A070", "MATH A120"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A180",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A170"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A180H",
+    "courseName": "Calculus I Honors",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A170"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A182H",
+    "courseName": "Calculus I & II Honors",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A140", "MATH A180", "MATH A180H"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A185",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A180", "MATH A180H", "MATH A182H"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A185H",
+    "courseName": "Calculus II Honors",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A180", "MATH A180H", "MATH A182H"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A280",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A185", "MATH A185H", "MATH A182H"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH A235",
+    "courseName": "Applied Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH A185", "MATH A185H", "MATH A182H"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS A262",
+    "courseName": "Discrete Structures",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS A100", "CS A122", "CS A131", "CS A150", "CS A170"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS A263",
+    "courseName": "Probability & Statistics for CS",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS A131", "CS A150", "CS A170"]
+        },
+        {
+          "or": ["MATH A180"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS A200",
+    "courseName": "Data Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": ["CS A150", "CS A250"]
+    }
+  },
+  {
+    "courseCode": "CS A216",
+    "courseName": "Computer Architecture",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        "CS A150",
+        "CS A100",
+        {
+          "or": ["CS A131", "CS A122", "CS A170"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS A150",
+    "courseName": "C++ Programming I",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS A131", "CS A140", "CS A142", "CS A170"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS A131",
+    "courseName": "Python Programming I",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        "CIS A090",
+        {
+          "or": ["CIS A100", "CIS A111"]
+        }
+      ]
+    }
+  }
+]

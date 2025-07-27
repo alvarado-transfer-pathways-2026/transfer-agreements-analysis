@@ -1,0 +1,117 @@
+[
+  {
+    "courseCode": "MATH 400",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 375", "MATH 370", { "and": ["MATH 372", "MATH 373"] }] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 401",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 400"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 402",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 401"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 410",
+    "courseName": "Introduction to Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 401"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 420",
+    "courseName": "Differential Equations",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 401"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CISP 360",
+    "courseName": "Introduction to Structured Programming",
+    "units": 4,
+    "prerequisites": "CISP 300"
+  },
+  {
+    "courseCode": "CISP 401",
+    "courseName": "Object-Oriented Programming with Java",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CISP 360"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CISP 310",
+    "courseName": "Computer Architecture & Organization",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CISP 360"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CISP 430",
+    "courseName": "Data Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CISP 400"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CISP 440",
+    "courseName": "Discrete Structures for Computer Science",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CISP 360"]
+        },
+        {
+          "or": ["MATH 370"]
+        }
+      ]
+    }
+  }
+]
