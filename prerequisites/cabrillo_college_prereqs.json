@@ -33,8 +33,21 @@
     "courseCode": "MATH 23",
     "courseName": "Discrete Mathematics",
     "units": 4,
-    "prerequisites": ["MATH 5A; CS 11", "CS 11M", "CS 12GP", "CS 12J", "CS 12P"]
-  },
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 11"] }
+          ]
+        },
+        { "or": ["CS 11M"] },
+        { "or": ["CS 12GP"] },
+        { "or": ["CS 12J"] },
+        { "or": ["CS 12P"] }
+      ]
+    }
+},
   {
     "courseCode": "CS 11",
     "courseName": "Introduction to C/C++ Programming Using Microcontrollers",
