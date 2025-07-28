@@ -1,0 +1,549 @@
+{
+  "Los_Angeles_Southwest_College": {
+    "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1B"
+      },
+      "MultivariableCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 53"
+      },
+      "LinearAlgebraAndDifferentialEqations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            },
+            {
+              "course": "MATH 275",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 54"
+      }
+    },
+    "UCD": {
+      "Intro1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 114",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036A"
+      },
+      "Organization": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 118",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 050"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021C"
+      }
+    },
+    "UCI": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2B"
+      }
+    },
+    "UCLA": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32A"
+      },
+      "Calc4": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32B"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 33A"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 275",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 33B"
+      }
+    },
+    "UCM": {
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 136",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 030"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 021"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 022"
+      },
+      "VectorCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 023"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            },
+            {
+              "course": "MATH 275",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 024"
+      }
+    },
+    "UCR": {
+      "Intro1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 114",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CS 10A"
+      },
+      "Calc": {
+        "set_id": "A",
+        "num_required": 3,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MATH 9A",
+          "MATH 9B",
+          "MATH 9C"
+        ]
+      }
+    },
+    "UCSD": {
+      "Intro": {
+        "set_id": "B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 113",
+              "units": 3.0
+            },
+            {
+              "course": "CS 136",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 11"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 136",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 18"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20C"
+      }
+    },
+    "UCSB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3B"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 4A"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 275",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 4B"
+      },
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 114",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 16"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 136",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 24"
+      }
+    },
+    "UCSC": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 136",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 30"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19B"
+      }
+    }
+  }
+}
