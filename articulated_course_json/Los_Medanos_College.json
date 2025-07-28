@@ -1,0 +1,536 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 250",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 160",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 044",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 132",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 142",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 240",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 132",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 250",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 122",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 132",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 160",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 230",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 240",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 044",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 132",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 160",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 160",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "COMSC 132",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Medanos College": [
+          {
+            "course": "MATH 220",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  }
+}

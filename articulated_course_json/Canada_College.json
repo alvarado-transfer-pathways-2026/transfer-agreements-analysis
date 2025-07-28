@@ -1,0 +1,584 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 262",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 118",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 242",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 275",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 252",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 118",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Intro": {
+      "SetID": "B",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 284",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 286",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 253",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 275",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 250",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 252",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 262",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 242",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 262",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "CIS 252",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 251",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Canada College": [
+          {
+            "course": "MATH 252",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}

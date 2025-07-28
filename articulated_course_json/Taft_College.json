@@ -1,0 +1,416 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2125",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "ENGR 1540",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2140",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2125",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "ENGR 1540",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2130",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2125",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2140",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "ENGR 1540",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "COSC 1545",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "COSC 2100",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2100",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Taft College": [
+          {
+            "course": "MATH 2120",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  }
+}

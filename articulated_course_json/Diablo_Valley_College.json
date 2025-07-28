@@ -1,0 +1,612 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 194",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 195",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 110",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 260",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 110",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 182",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 165",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 194",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 294",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 194",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 110",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 171",
+            "units": 2.0
+          },
+          {
+            "course": "COMSC 200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 195",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 194",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 292",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 194",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 294",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 165",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 230",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 260",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 195",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "COMSC 210",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 192",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Diablo Valley College": [
+          {
+            "course": "MATH 193",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}

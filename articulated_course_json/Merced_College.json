@@ -1,0 +1,552 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -06",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -07",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -06",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -39",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -42",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "ENGR -14",
+            "units": 3.0
+          },
+          {
+            "course": "CTIS -04",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -08",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -06",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -39",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -06",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -14",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -39",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -07",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -08",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04C",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -08",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -06",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -14",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -07",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -42",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -07",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "CPSC -39",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04A",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Merced College": [
+          {
+            "course": "MATH -04B",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  }
+}

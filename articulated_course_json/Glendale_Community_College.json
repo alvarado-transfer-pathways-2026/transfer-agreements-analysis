@@ -1,0 +1,596 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 107",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 125",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 137",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 211",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 165",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 107",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 108",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 211",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 107",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 137",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Intro": {
+      "SetID": "B",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 211",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 125",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 107",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 105",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 107",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 108",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 135",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 211",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 125",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 165",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "CS/IS 211",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 103E",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Glendale Community College": [
+          {
+            "course": "MATH 104E",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}

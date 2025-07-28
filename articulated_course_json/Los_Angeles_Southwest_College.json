@@ -1,0 +1,488 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 114",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 118",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 275",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 136",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 114",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Intro": {
+      "SetID": "B",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 113",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 136",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 267",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 270",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 275",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 114",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 136",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "CS 136",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 265",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Los Angeles Southwest College": [
+          {
+            "course": "MATH 266",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}

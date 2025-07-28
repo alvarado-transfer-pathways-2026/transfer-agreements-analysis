@@ -1,0 +1,612 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A230",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A131",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A250",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A216",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A150",
+            "units": 4.0
+          },
+          {
+            "course": "CS A131",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A185",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A150",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A131",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A250",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Intro": {
+      "SetID": "B",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A170",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A230",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A235",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A185",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A280",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A285",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A150",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A262",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A216",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A257",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "CS A200",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A180",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Orange Coast College": [
+          {
+            "course": "MATH A182H",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}

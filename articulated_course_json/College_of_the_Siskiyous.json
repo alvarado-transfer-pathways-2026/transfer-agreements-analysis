@@ -1,0 +1,488 @@
+{
+  "UCB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "MultivariableCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebraAndDifferentialEqations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2500",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCD": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1007",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1507",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Organization": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 2006",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCI": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc4": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2600",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2500",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1507",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "VectorCalc": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2500",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCR": {
+    "Intro1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1007",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1507",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc": {
+      "SetID": "A",
+      "NumRequired": 3,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2600",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc3": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2400",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSB": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "LinearAlgebra": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2600",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DifferentialEquations": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 2500",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "DiscreteMath": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 2010",
+            "units": 3.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSC": {
+    "DataStructures": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 2006",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Intro": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "CSCI 1507",
+            "units": 3.0
+          }
+        ]
+      }
+    },
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1400",
+            "units": 4.0
+          }
+        ]
+      }
+    },
+    "Calc2": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "College of the Siskiyous": [
+          {
+            "course": "MATH 1500",
+            "units": 4.0
+          }
+        ]
+      }
+    }
+  }
+}

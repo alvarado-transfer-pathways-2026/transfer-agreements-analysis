@@ -1,0 +1,44 @@
+{
+  "UCLA": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Palo Verde College": [
+          {
+            "course": "MAT 220",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCM": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Palo Verde College": [
+          {
+            "course": "MAT 220",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  },
+  "UCSD": {
+    "Calc1": {
+      "SetID": "A",
+      "NumRequired": 1,
+      "Colleges": {
+        "Palo Verde College": [
+          {
+            "course": "MAT 220",
+            "units": 5.0
+          }
+        ]
+      }
+    }
+  }
+}
