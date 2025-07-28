@@ -1,0 +1,52 @@
+[
+    {
+      "college": "Santa Monica College",
+      "course": "CS 3",
+      "prerequisite": "None",
+      "uc_equivalent": "Intro to CS",
+      "uc_campuses": ["All"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 17",
+      "prerequisite": "None",
+      "uc_equivalent": "Assembly Language",
+      "uc_campuses": ["Some"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 50",
+      "prerequisite": "None",
+      "uc_equivalent": "CS 61A / CSE 8A",
+      "uc_campuses": ["UC Berkeley", "UC San Diego"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 55",
+      "prerequisite": "None",
+      "uc_equivalent": "Intro to Java",
+      "uc_campuses": ["UCLA", "UCSB"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 20A",
+      "prerequisite": "CS 50",
+      "uc_equivalent": "Data Structures (C++)",
+      "uc_campuses": ["UC Berkeley", "UCLA"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 20B",
+      "prerequisite": "CS 55",
+      "uc_equivalent": "Data Structures (Java)",
+      "uc_campuses": ["UCLA", "UCSB"]
+    },
+    {
+      "college": "Santa Monica College",
+      "course": "CS 42",
+      "prerequisite": "None",
+      "uc_equivalent": "Digital Logic",
+      "uc_campuses": ["Some"]
+    }
+  ]
+  

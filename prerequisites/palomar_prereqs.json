@@ -1,0 +1,81 @@
+[
+  {
+    "courseCode": "CSCI 112",
+    "courseName": "Programming Fundamentals I",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CSCI 114",
+    "courseName": "Programming Fundamentals II",
+    "units": 4,
+    "prerequisites": {
+      "and": ["CSCI 112"]
+    }
+  },
+  {
+    "courseCode": "CSCI 210",
+    "courseName": "Data Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": ["CSCI 114"]
+    }
+  },
+  {
+    "courseCode": "CSCI 212",
+    "courseName": "Machine Organization & Assembly Language",
+    "units": 4,
+    "prerequisites": {
+      "and": ["CSCI 114"]
+    }
+  },
+  {
+    "courseCode": "CSCI 222",
+    "courseName": "C++ & Object-Oriented Programming",
+    "units": 4,
+    "prerequisites": {
+      "and": ["CSCI 114"]
+    }
+  },
+  {
+    "courseCode": "MATH 140",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 141",
+    "courseName": "Calculus II",
+    "units": 4,
+    "prerequisites": {
+      "and": ["MATH 140"]
+    }
+  },
+  {
+    "courseCode": "MATH 205",
+    "courseName": "Calculus III",
+    "units": 4,
+    "prerequisites": {
+      "and": ["MATH 141"]
+    }
+  },
+  {
+    "courseCode": "MATH 200",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": ["MATH 141"]
+    }
+  },
+  {
+    "courseCode": "MATH 245",
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 130", "MATH 140"] },
+        "CSCI 112"
+      ]
+    }
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "courseCode": "MATH 192",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 193",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": ["MATH 192"]
+    }
+  },
+  {
+    "courseCode": "MATH 292",
+    "courseName": "Calculus III (Multivariable)",
+    "units": 5,
+    "prerequisites": {
+      "and": ["MATH 192", "MATH 193"]
+    }
+  },
+  {
+    "courseCode": "MATH 194",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": ["MATH 193"]
+    }
+  },
+  {
+    "courseCode": "MATH 294",
+    "courseName": "Differential Equations",
+    "units": 5,
+    "prerequisites": {
+      "and": ["MATH 292"]
+    }
+  },
+  {
+    "courseCode": "MATH 195",
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "prerequisites": {
+      "and": ["MATH 193"]
+    }
+  },
+  {
+    "courseCode": "COMSC 110",
+    "courseName": "Introduction to Programming",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "COMSC 165",
+    "courseName": "Advanced Programming with C and C++",
+    "units": 4,
+    "prerequisites": {
+      "and": ["COMSC 110"]
+    }
+  },
+  {
+    "courseCode": "COMSC 200",
+    "courseName": "Object Oriented Programming in C++",
+    "units": 4,
+    "prerequisites": {
+      "and": ["COMSC 165"]
+    }
+  },
+  {
+    "courseCode": "COMSC 210",
+    "courseName": "Program Design and Data Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": ["COMSC 165"]
+    }
+  },
+  {
+    "courseCode": "COMSC 230",
+    "courseName": "Discrete Mathematical Structures for Computer Science",
+    "units": 3,
+    "prerequisites": {
+      "and": ["COMSC 110", "MATH 195"]
+    }
+  },
+  {
+    "courseCode": "COMSC 260",
+    "courseName": "Assembly Language Programming / Computer Organization",
+    "units": 4,
+    "prerequisites": {
+      "and": ["COMSC 165"]
+    }
+  }
+]
