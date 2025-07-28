@@ -11,22 +11,157 @@
         { "reqId": "GE_SocBeh",         "name": "Social & Behavioral Sciences",            "minCourses": 2, "minUnits": 6 }
       ]
     },
+      {
+      "patternId": "7CoursePattern",
+      "patternName": "Basic 7‑Course GE Pattern",
+      "description": "UC’s 7‑course minimum general education requirement",
+      "requirements": [
+        {
+          "reqId": "GE_WrittenComm",
+          "name": "Written Communication",
+          "minCourses": 2,
+          "minUnits": 6
+        },
+        {
+          "reqId": "GE_QuantReason",
+          "name": "Mathematical Concepts/Quantitative Reasoning",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "GE_ArtsHum",
+          "name": "Arts & Humanities",
+          "minCourses": 3,
+          "minUnits": 9,
+          "subRequirements": [
+            {
+              "reqId": "GE_Arts",
+              "name": "Arts",
+              "minCourses": 1
+            },
+            {
+              "reqId": "GE_Hum",
+              "name": "Humanities",
+              "minCourses": 1
+            }
+          ]
+        },
+        {
+          "reqId": "GE_SocBeh",
+          "name": "Social & Behavioral Sciences",
+          "minCourses": 2,
+          "minUnits": 6
+        },
+        {
+          "reqId": "GE_Sciences",
+          "name": "Physical & Biological Sciences",
+          "minCourses": 2,
+          "minUnits": 6,
+          "subRequirements": [
+            {
+              "reqId": "GE_Physical",
+              "name": "Physical Science",
+              "minCourses": 1
+            },
+            {
+              "reqId": "GE_Biological",
+              "name": "Biological Science",
+              "minCourses": 1
+            },
+            {
+              "reqId": "GE_Lab",
+              "name": "Laboratory",
+              "minCourses": 1,
+              "notes": "At least one of the above courses must include a lab component"
+            }
+          ]
+        }
+      ]
+    },
     {
       "patternId": "IGETC",
       "patternName": "IGETC General Education",
       "description": "Intersegmental GE pattern for UC transfer",
       "requirements": [
-        { "reqId": "IG_1A", "name": "English Composition",                      "minCourses": 2, "minUnits": 6 },
-        { "reqId": "IG_1B", "name": "Critical Thinking/English Composition",     "minCourses": 1, "minUnits": 3 },
-        { "reqId": "IG_2",  "name": "Mathematical Concepts/Quantitative Reasoning","minCourses": 1, "minUnits": 3 },
-        { "reqId": "IG_3A", "name": "Arts",                                      "minCourses": 1, "minUnits": 3 },
-        { "reqId": "IG_3B", "name": "Humanities",                                "minCourses": 1, "minUnits": 3 },
-        { "reqId": "IG_4",  "name": "Social & Behavioral Sciences",             "minCourses": 3, "minUnits": 9 },
-        { "reqId": "IG_5A", "name": "Physical Sciences",                         "minCourses": 2, "minUnits": 6 },
-        { "reqId": "IG_5B", "name": "Biological Sciences",                       "minCourses": 2, "minUnits": 6 },
-        { "reqId": "IG_6A", "name": "Language Other Than English (LOTE)",        "minCourses": 2, "minUnits": 6 },
-        { "reqId": "IG_7",  "name": "Arts & Humanities or Social & Behavioral",  "minCourses": 1, "minUnits": 3 },
-        { "reqId": "IG_8",  "name": "Language Other Than English Additional",    "minCourses": 1, "minUnits": 3 }
+        {
+          "reqId": "IG_1A",
+          "name": "English Composition",
+          "minCourses": 2,
+          "minUnits": 6
+        },
+        {
+          "reqId": "IG_1B",
+          "name": "Critical Thinking/English Composition",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "IG_2",
+          "name": "Mathematical Concepts/Quantitative Reasoning",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "IG_3A",
+          "name": "Arts",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "IG_3B",
+          "name": "Humanities",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "IG_4",
+          "name": "Social & Behavioral Sciences",
+          "minCourses": 3,
+          "minUnits": 9
+        },
+        {
+          "reqId": "IG_Sciences",
+          "name": "Physical & Biological Sciences",
+          "minCourses": 2,
+          "minUnits": 7,
+          "subRequirements": [
+            {
+              "reqId": "IG_Physical",
+              "name": "Physical Science",
+              "minCourses": 1,
+              "minUnits": 3
+            },
+            {
+              "reqId": "IG_Biological",
+              "name": "Biological Science",
+              "minCourses": 1,
+              "minUnits": 3
+            },
+            {
+              "reqId": "IG_Lab",
+              "name": "Laboratory Science (in either Physical or Biological)",
+              "minCourses": 1
+            }
+          ]
+        },
+        {
+          "reqId": "IG_6",
+          "name": "Language Other Than English (LOTE)",
+          "minCourses": 2,
+          "minUnits": 6
+        },
+        {
+          "reqId": "IG_7",
+          "name": "Arts & Humanities or Social & Behavioral Sciences",
+          "minCourses": 1,
+          "minUnits": 3
+        },
+        {
+          "reqId": "IG_8",
+          "name": "Language Other Than English Additional",
+          "minCourses": 1,
+          "minUnits": 3
+        }
       ]
     }
   ]
