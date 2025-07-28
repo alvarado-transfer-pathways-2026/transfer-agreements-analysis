@@ -84,17 +84,25 @@
       "description": "Intersegmental GE pattern for UC transfer",
       "requirements": [
         {
-          "reqId": "IG_1A",
-          "name": "English Composition",
+          "reqId": "IG_1",
+          "name": "English Communication",
           "minCourses": 2,
-          "minUnits": 6
-        },
-        {
-          "reqId": "IG_1B",
-          "name": "Critical Thinking/English Composition",
-          "minCourses": 1,
-          "minUnits": 3
-        },
+          "minUnits": 6,
+          "subRequirements": [
+            {
+              "reqId": "IG_1A",
+              "name": "English Composition",
+              "minCourses": 1,
+              "minUnits": 3
+            },
+            {
+              "reqId": "IG_1B",
+              "name": "Critical Thinking/English Composition",
+              "minCourses": 0,
+              "minUnits": 3
+            }
+          ]
+        }, 
         {
           "reqId": "IG_2",
           "name": "Mathematical Concepts/Quantitative Reasoning",
