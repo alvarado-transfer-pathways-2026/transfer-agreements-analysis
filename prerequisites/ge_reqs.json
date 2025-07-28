@@ -18,52 +18,25 @@
           "minUnits": 3
         },
         {
-          "reqId": "GE_ArtsHum",
-          "name": "Arts & Humanities",
+          "reqId": "GE_General",
+          "name": "General",
           "minCourses": 4,
           "minUnits": 12,
           "subRequirements": [
             {
               "reqId": "GE_ArtsHum",
-              "name": "Arts & Humanities"
+              "name": "Arts & Humanities",
+              "maxCourses": 3
             },
             {
               "reqId": "GE_SocBeh",
-              "name": "Social & Behavioral Sciences"
+              "name": "Social & Behavioral Sciences",
+              "maxCourses": 3
             },
             {
               "reqId": "GE_PhyBio",
-              "name": "Physical & Biological Sciences"
-            }
-          ]
-        },
-        {
-          "reqId": "GE_SocBeh",
-          "name": "Social & Behavioral Sciences",
-          "minCourses": 2,
-          "minUnits": 6
-        },
-        {
-          "reqId": "GE_Sciences",
-          "name": "Physical & Biological Sciences",
-          "minCourses": 2,
-          "minUnits": 6,
-          "subRequirements": [
-            {
-              "reqId": "GE_Physical",
-              "name": "Physical Science",
-              "minCourses": 1
-            },
-            {
-              "reqId": "GE_Biological",
-              "name": "Biological Science",
-              "minCourses": 1
-            },
-            {
-              "reqId": "GE_Lab",
-              "name": "Laboratory",
-              "minCourses": 1,
-              "notes": "At least one of the above courses must include a lab component"
+              "name": "Physical & Biological Sciences",
+              "maxCourses": 3
             }
           ]
         }
