@@ -12,12 +12,6 @@
           "name": "Critical Thinking - English Composition",
           "required_courses": 1,
           "required_units": 3
-        },
-        "1C": {
-          "name": "Oral Communication",
-          "required_courses": 1,
-          "required_units": 3,
-          "note": "Required for CSU, not required for UC"
         }
       },
       "note": "UC requires 1A and 1B only; CSU requires all three"

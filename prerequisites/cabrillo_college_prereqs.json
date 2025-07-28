@@ -9,25 +9,41 @@
     "courseCode": "MATH 5B",
     "courseName": "Calculus II",
     "units": 5,
-    "prerequisites": ["MATH 5A"]
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5A"] }
+      ]
+    }
   },
   {
     "courseCode": "MATH 5C",
     "courseName": "Calculus III",
     "units": 5,
-    "prerequisites": ["MATH 5B"]
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5B"] }
+      ]
+    }
   },
   {
     "courseCode": "MATH 6",
     "courseName": "Linear Algebra",
     "units": 3,
-    "prerequisites": ["MATH 5C"]
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5C"] }
+      ]
+    }
   },
   {
     "courseCode": "MATH 7",
     "courseName": "Differential Equations",
     "units": 3,
-    "prerequisites": ["MATH 5C"]
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5C"] }
+      ]
+    }
   },
   {
     "courseCode": "MATH 23",
@@ -47,7 +63,7 @@
         { "or": ["CS 12P"] }
       ]
     }
-},
+  },
   {
     "courseCode": "CS 11",
     "courseName": "Introduction to C/C++ Programming Using Microcontrollers",
@@ -94,19 +110,49 @@
     "courseCode": "CS 21",
     "courseName": "Introduction Data Structures and Algorithms",
     "units": 4,
-    "prerequisites": ["CS 19", "CS 20P", "CS 20J"]
+    "prerequisites": {
+      "or": [
+        { "or": ["CS 19"] },
+        { "or": ["CS 20P"] },
+        { "or": ["CS 20J"] }
+      ]
+    }
   },
   {
     "courseCode": "CS 23",
     "courseName": "Discrete Mathematics",
     "units": 4,
-    "prerequisites": ["MATH 5A; CS 11", "CS 11M", "CS 12GP", "CS 12J", "CS 12P"]
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 11"] }
+          ]
+        },
+        { "or": ["CS 11M"] },
+        { "or": ["CS 12GP"] },
+        { "or": ["CS 12J"] },
+        { "or": ["CS 12P"] }
+      ]
+    }
   },
   {
     "courseCode": "CS 24",
     "courseName": "Elementary Computer Organization",
     "units": 4,
-    "prerequisites": ["MATH 5A; CS 19", "CS 20J", "CS 20P"]
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 19"] }
+          ]
+        },
+        { "or": ["CS 20J"] },
+        { "or": ["CS 20P"] }
+      ]
+    }
   },
   {
     "courseCode": "CS 12P",
