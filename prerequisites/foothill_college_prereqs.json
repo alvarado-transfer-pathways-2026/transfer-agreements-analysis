@@ -90,7 +90,7 @@
     "prerequisites": {
       "and": [
         {
-          "or": ["C S 1A", "C S 2A", "C S 3A"]
+          "or": ["CS 1A", "CS 2A", "CS 3A"]
         },
         {
           "or": ["MATH 47", "MATH 48C"]
