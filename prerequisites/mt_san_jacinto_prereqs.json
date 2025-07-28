@@ -66,7 +66,7 @@
     "courseName": "Introduction to Data Structures and Algorithms",
     "units": 3,
     "prerequisites": {
-      "and": [
+      "or": [
         { "or": ["CSIS-113A"] },
         { "or": ["CSIS-113B"] }
       ]
@@ -77,7 +77,7 @@
     "courseName": "Discrete Structures",
     "units": 3,
     "prerequisites": {
-      "and": [
+      "or": [
         { "or": ["CSIS-113A"] },
         { "or": ["CSIS-113B"] }
       ]

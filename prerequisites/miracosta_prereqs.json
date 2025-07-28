@@ -1,0 +1,87 @@
+[
+  {
+    "courseCode": "MATH 150",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "MATH 155",
+    "courseName": "Calculus II",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 150"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 260",
+    "courseName": "Calculus III",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 155"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 270",
+    "courseName": "Linear Algebra",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 155"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 265",
+    "courseName": "Differential Equations",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 155"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 226",
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "prerequisites": {
+      "or": [
+        { "or": ["MATH 150"] },
+        { "or": ["CS 150"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 111",
+    "courseName": "Introduction to Computer Science I",
+    "units": 3,
+    "prerequisites": {
+      "and": []
+    }
+  },
+  {
+    "courseCode": "CS 112",
+    "courseName": "Introduction to Computer Science II",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 111"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 113",
+    "courseName": "Basic Data Structures and Algorithms",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 112"] }
+      ]
+    }
+  }
+]
