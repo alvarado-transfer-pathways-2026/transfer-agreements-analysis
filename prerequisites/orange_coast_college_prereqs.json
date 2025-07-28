@@ -1,75 +1,15 @@
 [
   {
-    "courseCode": "MATH A104",
-    "courseName": "Mathematics for Elementary Teachers",
-    "units": 3,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A030"]
-        }
-      ]
-    }
-  },
-  {
-    "courseCode": "MATH A115",
-    "courseName": "College Algebra",
-    "units": 4,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A030"]
-        }
-      ]
-    }
-  },
-  {
-    "courseCode": "MATH A120",
-    "courseName": "Trigonometry",
-    "units": 3,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A030"]
-        }
-      ]
-    }
-  },
-  {
-    "courseCode": "MATH A170",
-    "courseName": "Precalculus",
-    "units": 5,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A070", "MATH A120"]
-        }
-      ]
-    }
-  },
-  {
     "courseCode": "MATH A180",
     "courseName": "Calculus I",
     "units": 5,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A170"]
-        }
-      ]
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "MATH A180H",
     "courseName": "Calculus I Honors",
     "units": 5,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH A170"]
-        }
-      ]
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "MATH A182H",

@@ -3,25 +3,13 @@
     "courseCode": "MATH 1A",
     "courseName": "Calculus I",
     "units": 5,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH 47", "MATH 48C"]
-        }
-      ]
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "MATH 1AH",
     "courseName": "Honors Calculus I",
     "units": 5,
-    "prerequisites": {
-      "and": [
-        {
-          "or": ["MATH 47", "MATH 48C"]
-        }
-      ]
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "MATH 1B",

@@ -3,11 +3,7 @@
     "courseCode": "MATH 400",
     "courseName": "Calculus I",
     "units": 5,
-    "prerequisites": {
-      "and": [
-        { "or": ["MATH 375", "MATH 370", { "and": ["MATH 372", "MATH 373"] }] }
-      ]
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "MATH 401",
