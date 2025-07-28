@@ -1,0 +1,200 @@
+[
+  {
+    "courseCode": "MATH 1A",
+    "courseName": "Calculus",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 1AH",
+    "courseName": "Calculus - Honors",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 1B",
+    "courseName": "Calculus",
+    "units": 5,
+    "prerequisites": ["MATH 1A", "MATH 1AH"]
+  },
+  {
+    "courseCode": "MATH 1BH",
+    "courseName": "Calculus - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 1A", "MATH 1AH"]
+  },
+  {
+    "courseCode": "MATH 1C",
+    "courseName": "Calculus",
+    "units": 5,
+    "prerequisites": ["MATH 1B", "MATH 1BH"]
+  },
+  {
+    "courseCode": "MATH 1CH",
+    "courseName": "Calculus - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 1B", "MATH 1BH"]
+  },
+  {
+    "courseCode": "MATH 1D",
+    "courseName": "Calculus",
+    "units": 5,
+    "prerequisites": ["MATH 1C", "MATH 1CH"]
+  },
+  {
+    "courseCode": "MATH 1DH",
+    "courseName": "Calculus - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 1C", "MATH 1CH"]
+  },
+  {
+    "courseCode": "MATH 2A",
+    "courseName": "Linear Algebra",
+    "units": 5,
+    "prerequisites": ["MATH 1D", "MATH 1DH"]
+  },
+  {
+    "courseCode": "MATH 2AH",
+    "courseName": "Linear Algebra - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 1D", "MATH 1DH"]
+  },
+  {
+    "courseCode": "MATH 2B",
+    "courseName": "Differential Equations",
+    "units": 5,
+    "prerequisites": ["MATH 2A", "MATH 2AH"]
+  },
+  {
+    "courseCode": "MATH 2BH",
+    "courseName": "Differential Equations - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 2A", "MATH 2AH"]
+  },
+  {
+    "courseCode": "MATH 22",
+    "courseName": "Linear Algebra & Differential Equations",
+    "units": 5,
+    "prerequisites": ["MATH 2B", "MATH 2BH"]
+  },
+  {
+    "courseCode": "MATH 22H",
+    "courseName": "Linear Algebra & Differential Equations - Honors",
+    "units": 5,
+    "prerequisites": ["MATH 2B", "MATH 2BH"]
+  },
+  {
+    "courseCode": "CIS 22A",
+    "courseName": "Beginning Programming Methodologies in C++",
+    "units": 4.5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CIS 22B",
+    "courseName": "Intermediate Programming Methodologies in C++",
+    "units": 4.5,
+    "prerequisites": ["CIS 22A"]
+  },
+  {
+    "courseCode": "CIS 22BH",
+    "courseName": "Intermediate Programming Methodologies in C++ - Honors",
+    "units": 4.5,
+    "prerequisites": ["CIS 22A"]
+  },
+  {
+    "courseCode": "CIS 22C",
+    "courseName": "Advanced Data Structures in C++",
+    "units": 4.5,
+    "prerequisites": ["CIS 22B", "CIS 22BH"]
+  },
+  {
+    "courseCode": "CIS 22CH",
+    "courseName": "Advanced Data Structures in C++ - Honors",
+    "units": 4.5,
+    "prerequisites": ["CIS 22B", "CIS 22BH"]
+  },
+  {
+    "courseCode": "CIS 26A",
+    "courseName": "Java Programming I",
+    "units": 4.5,
+    "prerequisites": ["CIS 22A"]
+  },
+  {
+    "courseCode": "CIS 26B",
+    "courseName": "Java Programming II",
+    "units": 4.5,
+    "prerequisites": ["CIS 26A"]
+  },
+  {
+    "courseCode": "CIS 26BH",
+    "courseName": "Java Programming II - Honors",
+    "units": 4.5,
+    "prerequisites": ["CIS 26A"]
+  },
+  {
+    "courseCode": "CIS 27",
+    "courseName": "Data Abstraction and Structures",
+    "units": 4.5,
+    "prerequisites": ["CIS 22B", "CIS 22BH", "CIS 29"]
+  },
+  {
+    "courseCode": "CIS 28",
+    "courseName": "Object-Oriented Analysis and Design",
+    "units": 4.5,
+    "prerequisites": ["CIS 22B"]
+  },
+  {
+    "courseCode": "CIS 29",
+    "courseName": "Advanced C++ Programming",
+    "units": 4.5,
+    "prerequisites": ["CIS 22A"]
+  },
+  {
+    "courseCode": "CIS 35A",
+    "courseName": "Java Programming",
+    "units": 4.5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CIS 36A",
+    "courseName": "Introduction to Computer Programming Using Python",
+    "units": 4.5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CIS 36B",
+    "courseName": "Intermediate Python Programming",
+    "units": 4.5,
+    "prerequisites": ["CIS 36A"]
+  },
+  {
+    "courseCode": "CIS 40",
+    "courseName": "Introduction to Information Systems",
+    "units": 4.5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CIS 41A",
+    "courseName": "Database Management Systems",
+    "units": 4.5,
+    "prerequisites": ["CIS 40"]
+  },
+  {
+    "courseCode": "CIS 41B",
+    "courseName": "Advanced Database Management",
+    "units": 4.5,
+    "prerequisites": ["CIS 41A"]
+  },
+  {
+    "courseCode": "CIS 21JA",
+    "courseName": "Introduction to x86 Assembly Language",
+    "units": 4.5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CIS 21JB",
+    "courseName": "Intermediate x86 Assembly Language",
+    "units": 4.5,
+    "prerequisites": ["CIS 21JA"]
+  }
+]
