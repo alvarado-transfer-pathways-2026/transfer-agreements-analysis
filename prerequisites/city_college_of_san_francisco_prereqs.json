@@ -1,0 +1,129 @@
+[
+  {
+    "courseCode": "MATH 110A",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "MATH 110B",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 110A"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 110C",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 110B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 115",
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "MATH 120",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 110B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 125",
+    "courseName": "Differential Equations",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 110C"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 130",
+    "courseName": "Linear Algebra & Differential Equations",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 110C"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 110B",
+    "courseName": "Programming Fundamentals: C++",
+    "units": 4,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 110C",
+    "courseName": "Data Structures & Algorithms: C++",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 110B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 111B",
+    "courseName": "Programming Fundamentals: Java",
+    "units": 4,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 111C",
+    "courseName": "Data Structures & Algorithms: Java",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 111B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 131B",
+    "courseName": "Programming Fundamentals: Python",
+    "units": 4,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 231",
+    "courseName": "Advanced Python for Analytics",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 131B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 270",
+    "courseName": "Computer Architecture with Assembly Language",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 110B"] },
+        { "or": ["CS 111B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 110A",
+    "courseName": "Introduction to Programming and Computer Science",
+    "units": 4,
+    "prerequisites": ""
+  }
+]

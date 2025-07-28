@@ -1,0 +1,163 @@
+[
+  {
+    "courseCode": "MATH 5A",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 5B",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5A"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 5C",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 6",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5C"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 7",
+    "courseName": "Differential Equations",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 5C"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 23",
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 11"] }
+          ]
+        },
+        { "or": ["CS 11M"] },
+        { "or": ["CS 12GP"] },
+        { "or": ["CS 12J"] },
+        { "or": ["CS 12P"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 11",
+    "courseName": "Introduction to C/C++ Programming Using Microcontrollers",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 11M",
+    "courseName": "C++ Programming",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 12GP",
+    "courseName": "Introduction to Programming Using Games and Simulations",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 12J",
+    "courseName": "Introduction to Programming Concepts and Methodology, Java",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 20P",
+    "courseName": "Python Programming and Abstractions",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 20J",
+    "courseName": "Java Programming",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 19",
+    "courseName": "C++ Programming",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 21",
+    "courseName": "Introduction Data Structures and Algorithms",
+    "units": 4,
+    "prerequisites": {
+      "or": [
+        { "or": ["CS 19"] },
+        { "or": ["CS 20P"] },
+        { "or": ["CS 20J"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 23",
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 11"] }
+          ]
+        },
+        { "or": ["CS 11M"] },
+        { "or": ["CS 12GP"] },
+        { "or": ["CS 12J"] },
+        { "or": ["CS 12P"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 24",
+    "courseName": "Elementary Computer Organization",
+    "units": 4,
+    "prerequisites": {
+      "or": [
+        {
+          "and": [
+            { "or": ["MATH 5A"] },
+            { "or": ["CS 19"] }
+          ]
+        },
+        { "or": ["CS 20J"] },
+        { "or": ["CS 20P"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 12P",
+    "courseName": "Python Introductory Programming Concepts and Methodology",
+    "units": 4,
+    "prerequisites": []
+  }
+]
