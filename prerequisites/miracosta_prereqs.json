@@ -60,9 +60,7 @@
     "courseCode": "CS 111",
     "courseName": "Introduction to Computer Science I",
     "units": 3,
-    "prerequisites": {
-      "and": []
-    }
+    "prerequisites": ""
   },
   {
     "courseCode": "CS 112",
