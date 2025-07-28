@@ -1,0 +1,126 @@
+[
+  {
+    "courseCode": "MTH 1",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MTH 2",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MTH 3",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 2"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MTH 4",
+    "courseName": "Differential Equations",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 2"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MTH 6",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 2"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MTH 8",
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MTH 15",
+    "courseName": "Applied Calculus I",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MTH 16",
+    "courseName": "Applied Calculus II",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 15"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSCI 14",
+    "courseName": "Introduction to Structured Programming in C++",
+    "units": 4,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CSCI 15",
+    "courseName": "Object-Oriented Programming Methods",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CSCI 14"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSCI 20",
+    "courseName": "Introduction to Data Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CSCI 15"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSCI 21",
+    "courseName": "Assembly Language Programming",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CSCI 14"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSCI 28",
+    "courseName": "Discrete Mathematics for Computer Science",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MTH 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSCI 19A",
+    "courseName": "Object-Oriented Programming in Java",
+    "units": 4,
+    "prerequisites": []
+  }
+]

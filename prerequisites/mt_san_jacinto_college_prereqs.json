@@ -1,0 +1,92 @@
+[
+  {
+    "courseCode": "MATH-211",
+    "courseName": "Analytic Geometry & Calculus I",
+    "units": 4,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "MATH-212",
+    "courseName": "Analytic Geometry & Calculus II",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH-211"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH-213",
+    "courseName": "Analytic Geometry & Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH-212"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH-215",
+    "courseName": "Differential Equations",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH-212"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH-218",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH-211"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSIS-113A",
+    "courseName": "C++ Programming - Level 1",
+    "units": 3,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CSIS-123A",
+    "courseName": "C++ Programming - Level 2",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CSIS-113A"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSIS-211",
+    "courseName": "Introduction to Data Structures and Algorithms",
+    "units": 3,
+    "prerequisites": {
+      "or": [
+        { "or": ["CSIS-113A"] },
+        { "or": ["CSIS-113B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSIS-213",
+    "courseName": "Discrete Structures",
+    "units": 3,
+    "prerequisites": {
+      "or": [
+        { "or": ["CSIS-113A"] },
+        { "or": ["CSIS-113B"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CSIS-118B",
+    "courseName": "Computer Organization & Assembly Language",
+    "units": 3,
+    "prerequisites": ""
+  }
+]

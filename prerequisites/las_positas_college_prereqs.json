@@ -1,0 +1,108 @@
+[
+  {
+    "courseCode": "MATH 1",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": {
+      "and": []
+    }
+  },
+  {
+    "courseCode": "MATH 2",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 3",
+    "courseName": "Multivariable Calculus",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 2"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 5",
+    "courseName": "Ordinary Differential Equations",
+    "units": 3.5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 3"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 7",
+    "courseName": "Elementary Linear Algebra",
+    "units": 3.5,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 2"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 10",
+    "courseName": "Discrete Mathematical Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 1"] },
+        { "or": ["CS 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 1",
+    "courseName": "Introduction to Computer Programming Concepts",
+    "units": 3,
+    "prerequisites": {
+      "and": []
+    }
+  },
+  {
+    "courseCode": "CS 2",
+    "courseName": "Computing Fundamentals II",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 17",
+    "courseName": "Discrete Mathematical Structures",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["MATH 1"] },
+        { "or": ["CS 1"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 20",
+    "courseName": "Advanced Programming with Data Structures/C++",
+    "units": 4,
+    "prerequisites": {
+      "and": []
+    }
+  },
+  {
+    "courseCode": "CS 21",
+    "courseName": "Computer Organization & Assembly Language Programming",
+    "units": 4,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 1"] }
+      ]
+    }
+  }
+]
