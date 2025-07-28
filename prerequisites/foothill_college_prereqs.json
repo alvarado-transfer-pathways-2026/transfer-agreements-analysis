@@ -1,0 +1,194 @@
+[
+  {
+    "courseCode": "MATH 1A",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 47", "MATH 48C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 1AH",
+    "courseName": "Honors Calculus I",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 47", "MATH 48C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 1B",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 1A", "MATH 1AH"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 1C",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 1B", "MATH 1BH"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 1D",
+    "courseName": "Multivariable Calculus",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 1C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 2A",
+    "courseName": "Differential Equations",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 1C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 2B",
+    "courseName": "Linear Algebra",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["MATH 1C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "MATH 22",
+    "courseName": "Discrete Mathematics",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1A", "CS 2A", "CS 3A"]
+        },
+        {
+          "or": ["MATH 47", "MATH 48C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 1A",
+    "courseName": "Java Programming I",
+    "units": 4.5,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 2A",
+    "courseName": "C++ Programming I",
+    "units": 4.5,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 3A",
+    "courseName": "Python Programming I",
+    "units": 4.5,
+    "prerequisites": ""
+  },
+  {
+    "courseCode": "CS 10",
+    "courseName": "Computer Architecture & Organization",
+    "units": 4.5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1A", "CS 2A", "CS 3A"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 18",
+    "courseName": "Discrete Mathematics",
+    "units": 5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1A", "CS 2A", "CS 3A"]
+        },
+        {
+          "or": ["MATH 47", "MATH 48C"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 1B",
+    "courseName": "Intermediate Java",
+    "units": 4.5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1A"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 1C",
+    "courseName": "Advanced Java Data Structures",
+    "units": 4.5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1B"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 2B",
+    "courseName": "Intermediate C++",
+    "units": 4.5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 1B"]
+        }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 3B",
+    "courseName": "Intermediate Python",
+    "units": 4.5,
+    "prerequisites": {
+      "and": [
+        {
+          "or": ["CS 2B"]
+        }
+      ]
+    }
+  }
+]
