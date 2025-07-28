@@ -161,20 +161,8 @@
           ]
         },
         {
-          "reqId": "IG_6",
-          "name": "Language Other Than English (LOTE)",
-          "minCourses": 2,
-          "minUnits": 6
-        },
-        {
           "reqId": "IG_7",
-          "name": "Arts & Humanities or Social & Behavioral Sciences",
-          "minCourses": 1,
-          "minUnits": 3
-        },
-        {
-          "reqId": "IG_8",
-          "name": "Language Other Than English Additional",
+          "name": "Ethinic Studies",
           "minCourses": 1,
           "minUnits": 3
         }
