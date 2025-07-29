@@ -1,0 +1,49 @@
+{
+  "Palo_Verde_College": {
+    "UCLA": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 220",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31A"
+      }
+    },
+    "UCM": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 220",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 021"
+      }
+    },
+    "UCSD": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 220",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20A"
+      }
+    }
+  }
+}

@@ -1,0 +1,355 @@
+{
+  "West_Hills_College_Coalinga": {
+    "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1B"
+      },
+      "MultivariableCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 53"
+      }
+    },
+    "UCD": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021C"
+      }
+    },
+    "UCI": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2B"
+      }
+    },
+    "UCLA": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32A"
+      },
+      "Calc4": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32B"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 33B"
+      }
+    },
+    "UCM": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 021"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 022"
+      },
+      "VectorCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 023"
+      }
+    },
+    "UCR": {
+      "Calc": {
+        "set_id": "A",
+        "num_required": 3,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MATH 9A",
+          "MATH 9B",
+          "MATH 9C"
+        ]
+      }
+    },
+    "UCSD": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20C"
+      }
+    },
+    "UCSB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3B"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 002B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 4B"
+      }
+    },
+    "UCSC": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 001B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19B"
+      }
+    }
+  }
+}

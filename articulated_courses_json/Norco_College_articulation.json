@@ -1,0 +1,787 @@
+{
+  "Norco_College": {
+    "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 1B"
+      },
+      "MultivariableCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 53"
+      },
+      "LinearAlgebraAndDifferentialEqations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 2",
+              "units": 4.0
+            },
+            {
+              "course": "MAT 3",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 54"
+      }
+    },
+    "UCD": {
+      "Intro1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 5",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 17A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18C",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18B",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 5",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 17A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 18A",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17B",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036B"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036C"
+      },
+      "Organization": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 11",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 11",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 050"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 021C"
+      }
+    },
+    "UCI": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 2,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 30A",
+              "units": 3.0
+            },
+            {
+              "course": "CIS 30E",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "I&C SCI 31",
+          "I&C SCI 32"
+        ]
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MAT 1AH",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 2B"
+      }
+    },
+    "UCLA": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17A",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 31"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 31B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32A"
+      },
+      "Calc4": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32B"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 3",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 33A"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 2",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 33B"
+      }
+    },
+    "UCM": {
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17C",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 030"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MAT 1AH",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 021"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 022"
+      },
+      "VectorCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 023"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 2",
+              "units": 4.0
+            },
+            {
+              "course": "MAT 3",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 024"
+      }
+    },
+    "UCR": {
+      "Intro1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 5",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 17A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 17B",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "ENE 38",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CS 10A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17C",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18B",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CS 10B"
+      },
+      "Calc": {
+        "set_id": "A",
+        "num_required": 3,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            },
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MATH 9A",
+          "MATH 9B",
+          "MATH 9C"
+        ]
+      }
+    },
+    "UCSD": {
+      "Intro": {
+        "set_id": "B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 18B",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 11"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 3",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 18"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1C",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 20C"
+      }
+    },
+    "UCSB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MAT 1AH",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 3B"
+      },
+      "LinearAlgebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 3",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 4A"
+      },
+      "DifferentialEquations": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 2",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 4B"
+      },
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC 5",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 5",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 16"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 24"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 7",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 7",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 40"
+      }
+    },
+    "UCSC": {
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 11",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 11",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 7",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 7",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
+      },
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 17A",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 17C",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 18C",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSC 17A",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 30"
+      },
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1A",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19A"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 1B",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 19B"
+      }
+    }
+  }
+}
