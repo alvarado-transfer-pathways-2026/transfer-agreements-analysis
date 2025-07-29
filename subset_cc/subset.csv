@@ -1,0 +1,13 @@
+Community College,UC Campus,CC Course,UC Equivalent,Prerequisites
+Santa Monica College,UC Berkeley,CS 50,CS 61A,None
+Santa Monica College,UC San Diego,CS 55,CSE 8A,CS 50
+De Anza College,UC Berkeley,CIS 22A,CS 61A,None
+De Anza College,UC Davis,CIS 22B,ENG 6,CIS 22A
+Foothill College,UC Irvine,CS 1A,ICS 31,None
+Irvine Valley College,UC Berkeley,CS 10,CS 10,None
+Pasadena City College,UC Santa Cruz,CS 5A,CMPS 12A,CS 5
+City College of SF,UC Berkeley,CS 110A,CS 61A,None
+Fullerton College,UC Davis,CS 123,ENG 6,CS 100
+Orange Coast College,UC Irvine,CS 210,ICS 31,None
+Santa Monica College,UCLA,CS 60,CS 31,None
+Foothill College,UCLA,CS 1B,CS 32,CS 1A
