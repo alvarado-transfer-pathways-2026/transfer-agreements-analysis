@@ -1,0 +1,68 @@
+[
+  {
+    "courseCode": "MATH 400",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": ["MATH 372", "MATH 373"]  
+  },
+  {
+    "courseCode": "MATH 401",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": ["MATH 400"]
+  },
+  {
+    "courseCode": "MATH 402",
+    "courseName": "Calculus III",
+    "units": 5,
+    "prerequisites": ["MATH 401"]
+  },
+  {
+    "courseCode": "MATH 410",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": []  
+  },
+  {
+    "courseCode": "MATH 420",
+    "courseName": "Differential Equations",
+    "units": 4,
+    "prerequisites": []  
+  },
+  {
+    "courseCode": "CISP 360",
+    "courseName": "Introduction to Structured Programming",
+    "units": 4,
+    "prerequisites": ["CISP 300"]
+  },
+  {
+    "courseCode": "CISP 400",
+    "courseName": "Object‑Oriented Programming with C++",
+    "units": 4,
+    "prerequisites": ["CISP 360"]
+  },
+  {
+    "courseCode": "CISP 401",
+    "courseName": "Object‑Oriented Programming with Java",
+    "units": 4,
+    "prerequisites": ["CISP 360"]
+  },
+  {
+    "courseCode": "CISP 430",
+    "courseName": "Data Structures",
+    "units": 4,
+    "prerequisites": ["CISP 400"]
+  },
+  {
+    "courseCode": "CISP 440",
+    "courseName": "Discrete Structures for Computer Science",
+    "units": 3,
+    "prerequisites": ["CISP 400"]
+  },
+  {
+    "courseCode": "CISP 310",
+    "courseName": "Assembly Language Programming on Microcomputers",
+    "units": 4,
+    "prerequisites": ["CISP 360"]
+  }
+]
