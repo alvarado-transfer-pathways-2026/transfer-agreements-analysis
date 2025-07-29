@@ -1,0 +1,88 @@
+[
+  {
+    "courseCode": "CS 111",
+    "courseName": "Programming in Visual Basic",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 116",
+    "courseName": "Programming in C++",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 114",
+    "courseName": "Programming in C",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 116", "CO SCI 575"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 130",
+    "courseName": "Intro to Computer Architecture and Organization",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 116", "CO SCI 575"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 131",
+    "courseName": "Discrete Structures for Computer Science",
+    "units": 3,
+    "prerequisites": {
+      "and": ["CS 111"]
+    }
+  },
+  {
+    "courseCode": "CS 136",
+    "courseName": "Introduction to Data Structures",
+    "units": 3,
+    "prerequisites": {
+      "and": ["CS 131"]
+    }
+  },
+  {
+    "courseCode": "MATH 261",
+    "courseName": "Calculus I",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "MATH 262",
+    "courseName": "Calculus II",
+    "units": 5,
+    "prerequisites": {
+      "and": ["MATH 261"]
+    }
+  },
+  {
+    "courseCode": "MATH 263",
+    "courseName": "Calculus III (Multivariable)",
+    "units": 5,
+    "prerequisites": {
+      "and": ["MATH 261", "MATH 262"]
+    }
+  },
+  {
+    "courseCode": "MATH 270",
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "prerequisites": {
+      "and": ["MATH 261", "MATH 262"]
+    }
+  },
+  {
+    "courseCode": "MATH 275",
+    "courseName": "Differential Equations",
+    "units": 3,
+    "prerequisites": {
+      "and": ["MATH 261", "MATH 262"]
+    }
+  }
+]
