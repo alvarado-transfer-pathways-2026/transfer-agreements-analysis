@@ -31,3 +31,18 @@ for req_id, info in missing.items():
 
 # Check if all is fulfilled
 print("Is IGETC fulfilled?", ge.is_fulfilled("IGETC"))
+
+
+# Remaining IGETC Requirements:
+# - English Communication: 2 course(s), 6 unit(s) remaining
+# - Critical Thinking/English Composition: 0 course(s), 3 unit(s) remaining
+# - Mathematical Concepts/Quantitative Reasoning: 1 course(s), 3 unit(s) remaining
+# - Arts & Humanities: 3 course(s), 9 unit(s) remaining
+# - Arts: 1 course(s), 3 unit(s) remaining
+# - Social & Behavioral Sciences: 2 course(s), 6 unit(s) remaining
+# - Physical & Biological Sciences: 2 course(s), 7 unit(s) remaining
+# - Physical Science: 1 course(s), 3 unit(s) remaining
+# - Biological Science: 1 course(s), 3 unit(s) remaining
+# - Laboratory Science (in either Physical or Biological): 1 course(s), 0 unit(s) remaining
+# - Ethinic Studies: 1 course(s), 3 unit(s) remaining
+# Is IGETC fulfilled? False
