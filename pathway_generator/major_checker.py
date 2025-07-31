@@ -1,30 +1,40 @@
+# major_checker.py
 #!/usr/bin/env python3
 """
 major_checker.py
 
-Extracts all community college courses that articulate to the specified
-UC Computer Science major requirements.
-
-Example usage:
-    from pathlib import Path
-    from major_checker import get_required_cc_courses
-
-    courses = get_required_cc_courses(
-        cc_name="Palomar_College",
-        selected_ucs=["UCLA", "UCSD"],
-        articulation_dir=Path("articulated_courses_json")
-    )
-    # courses is a sorted list of unique CCC course codes that map to those UCs
+Utilities for reading articulation data and mapping
+community college courses to UC Computer Science major requirements,
+with full support for AND/OR logic based on course_reqs.json.
 """
 import json
 from pathlib import Path
-from typing import List, Set, Dict, Any
+from typing import Any, Dict, List, Set, Tuple
 
 
 def load_json(path: Path) -> Dict[str, Any]:
-    """Load JSON data from the specified file path."""
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def load_uc_requirement_groups(
+    course_reqs_path: Path,
+    selected_ucs: List[str]
+) -> Dict[str, Dict[str, Dict[str, Any]]]:
+    data    = load_json(course_reqs_path)
+    uc_reqs = data.get('UC_REQUIREMENTS', {})
+    groups: Dict[str, Dict[str, Dict[str, Any]]] = {}
+
+    for uc in selected_ucs:
+        raw = uc_reqs.get(uc, {})
+        if not raw:
+            continue
+        groups[uc] = {}
+        for group_name, options in raw.items():
+            codes = [opt[0] for opt in options]
+            num_req = options[0][2] if len(options[0]) >= 3 else len(codes)
+            groups[uc][group_name] = {'courses': codes, 'num_required': num_req}
+    return groups
 
 
 def get_required_cc_courses(
@@ -33,30 +43,66 @@ def get_required_cc_courses(
     articulation_dir: Path
 ) -> List[str]:
     """
-    Load the CC articulation file and collect all courses that articulate
-    to the given UC campuses' CS Major requirements.
-
-    Args:
-        cc_name: Name prefix of the CC articulation file (e.g. "Palomar_College").
-        selected_ucs: List of UC campus codes to extract courses for.
-        articulation_dir: Directory containing <cc_name>_articulation.json.
-
-    Returns:
-        Sorted, deduplicated list of course codes from 'receiving_course(s)'.
+    Return flat list of CC courses from `course_groups` that articulate
+    to any UC CS requirement.
     """
-    file_path = articulation_dir / f"{cc_name}_articulation.json"
-    data = load_json(file_path)
-    cc_data = data.get(cc_name, {})
-
+    path = articulation_dir / f"{cc_name}_articulation.json"
+    data = load_json(path).get(cc_name, {})
     courses: Set[str] = set()
     for uc in selected_ucs:
-        uc_map = cc_data.get(uc, {})
-        for entry in uc_map.values():
-            rec = entry.get('receiving_course') or entry.get('receiving_courses')
-            if not rec:
-                continue
-            if isinstance(rec, str):
-                courses.add(rec)
-            elif isinstance(rec, list):
-                courses.update(rec)
+        for entry in data.get(uc, {}).values():
+            for group in entry.get('course_groups', []):
+                for course_obj in group:
+                    courses.add(course_obj['course'])
     return sorted(courses)
+
+
+def build_uc_tuple_map(
+    cc_name: str,
+    selected_ucs: List[str],
+    articulation_dir: Path
+) -> Dict[Tuple[str, str], List[str]]:
+    """
+    Map each (UC, UC_course) to CC courses via `course_groups`.
+    """
+    path = articulation_dir / f"{cc_name}_articulation.json"
+    data = load_json(path).get(cc_name, {})
+    mapping: Dict[Tuple[str, str], List[str]] = {}
+    for uc in selected_ucs:
+        for entry in data.get(uc, {}).values():
+            recs = []
+            if 'receiving_course' in entry:
+                recs = [entry['receiving_course']]
+            elif 'receiving_courses' in entry:
+                recs = entry['receiving_courses']
+            sends: Set[str] = set()
+            for group in entry.get('course_groups', []):
+                for course_obj in group:
+                    sends.add(course_obj['course'])
+            for r in recs:
+                mapping.setdefault((uc, r), []).extend(sorted(sends))
+    # dedupe
+    for k, v in mapping.items():
+        mapping[k] = sorted(set(v))
+    return mapping
+
+
+def build_uc_group_map(
+    cc_name: str,
+    selected_ucs: List[str],
+    articulation_dir: Path,
+    course_reqs_path: Path
+) -> Dict[Tuple[str, str], List[str]]:
+    """
+    Map each (UC, group_name) to all CC courses satisfying that group.
+    """
+    tuple_map = build_uc_tuple_map(cc_name, selected_ucs, articulation_dir)
+    group_defs = load_uc_requirement_groups(course_reqs_path, selected_ucs)
+    group_map: Dict[Tuple[str, str], List[str]] = {}
+    for uc, groups in group_defs.items():
+        for grp, meta in groups.items():
+            sends: Set[str] = set()
+            for uc_course in meta['courses']:
+                sends.update(tuple_map.get((uc, uc_course), []))
+            group_map[(uc, grp)] = sorted(sends)
+    return group_map
