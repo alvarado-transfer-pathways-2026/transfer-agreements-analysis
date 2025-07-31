@@ -12,7 +12,9 @@ ge.load_pattern("7CoursePattern")
 
 # Add completed courses for IGETC (same as before)
 ge.add_completed_course("English Composition", ["IG_1A"])
+ge.add_completed_course("English Composition", ["IG_1A"]) # if duplicate courses are created it doesn't fulfill the requirement
 ge.add_completed_course("Humanities", ["IG_3B"])
+ge.add_completed_course("Humanities", ["IG_3B"]) # duplicate because of the either course requirement in IGETC 
 ge.add_completed_course("Biological Science", ["IG_Biological"])
 ge.add_completed_course("Laboratory Science (in either Physical or Biological)", ["IG_Lab"])
 
@@ -33,36 +35,32 @@ def print_remaining_requirements(pattern_id):
         req_id = req["reqId"]
 
         if "subRequirements" in req and req["subRequirements"]:
-            # Calculate parent remaining courses:
-            # For IGETC, include leftover in parent remaining count
             if pattern_id == "IGETC":
                 parent_remaining = 0
                 for sub in req["subRequirements"]:
                     sub_id = sub["reqId"]
                     if sub_id in remaining:
                         parent_remaining += remaining[sub_id]["courses_remaining"]
-                # Add leftover if any
+
                 leftover_key = f"{req_id}_Leftover"
+                leftover_courses = 0
                 if leftover_key in remaining:
-                    parent_remaining += remaining[leftover_key]["courses_remaining"]
+                    leftover_courses = remaining[leftover_key]["courses_remaining"]
+                    parent_remaining += leftover_courses
 
                 print(f"- {req['name']} ({parent_remaining} course(s)):")
 
-                # Print all subrequirements with remaining courses
                 for sub in req["subRequirements"]:
                     sub_id = sub["reqId"]
                     courses_left = remaining[sub_id]["courses_remaining"] if sub_id in remaining else 0
                     print(f"  - {sub['name']} ({courses_left} course(s))")
 
-                # Print leftover OR group line
+                # Always print leftover OR line, even if 0 remaining
                 if leftover_key in remaining:
                     leftover_info = remaining[leftover_key]
                     print(f"  - {leftover_info['name']} ({leftover_info['courses_remaining']} course(s))")
 
-            # For 7CoursePattern, print parent remaining, subcategories show courses TAKEN,
-            # and skip leftover print
             elif pattern_id == "7CoursePattern" and req_id == "GE_General":
-                # leftover count
                 parent_remaining = remaining.get(req_id, {}).get("courses_remaining", 0)
                 print(f"- {req['name']} ({parent_remaining} course(s)):")
 
@@ -72,7 +70,6 @@ def print_remaining_requirements(pattern_id):
                     print(f"  - {sub['name']} (taken {taken_count} course(s))")
 
             else:
-                # fallback normal behavior for other patterns
                 parent_remaining = 0
                 for sub in req["subRequirements"]:
                     sub_id = sub["reqId"]
@@ -90,6 +87,7 @@ def print_remaining_requirements(pattern_id):
             print(f"- {req['name']} ({courses_left} course(s))")
 
     print(f"Is {pattern['patternName']} fulfilled? {ge.is_fulfilled(pattern_id)}\n")
+
 
 # Print IGETC remaining
 print_remaining_requirements("IGETC")

@@ -35,14 +35,12 @@ class GE_Tracker:
 
         for req in requirements:
             if "subRequirements" in req:
-                # Special logic for 7CoursePattern's "General" req
                 if pattern_id == "7CoursePattern" and req["reqId"] == "GE_General":
-                    # Count courses taken per subcategory with maxCourses limits applied
+                    # 7CoursePattern special case logic stays as is
                     sub_ids = [s["reqId"] for s in req["subRequirements"]]
                     sub_maxes = {s["reqId"]: s.get("maxCourses", float('inf')) for s in req["subRequirements"]}
-
-                    # Count how many courses taken per subcategory, capped by maxCourses
                     taken_per_sub = {}
+
                     for sub_id in sub_ids:
                         count = sum(1 for c in self.completed_courses if sub_id in c.get("tags", []))
                         taken_per_sub[sub_id] = min(count, sub_maxes[sub_id])
@@ -51,48 +49,58 @@ class GE_Tracker:
                     overall_min = req.get("minCourses", 0)
                     remaining_courses = max(0, overall_min - total_taken)
 
-                    # Report remaining courses at parent level
                     if remaining_courses > 0:
                         remaining[req["reqId"]] = {
                             "name": req["name"],
                             "courses_remaining": remaining_courses
                         }
 
-                    # Report taken courses per subcategory (note: showing taken, not remaining)
                     for sub in req["subRequirements"]:
                         sub_id = sub["reqId"]
                         taken = taken_per_sub.get(sub_id, 0)
-                        # We store taken as courses_remaining with "taken" in the name to distinguish
                         remaining[sub_id] = {
                             "name": sub["name"] + " (taken)",
                             "courses_remaining": taken
                         }
 
                 else:
-                    # Default logic for other patterns or requirements with subRequirements
-                    sub_remaining = []
+                    sub_min_total = 0
+                    fulfilled_per_sub = {}
+                    leftover_tags = set()
+
                     for sub in req["subRequirements"]:
-                        res = self._evaluate_requirement(sub, self.completed_courses)
-                        if res:
-                            sub_remaining.append((sub["reqId"], res))
-
-                    for subreq_id, subreq_info in sub_remaining:
-                        remaining[subreq_id] = subreq_info
-
-                    # Handle leftover / OR requirement logic
-                    sub_ids = [s["reqId"] for s in req["subRequirements"]]
-                    leftover = req.get("minCourses", 0) - sum(s.get("minCourses", 0) for s in req["subRequirements"])
-                    if leftover > 0:
-                        count = sum(
-                            1 for c in self.completed_courses
-                            if any(tag in sub_ids for tag in c.get("tags", []))
-                        )
-                        remaining_courses = max(0, leftover - max(0, count - sum(s.get("minCourses", 0) for s in req["subRequirements"])))
-                        if remaining_courses > 0:
-                            remaining[f"{req['reqId']}_Leftover"] = {
-                                "name": f"{req['name']} (either subcategory)",
-                                "courses_remaining": remaining_courses
+                        sub_id = sub["reqId"]
+                        sub_min = sub.get("minCourses", 0)
+                        sub_min_total += sub_min
+                        matched = [c for c in self.completed_courses if sub_id in c.get("tags", [])]
+                        fulfilled_count = min(len(matched), sub_min)
+                        fulfilled_per_sub[sub_id] = fulfilled_count
+                        if fulfilled_count < sub_min:
+                            remaining[sub_id] = {
+                                "name": sub["name"],
+                                "courses_remaining": sub_min - fulfilled_count
                             }
+                        # Save *extra* matched courses (beyond sub min) for leftover
+                        leftover_tags.update(c["name"] for c in matched[sub_min:])
+
+                    # Handle leftover for OR-style requirements
+                    leftover_needed = req.get("minCourses", 0) - sub_min_total
+                    if leftover_needed > 0:
+                        # Now count how many *remaining* (not used) courses fulfill any subRequirement
+                        all_or_tags = set(s["reqId"] for s in req["subRequirements"])
+                        valid_extra_courses = [
+                            c for c in self.completed_courses
+                            if any(tag in all_or_tags for tag in c["tags"])
+                            and c["name"] in leftover_tags
+                        ]
+                        leftover_remaining = max(0, leftover_needed - len(valid_extra_courses))
+
+                        # Always add leftover entry even if 0
+                        remaining[f"{req['reqId']}_Leftover"] = {
+                            "name": f"{req['name']} (either subcategory)",
+                            "courses_remaining": leftover_remaining
+                        }
+
             else:
                 res = self._evaluate_requirement(req, self.completed_courses)
                 if res:
