@@ -2,7 +2,7 @@ import json
 from ge_checker import GE_Tracker
 
 # Load GE structure
-with open("/Users/yasminkabir/GitHub/transfer-agreements-analysis-2/prerequisites/ge_reqs.json") as f:
+with open("prerequisites/ge_reqs.json") as f:
     ge_data = json.load(f)
 
 # Initialize tracker

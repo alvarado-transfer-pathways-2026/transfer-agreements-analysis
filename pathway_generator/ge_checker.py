@@ -1,79 +1,46 @@
+from typing import Optional
+
 class GE_Tracker:
-    def __init__(self, ge_reqs_data):
-        self.reqs = self._flatten_requirements(ge_reqs_data)
-        self.state = self._init_state()
+    def __init__(self, ge_data):
+        self.ge_data = ge_data
+        self.completed_courses = []
 
-    def _flatten_requirements(self, data):
-        flattened = {}
-        for pattern in data["requirementPatterns"]:
-            pattern_id = pattern["patternId"]
-            flattened[pattern_id] = {}
+    def check_course(self, course: dict):
+        """Add a course to the list of completed courses."""
+        self.completed_courses.append(course)
 
-            for req in pattern["requirements"]:
-                flattened[pattern_id][req["reqId"]] = {
-                    "name": req["name"],
-                    "minCourses": req.get("minCourses", 0),
-                    "minUnits": req.get("minUnits", 0),
-                    "subRequirements": {}
-                }
+    def _evaluate_requirement(self, req: dict, completed_courses: list) -> Optional[dict]:
+        matched_courses = []
+        units_matched = 0
 
-                for sub in req.get("subRequirements", []):
-                    flattened[pattern_id][req["reqId"]]["subRequirements"][sub["reqId"]] = {
-                        "name": sub["name"],
-                        "minCourses": sub.get("minCourses", 0),
-                        "minUnits": sub.get("minUnits", 0)
-                    }
-        return flattened
+        for course in completed_courses:
+            # If any course tag matches one of the requirement tags
+            if any(tag in req['tags'] for tag in course.get('tags', [])):
+                matched_courses.append(course)
+                units_matched += course.get('units', 0)
 
-    def _init_state(self):
-        state = {}
-        for pattern_id, areas in self.reqs.items():
-            state[pattern_id] = {}
-            for area_id, area_info in areas.items():
-                state[pattern_id][area_id] = {
-                    "courses_completed": 0,
-                    "units_completed": 0
-                }
+        remaining_courses = max(0, req['num_courses'] - len(matched_courses))
+        remaining_units = max(0, req['num_units'] - units_matched)
 
-                for sub_id in area_info["subRequirements"]:
-                    state[pattern_id][sub_id] = {
-                        "courses_completed": 0,
-                        "units_completed": 0
-                    }
-        return state
+        if remaining_courses == 0 and remaining_units == 0:
+            return None  # Requirement is fully met
 
-    def check_course(self, course):
-        tags = course.get("tags", [])
-        for tag in tags:
-            for pattern_id, pattern_reqs in self.state.items():
-                if tag in pattern_reqs:
-                    pattern_reqs[tag]["courses_completed"] += 1
-                    pattern_reqs[tag]["units_completed"] += course.get("units", 0)
+        return {
+            'name': req['name'],
+            'courses_remaining': remaining_courses,
+            'units_remaining': remaining_units
+        }
 
-    def get_remaining_requirements(self, pattern_name):
+
+    def get_remaining_requirements(self, pattern_name: str) -> dict:
+        pattern = self.ge_data.get(pattern_name, {})
+        completed = self.completed_courses
         remaining = {}
-        for area_id, area in self.reqs[pattern_name].items():
-            state = self.state[pattern_name][area_id]
-            needed_courses = area.get("minCourses", 0)
-            needed_units = area.get("minUnits", 0)
-
-            if state["courses_completed"] < needed_courses or state["units_completed"] < needed_units:
-                remaining[area_id] = {
-                    "name": area["name"],
-                    "courses_remaining": max(0, needed_courses - state["courses_completed"]),
-                    "units_remaining": max(0, needed_units - state["units_completed"])
-                }
-
-            for sub_id, sub in area.get("subRequirements", {}).items():
-                sub_state = self.state[pattern_name][sub_id]
-                if (sub_state["courses_completed"] < sub["minCourses"] or
-                    sub_state["units_completed"] < sub.get("minUnits", 0)):
-                    remaining[sub_id] = {
-                        "name": sub["name"],
-                        "courses_remaining": max(0, sub["minCourses"] - sub_state["courses_completed"]),
-                        "units_remaining": max(0, sub.get("minUnits", 0) - sub_state["units_completed"])
-                    }
+        for req_id, req in pattern.items():
+            result = self._evaluate_requirement(req, completed)
+            if result:
+                remaining[req_id] = result
         return remaining
 
-    def is_fulfilled(self, pattern_name):
-        return len(self.get_remaining_requirements(pattern_name)) == 0
+    def is_fulfilled(self, pattern_name: str) -> bool:
+        return not self.get_remaining_requirements(pattern_name)
