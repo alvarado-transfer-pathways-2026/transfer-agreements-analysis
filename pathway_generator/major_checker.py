@@ -5,7 +5,7 @@ major_checker.py
 
 Utilities for reading articulation data and mapping
 community college courses to UC Computer Science major requirements,
-with full support for AND/OR logic based on course_reqs.json.
+with full support for nested AND/OR logic in articulation JSON.
 """
 import json
 from pathlib import Path
@@ -42,10 +42,6 @@ def get_required_cc_courses(
     selected_ucs: List[str],
     articulation_dir: Path
 ) -> List[str]:
-    """
-    Return flat list of CC courses from `course_groups` that articulate
-    to any UC CS requirement.
-    """
     path = articulation_dir / f"{cc_name}_articulation.json"
     data = load_json(path).get(cc_name, {})
     courses: Set[str] = set()
@@ -57,17 +53,20 @@ def get_required_cc_courses(
     return sorted(courses)
 
 
-def build_uc_tuple_map(
+def build_uc_block_map(
     cc_name: str,
     selected_ucs: List[str],
     articulation_dir: Path
-) -> Dict[Tuple[str, str], List[str]]:
+) -> Dict[Tuple[str, str], List[List[str]]]:
     """
-    Map each (UC, UC_course) to CC courses via `course_groups`.
+    Map each (uc, receiving_course) to a list of sending-course blocks:
+      - OR-level: choose one block
+      - AND-level: take all courses within a block
     """
     path = articulation_dir / f"{cc_name}_articulation.json"
     data = load_json(path).get(cc_name, {})
-    mapping: Dict[Tuple[str, str], List[str]] = {}
+    block_map: Dict[Tuple[str, str], List[List[str]]] = {}
+
     for uc in selected_ucs:
         for entry in data.get(uc, {}).values():
             recs = []
@@ -75,34 +74,34 @@ def build_uc_tuple_map(
                 recs = [entry['receiving_course']]
             elif 'receiving_courses' in entry:
                 recs = entry['receiving_courses']
-            sends: Set[str] = set()
+            # extract each block (AND within)
+            blocks: List[List[str]] = []
             for group in entry.get('course_groups', []):
-                for course_obj in group:
-                    sends.add(course_obj['course'])
+                block = [course_obj['course'] for course_obj in group]
+                blocks.append(block)
             for r in recs:
-                mapping.setdefault((uc, r), []).extend(sorted(sends))
-    # dedupe
-    for k, v in mapping.items():
-        mapping[k] = sorted(set(v))
-    return mapping
+                block_map.setdefault((uc, r), []).extend(blocks)
+    return block_map
 
 
-def build_uc_group_map(
+def build_uc_group_block_map(
     cc_name: str,
     selected_ucs: List[str],
     articulation_dir: Path,
     course_reqs_path: Path
-) -> Dict[Tuple[str, str], List[str]]:
+) -> Dict[Tuple[str, str], List[List[str]]]:
     """
-    Map each (UC, group_name) to all CC courses satisfying that group.
+    Map each (uc, group_name) to all CC blocks satisfying that group.
     """
-    tuple_map = build_uc_tuple_map(cc_name, selected_ucs, articulation_dir)
+    block_map = build_uc_block_map(cc_name, selected_ucs, articulation_dir)
     group_defs = load_uc_requirement_groups(course_reqs_path, selected_ucs)
-    group_map: Dict[Tuple[str, str], List[str]] = {}
+    group_block_map: Dict[Tuple[str, str], List[List[str]]] = {}
+
     for uc, groups in group_defs.items():
         for grp, meta in groups.items():
-            sends: Set[str] = set()
+            all_blocks: List[List[str]] = []
             for uc_course in meta['courses']:
-                sends.update(tuple_map.get((uc, uc_course), []))
-            group_map[(uc, grp)] = sorted(sends)
-    return group_map
+                for block in block_map.get((uc, uc_course), []):
+                    all_blocks.append(block)
+            group_block_map[(uc, grp)] = all_blocks
+    return group_block_map
