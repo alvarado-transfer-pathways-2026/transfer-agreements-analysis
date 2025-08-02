@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import json
 import os
+from pathlib import Path
 
-from major_checker import get_major_requirements
-# from ge_checker import get_ge_requirements
+
+from major_checker import MajorRequirements, get_major_requirements
+from ge_checker import GE_Tracker
 # from prereq_resolver import filter_by_prereqs
 # from unit_balancer import balance_units
 # from elective_filler import fill_electives
@@ -13,16 +15,34 @@ from major_checker import get_major_requirements
 MAX_UNITS = 18             # semester cap (use 20 for quarters)
 TOTAL_UNITS_REQUIRED = 60  # typical CC → UC transfer target
 
-SUPPORTED_CCS = [
-    "cabrillo", "chabot", "city_college_of_san_francisco", "consumes_river",
-    "de_anza", "diablo_valley", "folsom_lake", "foothill", "la_city",
-    "las_positas", "los_angeles_pierce", "miracosta",
-    "mt_san_jacinto", "orange_coast", "palomar"
-]
+# ─── 1) Locate directories ────────────────────────────────────────────────────
+SCRIPT_DIR       = Path(__file__).parent.resolve()  # .../pathway_generator
+PROJECT_ROOT     = SCRIPT_DIR.parent               # .../transfer-agreements-analysis
+ARTICULATION_DIR = PROJECT_ROOT / "articulated_courses_json"
+PREREQS_DIR      = PROJECT_ROOT / "prerequisites"
+COURSE_REQS_FILE = PROJECT_ROOT / "scraping" / "files" / "course_reqs.json"
 
-SUPPORTED_UCS = [
-    "ucsd", "ucla", "uci", "ucr", "ucsb", "ucd", "ucb", "ucsc", "ucmerced"
-]
+
+# ─── 2) CC and UC options ─────────────────────────────────────────────────────
+ARTICULATION_FILES = {
+    "cabrillo":   "Cabrillo_College_articulation.json",
+    "chabot":     "Chabot_College_articulation.json",
+    "city_college_of_san_francisco": "City_College_Of_San_Francisco_articulation.json",
+    "consumes_river":               "Consumnes_River_College_articulation.json",
+    "de_anza":    "De_Anza_College_articulation.json",
+    "diablo_valley":"Diablo_Valley_College_articulation.json",
+    "folsom_lake":"Folsom_Lake_College_articulation.json",
+    "foothill":   "Foothill_College_articulation.json",
+    "la_city":    "Los_Angeles_City_College_articulation.json",
+    "las_positas":"Las_Positas_College_articulation.json",
+    "los_angeles_pierce":"Los_Angeles_Pierce_College_articulation.json",
+    "miracosta":  "MiraCosta_College_articulation.json",
+    "mt_san_jacinto":"Mt_San_Jacinto_College_articulation.json",
+    "orange_coast":"Orange_Coast_College_articulation.json",
+    "palomar":    "Palomar_College_articulation.json",
+}
+SUPPORTED_CCS = list(ARTICULATION_FILES.keys())
+SUPPORTED_UCS = ["UCSD", "UCLA", "UCI", "UCR", "UCSB", "UCD", "UCB", "UCSC", "UCM"]
 
 
 # ─── Helpers for User Input ──────────────────────────────────────────────────
@@ -49,7 +69,7 @@ def normalize_cc_name(cc_input):
 
 
 def get_user_inputs():
-    """Prompt until the user picks a valid CC and UC."""
+    """Prompt until the user picks a valid CC, UC, and GE pattern."""
     print("📍 Available Community Colleges:")
     for cc in SUPPORTED_CCS:
         print(f"  • {cc}")
@@ -60,23 +80,48 @@ def get_user_inputs():
     print("\n🎓 Available UC Campuses:")
     for uc in SUPPORTED_UCS:
         print(f"  • {uc}")
-    uc = input("\nEnter the UC campus (e.g., 'ucsd'): ").strip().lower()
+    uc = input("\nEnter the UC campus (e.g., 'ucsd'): ").strip().upper()
     while uc not in SUPPORTED_UCS:
-        uc = input("Invalid UC. Try again: ").strip().lower()
+        uc = input("Invalid UC. Try again: ").strip().upper()
 
-    return cc, uc
+    print("\n📚 Available GE Patterns:")
+    print("  • 7CoursePattern - Basic 7-Course GE Pattern")
+    print("  • IGETC - IGETC General Education")
+    ge_pattern = input("\nEnter the GE pattern (e.g., '7CoursePattern' or 'IGETC'): ").strip()
+    while ge_pattern not in ["7CoursePattern", "IGETC"]:
+        ge_pattern = input("Invalid GE pattern. Try again: ").strip()
+
+    return cc, uc, ge_pattern
 
 
-def build_file_paths(cc, uc):
-    """Given valid IDs, build all the JSON paths we need."""
-    prereq_file = normalize_cc_name(cc)
-    assert prereq_file, f"No prereqs file found for '{cc}'"
+def build_file_paths(cc_id: str, uc_id: str):
+    """Build all necessary file paths for the pathway generation."""
+    # articulation file path
+    art_fname = ARTICULATION_FILES.get(cc_id)
+    if not art_fname:
+        raise ValueError(f"No articulation file mapped for '{cc_id}'")
+    art_path = ARTICULATION_DIR / art_fname
+    if not art_path.exists():
+        raise FileNotFoundError(f"Articulation file not found: {art_path}")
+
+    # prerequisite file path
+    prereq_fname = normalize_cc_name(cc_id)
+    if not prereq_fname:
+        raise ValueError(f"No prerequisite file mapped for '{cc_id}'")
+    prereq_path = PREREQS_DIR / prereq_fname
+    if not prereq_path.exists():
+        raise FileNotFoundError(f"Prerequisite file not found: {prereq_path}")
+
+    # GE requirements file path
+    ge_path = PREREQS_DIR / "ge_reqs.json"
+    if not ge_path.exists():
+        raise FileNotFoundError(f"GE requirements file not found: {ge_path}")
 
     return {
-        "articulated_courses_json": os.path.join("data", "articulated", f"{cc}_to_{uc}.json"),
-        "prereq_file":              os.path.join("data", "prereqs", prereq_file),
-        "ge_reqs_json":             os.path.join("data", "ge", "ge_reqs.json"),
-        "course_reqs_json":         os.path.join("data", "major", f"{uc}.json")
+        "articulated_courses_json": art_path,
+        "prereq_file": prereq_path,
+        "ge_reqs_json": ge_path,
+        "course_reqs_json": COURSE_REQS_FILE
     }
 
 
@@ -85,12 +130,102 @@ def load_json(path):
         return json.load(f)
 
 
+# ─── Helper Functions for Pathway Generation ─────────────────────────────────
+def filter_by_prereqs(candidates, completed, prereqs):
+    """Filter candidates based on prerequisites."""
+    # TODO: Implement prerequisite filtering logic
+    # For now, return all candidates as eligible
+    return candidates
+
+
+def balance_units(eligible, max_units):
+    """Balance units to stay within the semester cap."""
+    # TODO: Implement unit balancing logic
+    # For now, return first few courses that fit within max_units
+    selected = []
+    total_units = 0
+    
+    for course in eligible:
+        course_units = course.get("units", 3)
+        if total_units + course_units <= max_units:
+            selected.append(course)
+            total_units += course_units
+    
+    return selected, total_units
+
+
+def fill_electives(selected, current_units, max_units):
+    """Fill remaining units with elective courses."""
+    # TODO: Implement elective filling logic
+    # For now, return as-is
+    return selected, current_units
+
+
+def export_term(pathway, term_num, selected):
+    """Export the selected courses for this term."""
+    # TODO: Implement term export logic
+    # For now, create a simple term record
+    term_data = {
+        "term": term_num,
+        "courses": selected,
+        "total_units": sum(course.get("units", 3) for course in selected)
+    }
+    pathway.append(term_data)
+
+
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
-def generate_pathway(art_path, prereq_path, ge_path, major_path):
+def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_id: str, ge_pattern: str):
     articulated = load_json(art_path)
-    prereqs     = load_json(prereq_path)
-    ge_reqs     = get_ge_requirements(ge_path)
-    major_reqs  = get_major_requirements(major_path)
+    prereqs = load_json(prereq_path)
+    ge_data = load_json(ge_path)
+    
+    # Initialize the classes
+    ge_tracker = GE_Tracker(ge_data)
+    # Load the appropriate GE pattern
+    ge_tracker.load_pattern(ge_pattern)
+    
+    major_reqs = get_major_requirements(
+        str(major_path), 
+        cc_id, 
+        [uc_id.upper()], 
+        str(ARTICULATION_DIR)
+    )
+
+    # Debug: Print major requirements information
+    print(f"\n🔍 Major Requirements Debug:")
+    print(f"  Number of UC campuses: {len(major_reqs.group_defs)}")
+    for uc, groups in major_reqs.group_defs.items():
+        print(f"  {uc}: {len(groups)} requirement groups")
+        for group_name, group_info in groups.items():
+            print(f"    - {group_name}: {group_info['num_required']} courses required")
+            print(f"      Required UC courses: {group_info['courses']}")
+    
+    print(f"\n  Number of CC→UC block mappings: {len(major_reqs.group_block_map)}")
+    for (uc, group), blocks in major_reqs.group_block_map.items():
+        print(f"    {uc}:{group}: {len(blocks)} course blocks available")
+        for i, block in enumerate(blocks[:3]):  # Show first 3 blocks
+            print(f"      Block {i+1}: {block}")
+        if len(blocks) > 3:
+            print(f"      ... and {len(blocks) - 3} more blocks")
+    
+    # Debug: Show what's actually in the articulation data for UCSD
+    print(f"\n🔍 Articulation Data Debug for UCSD:")
+    articulated_data = load_json(paths["articulated_courses_json"])
+    ucsd_data = articulated_data.get("De_Anza_College", {}).get("UCSD", {})
+    print(f"  UCSD articulation entries: {list(ucsd_data.keys())}")
+    for entry_name, entry_data in ucsd_data.items():
+        receiving = entry_data.get('receiving_course', 'N/A')
+        print(f"    {entry_name} -> {receiving}")
+    
+    # Debug: Show what's in the block_map
+    print(f"\n🔍 Block Map Debug:")
+    from major_checker import build_uc_block_map
+    block_map = build_uc_block_map("de_anza", ["UCSD"], ARTICULATION_DIR)
+    print(f"  Block map keys: {list(block_map.keys())}")
+    for (uc, uccode), blocks in block_map.items():
+        print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
+        for i, block in enumerate(blocks[:2]):
+            print(f"      Block {i+1}: {block}")
 
     completed = set()
     total_units = 0
@@ -102,8 +237,25 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path):
 
         # 1) Candidate courses from major + GE
         major_cands = major_reqs.get_remaining_courses(completed, articulated)
-        ge_cands    = ge_reqs.get_remaining_areas(completed, articulated)
-        candidates  = major_cands + ge_cands
+        print(f"  Found {len(major_cands)} major course candidates")
+        
+        # For GE courses, we need to get remaining requirements and find courses that fulfill them
+        ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
+        ge_cands = []
+        
+        print(f"  GE remaining requirements: {list(ge_remaining.keys())}")
+        
+        # Find courses that fulfill remaining GE requirements
+        # TODO: Implement proper GE course mapping logic
+        # For now, this is a placeholder that will be implemented later
+        for req_id, req_info in ge_remaining.items():
+            if req_info["courses_remaining"] > 0:
+                # Placeholder: Add some basic courses as GE candidates
+                # This will be replaced with proper GE course mapping logic
+                pass
+        
+        print(f"  Found {len(ge_cands)} GE course candidates")
+        candidates = major_cands + ge_cands
 
         # 2) Prereq filter
         eligible = filter_by_prereqs(candidates, completed, prereqs)
@@ -116,29 +268,54 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path):
             selected, units = fill_electives(selected, units, MAX_UNITS)
 
         # 5) Update state
-        completed.update(course["courseCode"] for course in selected)
+        for course in selected:
+            completed.add(course["courseCode"])
+            # Update GE tracker with completed course
+            tags = [course.get("tag")] if course.get("tag") else []
+            ge_tracker.add_completed_course(course["courseCode"], tags)
+        
         total_units += units
 
         # 6) Record this term
         export_term(pathway, term_num, selected)
         term_num += 1
 
+        break
+
     return pathway
 
 
 # ─── Script Entrypoint ───────────────────────────────────────────────────────
 if __name__ == "__main__":
-    cc, uc = get_user_inputs()
-    paths = build_file_paths(cc, uc)
+    try:
+        cc, uc, ge_pattern = get_user_inputs()
+        print(f"\n🔧 Building file paths for CC: {cc}, UC: {uc}, GE Pattern: {ge_pattern}")
+        paths = build_file_paths(cc, uc)
+        
+        print(f"  Articulation file: {paths['articulated_courses_json']}")
+        print(f"  Prerequisite file: {paths['prereq_file']}")
+        print(f"  GE requirements file: {paths['ge_reqs_json']}")
+        print(f"  Course requirements file: {paths['course_reqs_json']}")
 
-    pathway = generate_pathway(
-        paths["articulated_courses_json"],
-        paths["prereq_file"],
-        paths["ge_reqs_json"],
-        paths["course_reqs_json"]
-    )
+        pathway = generate_pathway(
+            paths["articulated_courses_json"],
+            paths["prereq_file"],
+            paths["ge_reqs_json"],
+            paths["course_reqs_json"],
+            cc,
+            uc,
+            ge_pattern
+        )
 
-    # Print or further save the full plan
-    print("\n🎉 Final Pathway:")
-    for term in pathway:
-        print(term)
+        # Print or further save the full plan
+        print("\n🎉 Final Pathway:")
+        for term in pathway:
+            print(f"Term {term['term']}: {term['total_units']} units")
+            for course in term['courses']:
+                print(f"  - {course['courseCode']} ({course.get('units', 3)} units)")
+            print()
+            
+    except Exception as e:
+        print(f"\n❌ Error: {e}")
+        import traceback
+        traceback.print_exc()
