@@ -62,7 +62,7 @@
             {
               "reqId": "IG_1B",
               "name": "Critical Thinking/English Composition",
-              "minCourses": 0,
+              "minCourses": 1,
               "minUnits": 3
             }
           ]
