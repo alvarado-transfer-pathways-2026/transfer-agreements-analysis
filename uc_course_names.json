@@ -1,0 +1,106 @@
+{
+  "UC Berkeley": {
+    "CS 61A": "Structure and Interpretation of CS",
+    "CS 61B": "Data Structures",
+    "CS 61C": "Machine Structures",
+    "EECS 16A": "Designing Info Devices and Systems I",
+    "EECS 16B": "Designing Info Devices and Systems II",
+    "MATH 1A": "Calculus I",
+    "MATH 1B": "Calculus II",
+    "MATH 54": "Linear Algebra and Differential Equations",
+    "ENGL R1A": "English Composition A"
+  },
+  "UC Davis": {
+    "ENG 6": "Introduction to Programming",
+    "ENG 17": "Circuits",
+    "MAT 21A": "Calculus I",
+    "MAT 21B": "Calculus II",
+    "MAT 21C": "Multivariable Calculus",
+    "MAT 22A": "Linear Algebra",
+    "PHY 9A": "Physics: Mechanics",
+    "PHY 9B": "Physics: Electricity and Magnetism"
+  },
+  "UC Irvine": {
+    "ICS 31": "Introduction to Programming",
+    "ICS 32": "Programming with Software Libraries",
+    "ICS 45C": "Programming in C/C++",
+    "ICS 6B": "Boolean Algebra",
+    "ICS 6D": "Discrete Mathematics",
+    "MATH 2A": "Calculus I",
+    "MATH 2B": "Calculus II",
+    "MATH 3A": "Linear Algebra",
+    "PHYSICS 7C": "Classical Physics"
+  },
+  "UCLA": {
+    "CS 31": "Introduction to Computer Science I",
+    "CS 32": "Introduction to Computer Science II",
+    "CS 33": "Computer Organization",
+    "CS 35L": "Software Construction Laboratory",
+    "MATH 31A": "Calculus I",
+    "MATH 31B": "Calculus II",
+    "MATH 32A": "Multivariable Calculus",
+    "MATH 33A": "Linear Algebra",
+    "PIC 10A": "Intro to Programming",
+    "ENGL 3": "College Reading and Composition"
+  },
+  "UC Merced": {
+    "CSE 20": "Programming",
+    "CSE 21": "Advanced Programming",
+    "CSE 30": "Computer Organization",
+    "CSE 31": "Software Engineering",
+    "MATH 21": "Calculus I",
+    "MATH 22": "Calculus II",
+    "MATH 23": "Multivariable Calculus",
+    "MATH 24": "Linear Algebra",
+    "PHYS 8": "Physics I",
+    "PHYS 9": "Physics II"
+  },
+  "UC Riverside": {
+    "CS 10A": "Intro to CS",
+    "CS 10B": "Intermediate Programming",
+    "CS 12": "Data Structures",
+    "CS 14": "Software Construction",
+    "MATH 9A": "First-Year Calculus",
+    "MATH 9B": "First-Year Calculus",
+    "MATH 9C": "First-Year Calculus",
+    "MATH 31": "Linear Algebra",
+    "PHYS 40A": "Physics: Mechanics",
+    "PHYS 40B": "Physics: Electricity and Magnetism"
+  },
+  "UC San Diego": {
+    "CSE 8A": "Intro to Programming",
+    "CSE 8B": "Object-Oriented Programming",
+    "CSE 12": "Data Structures",
+    "CSE 15L": "Software Tools & Techniques Lab",
+    "CSE 20": "Discrete Mathematics",
+    "CSE 30": "Computer Organization & Systems",
+    "MATH 20A": "Calculus I",
+    "MATH 20B": "Calculus II",
+    "MATH 20C": "Multivariable Calculus",
+    "MATH 18": "Linear Algebra",
+    "PHYS 2A": "Mechanics",
+    "PHYS 2B": "Electricity and Magnetism"
+  },
+  "UC Santa Barbara": {
+    "CMPSC 8": "Intro to Programming",
+    "CMPSC 16": "Problem Solving",
+    "CMPSC 24": "Object-Oriented Programming",
+    "CMPSC 32": "Data Structures",
+    "MATH 3A": "Calculus I",
+    "MATH 3B": "Calculus II",
+    "MATH 4A": "Linear Algebra",
+    "PHYS 1": "Mechanics",
+    "PHYS 2": "Electricity and Magnetism"
+  },
+  "UC Santa Cruz": {
+    "CSE 12": "Computer Systems & Assembly",
+    "CSE 13S": "Software Development",
+    "CSE 16": "Data Structures",
+    "CSE 30": "Discrete Math",
+    "MATH 19A": "Calculus I",
+    "MATH 19B": "Calculus II",
+    "MATH 21": "Linear Algebra",
+    "PHYS 5A": "Mechanics",
+    "PHYS 5B": "Electricity and Magnetism"
+  }
+}
