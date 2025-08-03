@@ -1,609 +1,1437 @@
 {
   "Shasta_College": {
-    "UCB": {
-      "Calc1": {
-        "set_id": "A",
+    "University of California Berkeley": [
+      {
+        "uc_requirement": "MATH 1A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
+            "MATH 3A"
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "articulated": true
       },
-      "Calc2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 1B",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            },
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            }
+            "MATH 3B",
+            "MATH 4B"
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "articulated": true
       },
-      "MultivariableCalc": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 53",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
+            "MATH 4A"
           ]
         ],
-        "receiving_course": "MATH 53"
+        "articulated": true
       },
-      "LinearAlgebraAndDifferentialEqations": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 54",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            },
-            {
-              "course": "MATH 6",
-              "units": 3.0
-            }
+            "MATH 4B",
+            "MATH 6"
           ]
         ],
-        "receiving_course": "MATH 54"
-      }
-    },
-    "UCD": {
-      "DiscreteMath": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 67",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "ECS 020"
+        "articulated": true
       },
-      "Intro1": {
-        "set_id": "A",
+      {
+        "uc_requirement": "PHYSICS 7A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 61",
-              "units": 3.0
-            }
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYSICS 7B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "ENGLISH R1A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGL 1A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "ENGLISH R1B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGL 1B"
           ],
           [
-            {
-              "course": "CIS 62",
-              "units": 3.0
-            }
+            "ENGL 1C"
           ]
         ],
-        "receiving_course": "ECS 036A"
+        "articulated": true
       },
-      "Intro2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "ASTRON 7A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "ASTRON 7B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "BIOLOGY 1A; BIOLOGY 1AL",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 65",
-              "units": 3.0
-            }
+            "BIOL 1",
+            "ZOOL 1"
           ]
         ],
-        "receiving_course": "ECS 036B"
+        "articulated": true
       },
-      "Organization": {
-        "set_id": "A",
+      {
+        "uc_requirement": "BIOLOGY 1B",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 63",
-              "units": 4.0
-            }
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 1A; CHEM 1AL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 1B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 3A; CHEM 3AL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 70",
+            "CHEM 70A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 3B; CHEM 3BL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 71",
+            "CHEM 71A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MCELLBI 32; MCELLBI 32L",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "PHYSICS 7C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "COMPSCI 61A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "COMPSCI 61B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "COMPSCI 61C",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "COMPSCI 70",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "EECS 16A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "EECS 16B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      }
+    ],
+    "University of California Davis": [
+      {
+        "uc_requirement": "ECS 020",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 67"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "ECS 036A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 61"
           ],
           [
-            {
-              "course": "CIS 66",
-              "units": 3.0
-            }
+            "CIS 62"
           ]
         ],
-        "receiving_course": "ECS 050"
+        "articulated": true
       },
-      "Calc1": {
-        "set_id": "A",
+      {
+        "uc_requirement": "ECS 036B",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
+            "CIS 65"
           ]
         ],
-        "receiving_course": "MAT 021A"
+        "articulated": true
       },
-      "Calc2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "ECS 036C",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 021B"
+        "course_groups": [],
+        "articulated": false
       },
-      "Calc3": {
-        "set_id": "A",
+      {
+        "uc_requirement": "ECS 050",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_courses": [
-          "MAT 021C",
-          "MAT 021D"
-        ]
-      }
-    },
-    "UCI": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 2A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 2B"
-      }
-    },
-    "UCLA": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 31A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 31B"
-      },
-      "Calc3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 32A"
-      },
-      "Calc4": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 32B"
-      },
-      "LinearAlgebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 6",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 33A"
-      },
-      "DifferentialEquations": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 33B"
-      }
-    },
-    "UCM": {
-      "DataStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 65",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 030"
-      },
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 021"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 022"
-      },
-      "VectorCalc": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 023"
-      },
-      "LinearAlgebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            },
-            {
-              "course": "MATH 6",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 024"
-      }
-    },
-    "UCR": {
-      "Intro1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 61",
-              "units": 3.0
-            }
+            "CIS 63"
           ],
           [
-            {
-              "course": "CIS 62",
-              "units": 3.0
-            }
+            "CIS 66"
           ]
         ],
-        "receiving_course": "CS 10A"
+        "articulated": true
       },
-      "Intro2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MAT 021A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 65",
-              "units": 3.0
-            }
+            "MATH 3A"
           ]
         ],
-        "receiving_course": "CS 10B"
+        "articulated": true
       },
-      "Calc": {
-        "set_id": "A",
-        "num_required": 3,
+      {
+        "uc_requirement": "MAT 021B",
+        "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            },
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
+            "MATH 3B"
           ]
         ],
-        "receiving_courses": [
-          "MATH 9A",
-          "MATH 9B",
-          "MATH 9C"
-        ]
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MAT 021C; MAT 021D",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MAT 022A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MAT 027A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "MAT 067",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "BIS 002A; BIS 002B; BIS 002C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHE 002A; CHE 002B; CHE 002C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1A",
+            "CHEM 1B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHE 004A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CHE 004B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CHE 004C",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "PHY 009A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHY 009B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHY 009C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
       }
-    },
-    "UCSD": {
-      "LinearAlgebra": {
-        "set_id": "A",
+    ],
+    "University of California Irvine": [
+      {
+        "uc_requirement": "I&C SCI 31; I&C SCI 32; I&C SCI 33",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 6",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 18"
+        "course_groups": [],
+        "articulated": false
       },
-      "Calc1": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 2A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
+            "MATH 3A"
           ]
         ],
-        "receiving_course": "MATH 20A"
+        "articulated": true
       },
-      "Calc2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 2B",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
+            "MATH 3B"
           ]
         ],
-        "receiving_course": "MATH 20B"
+        "articulated": true
       },
-      "Calc3": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 3A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
+            "MATH 6"
           ]
         ],
-        "receiving_course": "MATH 20C"
+        "articulated": true
+      },
+      {
+        "uc_requirement": "I&C SCI 6N",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 6B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 6D",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 45C",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 46",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 51",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "I&C SCI 53",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "IN4MATX 43",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "STATS 67",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
       }
-    },
-    "UCSB": {
-      "Calc1": {
-        "set_id": "A",
+    ],
+    "University of California Los Angeles": [
+      {
+        "uc_requirement": "COM SCI 31",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 3A"
+        "course_groups": [],
+        "articulated": false
       },
-      "Calc2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "COM SCI 32",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 3B"
+        "course_groups": [],
+        "articulated": false
       },
-      "LinearAlgebra": {
-        "set_id": "A",
+      {
+        "uc_requirement": "COM SCI 33",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 6",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 4A"
+        "course_groups": [],
+        "articulated": false
       },
-      "DifferentialEquations": {
-        "set_id": "A",
+      {
+        "uc_requirement": "COM SCI 35L",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 4B"
+        "course_groups": [],
+        "articulated": false
       },
-      "Intro": {
-        "set_id": "A",
+      {
+        "uc_requirement": "COM SCI M51A",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 61",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 16"
+        "course_groups": [],
+        "articulated": false
       },
-      "DataStructures": {
-        "set_id": "A",
+      {
+        "uc_requirement": "EC ENGR M16",
         "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 65",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 24"
+        "course_groups": [],
+        "articulated": false
       },
-      "DiscreteMath": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 31A",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 67",
-              "units": 3.0
-            }
+            "MATH 3A"
           ]
         ],
-        "receiving_course": "CMPSC 40"
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 31B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 32A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 32B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 33A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 33B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 61",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 67"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYSICS 1A; PHYSICS 1B; PHYSICS 1C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A",
+            "PHYS 4B",
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYSICS 4AL",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "PHYSICS 4BL",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "ENGCOMP 3",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGL 1A"
+          ]
+        ],
+        "articulated": true
       }
-    },
-    "UCSC": {
-      "DataStructures": {
-        "set_id": "A",
+    ],
+    "University of California Merced": [
+      {
+        "uc_requirement": "CSE 022",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 63",
-              "units": 4.0
-            }
+            "CIS 61"
           ]
         ],
-        "receiving_course": "CSE 12"
+        "articulated": true
       },
-      "DiscreteMath": {
-        "set_id": "A",
+      {
+        "uc_requirement": "CSE 030",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "CIS 67",
-              "units": 3.0
-            }
+            "CIS 65"
           ]
         ],
-        "receiving_course": "CSE 16"
+        "articulated": true
       },
-      "Calc1": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 021",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
+            "MATH 3A"
           ]
         ],
-        "receiving_course": "MATH 19A"
+        "articulated": true
       },
-      "Calc2": {
-        "set_id": "A",
+      {
+        "uc_requirement": "MATH 022",
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
+            "MATH 3B"
           ]
         ],
-        "receiving_course": "MATH 19B"
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 023",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 024",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4B",
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 008; PHYS 008L",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 009; PHYS 009L",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 015",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 67"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 022",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 61"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 024",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 030",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 65"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 031",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 63"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "ENGR 065",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGR 17"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "ENGR 091",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "MATH 032",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "ENGR 080",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "WRI 001",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGL 1A"
+          ],
+          [
+            "ENGL 1AX"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "WRI 010",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "ENGL 1B"
+          ],
+          [
+            "ENGL 1C"
+          ]
+        ],
+        "articulated": true
       }
-    }
+    ],
+    "University of California Riverside": [
+      {
+        "uc_requirement": "CS 10A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 61"
+          ],
+          [
+            "CIS 62"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CS 10B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 65"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 9A; MATH 9B; MATH 9C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3A",
+            "MATH 3B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 40A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CS 11",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CS 10C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 65"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CS 61",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 63"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 10A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 40B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 40C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "EE 20B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "MATH 31",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      }
+    ],
+    "University of California San Diego": [
+      {
+        "uc_requirement": "CSE 8A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 8B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 11",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 12",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 15L",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 20",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 21",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CSE 30",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "MATH 18",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 20A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 20B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 20C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "BILD 1",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "BILD 2",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "BILD 3",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 6A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 6B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1A",
+            "CHEM 1B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 2A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 2B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 4A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "PHYS 4B",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      }
+    ],
+    "University of California Santa Barbara": [
+      {
+        "uc_requirement": "MATH 3A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 3B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 4A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 4B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CMPSC 16",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 61"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CMPSC 24",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 65"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CMPSC 40",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 67"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CMPSC 32",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "CMPSC 64",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 63"
+          ],
+          [
+            "CIS 66"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 6A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 1",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 2",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 3; PHYS 3L",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B",
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 6A; PHYS 6AL; PHYS 6B; PHYS 6BL; PHYS 6C; PHYS 6CL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 2A",
+            "PHYS 2B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 7A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 7B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A",
+            "PHYS 4B",
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 7C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4B",
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 7D",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4C"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PHYS 7L",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "PHYS 4A",
+            "PHYS 4B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CHEM 1A; CHEM 1AL; CHEM 1B; CHEM 1BL; CHEM 1C; CHEM 1CL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CHEM 1A",
+            "CHEM 1B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MCDB 1A; MCDB 1LL",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MCDB 1B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "BIOL 1",
+            "BOT 1",
+            "ZOOL 1"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "PSTAT 120A",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      }
+    ],
+    "University of California Santa Cruz": [
+      {
+        "uc_requirement": "CSE 12",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 63"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 16",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "CIS 67"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "CSE 30",
+        "num_required": 1,
+        "course_groups": [],
+        "articulated": false
+      },
+      {
+        "uc_requirement": "MATH 19A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 19B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 3B"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "AM 10",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 21",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 6"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "AM 30",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      },
+      {
+        "uc_requirement": "MATH 23A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            "MATH 4A"
+          ]
+        ],
+        "articulated": true
+      }
+    ]
   }
 }
