@@ -1,0 +1,94 @@
+{
+  "CS 111": {
+    "courseName": "Programming in Visual Basic",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 116": {
+    "courseName": "Programming in C++",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 114": {
+    "courseName": "Programming in C",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 130": {
+    "courseName": "Intro to Computer Architecture and Organization",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 131": {
+    "courseName": "Discrete Structures for Computer Science",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 136": {
+    "courseName": "Introduction to Data Structures",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "MATH 261": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 262": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 263": {
+    "courseName": "Calculus III (Multivariable)",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 270": {
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 275": {
+    "courseName": "Differential Equations",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  }
+}

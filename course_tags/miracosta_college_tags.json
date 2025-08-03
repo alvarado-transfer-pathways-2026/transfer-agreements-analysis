@@ -1,0 +1,83 @@
+{
+  "MATH 150": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 155": {
+    "courseName": "Calculus II",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 260": {
+    "courseName": "Calculus III",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 270": {
+    "courseName": "Linear Algebra",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 265": {
+    "courseName": "Differential Equations",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 226": {
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS 111": {
+    "courseName": "Introduction to Computer Science I",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 112": {
+    "courseName": "Introduction to Computer Science II",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 113": {
+    "courseName": "Basic Data Structures and Algorithms",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

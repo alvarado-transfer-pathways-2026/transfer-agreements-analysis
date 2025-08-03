@@ -1,0 +1,127 @@
+{
+  "MTH 1": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 2": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 3": {
+    "courseName": "Calculus III",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 4": {
+    "courseName": "Differential Equations",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 6": {
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 8": {
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 15": {
+    "courseName": "Applied Calculus I",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MTH 16": {
+    "courseName": "Applied Calculus II",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CSCI 14": {
+    "courseName": "Introduction to Structured Programming in C++",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 15": {
+    "courseName": "Object-Oriented Programming Methods",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 20": {
+    "courseName": "Introduction to Data Structures",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 21": {
+    "courseName": "Assembly Language Programming",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 28": {
+    "courseName": "Discrete Mathematics for Computer Science",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CSCI 19A": {
+    "courseName": "Object-Oriented Programming in Java",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

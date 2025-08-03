@@ -1,0 +1,148 @@
+{
+  "MATH 1A": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 1AH": {
+    "courseName": "Honors Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 1B": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 1C": {
+    "courseName": "Calculus III",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 1D": {
+    "courseName": "Multivariable Calculus",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 2A": {
+    "courseName": "Differential Equations",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 2B": {
+    "courseName": "Linear Algebra",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 22": {
+    "courseName": "Discrete Mathematics",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS 1A": {
+    "courseName": "Java Programming I",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 2A": {
+    "courseName": "C++ Programming I",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 3A": {
+    "courseName": "Python Programming I",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 10": {
+    "courseName": "Computer Architecture & Organization",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 18": {
+    "courseName": "Discrete Mathematics",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS 1B": {
+    "courseName": "Intermediate Java",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 1C": {
+    "courseName": "Advanced Java Data Structures",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 2B": {
+    "courseName": "Intermediate C++",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 3B": {
+    "courseName": "Intermediate Python",
+    "units": 4.5,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

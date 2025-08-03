@@ -1,0 +1,100 @@
+{
+  "MATH 1": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 2": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 3": {
+    "courseName": "Multivariable Calculus",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 5": {
+    "courseName": "Ordinary Differential Equations",
+    "units": 3.5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 7": {
+    "courseName": "Elementary Linear Algebra",
+    "units": 3.5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 10": {
+    "courseName": "Discrete Mathematical Structures",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS 1": {
+    "courseName": "Introduction to Computer Programming Concepts",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 2": {
+    "courseName": "Computing Fundamentals II",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 17": {
+    "courseName": "Discrete Mathematical Structures",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS 20": {
+    "courseName": "Advanced Programming with Data Structures/C++",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS 21": {
+    "courseName": "Computer Organization & Assembly Language Programming",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

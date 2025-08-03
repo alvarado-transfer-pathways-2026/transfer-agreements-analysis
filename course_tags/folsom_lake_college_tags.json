@@ -1,0 +1,85 @@
+{
+  "MATH 400": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 401": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 402": {
+    "courseName": "Calculus III",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 410": {
+    "courseName": "Introduction to Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 420": {
+    "courseName": "Differential Equations",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CISP 360": {
+    "courseName": "Introduction to Structured Programming",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CISP 401": {
+    "courseName": "Object-Oriented Programming with Java",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CISP 310": {
+    "courseName": "Computer Architecture & Organization",
+    "units": 4,
+    "tags": []
+  },
+  "CISP 430": {
+    "courseName": "Data Structures",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CISP 440": {
+    "courseName": "Discrete Structures for Computer Science",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

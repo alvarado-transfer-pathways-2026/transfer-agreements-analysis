@@ -1,0 +1,114 @@
+{
+  "MATH A180": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A180H": {
+    "courseName": "Calculus I Honors",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A182H": {
+    "courseName": "Calculus I & II Honors",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A185": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A185H": {
+    "courseName": "Calculus II Honors",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A280": {
+    "courseName": "Calculus III",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH A235": {
+    "courseName": "Applied Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CS A262": {
+    "courseName": "Discrete Structures",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS A263": {
+    "courseName": "Probability & Statistics for CS",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2"
+    ]
+  },
+  "CS A200": {
+    "courseName": "Data Structures",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS A216": {
+    "courseName": "Computer Architecture",
+    "units": 4,
+    "tags": []
+  },
+  "CS A150": {
+    "courseName": "C++ Programming I",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CS A131": {
+    "courseName": "Python Programming I",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

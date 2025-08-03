@@ -1,0 +1,107 @@
+{
+  "MATH 192": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 193": {
+    "courseName": "Calculus II",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 292": {
+    "courseName": "Calculus III (Multivariable)",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 194": {
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 294": {
+    "courseName": "Differential Equations",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 195": {
+    "courseName": "Discrete Mathematics",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "COMSC 110": {
+    "courseName": "Introduction to Programming",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "COMSC 165": {
+    "courseName": "Advanced Programming with C and C++",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "COMSC 200": {
+    "courseName": "Object Oriented Programming in C++",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "COMSC 210": {
+    "courseName": "Program Design and Data Structures",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "COMSC 230": {
+    "courseName": "Discrete Mathematical Structures for Computer Science",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "COMSC 260": {
+    "courseName": "Assembly Language Programming / Computer Organization",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

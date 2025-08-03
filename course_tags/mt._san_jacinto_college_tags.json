@@ -1,0 +1,87 @@
+{
+  "MATH-211": {
+    "courseName": "Analytic Geometry & Calculus I",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH-212": {
+    "courseName": "Analytic Geometry & Calculus II",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH-213": {
+    "courseName": "Analytic Geometry & Calculus III",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH-215": {
+    "courseName": "Differential Equations",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH-218": {
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "CSIS-113A": {
+    "courseName": "C++ Programming - Level 1",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSIS-123A": {
+    "courseName": "C++ Programming - Level 2",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSIS-211": {
+    "courseName": "Introduction to Data Structures and Algorithms",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSIS-213": {
+    "courseName": "Discrete Structures",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSIS-118B": {
+    "courseName": "Computer Organization & Assembly Language",
+    "units": 3,
+    "tags": [
+      "Major Prep"
+    ]
+  }
+}

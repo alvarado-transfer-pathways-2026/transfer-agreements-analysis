@@ -1,0 +1,87 @@
+{
+  "CSCI 112": {
+    "courseName": "Programming Fundamentals I",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 114": {
+    "courseName": "Programming Fundamentals II",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 210": {
+    "courseName": "Data Structures",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 212": {
+    "courseName": "Machine Organization & Assembly Language",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "CSCI 222": {
+    "courseName": "C++ & Object-Oriented Programming",
+    "units": 4,
+    "tags": [
+      "Major Prep"
+    ]
+  },
+  "MATH 140": {
+    "courseName": "Calculus I",
+    "units": 5,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 141": {
+    "courseName": "Calculus II",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 205": {
+    "courseName": "Calculus III",
+    "units": 4,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 200": {
+    "courseName": "Linear Algebra",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  },
+  "MATH 245": {
+    "courseName": "Discrete Mathematics",
+    "units": 3,
+    "tags": [
+      "7CP-Math",
+      "GE-B4",
+      "IGETC-2",
+      "Major Prep"
+    ]
+  }
+}
