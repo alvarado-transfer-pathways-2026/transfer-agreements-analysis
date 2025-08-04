@@ -1,0 +1,31 @@
+[
+  {
+    "term": "Term 1",
+    "courses": [
+      {
+        "courseCode": "CIS 36B",
+        "units": 3
+      },
+      {
+        "courseCode": "CIS 22C",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 22",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 1A",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 1B",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 1C",
+        "units": 3
+      }
+    ]
+  }
+]

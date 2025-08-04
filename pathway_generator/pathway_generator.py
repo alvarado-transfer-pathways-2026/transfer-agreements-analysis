@@ -9,7 +9,7 @@ from ge_checker import GE_Tracker
 # from prereq_resolver import filter_by_prereqs
 # from unit_balancer import balance_units
 # from elective_filler import fill_electives
-# from plan_exporter import export_term
+from plan_exporter import export_term_plan, save_plan_to_json
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 MAX_UNITS = 18             # semester cap (use 20 for quarters)
@@ -277,7 +277,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         total_units += units
 
         # 6) Record this term
-        export_term(pathway, term_num, selected)
+        export_term_plan(f"Term {term_num}", selected, pathway)
         term_num += 1
 
         break
@@ -307,13 +307,17 @@ if __name__ == "__main__":
             ge_pattern
         )
 
+        # Save the plan JSON to the pathway_generator directory
+        output_json_path = SCRIPT_DIR / "output_pathway.json"
+        save_plan_to_json(pathway, str(output_json_path))
+
         # Print or further save the full plan
-        print("\n🎉 Final Pathway:")
-        for term in pathway:
-            print(f"Term {term['term']}: {term['total_units']} units")
-            for course in term['courses']:
-                print(f"  - {course['courseCode']} ({course.get('units', 3)} units)")
-            print()
+        # print("\n🎉 Final Pathway:")
+        # for term in pathway:
+        #     print(f"Term {term['term']}: {term['total_units']} units")
+        #     for course in term['courses']:
+        #         print(f"  - {course['courseCode']} ({course.get('units', 3)} units)")
+        #     print()
             
     except Exception as e:
         print(f"\n❌ Error: {e}")
