@@ -2,8 +2,8 @@
   "requirementPatterns": [
     {
       "patternId": "7CoursePattern",
-      "patternName": "Basic 7‑Course GE Pattern",
-      "description": "UC’s 7‑course minimum general education requirement",
+      "patternName": "Basic 7-Course GE Pattern",
+      "description": "UC's 7-course minimum general education requirement",
       "requirements": [
         {
           "reqId": "GE_WrittenComm",
