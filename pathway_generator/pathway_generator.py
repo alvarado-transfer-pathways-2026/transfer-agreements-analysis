@@ -6,7 +6,7 @@ from pathlib import Path
 
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
-from prereq_resolver import get_eligible_courses
+from prereq_resolver import get_eligible_courses, load_prereq_data
 # from unit_balancer import balance_units
 # from elective_filler import fill_electives
 from plan_exporter import export_term_plan, save_plan_to_json
@@ -175,8 +175,11 @@ def balance_units(eligible, max_units):
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
 def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_id: str, ge_pattern: str):
+    # articulated = load_json(art_path)
+    # prereqs = load_json(prereq_path)
     articulated = load_json(art_path)
-    prereqs = load_json(prereq_path)
+    # load as a dict: courseCode -> metadata
+    prereqs = load_prereq_data(prereq_path)
     ge_data = load_json(ge_path)
     
     # Initialize the classes
@@ -241,24 +244,16 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
-        ge_cands = []
         
         print(f"  GE remaining requirements: {list(ge_remaining.keys())}")
         
-        # Find courses that fulfill remaining GE requirements
-        # TODO: Implement proper GE course mapping logic
-        # For now, this is a placeholder that will be implemented later
-        for req_id, req_info in ge_remaining.items():
-            if req_info["courses_remaining"] > 0:
-                # Placeholder: Add some basic courses as GE candidates
-                # This will be replaced with proper GE course mapping logic
-                pass
         
-        print(f"  Found {len(ge_cands)} GE course candidates")
-        candidates = major_cands + ge_cands
-
+           
         # 2) Prereq filter
-        eligible = get_eligible_courses(candidates, completed, prereqs)
+        eligible = get_eligible_courses(completed, prereqs)
+
+        print(f"  Eligible courses: {len(eligible)}")
+        print(f"  Eligible courses: {eligible}")
 
         # 3) Balance units
         selected, units = balance_units(eligible, MAX_UNITS)
@@ -280,7 +275,8 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         export_term_plan(f"Term {term_num}", selected, pathway)
         term_num += 1
 
-        break
+        if term_num > 2:
+            break
 
     return pathway
 

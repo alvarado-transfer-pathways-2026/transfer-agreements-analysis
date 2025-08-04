@@ -35,11 +35,25 @@ def has_met_prereqs(course_code: str, completed: Set[str], prereq_data: Dict[str
     Returns True if all prereq blocks are satisfied.
     """
     course = prereq_data.get(course_code)
-    if not course or not course.get("prerequisites"):
-        return True  # No prereqs = always eligible
+    prereqs = course.get("prerequisites") if course else None
+    if not prereqs:
+        return True
 
-    for block in course["prerequisites"]:
-        block_type = block.get("type", "").lower()  # Normalize to lowercase
+    # Case A: a simple list of course‐code strings → implicit AND
+    if isinstance(prereqs, list) and prereqs and all(isinstance(b, str) for b in prereqs):
+        return all(item in completed for item in prereqs)
+
+    # Case B: mixed or explicit blocks
+    for block in prereqs:
+        # single string entries → treat as singleton AND
+        if isinstance(block, str):
+            if block not in completed:
+                return False
+            else:
+                continue
+
+        # otherwise expect a dict with 'type' and 'items'
+        block_type = block.get("type", "").lower()
         items = block.get("items", [])
 
         if block_type == "and":
@@ -48,8 +62,7 @@ def has_met_prereqs(course_code: str, completed: Set[str], prereq_data: Dict[str
         elif block_type == "or":
             if not any(item in completed for item in items):
                 return False
-        # Skip unknown block types silently for robustness
-        # This prevents crashes from typos like "And" vs "and"
+        # silently skip unknown block types
 
     return True
 
@@ -57,16 +70,18 @@ def has_met_prereqs(course_code: str, completed: Set[str], prereq_data: Dict[str
 def get_eligible_courses(completed: Set[str], prereq_data: Dict[str, dict]) -> List[str]:
     """
     Return all courses not in 'completed' that can be taken based on prereqs.
+    Each entry is the original prereq_data dict (so it carries units, courseCode, name, etc.).
     """
     eligible = []
 
-    for course_code in prereq_data:
+    for course_code, entry in prereq_data.items():
         if course_code in completed:
             continue
         if has_met_prereqs(course_code, completed, prereq_data):
-            eligible.append(course_code)
+            eligible.append(entry)
 
-    return sorted(eligible)
+    # Sort by courseCode for deterministic ordering
+    return sorted(eligible, key=lambda e: e.get("courseCode", ""))
 
 
 def explain_unmet_prereqs(course_code: str, completed: Set[str], prereq_data: Dict[str, dict]) -> List[str]:
