@@ -6,7 +6,7 @@ from pathlib import Path
 
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
-# from prereq_resolver import filter_by_prereqs
+from prereq_resolver import get_eligible_courses
 # from unit_balancer import balance_units
 # from elective_filler import fill_electives
 from plan_exporter import export_term_plan, save_plan_to_json
@@ -154,23 +154,23 @@ def balance_units(eligible, max_units):
     return selected, total_units
 
 
-def fill_electives(selected, current_units, max_units):
-    """Fill remaining units with elective courses."""
-    # TODO: Implement elective filling logic
-    # For now, return as-is
-    return selected, current_units
+# def fill_electives(selected, current_units, max_units):
+#     """Fill remaining units with elective courses."""
+#     # TODO: Implement elective filling logic
+#     # For now, return as-is
+#     return selected, current_units
 
 
-def export_term(pathway, term_num, selected):
-    """Export the selected courses for this term."""
-    # TODO: Implement term export logic
-    # For now, create a simple term record
-    term_data = {
-        "term": term_num,
-        "courses": selected,
-        "total_units": sum(course.get("units", 3) for course in selected)
-    }
-    pathway.append(term_data)
+# def export_term(pathway, term_num, selected):
+#     """Export the selected courses for this term."""
+#     # TODO: Implement term export logic
+#     # For now, create a simple term record
+#     term_data = {
+#         "term": term_num,
+#         "courses": selected,
+#         "total_units": sum(course.get("units", 3) for course in selected)
+#     }
+#     pathway.append(term_data)
 
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
@@ -258,14 +258,14 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         candidates = major_cands + ge_cands
 
         # 2) Prereq filter
-        eligible = filter_by_prereqs(candidates, completed, prereqs)
+        eligible = get_eligible_courses(candidates, completed, prereqs)
 
         # 3) Balance units
         selected, units = balance_units(eligible, MAX_UNITS)
 
         # 4) Fill electives if under cap & still under 60 total
-        if units < MAX_UNITS and total_units + units < TOTAL_UNITS_REQUIRED:
-            selected, units = fill_electives(selected, units, MAX_UNITS)
+        # if units < MAX_UNITS and total_units + units < TOTAL_UNITS_REQUIRED:
+        #     selected, units = fill_electives(selected, units, MAX_UNITS)
 
         # 5) Update state
         for course in selected:
