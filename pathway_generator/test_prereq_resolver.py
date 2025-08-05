@@ -4,7 +4,7 @@ from prereq_resolver import get_eligible_courses, load_prereq_data
 
 def main():
     # TODO: Replace this path with the actual path to your JSON prereqs file
-    prereq_json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-3/prerequisites/chabot_college_prereqs.json"
+    prereq_json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-3/prerequisites/de_anza_college_prereqs.json"
 
     course_data = load_prereq_data(prereq_json_path)
 
