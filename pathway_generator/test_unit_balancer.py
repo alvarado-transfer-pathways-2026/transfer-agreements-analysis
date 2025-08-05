@@ -5,11 +5,11 @@ def main():
         {'courseCode': 'MATH 5A', 'units': 4},  # Major
         {'courseCode': 'CS 101', 'units': 4},   # Major
         {'courseCode': 'PHYS 2A', 'units': 5},  # Major
-        {'courseName': 'English Composition', 'reqIds': ['IG_1A'], 'units': 3},  # GE
-        {'courseName': 'Critical Thinking', 'reqIds': ['GE_CritThink'], 'units': 3},  # GE
-        {'courseName': 'Arts Appreciation', 'reqIds': ['IG_3A'], 'units': 3},  # GE
-        {'courseName': 'History of World Civ', 'reqIds': ['GE_Hist'], 'units': 3},  # GE
-        {'courseName': 'Music Fundamentals', 'reqIds': ['GE_Arts'], 'units': 2},  # GE
+        { 'reqIds': ['IG_1A'], 'units': 3},  # GE
+        {'reqIds': ['GE_CritThink'], 'units': 3},  # GE
+        {'reqIds': ['IG_3A'], 'units': 3},  # GE
+        {'reqIds': ['GE_Hist'], 'units': 3},  # GE
+        {'reqIds': ['GE_Arts'], 'units': 2},  # GE
         {'courseCode': 'SOC 101', 'units': 3},  # No tag - Other (should be deprioritized)
     ]
 

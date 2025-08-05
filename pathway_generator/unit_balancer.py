@@ -1,33 +1,53 @@
 #This one prioritizes Major courses and then GE courses
 
-# def select_courses_for_term(eligible_courses, completed_courses=None, max_units=20):
+# def select_courses_for_term(eligible_courses, completed_courses=None, fulfilled_ge_ids=None, max_units=20):
 #     if completed_courses is None:
 #         completed_courses = []
+#     if fulfilled_ge_ids is None:
+#         fulfilled_ge_ids = set()
 
 #     # Filter out already completed courses
-#     remaining_courses = [c for c in eligible_courses if c['courseCode'] not in completed_courses]
+#     remaining_courses = [c for c in eligible_courses if c.get('courseCode') not in completed_courses]
 
-#     # Separate Major and GE courses
-#     major_courses = [c for c in remaining_courses if 'Major' in c.get('tags', [])]
-#     ge_courses = [c for c in remaining_courses if 'GE' in c.get('tags', [])]
+#     # Helper to check if course is a GE
+#     def is_ge(course):
+#         return any(req.startswith('IG_') or req.startswith('GE_') for req in course.get('reqIds', []))
+
+#     # Helper to check if GE course fulfills an unmet GE area
+#     def fulfills_unmet_ge(course):
+#         return any(req_id not in fulfilled_ge_ids for req_id in course.get('reqIds', []) if req_id.startswith('IG_') or req_id.startswith('GE_'))
+
+#     # Split courses
+#     ge_courses = [c for c in remaining_courses if is_ge(c) and fulfills_unmet_ge(c)]
+#     major_courses = [c for c in remaining_courses if not is_ge(c)]  # Assume all others are majors
 
 #     selected_courses = []
 #     total_units = 0
 
-#     # First try to add as many Major courses as possible
+#     # --- Step 1: Ensure at least one GE is selected (if any exist) ---
+#     ge_added = False
+#     for course in ge_courses:
+#         if total_units + course['units'] <= max_units:
+#             selected_courses.append(course)
+#             total_units += course['units']
+#             ge_added = True
+#             break  # Only one GE guaranteed
+
+#     # --- Step 2: Add as many major courses as fit ---
 #     for course in major_courses:
 #         if total_units + course['units'] <= max_units:
 #             selected_courses.append(course)
 #             total_units += course['units']
 
-#     # If still space left, add GE courses
+#     # --- Step 3: If space left and no majors remaining, add more GEs ---
 #     if total_units < max_units:
 #         for course in ge_courses:
-#             if total_units + course['units'] <= max_units:
+#             if course not in selected_courses and total_units + course['units'] <= max_units:
 #                 selected_courses.append(course)
 #                 total_units += course['units']
 
 #     return selected_courses, total_units
+
 
 # unit_balancer.py
 
