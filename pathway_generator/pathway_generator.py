@@ -132,23 +132,6 @@ def load_json(path):
         return json.load(f)
 
 
-# ─── Helper Functions for Pathway Generation ─────────────────────────────────
-
-# def balance_units(eligible, max_units):
-#     """Balance units to stay within the semester cap."""
-#     # TODO: Implement unit balancing logic
-#     # For now, return first few courses that fit within max_units
-#     selected = []
-#     total_units = 0
-    
-#     for course in eligible:
-#         course_units = course.get("units", 3)
-#         if total_units + course_units <= max_units:
-#             selected.append(course)
-#             total_units += course_units
-    
-#     return selected, total_units
-
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
 def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_id: str, ge_pattern: str):
@@ -179,13 +162,69 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
 
     ge_lookup = load_ge_lookup(PREREQS_DIR / "ge_reqs.json")
 
+    def add_missing_prereqs(major_cands, prereqs, completed=None, default_units=3):
+        if completed is None:
+            completed = set()
+
+        existing = {c['courseCode'] for c in major_cands}
+        i = 0
+
+        while i < len(major_cands):
+            code = major_cands[i]['courseCode']
+            raw = prereqs.get(code, {}).get('prerequisites', [])
+
+            # 1) Normalize raw prereqs into a flat list of codes
+            req_list = []
+            if isinstance(raw, dict):
+                # handle {"and": […]}
+                req_list = raw.get('and', [])
+            elif isinstance(raw, list):
+                req_list = raw
+            # now req_list may contain strings or {"or": […]} dicts
+
+            # 2) Iterate through normalized list
+            for entry in req_list:
+                if isinstance(entry, dict) and 'or' in entry:
+                    # pull in each option in the OR‐group
+                    candidates = entry['or']
+                elif isinstance(entry, str):
+                    candidates = [entry]
+                else:
+                    # unexpected shape—skip
+                    continue
+                
+                for pre in candidates:
+                    # only add real CC codes we haven’t done or queued
+                    if pre in prereqs and pre not in existing and pre not in completed:
+                        units = prereqs[pre].get('units', default_units)
+                        major_cands.append({
+                            'courseCode': pre,
+                            'units':      units
+                        })
+                        existing.add(pre)
+    
+            i += 1
+
+        return major_cands
+
+    # 1) Candidate courses from major + GE
+    # major_map = major_reqs.get_cc_to_uc_map()
+    major_cands = major_reqs.get_remaining_courses(completed, articulated)
+    pprint(f"Major candidates before: {major_cands}")
+    major_cands = add_missing_prereqs(major_cands, prereqs, completed)
+    pprint(f"Major candidates after: {major_cands}")
+    major_codes = [ m['courseCode'] for m in major_cands ]
+    major_codes = sorted(major_codes)
+    pprint(major_codes)
+
+
     while total_units < TOTAL_UNITS_REQUIRED:
         print(f"\n📘 Generating Term {term_num}…")
 
-        # 1) Candidate courses from major + GE
-        major_cands = major_reqs.get_remaining_courses(completed, articulated)
-        print(f"  Found {len(major_cands)} major course candidates")
-        pprint(major_cands)
+        
+        
+        # print(f"  Found {len(major_cands)} major course candidates")
+        # pprint(major_cands)
         
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
@@ -196,7 +235,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         
         
         # 2) Prereq filter
-        eligible = get_eligible_courses(completed, prereqs)
+        eligible = get_eligible_courses(completed, list(prereqs.values()), major_codes)
 
         # print(f"  Eligible courses: {len(eligible)}")
         # pprint(eligible)

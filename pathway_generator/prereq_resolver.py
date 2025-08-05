@@ -1,9 +1,11 @@
 import json
 
 def load_prereq_data(json_path):
+    """Load JSON prereq data from file."""
     with open(json_path, "r") as f:
         data = json.load(f)
-    return data
+    # Convert list to dict keyed by courseCode for quick lookup
+    return {course["courseCode"]: course for course in data}
 
 def prereq_block_satisfied(block, completed_courses):
     if not block:

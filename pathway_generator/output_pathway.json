@@ -7,16 +7,20 @@
         "units": 3
       },
       {
-        "courseCode": "MATH 1A",
+        "courseCode": "CSCI 112",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 140",
         "units": 5
       },
       {
-        "courseCode": "MATH 1AH",
-        "units": 5
+        "courseCode": "IG_1B",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22A",
-        "units": 4.5
+        "courseCode": "IG_2",
+        "units": 3
       }
     ]
   },
@@ -28,16 +32,24 @@
         "units": 3
       },
       {
-        "courseCode": "MATH 1B",
-        "units": 5
+        "courseCode": "IG_1B",
+        "units": 3
       },
       {
-        "courseCode": "MATH 1BH",
-        "units": 5
+        "courseCode": "IG_2",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22B",
-        "units": 4.5
+        "courseCode": "IG_3A",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3B",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3_Leftover",
+        "units": 3
       }
     ]
   },
@@ -49,16 +61,24 @@
         "units": 3
       },
       {
-        "courseCode": "MATH 1C",
-        "units": 5
+        "courseCode": "IG_1B",
+        "units": 3
       },
       {
-        "courseCode": "MATH 1CH",
-        "units": 5
+        "courseCode": "IG_2",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22BH",
-        "units": 4.5
+        "courseCode": "IG_3A",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3B",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3_Leftover",
+        "units": 3
       }
     ]
   },
@@ -70,16 +90,24 @@
         "units": 3
       },
       {
-        "courseCode": "MATH 1D",
-        "units": 5
+        "courseCode": "IG_1B",
+        "units": 3
       },
       {
-        "courseCode": "MATH 1DH",
-        "units": 5
+        "courseCode": "IG_2",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22C",
-        "units": 4.5
+        "courseCode": "IG_3A",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3B",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3_Leftover",
+        "units": 3
       }
     ]
   }
