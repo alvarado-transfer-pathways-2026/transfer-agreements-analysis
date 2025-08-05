@@ -218,16 +218,19 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     pprint(major_codes)
 
 
-    while total_units < TOTAL_UNITS_REQUIRED:
+    while True:
         print(f"\n📘 Generating Term {term_num}…")
 
         
         
         # print(f"  Found {len(major_cands)} major course candidates")
         # pprint(major_cands)
-        
+        remaining_majors = [m for m in major_cands if m['courseCode'] not in completed]
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
+
+        if not remaining_majors and not ge_remaining:
+            break
         
         print(f"  GE remaining requirements: {list(ge_remaining.keys())}")
 
@@ -255,6 +258,9 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         # 4) Balance units
         selected, units = select_courses_for_term(total_eligible, completed)
 
+        if not selected:
+            break
+
         # print(f"Selected Courses: {selected}")
 
         # 5) Fill electives if under cap & still under 60 total
@@ -263,20 +269,26 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
 
         # 6) Update state
         for course in selected:
-            completed.add(course["courseCode"])
-            # Update GE tracker with completed course
-            tags = [course.get("tag")] if course.get("tag") else []
-            ge_tracker.add_completed_course(course["courseCode"], tags)
-        
-        print(f"Completed courses: {completed}")
-        total_units += units
+            code = course["courseCode"]
+            completed.add(code)
+
+            if "reqIds" in course:
+                # GE-course: mark each reqId individually
+                for req in course["reqIds"]:
+                    ge_tracker.add_completed_course(code, req)
+            else:
+                # Major (or other) course
+                tag = course.get("tag", code)
+                ge_tracker.add_completed_course(code, tag)
 
         # 7) Record this term
         export_term_plan(f"Term {term_num}", selected, pathway)
         term_num += 1
 
-        # if term_num > 2:
-        #     break
+        if term_num > 12:
+            output_json_path = SCRIPT_DIR / "output_pathway.json"
+            save_plan_to_json(pathway, str(output_json_path))
+            break
 
     return pathway
 

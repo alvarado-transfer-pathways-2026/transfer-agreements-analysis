@@ -28,7 +28,7 @@
     "term": "Term 2",
     "courses": [
       {
-        "courseCode": "IG_1A",
+        "courseCode": "IG_3A",
         "units": 3
       },
       {
@@ -40,15 +40,15 @@
         "units": 4
       },
       {
-        "courseCode": "MATH 245",
+        "courseCode": "IG_3B",
         "units": 3
       },
       {
-        "courseCode": "IG_1B",
+        "courseCode": "IG_3_Leftover",
         "units": 3
       },
       {
-        "courseCode": "IG_2",
+        "courseCode": "IG_4",
         "units": 3
       }
     ]
@@ -57,11 +57,11 @@
     "term": "Term 3",
     "courses": [
       {
-        "courseCode": "IG_1A",
+        "courseCode": "IG_4",
         "units": 3
       },
       {
-        "courseCode": "CSCI 210",
+        "courseCode": "CSCI 222",
         "units": 4
       },
       {
@@ -73,11 +73,11 @@
         "units": 3
       },
       {
-        "courseCode": "IG_1B",
+        "courseCode": "IG_Physical",
         "units": 3
       },
       {
-        "courseCode": "IG_2",
+        "courseCode": "IG_Biological",
         "units": 3
       }
     ]
@@ -86,27 +86,11 @@
     "term": "Term 4",
     "courses": [
       {
-        "courseCode": "IG_1A",
+        "courseCode": "IG_Lab",
         "units": 3
       },
       {
-        "courseCode": "IG_1B",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_2",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3A",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3B",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3_Leftover",
+        "courseCode": "IG_7",
         "units": 3
       }
     ]
