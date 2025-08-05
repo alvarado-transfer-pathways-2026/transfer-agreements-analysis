@@ -2,12 +2,13 @@
 import json
 import os
 from pathlib import Path
+from pprint import pprint
 
 
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
 from prereq_resolver import get_eligible_courses, load_prereq_data
-# from unit_balancer import balance_units
+from unit_balancer import select_courses_for_term
 # from elective_filler import fill_electives
 from plan_exporter import export_term_plan, save_plan_to_json
 
@@ -131,46 +132,21 @@ def load_json(path):
 
 
 # ─── Helper Functions for Pathway Generation ─────────────────────────────────
-def filter_by_prereqs(candidates, completed, prereqs):
-    """Filter candidates based on prerequisites."""
-    # TODO: Implement prerequisite filtering logic
-    # For now, return all candidates as eligible
-    return candidates
 
-
-def balance_units(eligible, max_units):
-    """Balance units to stay within the semester cap."""
-    # TODO: Implement unit balancing logic
-    # For now, return first few courses that fit within max_units
-    selected = []
-    total_units = 0
+# def balance_units(eligible, max_units):
+#     """Balance units to stay within the semester cap."""
+#     # TODO: Implement unit balancing logic
+#     # For now, return first few courses that fit within max_units
+#     selected = []
+#     total_units = 0
     
-    for course in eligible:
-        course_units = course.get("units", 3)
-        if total_units + course_units <= max_units:
-            selected.append(course)
-            total_units += course_units
+#     for course in eligible:
+#         course_units = course.get("units", 3)
+#         if total_units + course_units <= max_units:
+#             selected.append(course)
+#             total_units += course_units
     
-    return selected, total_units
-
-
-# def fill_electives(selected, current_units, max_units):
-#     """Fill remaining units with elective courses."""
-#     # TODO: Implement elective filling logic
-#     # For now, return as-is
-#     return selected, current_units
-
-
-# def export_term(pathway, term_num, selected):
-#     """Export the selected courses for this term."""
-#     # TODO: Implement term export logic
-#     # For now, create a simple term record
-#     term_data = {
-#         "term": term_num,
-#         "courses": selected,
-#         "total_units": sum(course.get("units", 3) for course in selected)
-#     }
-#     pathway.append(term_data)
+#     return selected, total_units
 
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
@@ -195,52 +171,53 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     )
 
     # Debug: Print major requirements information
-    print(f"\n🔍 Major Requirements Debug:")
-    print(f"  Number of UC campuses: {len(major_reqs.group_defs)}")
-    for uc, groups in major_reqs.group_defs.items():
-        print(f"  {uc}: {len(groups)} requirement groups")
-        for group_name, group_info in groups.items():
-            print(f"    - {group_name}: {group_info['num_required']} courses required")
-            print(f"      Required UC courses: {group_info['courses']}")
+    # print(f"\n🔍 Major Requirements Debug:")
+    # print(f"  Number of UC campuses: {len(major_reqs.group_defs)}")
+    # for uc, groups in major_reqs.group_defs.items():
+    #     print(f"  {uc}: {len(groups)} requirement groups")
+    #     for group_name, group_info in groups.items():
+    #         print(f"    - {group_name}: {group_info['num_required']} courses required")
+    #         print(f"      Required UC courses: {group_info['courses']}")
     
-    print(f"\n  Number of CC→UC block mappings: {len(major_reqs.group_block_map)}")
-    for (uc, group), blocks in major_reqs.group_block_map.items():
-        print(f"    {uc}:{group}: {len(blocks)} course blocks available")
-        for i, block in enumerate(blocks[:3]):  # Show first 3 blocks
-            print(f"      Block {i+1}: {block}")
-        if len(blocks) > 3:
-            print(f"      ... and {len(blocks) - 3} more blocks")
+    # print(f"\n  Number of CC→UC block mappings: {len(major_reqs.group_block_map)}")
+    # for (uc, group), blocks in major_reqs.group_block_map.items():
+    #     print(f"    {uc}:{group}: {len(blocks)} course blocks available")
+    #     for i, block in enumerate(blocks[:3]):  # Show first 3 blocks
+    #         print(f"      Block {i+1}: {block}")
+    #     if len(blocks) > 3:
+    #         print(f"      ... and {len(blocks) - 3} more blocks")
     
     # Debug: Show what's actually in the articulation data for UCSD
-    print(f"\n🔍 Articulation Data Debug for UCSD:")
-    articulated_data = load_json(paths["articulated_courses_json"])
-    ucsd_data = articulated_data.get("De_Anza_College", {}).get("UCSD", {})
-    print(f"  UCSD articulation entries: {list(ucsd_data.keys())}")
-    for entry_name, entry_data in ucsd_data.items():
-        receiving = entry_data.get('receiving_course', 'N/A')
-        print(f"    {entry_name} -> {receiving}")
+    # print(f"\n🔍 Articulation Data Debug for UCSD:")
+    # articulated_data = load_json(paths["articulated_courses_json"])
+    # ucsd_data = articulated_data.get("De_Anza_College", {}).get("UCSD", {})
+    # print(f"  UCSD articulation entries: {list(ucsd_data.keys())}")
+    # for entry_name, entry_data in ucsd_data.items():
+    #     receiving = entry_data.get('receiving_course', 'N/A')
+    #     print(f"    {entry_name} -> {receiving}")
     
     # Debug: Show what's in the block_map
-    print(f"\n🔍 Block Map Debug:")
-    from major_checker import build_uc_block_map
-    block_map = build_uc_block_map("de_anza", ["UCSD"], ARTICULATION_DIR)
-    print(f"  Block map keys: {list(block_map.keys())}")
-    for (uc, uccode), blocks in block_map.items():
-        print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
-        for i, block in enumerate(blocks[:2]):
-            print(f"      Block {i+1}: {block}")
+    # print(f"\n🔍 Block Map Debug:")
+    # from major_checker import build_uc_block_map
+    # block_map = build_uc_block_map("de_anza", ["UCSD"], ARTICULATION_DIR)
+    # print(f"  Block map keys: {list(block_map.keys())}")
+    # for (uc, uccode), blocks in block_map.items():
+    #     print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
+    #     for i, block in enumerate(blocks[:2]):
+    #         print(f"      Block {i+1}: {block}")
 
     completed = set()
     total_units = 0
     term_num = 1
     pathway = []
 
-    while total_units < TOTAL_UNITS_REQUIRED:
+    while total_units < 154:
         print(f"\n📘 Generating Term {term_num}…")
 
         # 1) Candidate courses from major + GE
         major_cands = major_reqs.get_remaining_courses(completed, articulated)
         print(f"  Found {len(major_cands)} major course candidates")
+        pprint(major_cands)
         
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
@@ -253,10 +230,14 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         eligible = get_eligible_courses(completed, prereqs)
 
         print(f"  Eligible courses: {len(eligible)}")
-        print(f"  Eligible courses: {eligible}")
+        pprint(eligible)
+        eligible_course_codes = [c['courseCode'] for c in eligible]
 
+
+        total_eligible = eligible_course_codes + list(ge_remaining.keys())
+        print(f"Total Eligible: {total_eligible}")
         # 3) Balance units
-        selected, units = balance_units(eligible, MAX_UNITS)
+        selected, units = select_courses_for_term(total_eligible, completed)
 
         # 4) Fill electives if under cap & still under 60 total
         # if units < MAX_UNITS and total_units + units < TOTAL_UNITS_REQUIRED:
@@ -269,14 +250,15 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             tags = [course.get("tag")] if course.get("tag") else []
             ge_tracker.add_completed_course(course["courseCode"], tags)
         
+        print(f"Completed courses: {completed}")
         total_units += units
 
         # 6) Record this term
         export_term_plan(f"Term {term_num}", selected, pathway)
         term_num += 1
 
-        if term_num > 2:
-            break
+        # if term_num > 2:
+        #     break
 
     return pathway
 

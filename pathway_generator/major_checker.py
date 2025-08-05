@@ -191,22 +191,22 @@ def build_uc_block_map(
 ) -> Dict[Tuple[str, str], List[List[str]]]:
     filename = get_articulation_filename(cc_name)
     path = articulation_dir / filename
-    print(f"    Debug: Loading articulation file: {path}")
+    # print(f"    Debug: Loading articulation file: {path}")
     data = load_json(path)
-    print(f"    Debug: Loaded data keys: {list(data.keys())}")
+    # print(f"    Debug: Loaded data keys: {list(data.keys())}")
     
     # Get the actual CC name from the data (first key)
     actual_cc_name = list(data.keys())[0] if data else cc_name
-    print(f"    Debug: Using CC name: {actual_cc_name}")
+    # print(f"    Debug: Using CC name: {actual_cc_name}")
     cc_data = data.get(actual_cc_name, {})
-    print(f"    Debug: CC data keys: {list(cc_data.keys())}")
+    # print(f"    Debug: CC data keys: {list(cc_data.keys())}")
     block_map: Dict[Tuple[str, str], List[List[str]]] = {}
 
     for uc in selected_ucs:
         uc_data = cc_data.get(uc, {})
-        print(f"    Debug: Processing {uc}, found {len(uc_data)} entries")
+        # print(f"    Debug: Processing {uc}, found {len(uc_data)} entries")
         for group_name, entry in uc_data.items():
-            print(f"      Processing {group_name}: {list(entry.keys())}")
+            # print(f"      Processing {group_name}: {list(entry.keys())}")
             
             # Handle both single receiving course and multiple receiving courses
             recs = []
@@ -215,22 +215,22 @@ def build_uc_block_map(
             elif 'receiving_courses' in entry:
                 recs = entry['receiving_courses']
             
-            print(f"        Receiving courses: {recs}")
+            # print(f"        Receiving courses: {recs}")
             
             # Extract course groups
             course_groups = entry.get('course_groups', [])
-            print(f"        Course groups: {len(course_groups)} groups")
+            # print(f"        Course groups: {len(course_groups)} groups")
             blocks: List[List[str]] = [[c['course'] for c in group] for group in course_groups]
-            print(f"        Extracted blocks: {blocks}")
+            # print(f"        Extracted blocks: {blocks}")
             
             for r in recs:
                 block_map.setdefault((uc, r), []).extend(blocks)
-                print(f"        Added to block_map[({uc}, {r})]: {blocks}")
+                # print(f"        Added to block_map[({uc}, {r})]: {blocks}")
     
     # Debug: Print what we found
-    print(f"  Debug: Found {len(block_map)} entries in block_map")
-    for (uc, uccode), blocks in block_map.items():
-        print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
+    # print(f"  Debug: Found {len(block_map)} entries in block_map")
+    # for (uc, uccode), blocks in block_map.items():
+    #     print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
     
     return block_map
 

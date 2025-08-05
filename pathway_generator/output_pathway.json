@@ -3,17 +3,187 @@
     "term": "Term 1",
     "courses": [
       {
-        "courseCode": "CSCI 112",
-        "units": 4
+        "courseCode": "CIS 21JA",
+        "units": 4.5
       },
       {
-        "courseCode": "MATH 140",
-        "units": 5
+        "courseCode": "CIS 22A",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 35A",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 36A",
+        "units": 4.5
       }
     ]
   },
   {
     "term": "Term 2",
-    "courses": []
+    "courses": [
+      {
+        "courseCode": "CIS 21JB",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 22B",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 22BH",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 26A",
+        "units": 4.5
+      }
+    ]
+  },
+  {
+    "term": "Term 3",
+    "courses": [
+      {
+        "courseCode": "CIS 22C",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 22CH",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 26B",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 26BH",
+        "units": 4.5
+      }
+    ]
+  },
+  {
+    "term": "Term 4",
+    "courses": [
+      {
+        "courseCode": "CIS 28",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 29",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 36B",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 40",
+        "units": 4.5
+      }
+    ]
+  },
+  {
+    "term": "Term 5",
+    "courses": [
+      {
+        "courseCode": "CIS 27",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 41A",
+        "units": 4.5
+      },
+      {
+        "courseCode": "MATH 1A",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1AH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 6",
+    "courses": [
+      {
+        "courseCode": "CIS 41B",
+        "units": 4.5
+      },
+      {
+        "courseCode": "MATH 1B",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1BH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 7",
+    "courses": [
+      {
+        "courseCode": "MATH 1C",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1CH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 8",
+    "courses": [
+      {
+        "courseCode": "MATH 1D",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1DH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 9",
+    "courses": [
+      {
+        "courseCode": "MATH 2A",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 2AH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 10",
+    "courses": [
+      {
+        "courseCode": "MATH 2B",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 2BH",
+        "units": 5
+      }
+    ]
+  },
+  {
+    "term": "Term 11",
+    "courses": [
+      {
+        "courseCode": "MATH 22",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 22H",
+        "units": 5
+      }
+    ]
   }
 ]
