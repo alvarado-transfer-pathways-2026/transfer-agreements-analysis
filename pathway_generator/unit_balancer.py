@@ -33,14 +33,16 @@
 
 # This is when we want at least one ge course in each term
 
+# unit_balancer.py
+
 def select_courses_for_term(eligible_courses, completed_courses=None, max_units=20):
     """
-    Selects a list of courses from eligible_courses to fill a term up to max_units,
-    ensuring at least one GE course is selected per term if any remain.
+    Selects a list of courses from eligible_courses to fill a term up to max_units.
+    Ensures that at least one GE is taken per term until all GE requirements are met.
 
     Parameters:
-        eligible_courses (list): List of dicts with keys like 'courseCode', 'units', 'tags'
-        completed_courses (list): List of courseCodes already taken
+        eligible_courses (list): List of course dicts, either Major or GE courses.
+        completed_courses (list): List of courseCodes (for majors) or reqIds (for GEs) already taken.
         max_units (int): Max units allowed per term (default = 20)
 
     Returns:
@@ -50,43 +52,41 @@ def select_courses_for_term(eligible_courses, completed_courses=None, max_units=
     if completed_courses is None:
         completed_courses = []
 
-    # Filter out already completed courses
-    remaining_courses = [c for c in eligible_courses if c['courseCode'] not in completed_courses]
+    remaining_majors = []
+    remaining_ges = []
 
-    # Separate courses by tag
-    ge_courses = [c for c in remaining_courses if 'GE' in c.get('tags', [])]
-    major_courses = [c for c in remaining_courses if 'Major' in c.get('tags', [])]
-    other_courses = [c for c in remaining_courses if 'GE' not in c.get('tags', []) and 'Major' not in c.get('tags', [])]
+    # Separate GE and Major courses
+    for course in eligible_courses:
+        if 'courseCode' in course:
+            if course['courseCode'] not in completed_courses:
+                remaining_majors.append(course)
+        elif 'reqIds' in course:
+            if not any(req in completed_courses for req in course['reqIds']):
+                remaining_ges.append(course)
 
     selected_courses = []
     total_units = 0
-    ge_taken = False
 
-    # Always try to take at least one GE first (if available)
-    for course in ge_courses:
-        if total_units + course['units'] <= max_units:
-            selected_courses.append(course)
-            total_units += course['units']
-            ge_courses.remove(course)  # Remove from list to avoid duplication
-            ge_taken = True
-            break  # only one GE for now
+    # Always try to take at least one GE if available
+    took_ge_this_term = False
+    for ge_course in remaining_ges:
+        if total_units + ge_course['units'] <= max_units:
+            selected_courses.append(ge_course)
+            total_units += ge_course['units']
+            took_ge_this_term = True
+            break  # take only one GE first
 
     # Add major courses next
-    for course in major_courses:
-        if total_units + course['units'] <= max_units:
-            selected_courses.append(course)
-            total_units += course['units']
+    for major_course in remaining_majors:
+        if total_units + major_course['units'] <= max_units:
+            selected_courses.append(major_course)
+            total_units += major_course['units']
 
-    # Add additional GEs (if room and still unmet)
-    for course in ge_courses:
-        if total_units + course['units'] <= max_units:
-            selected_courses.append(course)
-            total_units += course['units']
-
-    # Add other courses last
-    for course in other_courses:
-        if total_units + course['units'] <= max_units:
-            selected_courses.append(course)
-            total_units += course['units']
+    # If space is left, add more GEs
+    if took_ge_this_term:
+        for ge_course in remaining_ges:
+            if ge_course not in selected_courses and total_units + ge_course['units'] <= max_units:
+                selected_courses.append(ge_course)
+                total_units += ge_course['units']
 
     return selected_courses, total_units

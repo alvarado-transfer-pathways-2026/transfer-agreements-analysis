@@ -3,17 +3,42 @@
     "term": "Term 1",
     "courses": [
       {
-        "courseCode": "CSCI 112",
-        "units": 4
+        "courseCode": "CIS 21JA",
+        "units": 4.5
       },
       {
-        "courseCode": "MATH 140",
-        "units": 5
+        "courseCode": "CIS 22A",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 35A",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 36A",
+        "units": 4.5
       }
     ]
   },
   {
     "term": "Term 2",
-    "courses": []
+    "courses": [
+      {
+        "courseCode": "CIS 21JB",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 22B",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 22BH",
+        "units": 4.5
+      },
+      {
+        "courseCode": "CIS 26A",
+        "units": 4.5
+      }
+    ]
   }
 ]

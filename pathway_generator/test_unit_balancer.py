@@ -1,33 +1,34 @@
-# test_unit_balancer_complex.py
-
 from unit_balancer import select_courses_for_term
 
 def main():
-    # Mix of Major, GE, and other courses with varying units and completion
     eligible_courses = [
-        {'courseCode': 'CS 101', 'units': 4, 'tags': ['Major']},
-        {'courseCode': 'CS 102', 'units': 4, 'tags': ['Major']},
-        {'courseCode': 'MATH 200', 'units': 3, 'tags': ['Major']},
-        {'courseCode': 'ENGL 100', 'units': 3, 'tags': ['GE']},
-        {'courseCode': 'PHYS 100', 'units': 4, 'tags': ['Major']},  # will exceed units if all taken
-        {'courseCode': 'HIST 150', 'units': 3, 'tags': ['GE']},
-        {'courseCode': 'ART 101', 'units': 3, 'tags': ['GE']},
-        {'courseCode': 'PE 101', 'units': 2, 'tags': ['GE']},
-        {'courseCode': 'MUSIC 100', 'units': 1, 'tags': ['GE']},
-        {'courseCode': 'SOC 200', 'units': 3, 'tags': []},  # no tag, should be ignored in prioritization
+        {'courseCode': 'MATH 5A', 'units': 4},  # Major
+        {'courseCode': 'CS 101', 'units': 4},   # Major
+        {'courseCode': 'PHYS 2A', 'units': 5},  # Major
+        {'courseName': 'English Composition', 'reqIds': ['IG_1A'], 'units': 3},  # GE
+        {'courseName': 'Critical Thinking', 'reqIds': ['GE_CritThink'], 'units': 3},  # GE
+        {'courseName': 'Arts Appreciation', 'reqIds': ['IG_3A'], 'units': 3},  # GE
+        {'courseName': 'History of World Civ', 'reqIds': ['GE_Hist'], 'units': 3},  # GE
+        {'courseName': 'Music Fundamentals', 'reqIds': ['GE_Arts'], 'units': 2},  # GE
+        {'courseCode': 'SOC 101', 'units': 3},  # No tag - Other (should be deprioritized)
     ]
 
-    completed_courses = ['ENGL 100']  # already done, so won't be re-added
+    completed_courses = ['MATH 5A', 'GE_1A']  # Already took the major course and one GE
 
     max_units = 15
 
-    selected, total = select_courses_for_term(eligible_courses, completed_courses, max_units)
+    selected_courses, total_units = select_courses_for_term(
+        eligible_courses,
+        completed_courses,
+        max_units
+    )
 
-    print("Selected Courses (complex test):")
-    for course in selected:
-        print(f"- {course['courseCode']} ({course['units']} units)")
+    print("Selected Courses (updated test):")
+    for course in selected_courses:
+        label = course.get("courseCode") or course.get("courseName")
+        print(f"- {label} ({course['units']} units)")
 
-    print(f"\nTotal Units: {total}")
+    print(f"\nTotal Units: {total_units}")
 
 if __name__ == "__main__":
     main()
