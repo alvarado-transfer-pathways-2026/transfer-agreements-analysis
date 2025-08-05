@@ -9,7 +9,7 @@ def main():
     course_data = load_prereq_data(prereq_json_path)
 
     # Example completed courses (you can change this to test)
-    completed_courses = {"MTH 1", "MTH 15"}
+    completed_courses = {"MATH 1A"}
 
     # Pass the course_data to get_eligible_courses
     eligible_courses = get_eligible_courses(completed_courses, course_data)
