@@ -171,41 +171,6 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         str(ARTICULATION_DIR)
     )
 
-    # Debug: Print major requirements information
-    # print(f"\n🔍 Major Requirements Debug:")
-    # print(f"  Number of UC campuses: {len(major_reqs.group_defs)}")
-    # for uc, groups in major_reqs.group_defs.items():
-    #     print(f"  {uc}: {len(groups)} requirement groups")
-    #     for group_name, group_info in groups.items():
-    #         print(f"    - {group_name}: {group_info['num_required']} courses required")
-    #         print(f"      Required UC courses: {group_info['courses']}")
-    
-    # print(f"\n  Number of CC→UC block mappings: {len(major_reqs.group_block_map)}")
-    # for (uc, group), blocks in major_reqs.group_block_map.items():
-    #     print(f"    {uc}:{group}: {len(blocks)} course blocks available")
-    #     for i, block in enumerate(blocks[:3]):  # Show first 3 blocks
-    #         print(f"      Block {i+1}: {block}")
-    #     if len(blocks) > 3:
-    #         print(f"      ... and {len(blocks) - 3} more blocks")
-    
-    # Debug: Show what's actually in the articulation data for UCSD
-    # print(f"\n🔍 Articulation Data Debug for UCSD:")
-    # articulated_data = load_json(paths["articulated_courses_json"])
-    # ucsd_data = articulated_data.get("De_Anza_College", {}).get("UCSD", {})
-    # print(f"  UCSD articulation entries: {list(ucsd_data.keys())}")
-    # for entry_name, entry_data in ucsd_data.items():
-    #     receiving = entry_data.get('receiving_course', 'N/A')
-    #     print(f"    {entry_name} -> {receiving}")
-    
-    # Debug: Show what's in the block_map
-    # print(f"\n🔍 Block Map Debug:")
-    # from major_checker import build_uc_block_map
-    # block_map = build_uc_block_map("de_anza", ["UCSD"], ARTICULATION_DIR)
-    # print(f"  Block map keys: {list(block_map.keys())}")
-    # for (uc, uccode), blocks in block_map.items():
-    #     print(f"    ({uc}, {uccode}): {len(blocks)} blocks")
-    #     for i, block in enumerate(blocks[:2]):
-    #         print(f"      Block {i+1}: {block}")
 
     completed = set()
     total_units = 0
