@@ -3,24 +3,20 @@
     "term": "Term 1",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "CIS 21JA",
-        "units": 4.5
+        "courseCode": "MATH 1A",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1AH",
+        "units": 5
       },
       {
         "courseCode": "CIS 22A",
         "units": 4.5
-      },
-      {
-        "courseCode": "CIS 35A",
-        "units": 4.5
-      },
-      {
-        "courseCode": "GE_QuantReason",
-        "units": 3
       }
     ]
   },
@@ -28,24 +24,20 @@
     "term": "Term 2",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "CIS 21JB",
-        "units": 4.5
+        "courseCode": "MATH 1B",
+        "units": 5
+      },
+      {
+        "courseCode": "MATH 1BH",
+        "units": 5
       },
       {
         "courseCode": "CIS 22B",
         "units": 4.5
-      },
-      {
-        "courseCode": "CIS 22BH",
-        "units": 4.5
-      },
-      {
-        "courseCode": "GE_QuantReason",
-        "units": 3
       }
     ]
   },
@@ -53,24 +45,20 @@
     "term": "Term 3",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "CIS 22C",
-        "units": 4.5
+        "courseCode": "MATH 1C",
+        "units": 5
       },
       {
-        "courseCode": "CIS 22CH",
-        "units": 4.5
+        "courseCode": "MATH 1CH",
+        "units": 5
       },
       {
-        "courseCode": "CIS 26A",
+        "courseCode": "CIS 22BH",
         "units": 4.5
-      },
-      {
-        "courseCode": "GE_QuantReason",
-        "units": 3
       }
     ]
   },
@@ -78,24 +66,20 @@
     "term": "Term 4",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "CIS 26B",
-        "units": 4.5
+        "courseCode": "MATH 1D",
+        "units": 5
       },
       {
-        "courseCode": "CIS 26BH",
-        "units": 4.5
+        "courseCode": "MATH 1DH",
+        "units": 5
       },
       {
-        "courseCode": "CIS 28",
+        "courseCode": "CIS 22C",
         "units": 4.5
-      },
-      {
-        "courseCode": "GE_QuantReason",
-        "units": 3
       }
     ]
   }
