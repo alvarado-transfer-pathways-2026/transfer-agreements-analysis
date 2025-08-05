@@ -7,51 +7,36 @@ def load_prereq_data(json_path):
     # Convert list to dict keyed by courseCode for quick lookup
     return {course["courseCode"]: course for course in data}
 
-def prereq_block_satisfied(block, completed_courses, depth=0):
+def prereq_block_satisfied(block, completed_courses):
     """
     Recursively check if a prereq block is satisfied by completed courses.
     A block is a dict with either "and" or "or" keys.
     """
-    indent = "  " * depth
     if block is None or block == []:
-        print(f"{indent}Empty block or None -> True")
         return True
 
     if "and" in block:
-        print(f"{indent}Checking AND block: {block['and']}")
-        result = all(prereq_block_satisfied(subblock, completed_courses, depth+1) for subblock in block["and"])
-        print(f"{indent}AND block result: {result}")
-        return result
+        return all(prereq_block_satisfied(subblock, completed_courses) for subblock in block["and"])
 
     if "or" in block:
-        print(f"{indent}Checking OR block: {block['or']}")
         for item in block["or"]:
             if isinstance(item, str):
-                print(f"{indent}Checking course code '{item}' in completed_courses")
                 if item in completed_courses:
-                    print(f"{indent}Found '{item}' -> True")
                     return True
             elif isinstance(item, dict):
-                print(f"{indent}Checking nested block in OR")
-                if prereq_block_satisfied(item, completed_courses, depth+1):
-                    print(f"{indent}Nested block in OR -> True")
+                if prereq_block_satisfied(item, completed_courses):
                     return True
-        print(f"{indent}OR block result: False")
         return False
 
-    print(f"{indent}Unknown block format: {block} -> False")
     return False
 
 def course_prereqs_satisfied(course, completed_courses):
     """
     Check if the given course's prerequisites are satisfied by completed_courses.
-    course is a dict with a 'prerequisites' key (dict or empty).
     """
     prereqs = course.get("prerequisites")
     if not prereqs:  # Covers None, [], {}, ''
-        print(f"Course {course['courseCode']} has no prereqs -> True")
         return True
-    print(f"Checking prereqs for course {course['courseCode']}")
     return prereq_block_satisfied(prereqs, completed_courses)
 
 def get_eligible_courses(completed_courses, course_data):
@@ -60,16 +45,11 @@ def get_eligible_courses(completed_courses, course_data):
     return list of course dicts eligible to take (prereqs met).
     """
     eligible = []
-    print(f"Completed courses: {completed_courses}")
     for course_code, course in course_data.items():
         if course_code in completed_courses:
-            print(f"Skipping {course_code} (already completed)")
             continue
         if course_prereqs_satisfied(course, completed_courses):
-            print(f"Eligible: {course_code} (Prereqs met)")
             eligible.append(course)
-        else:
-            print(f"Not eligible: {course_code} (Prereqs NOT met)")
     return eligible
 
 
