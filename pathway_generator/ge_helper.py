@@ -23,24 +23,14 @@ def load_ge_lookup(ge_json_path="ge_reqs.json"):
 
 
 def build_ge_courses(ge_remaining, ge_lookup=None, unit_count=3):
-    """
-    Given a list of reqId strings and a lookup dict, returns a list of
-    GE-course dicts in the shape you need.
-
-    ge_remaining: list of reqIds, e.g. ["GE_WrittenComm", "IG_1A", …]
-    ge_lookup:    dict from load_ge_lookup()
-    unit_count:   int, default 3 units per GE course
-    """
-    if ge_lookup is None:
-        # fallback: load from default file path
-        ge_lookup = load_ge_lookup()
-
+    ge_lookup = ge_lookup or load_ge_lookup()
     ge_courses = []
     for reqId in ge_remaining:
-        name = ge_lookup.get(reqId, reqId)  # fallback to ID if missing
+        name = ge_lookup.get(reqId, reqId)
         ge_courses.append({
-            "courseName": name,
-            "reqIds":     [reqId],
-            "units":      unit_count
+            'courseCode': reqId,          # ← ensure this exists
+            'courseName': name,
+            'reqIds':     [reqId],
+            'units':      unit_count
         })
     return ge_courses

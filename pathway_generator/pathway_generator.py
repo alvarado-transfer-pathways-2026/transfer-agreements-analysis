@@ -251,6 +251,8 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         # 4) Balance units
         selected, units = select_courses_for_term(total_eligible, completed)
 
+        # print(f"Selected Courses: {selected}")
+
         # 5) Fill electives if under cap & still under 60 total
         # if units < MAX_UNITS and total_units + units < TOTAL_UNITS_REQUIRED:
         #     selected, units = fill_electives(selected, units, MAX_UNITS)
