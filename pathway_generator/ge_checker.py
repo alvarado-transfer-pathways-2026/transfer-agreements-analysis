@@ -34,6 +34,7 @@ class GE_Tracker:
         remaining = {}
 
         for req in requirements:
+            sub_min_total = 0
             if "subRequirements" in req:
                 if pattern_id == "7CoursePattern" and req["reqId"] == "GE_General":
                     # 7CoursePattern special case logic stays as is
@@ -64,7 +65,6 @@ class GE_Tracker:
                         }
 
                 else:
-                    sub_min_total = 0
                     fulfilled_per_sub = {}
                     leftover_tags = set()
 

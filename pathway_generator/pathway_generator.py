@@ -82,9 +82,26 @@ def get_user_inputs():
     print("\n🎓 Available UC Campuses:")
     for uc in SUPPORTED_UCS:
         print(f"  • {uc}")
-    uc = input("\nEnter the UC campus (e.g., 'ucsd'): ").strip().upper()
-    while uc not in SUPPORTED_UCS:
-        uc = input("Invalid UC. Try again: ").strip().upper()
+    # uc = input("\nEnter the UC campus (e.g., 'ucsd'): ").strip().upper()
+    # while uc not in SUPPORTED_UCS:
+    #     uc = input("Invalid UC. Try again: ").strip().upper()
+    while True:
+        uc_input = input("\nEnter one or more UC campuses (comma-separated, e.g., 'ucsd, ucla'): ").strip()
+        raw_ucs = [uc.strip().upper() for uc in uc_input.split(",")]
+        
+        valid_ucs = [uc for uc in raw_ucs if uc in SUPPORTED_UCS]
+        invalid_ucs = [uc for uc in raw_ucs if uc not in SUPPORTED_UCS]
+
+        if not valid_ucs:
+            print("❌ None of the UC campuses you entered are valid. Please try again.")
+            continue
+
+        if invalid_ucs:
+            print(f"⚠️ The following UC campuses were ignored because they're invalid: {', '.join(invalid_ucs)}")
+
+        uc_list = valid_ucs
+        break
+
 
     print("\n📚 Available GE Patterns:")
     print("  • 7CoursePattern - Basic 7-Course GE Pattern")
@@ -93,7 +110,7 @@ def get_user_inputs():
     while ge_pattern not in ["7CoursePattern", "IGETC"]:
         ge_pattern = input("Invalid GE pattern. Try again: ").strip()
 
-    return cc, uc, ge_pattern
+    return cc, uc_list, ge_pattern
 
 
 def build_file_paths(cc_id: str, uc_id: str):
@@ -134,7 +151,7 @@ def load_json(path):
 
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
-def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_id: str, ge_pattern: str):
+def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_list: list[str], ge_pattern: str):
     # articulated = load_json(art_path)
     # prereqs = load_json(prereq_path)
     articulated = load_json(art_path)
@@ -150,7 +167,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     major_reqs = get_major_requirements(
         str(major_path), 
         cc_id, 
-        [uc_id.upper()], 
+        uc_list, 
         str(ARTICULATION_DIR)
     )
 
