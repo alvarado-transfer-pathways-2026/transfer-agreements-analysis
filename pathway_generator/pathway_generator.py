@@ -9,7 +9,7 @@ from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
 from prereq_resolver import get_eligible_courses, load_prereq_data, add_missing_prereqs
 from ge_helper import load_ge_lookup, build_ge_courses
-from unit_balancer import select_courses_for_term
+from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 # from elective_filler import fill_electives
 from plan_exporter import export_term_plan, save_plan_to_json
 
@@ -200,22 +200,29 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
 
     while True:
         print(f"\n📘 Generating Term {term_num}…")
+        print(f"[DEBUG] full candidate list: {[c['courseCode'] for c in major_cands]}")
 
-        remaining_majors = [m for m in major_cands if m['courseCode'] not in completed]
+
+        # remaining_majors = [m for m in major_cands if m['courseCode'] not in completed]
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
 
-        if not remaining_majors and not ge_remaining:
+        if not major_cands and not ge_remaining:
             break
         
-        print(f"  Major remaining requirements: {list(remaining_majors)}")
+        print(f"  Major remaining requirements: {list(major_cands)}")
         print(f"  GE remaining requirements: {list(ge_remaining.keys())}")
 
         ge_course_dicts = build_ge_courses(ge_remaining, ge_lookup, unit_count=3)
         
         
-        # 2) Prereq filter
-        eligible = get_eligible_courses(completed, list(prereqs.values()), major_codes)
+        # 2) Prereq filter: only try the courses we still need
+        # major_cands = [m for m in major_cands if m['courseCode'] not in completed]
+        eligible = get_eligible_courses(
+            completed,
+            major_cands,
+            prereqs
+        )
 
 
         # 3) Build eligibility list
@@ -227,37 +234,42 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             for e in eligible
         ]
 
+        all_cc_course_codes = set(prereqs.keys())
         total_eligible = eligible_course_dicts + ge_course_dicts
         print(f"Total Eligible: {total_eligible}")
         # 4) Balance units
-        selected, units = select_courses_for_term(
+        selected, units, pruned_codes = select_courses_for_term(
             total_eligible,
             completed,
-            uc_to_cc_map, 
+            uc_to_cc_map,
+            all_cc_course_codes, 
             MAX_UNITS
         )
+        if pruned_codes:
+            before = len(major_cands)
+            major_cands = [
+                m for m in major_cands
+                if m['courseCode'] not in pruned_codes
+            ]
+            after = len(major_cands)
+            print(f"[DEBUG] dropped {before - after} OR‐courses: {pruned_codes}")
+
         if not selected:
             break
-
         # print(f"Selected Courses: {selected}")
 
         # 5) Fill electives if under cap & still under 60 total
         # if units < MAX_UNITS and total_units + units < TOTAL_UNITS_REQUIRED:
         #     selected, units = fill_electives(selected, units, MAX_UNITS)
 
-        # 6) Update state
+        # 6) Update GE‐tracker state (all major completed marking is done in the balancer)
         for course in selected:
             code = course["courseCode"]
-            completed.add(code)
-
             if "reqIds" in course:
-                # GE-course: mark each reqId individually
                 for req in course["reqIds"]:
                     ge_tracker.add_completed_course(code, req)
             else:
-                # Major (or other) course
-                tag = course.get("tag", code)
-                ge_tracker.add_completed_course(code, tag)
+                ge_tracker.add_completed_course(code, course.get("tag", code))
 
         # 7) Record this term
         export_term_plan(f"Term {term_num}", selected, pathway)

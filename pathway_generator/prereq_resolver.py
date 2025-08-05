@@ -101,15 +101,20 @@ def course_prereqs_satisfied(course, completed_courses):
         # Unknown format - assume no prereqs
         return True
 
-def get_eligible_courses(completed_courses, course_data, required_courses=None):
+def get_eligible_courses(completed_courses, major_cands, prereqs, default_units=3):
     eligible = []
-    for course in course_data:
-        course_code = course["courseCode"]
-        if required_courses and course_code not in required_courses:
+    for cand in major_cands:
+        code = cand["courseCode"]
+        raw_pr = prereqs.get(code, {}).get("prerequisites", None)
+        print(f"[ELIGIBILITY] Checking {code!r}: prereqs={raw_pr!r}, completed={sorted(completed_courses)}")
+
+        if code in completed_courses:
+            print(f"   → skip {code}: already completed")
             continue
-        ok = course_prereqs_satisfied(course, completed_courses)
-        if not ok:
-            print(f"   🚫 {course_code} NOT eligible; prereqs = {course.get('prerequisites')}")
+
+        if course_prereqs_satisfied({"prerequisites": raw_pr}, completed_courses):
+            print(f"   ✔ {code} is eligible")
+            eligible.append({"courseCode": code, "units": cand.get("units", default_units)})
         else:
-            eligible.append(course)
+            print(f"   ✖ {code} blocked by prereqs")
     return eligible

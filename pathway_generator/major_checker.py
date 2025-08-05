@@ -78,52 +78,38 @@ class MajorRequirements:
 
         return remaining
     
-    def get_cc_to_uc_map(
-        cc_name: str,
-        selected_ucs: List[str],
-        articulation_dir: Path
-    ) -> Dict[str, Dict[str, List[List[str]]]]:
-        """
-        Return a nested mapping of each UC to its receiving course codes,
-        each mapping to a list of lists of CC courses that articulate into it.
-        Each inner list represents an AND group, and the outer list is OR.
-
-        Example:
-          {
-            "UCSD": {
-              "CSE 8A": [["CISP 101"], ["CISP 102"]],
-              "CSE 12": [["CISP 201"]],
-              ...
-            },
-            "UCR": {
-              "CSE 8A": [["CISP 110"]],
-              ...
-            }
-          }
-        """
-        cc_name = format_cc_name(cc_name)
-        
-        path = articulation_dir
-
-        
-        data = load_json(path).get(cc_name, {})
+    def get_cc_to_uc_map(cc_name: str,
+                     selected_ucs: List[str],
+                     articulation_dir: Path
+                    ) -> Dict[str, Dict[str, List[List[str]]]]:
+        cc_key = format_cc_name(cc_name)           # e.g. "de_anza" → "De_Anza_College"
+        raw = load_json(articulation_dir)          # full JSON
+        data = raw.get(cc_key, {})
 
         uc_to_map: Dict[str, Dict[str, List[List[str]]]] = {}
         for uc in selected_ucs:
+            uc_entries = data.get(uc, {})          # e.g. data["UCB"], data["UCLA"], etc.
             uc_map: Dict[str, List[List[str]]] = {}
-            for entry in data.get(uc, {}).values():
-                recs: List[str] = []
-                if 'receiving_course' in entry:
-                    recs = [entry['receiving_course']]
-                elif 'receiving_courses' in entry:
-                    recs = entry['receiving_courses']
-    
-                # preserve groupings: each group is an AND, outer list is OR
-                groups = entry.get('course_groups', [])
-                blocks = [[course_obj['course'] for course_obj in group] for group in groups]
+
+            for req_id, req_obj in uc_entries.items():
+                # normalize receiving_course(s)
+                recs = []
+                if "receiving_course" in req_obj:
+                    recs = [req_obj["receiving_course"]]
+                elif "receiving_courses" in req_obj:
+                    recs = req_obj["receiving_courses"]
+
+                # pull out every OR‐block of AND‐courses
+                # each block = one way (AND) to satisfy → list of strings
+                blocks: List[List[str]] = [
+                    [ course_obj["course"] for course_obj in group ]
+                    for group in req_obj.get("course_groups", [])
+                ]
+
+                # attach every block to *each* receiving course
                 for rec in recs:
-                    uc_map.setdefault(rec, [])
-                    uc_map[rec].extend(blocks)
+                    uc_map.setdefault(rec, []).extend(blocks)
+
             uc_to_map[uc] = uc_map
         return uc_to_map
 

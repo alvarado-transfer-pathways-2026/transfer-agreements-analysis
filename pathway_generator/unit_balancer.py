@@ -79,46 +79,84 @@ def prune_uc_to_cc_map(
                 break  # move on to next uc_course
 
 
-def select_courses_for_term(
-    candidates: list[dict],
-    completed: set[str],
-    uc_to_cc_map: dict[str, list[list[str]]],
-    MAX_UNITS: int = 18
-) -> tuple[list[dict], int]:
-    """
-    Now takes uc_to_cc_map so we can prune AND/OR logic on the fly.
-    """
+
+# unit_balancer.py
+def select_courses_for_term(candidates, completed, uc_to_cc_map, all_cc_course_codes, MAX_UNITS=20):
+    print(f"\n[BALANCER] start term, completed={sorted(completed)}, map keys={list(uc_to_cc_map.keys())}")
     remaining_ges    = [c for c in candidates if 'reqIds' in c]
     remaining_majors = [c for c in candidates if 'reqIds' not in c]
 
     selected = []
     total_units = 0
+    pruned_codes = set()   # ← collect all OR‐courses to drop
 
-    # STEP 1: Always grab one GE if possible
+    # STEP 1: pick one GE
     if remaining_ges:
         ge = remaining_ges.pop(0)
+        print(f"[BALANCER] considering GE {ge['courseCode']} ({ge['units']}u)")
         if total_units + ge['units'] <= MAX_UNITS:
+            print(f"   → selecting GE {ge['courseCode']}")
             selected.append(ge)
             total_units += ge['units']
+            completed.add(ge['courseCode'])
 
-    # STEP 2: Fill with majors, BUT prune the map as we go
+    # STEP 2: majors
     for m in remaining_majors:
-        code = m['courseCode']
-        if total_units + m['units'] <= MAX_UNITS and code not in completed:
-            # 2a) select it
-            selected.append(m)
-            total_units += m['units']
+        code, units = m['courseCode'], m['units']
+        print(f"[BALANCER] considering MAJOR {code} ({units}u)")
+        if code in completed:
+            print("   → skip: already completed")
+            continue
+        if total_units + units > MAX_UNITS:
+            print("   → skip: unit cap")
+            continue
 
-            # 2b) mark completed
+        # pick it
+        print("   → selecting")
+        selected.append(m)
+        total_units += units
+        completed.add(code)
+        
+        
+
+        
+        # Whenever you complete a base course, complete its honors variant too (and vice versa)
+        base = code.rstrip('H')    # e.g. "MATH 1AH" -> "MATH 1A", or "MATH 1A" -> "MATH 1A"
+        hon  = base + 'H'          # "MATH 1AH"
+        for eq in (base, hon):
+            if eq != code and eq in all_cc_course_codes:
+                print(f"[EQUIV] also marking equivalent {eq} complete")
+                completed.add(eq)
+
+        # now prune any UC requirement we’ve satisfied
+        for uc_course, blocks in list(uc_to_cc_map.items()):
+            if any(set(block).issubset(completed) for block in blocks):
+                print(f"   [PRUNE] requirement {uc_course} satisfied; dropping it")
+                del uc_to_cc_map[uc_course]
+
+                # collect *every* CC‐course in those blocks for pruning
+                for block in blocks:
+                    for cc_code in block:
+                        # if it's not the one we just completed, mark it as pruned
+                        if cc_code not in completed:
+                            pruned_codes.add(cc_code)
+                            print(f"      [PRUNE] will drop CC‐course {cc_code}")
+                break
+
+    # STEP 3: more GEs
+    for ge in remaining_ges:
+        code, units = ge['courseCode'], ge['units']
+        print(f"[BALANCER] reconsider GE {code} ({units}u)")
+        if code in completed:
+            print("   → skip: already completed")
+            continue
+        if total_units + units <= MAX_UNITS:
+            print("   → selecting GE")
+            selected.append(ge)
+            total_units += units
             completed.add(code)
 
-            # 2c) prune uc_to_cc_map based on AND/OR logic
-            prune_uc_to_cc_map(code, uc_to_cc_map, completed)
+    print(f"[BALANCER] end term: selected={[c['courseCode'] for c in selected]}, total_units={total_units}")
+    return selected, total_units, pruned_codes
 
-    # STEP 3: (Optional) pack in more GEs
-    for ge in remaining_ges:
-        if total_units + ge['units'] <= MAX_UNITS:
-            selected.append(ge)
-            total_units += ge['units']
 
-    return selected, total_units
