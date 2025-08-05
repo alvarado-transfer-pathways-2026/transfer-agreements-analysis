@@ -32,23 +32,23 @@
         "units": 3
       },
       {
+        "courseCode": "CSCI 114",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 141",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 245",
+        "units": 3
+      },
+      {
         "courseCode": "IG_1B",
         "units": 3
       },
       {
         "courseCode": "IG_2",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3A",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3B",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3_Leftover",
         "units": 3
       }
     ]
@@ -61,23 +61,23 @@
         "units": 3
       },
       {
+        "courseCode": "CSCI 210",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 205",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 200",
+        "units": 3
+      },
+      {
         "courseCode": "IG_1B",
         "units": 3
       },
       {
         "courseCode": "IG_2",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3A",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3B",
-        "units": 3
-      },
-      {
-        "courseCode": "IG_3_Leftover",
         "units": 3
       }
     ]

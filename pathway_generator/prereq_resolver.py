@@ -8,19 +8,27 @@ def load_prereq_data(json_path):
     return {course["courseCode"]: course for course in data}
 
 def prereq_block_satisfied(block, completed_courses):
+    # 1) Base case: plain string → check membership
+    if isinstance(block, str):
+        return block in completed_courses
+
+    # 2) Empty block (None or {}) → trivially satisfied
     if not block:
         return True
-    if "and" in block:
-        return all(prereq_block_satisfied(subblock, completed_courses) for subblock in block["and"])
-    if "or" in block:
+
+    # 3) "AND" group
+    if isinstance(block, dict) and "and" in block:
+        return all(prereq_block_satisfied(sub, completed_courses)
+                   for sub in block["and"])
+
+    # 4) "OR" group
+    if isinstance(block, dict) and "or" in block:
         for item in block["or"]:
-            if isinstance(item, str):
-                if item in completed_courses:
-                    return True
-            elif isinstance(item, dict):
-                if prereq_block_satisfied(item, completed_courses):
-                    return True
+            if prereq_block_satisfied(item, completed_courses):
+                return True
         return False
+
+    # 5) Anything else → not satisfied
     return False
 
 def course_prereqs_satisfied(course, completed_courses):
