@@ -7,6 +7,51 @@ def load_prereq_data(json_path):
     # Convert list to dict keyed by courseCode for quick lookup
     return {course["courseCode"]: course for course in data}
 
+def add_missing_prereqs(major_cands, prereqs, completed=None, default_units=3):
+        if completed is None:
+            completed = set()
+
+        existing = {c['courseCode'] for c in major_cands}
+        i = 0
+
+        while i < len(major_cands):
+            code = major_cands[i]['courseCode']
+            raw = prereqs.get(code, {}).get('prerequisites', [])
+
+            # 1) Normalize raw prereqs into a flat list of codes
+            req_list = []
+            if isinstance(raw, dict):
+                # handle {"and": […]}
+                req_list = raw.get('and', [])
+            elif isinstance(raw, list):
+                req_list = raw
+            # now req_list may contain strings or {"or": […]} dicts
+
+            # 2) Iterate through normalized list
+            for entry in req_list:
+                if isinstance(entry, dict) and 'or' in entry:
+                    # pull in each option in the OR‐group
+                    candidates = entry['or']
+                elif isinstance(entry, str):
+                    candidates = [entry]
+                else:
+                    # unexpected shape—skip
+                    continue
+                
+                for pre in candidates:
+                    # only add real CC codes we haven’t done or queued
+                    if pre in prereqs and pre not in existing and pre not in completed:
+                        units = prereqs[pre].get('units', default_units)
+                        major_cands.append({
+                            'courseCode': pre,
+                            'units':      units
+                        })
+                        existing.add(pre)
+    
+            i += 1
+
+        return major_cands
+
 def prereq_block_satisfied(block, completed_courses):
     # 1) Base case: plain string → check membership
     if isinstance(block, str):
@@ -62,8 +107,9 @@ def get_eligible_courses(completed_courses, course_data, required_courses=None):
         course_code = course["courseCode"]
         if required_courses and course_code not in required_courses:
             continue
-        if course_code in completed_courses:
-            continue
-        if course_prereqs_satisfied(course, completed_courses):
+        ok = course_prereqs_satisfied(course, completed_courses)
+        if not ok:
+            print(f"   🚫 {course_code} NOT eligible; prereqs = {course.get('prerequisites')}")
+        else:
             eligible.append(course)
     return eligible

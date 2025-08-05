@@ -3,20 +3,24 @@
     "term": "Term 1",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "MATH 1A",
+        "courseCode": "CSCI 112",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 140",
         "units": 5
       },
       {
-        "courseCode": "MATH 1AH",
-        "units": 5
+        "courseCode": "IG_1B",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22A",
-        "units": 4.5
+        "courseCode": "IG_2",
+        "units": 3
       }
     ]
   },
@@ -24,20 +28,24 @@
     "term": "Term 2",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_3A",
         "units": 3
       },
       {
-        "courseCode": "MATH 1B",
-        "units": 5
+        "courseCode": "CSCI 210",
+        "units": 4
       },
       {
-        "courseCode": "MATH 1BH",
-        "units": 5
+        "courseCode": "CSCI 222",
+        "units": 4
       },
       {
-        "courseCode": "CIS 22B",
-        "units": 4.5
+        "courseCode": "MATH 141",
+        "units": 4
+      },
+      {
+        "courseCode": "MATH 245",
+        "units": 3
       }
     ]
   },
@@ -45,20 +53,24 @@
     "term": "Term 3",
     "courses": [
       {
-        "courseCode": "GE_QuantReason",
+        "courseCode": "IG_3B",
         "units": 3
       },
       {
-        "courseCode": "MATH 1C",
-        "units": 5
+        "courseCode": "MATH 205",
+        "units": 4
       },
       {
-        "courseCode": "MATH 1CH",
-        "units": 5
+        "courseCode": "MATH 200",
+        "units": 3
       },
       {
-        "courseCode": "CIS 22BH",
-        "units": 4.5
+        "courseCode": "IG_3_Leftover",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_4",
+        "units": 3
       }
     ]
   },
@@ -66,20 +78,24 @@
     "term": "Term 4",
     "courses": [
       {
-        "courseCode": "GE_General",
+        "courseCode": "IG_4",
         "units": 3
       },
       {
-        "courseCode": "MATH 1D",
-        "units": 5
+        "courseCode": "MATH 206",
+        "units": 4
       },
       {
-        "courseCode": "MATH 1DH",
-        "units": 5
+        "courseCode": "IG_Physical",
+        "units": 3
       },
       {
-        "courseCode": "CIS 29",
-        "units": 4.5
+        "courseCode": "IG_Biological",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Lab",
+        "units": 3
       }
     ]
   },
@@ -87,166 +103,7 @@
     "term": "Term 5",
     "courses": [
       {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 2A",
-        "units": 5
-      },
-      {
-        "courseCode": "MATH 2AH",
-        "units": 5
-      },
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 6",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 2B",
-        "units": 5
-      },
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General_Leftover",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 7",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General_Leftover",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 8",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General_Leftover",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 9",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General_Leftover",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 10",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 11",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 12",
-    "courses": [
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
+        "courseCode": "IG_7",
         "units": 3
       }
     ]

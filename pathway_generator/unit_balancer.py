@@ -53,38 +53,72 @@
 
 # This is when we want at least one ge course in each term
 
-def select_courses_for_term(candidates, completed, MAX_UNITS=20):
+def prune_uc_to_cc_map(
+    new_course: str,
+    uc_to_cc_map: dict[str, list[list[str]]],
+    completed: set[str]
+) -> None:
     """
-    candidates: list of dicts where GE courses have 'reqIds' and majors do not
-    completed:  set of courseCodes already taken
+    After new_course is completed:
+    - Remove any UC-course whose one AND-block is now ⊆ completed.
+    - For that UC-course’s other blocks that are single courses,
+      add those courses to completed (so they won’t be picked later).
     """
-    # 1) Partition into GE vs majors
-    remaining_ges   = [c for c in candidates if 'reqIds' in c]
-    remaining_majors= [c for c in candidates if 'reqIds' not in c]
+    # We iterate over a snapshot so we can del() safely.
+    for uc_course, blocks in list(uc_to_cc_map.items()):
+        for block in blocks:
+            # If this block is now fully taken…
+            if new_course in block and set(block).issubset(completed):
+                # 1) Requirement satisfied ⇒ drop the UC-course entirely
+                del uc_to_cc_map[uc_course]
+
+                # 2) Any other single-course alternatives get marked done
+                for other in blocks:
+                    if other is not block and len(other) == 1:
+                        completed.add(other[0])
+                break  # move on to next uc_course
+
+
+def select_courses_for_term(
+    candidates: list[dict],
+    completed: set[str],
+    uc_to_cc_map: dict[str, list[list[str]]],
+    MAX_UNITS: int = 18
+) -> tuple[list[dict], int]:
+    """
+    Now takes uc_to_cc_map so we can prune AND/OR logic on the fly.
+    """
+    remaining_ges    = [c for c in candidates if 'reqIds' in c]
+    remaining_majors = [c for c in candidates if 'reqIds' not in c]
 
     selected = []
     total_units = 0
 
-    # 2) STEP 1: Always take one GE if you can
+    # STEP 1: Always grab one GE if possible
     if remaining_ges:
-        # you could sort or prioritize here; we'll just take the first
         ge = remaining_ges.pop(0)
         if total_units + ge['units'] <= MAX_UNITS:
             selected.append(ge)
             total_units += ge['units']
-        # if it somehow doesn’t fit (unlikely with 3-unit GEs), you could skip or handle it here
 
-    # 3) STEP 2: Fill with major courses
+    # STEP 2: Fill with majors, BUT prune the map as we go
     for m in remaining_majors:
-        if total_units + m['units'] <= MAX_UNITS:
+        code = m['courseCode']
+        if total_units + m['units'] <= MAX_UNITS and code not in completed:
+            # 2a) select it
             selected.append(m)
             total_units += m['units']
 
-    # 4) (Optional) If you still want to pack in more GEs after majors:
+            # 2b) mark completed
+            completed.add(code)
+
+            # 2c) prune uc_to_cc_map based on AND/OR logic
+            prune_uc_to_cc_map(code, uc_to_cc_map, completed)
+
+    # STEP 3: (Optional) pack in more GEs
     for ge in remaining_ges:
         if total_units + ge['units'] <= MAX_UNITS:
             selected.append(ge)
             total_units += ge['units']
 
-    print(selected)
     return selected, total_units

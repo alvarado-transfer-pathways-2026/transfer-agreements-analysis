@@ -77,68 +77,55 @@ class MajorRequirements:
                     break
 
         return remaining
+    
+    def get_cc_to_uc_map(
+        cc_name: str,
+        selected_ucs: List[str],
+        articulation_dir: Path
+    ) -> Dict[str, Dict[str, List[List[str]]]]:
+        """
+        Return a nested mapping of each UC to its receiving course codes,
+        each mapping to a list of lists of CC courses that articulate into it.
+        Each inner list represents an AND group, and the outer list is OR.
 
+        Example:
+          {
+            "UCSD": {
+              "CSE 8A": [["CISP 101"], ["CISP 102"]],
+              "CSE 12": [["CISP 201"]],
+              ...
+            },
+            "UCR": {
+              "CSE 8A": [["CISP 110"]],
+              ...
+            }
+          }
+        """
+        cc_name = format_cc_name(cc_name)
+        
+        path = articulation_dir
 
-def get_major_requirements(
-    course_reqs_path: str,
-    cc_name: str,
-    selected_ucs: List[str],
-    articulation_dir: str
-) -> MajorRequirements:
-    return MajorRequirements(
-        Path(course_reqs_path),
-        cc_name,
-        selected_ucs,
-        Path(articulation_dir)
-    )
+        
+        data = load_json(path).get(cc_name, {})
 
-# ─── CC→UC Mapping Utility ────────────────────────────────────────────────────
-
-def get_cc_to_uc_map(
-    cc_name: str,
-    selected_ucs: List[str],
-    articulation_dir: Path
-) -> Dict[str, Dict[str, List[List[str]]]]:
-    """
-    Return a nested mapping of each UC to its receiving course codes,
-    each mapping to a list of lists of CC courses that articulate into it.
-    Each inner list represents an AND group, and the outer list is OR.
-
-    Example:
-      {
-        "UCSD": {
-          "CSE 8A": [["CISP 101"], ["CISP 102"]],
-          "CSE 12": [["CISP 201"]],
-          ...
-        },
-        "UCR": {
-          "CSE 8A": [["CISP 110"]],
-          ...
-        }
-      }
-    """
-    filename = get_articulation_filename(cc_name)
-    path = articulation_dir / filename
-    data = load_json(path).get(cc_name, {})
-
-    uc_to_map: Dict[str, Dict[str, List[List[str]]]] = {}
-    for uc in selected_ucs:
-        uc_map: Dict[str, List[List[str]]] = {}
-        for entry in data.get(uc, {}).values():
-            recs: List[str] = []
-            if 'receiving_course' in entry:
-                recs = [entry['receiving_course']]
-            elif 'receiving_courses' in entry:
-                recs = entry['receiving_courses']
-
-            # preserve groupings: each group is an AND, outer list is OR
-            groups = entry.get('course_groups', [])
-            blocks = [[course_obj['course'] for course_obj in group] for group in groups]
-            for rec in recs:
-                uc_map.setdefault(rec, [])
-                uc_map[rec].extend(blocks)
-        uc_to_map[uc] = uc_map
-    return uc_to_map
+        uc_to_map: Dict[str, Dict[str, List[List[str]]]] = {}
+        for uc in selected_ucs:
+            uc_map: Dict[str, List[List[str]]] = {}
+            for entry in data.get(uc, {}).values():
+                recs: List[str] = []
+                if 'receiving_course' in entry:
+                    recs = [entry['receiving_course']]
+                elif 'receiving_courses' in entry:
+                    recs = entry['receiving_courses']
+    
+                # preserve groupings: each group is an AND, outer list is OR
+                groups = entry.get('course_groups', [])
+                blocks = [[course_obj['course'] for course_obj in group] for group in groups]
+                for rec in recs:
+                    uc_map.setdefault(rec, [])
+                    uc_map[rec].extend(blocks)
+            uc_to_map[uc] = uc_map
+        return uc_to_map
 
 # ─── Low-Level Helpers ───────────────────────────────────────────────────────
 
@@ -160,6 +147,33 @@ def load_uc_requirement_groups(
             num_req = options[0][2] if len(options[0]) >= 3 else len(codes)
             groups[uc][group_name] = {'courses': codes, 'num_required': num_req}
     return groups
+
+def format_cc_name(cc_id: str) -> str:
+    """
+    Convert a CC-ID (lowercase, underscores) into the JSON key
+    used in your articulation files.
+
+    E.g. "palomar_college" → "Palomar_College"
+    """
+    name = "_".join(word.capitalize() for word in cc_id.split("_"))
+    return f"{name}_College"
+
+def get_major_requirements(
+    course_reqs_path: str,
+    cc_name: str,
+    selected_ucs: List[str],
+    articulation_dir: str
+) -> MajorRequirements:
+    return MajorRequirements(
+        Path(course_reqs_path),
+        cc_name,
+        selected_ucs,
+        Path(articulation_dir)
+    )
+
+# ─── CC→UC Mapping Utility ────────────────────────────────────────────────────
+
+
 
 
 def get_articulation_filename(cc_name: str) -> str:

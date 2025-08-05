@@ -7,7 +7,7 @@ from pprint import pprint
 
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
-from prereq_resolver import get_eligible_courses, load_prereq_data
+from prereq_resolver import get_eligible_courses, load_prereq_data, add_missing_prereqs
 from ge_helper import load_ge_lookup, build_ge_courses
 from unit_balancer import select_courses_for_term
 # from elective_filler import fill_electives
@@ -152,9 +152,8 @@ def load_json(path):
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
 def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_list: list[str], ge_pattern: str):
-    # articulated = load_json(art_path)
-    # prereqs = load_json(prereq_path)
     articulated = load_json(art_path)
+
     # load as a dict: courseCode -> metadata
     prereqs = load_prereq_data(prereq_path)
     ge_data = load_json(ge_path)
@@ -179,69 +178,29 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
 
     ge_lookup = load_ge_lookup(PREREQS_DIR / "ge_reqs.json")
 
-    def add_missing_prereqs(major_cands, prereqs, completed=None, default_units=3):
-        if completed is None:
-            completed = set()
-
-        existing = {c['courseCode'] for c in major_cands}
-        i = 0
-
-        while i < len(major_cands):
-            code = major_cands[i]['courseCode']
-            raw = prereqs.get(code, {}).get('prerequisites', [])
-
-            # 1) Normalize raw prereqs into a flat list of codes
-            req_list = []
-            if isinstance(raw, dict):
-                # handle {"and": […]}
-                req_list = raw.get('and', [])
-            elif isinstance(raw, list):
-                req_list = raw
-            # now req_list may contain strings or {"or": […]} dicts
-
-            # 2) Iterate through normalized list
-            for entry in req_list:
-                if isinstance(entry, dict) and 'or' in entry:
-                    # pull in each option in the OR‐group
-                    candidates = entry['or']
-                elif isinstance(entry, str):
-                    candidates = [entry]
-                else:
-                    # unexpected shape—skip
-                    continue
-                
-                for pre in candidates:
-                    # only add real CC codes we haven’t done or queued
-                    if pre in prereqs and pre not in existing and pre not in completed:
-                        units = prereqs[pre].get('units', default_units)
-                        major_cands.append({
-                            'courseCode': pre,
-                            'units':      units
-                        })
-                        existing.add(pre)
     
-            i += 1
 
-        return major_cands
+    # 1) Candidate courses from major + GE 
+    major_map = MajorRequirements.get_cc_to_uc_map(cc_id, uc_list, art_path)
+    pprint(major_map)
+    uc_to_cc_map: dict[str, list[list[str]]] = {}
+    for uc, cmap in major_map.items():
+        for uc_course, blocks in cmap.items():
+            # merge blocks for the same UC-course across campuses
+            uc_to_cc_map.setdefault(uc_course, []).extend(blocks)
+    print("🔍 uc_to_cc_map ready for pruning:")
+    pprint(uc_to_cc_map)
 
-    # 1) Candidate courses from major + GE
-    # major_map = major_reqs.get_cc_to_uc_map()
     major_cands = major_reqs.get_remaining_courses(completed, articulated)
-    pprint(f"Major candidates before: {major_cands}")
     major_cands = add_missing_prereqs(major_cands, prereqs, completed)
-    pprint(f"Major candidates after: {major_cands}")
-    major_codes = [ m['courseCode'] for m in major_cands ]
-    major_codes = sorted(major_codes)
+    
+    major_codes = sorted({ m['courseCode'] for m in major_cands })
     pprint(major_codes)
 
 
     while True:
         print(f"\n📘 Generating Term {term_num}…")
 
-        
-        
-        # print(f"  Found {len(major_cands)} major course candidates")
-        # pprint(major_cands)
         remaining_majors = [m for m in major_cands if m['courseCode'] not in completed]
         # For GE courses, we need to get remaining requirements and find courses that fulfill them
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
@@ -249,6 +208,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         if not remaining_majors and not ge_remaining:
             break
         
+        print(f"  Major remaining requirements: {list(remaining_majors)}")
         print(f"  GE remaining requirements: {list(ge_remaining.keys())}")
 
         ge_course_dicts = build_ge_courses(ge_remaining, ge_lookup, unit_count=3)
@@ -257,9 +217,6 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         # 2) Prereq filter
         eligible = get_eligible_courses(completed, list(prereqs.values()), major_codes)
 
-        # print(f"  Eligible courses: {len(eligible)}")
-        # pprint(eligible)
-        # eligible_course_codes = [c['courseCode'] for c in eligible]
 
         # 3) Build eligibility list
         eligible_course_dicts = [
@@ -273,8 +230,12 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         total_eligible = eligible_course_dicts + ge_course_dicts
         print(f"Total Eligible: {total_eligible}")
         # 4) Balance units
-        selected, units = select_courses_for_term(total_eligible, completed)
-
+        selected, units = select_courses_for_term(
+            total_eligible,
+            completed,
+            uc_to_cc_map, 
+            MAX_UNITS
+        )
         if not selected:
             break
 
@@ -335,14 +296,6 @@ if __name__ == "__main__":
         # Save the plan JSON to the pathway_generator directory
         output_json_path = SCRIPT_DIR / "output_pathway.json"
         save_plan_to_json(pathway, str(output_json_path))
-
-        # Print or further save the full plan
-        # print("\n🎉 Final Pathway:")
-        # for term in pathway:
-        #     print(f"Term {term['term']}: {term['total_units']} units")
-        #     for course in term['courses']:
-        #         print(f"  - {course['courseCode']} ({course.get('units', 3)} units)")
-        #     print()
             
     except Exception as e:
         print(f"\n❌ Error: {e}")
