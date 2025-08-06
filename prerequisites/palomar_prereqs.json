@@ -60,6 +60,14 @@
     }
   },
   {
+    "courseCode": "MATH 206",
+    "courseName": "Differential Equations",
+    "units": 4,
+    "prerequisites": {
+      "and": ["MATH 205"]
+    }
+  },
+  {
     "courseCode": "MATH 200",
     "courseName": "Linear Algebra",
     "units": 3,

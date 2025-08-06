@@ -34,6 +34,7 @@ class GE_Tracker:
         remaining = {}
 
         for req in requirements:
+            sub_min_total = 0
             if "subRequirements" in req:
                 if pattern_id == "7CoursePattern" and req["reqId"] == "GE_General":
                     # 7CoursePattern special case logic stays as is
@@ -64,7 +65,6 @@ class GE_Tracker:
                         }
 
                 else:
-                    sub_min_total = 0
                     fulfilled_per_sub = {}
                     leftover_tags = set()
 
@@ -83,23 +83,35 @@ class GE_Tracker:
                         # Save *extra* matched courses (beyond sub min) for leftover
                         leftover_tags.update(c["name"] for c in matched[sub_min:])
 
-                    # Handle leftover for OR-style requirements
-                    leftover_needed = req.get("minCourses", 0) - sub_min_total
-                    if leftover_needed > 0:
-                        # Now count how many *remaining* (not used) courses fulfill any subRequirement
-                        all_or_tags = set(s["reqId"] for s in req["subRequirements"])
-                        valid_extra_courses = [
-                            c for c in self.completed_courses
-                            if any(tag in all_or_tags for tag in c["tags"])
-                            and c["name"] in leftover_tags
-                        ]
-                        leftover_remaining = max(0, leftover_needed - len(valid_extra_courses))
+                # Handle leftover for OR-style requirements
+                leftover_key    = f"{req['reqId']}_Leftover"
+                leftover_needed = req.get("minCourses", 0) - sub_min_total
 
-                        # Always add leftover entry even if 0
-                        remaining[f"{req['reqId']}_Leftover"] = {
-                            "name": f"{req['name']} (either subcategory)",
-                            "courses_remaining": leftover_remaining
-                        }
+                # 1) count “extra” subRequirement courses
+                all_or_tags           = {s["reqId"] for s in req["subRequirements"]}
+                valid_extra_courses   = [
+                    c for c in self.completed_courses
+                    if any(tag in all_or_tags for tag in c.get("tags", []))
+                    and c["name"] in leftover_tags
+                ]
+
+                # 2) count any courses explicitly tagged as the leftover bucket
+                explicit_leftovers = [
+                    c for c in self.completed_courses
+                    if leftover_key in c.get("tags", [])
+                ]
+
+                # 3) remaining = needed minus both sources
+                leftover_remaining = max(
+                    0,
+                    leftover_needed - len(valid_extra_courses) - len(explicit_leftovers)
+                )
+
+                if leftover_remaining > 0:
+                    remaining[leftover_key] = {
+                        "name": f"{req['name']} (either subcategory)",
+                        "courses_remaining": leftover_remaining
+                    }
 
             else:
                 res = self._evaluate_requirement(req, self.completed_courses)
