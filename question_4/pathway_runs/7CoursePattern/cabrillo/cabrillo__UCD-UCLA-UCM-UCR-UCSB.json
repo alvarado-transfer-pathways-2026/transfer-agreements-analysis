@@ -1,0 +1,174 @@
+[
+  {
+    "term": "Term 1",
+    "courses": [
+      {
+        "courseCode": "GE_WrittenComm",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 5A",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 11",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 19",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_QuantReason",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 2",
+    "courses": [
+      {
+        "courseCode": "GE_WrittenComm",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 5B",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 21",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 23",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 24",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_ArtsHum",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 3",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 5C",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_SocBeh",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_PhyBio",
+        "units": 3
+      },
+      {
+        "courseCode": "GE_General_Leftover",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 4",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 6",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 7",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 5",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 6",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 7",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 8",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 9",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 10",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 11",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 12",
+    "courses": [
+      {
+        "courseCode": "GE_General",
+        "units": 3
+      }
+    ]
+  }
+]

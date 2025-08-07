@@ -1,0 +1,106 @@
+[
+  {
+    "term": "Term 1",
+    "courses": [
+      {
+        "courseCode": "IG_1A",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 111B",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 115",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 110A",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 110B",
+        "units": 4
+      }
+    ]
+  },
+  {
+    "term": "Term 2",
+    "courses": [
+      {
+        "courseCode": "IG_1B",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 110C",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 110B",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_2",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3A",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3B",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 3",
+    "courses": [
+      {
+        "courseCode": "IG_3_Leftover",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 110C",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 120",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_4",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Physical",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Biological",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 4",
+    "courses": [
+      {
+        "courseCode": "IG_4",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 125",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Lab",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_7",
+        "units": 3
+      }
+    ]
+  }
+]

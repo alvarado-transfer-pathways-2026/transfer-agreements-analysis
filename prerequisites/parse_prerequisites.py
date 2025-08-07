@@ -68,6 +68,6 @@ def parse_prereq_file(filename):
         print()
 
 if __name__ == "__main__":
-    parse_prereq_file("prerequisites/foothill_college_prereqs.json")
+    parse_prereq_file("prerequisites/cosumnes_river_college_prereqs.json")
     
     

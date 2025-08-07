@@ -1,0 +1,135 @@
+[
+  {
+    "term": "Term 1",
+    "courses": [
+      {
+        "courseCode": "IG_1A",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 150",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 150",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 138",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 139",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 111",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 2",
+    "courses": [
+      {
+        "courseCode": "IG_1B",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 112",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 226",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 155",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 151",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 226",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 3",
+    "courses": [
+      {
+        "courseCode": "IG_2",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 113",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 260",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 270",
+        "units": 3
+      },
+      {
+        "courseCode": "MATH 265",
+        "units": 3
+      },
+      {
+        "courseCode": "CS 220",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 4",
+    "courses": [
+      {
+        "courseCode": "IG_3A",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3B",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_3_Leftover",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_4",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Physical",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Biological",
+        "units": 3
+      }
+    ]
+  },
+  {
+    "term": "Term 5",
+    "courses": [
+      {
+        "courseCode": "IG_4",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_Lab",
+        "units": 3
+      },
+      {
+        "courseCode": "IG_7",
+        "units": 3
+      }
+    ]
+  }
+]
