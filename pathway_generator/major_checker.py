@@ -168,7 +168,7 @@ def get_articulation_filename(cc_name: str) -> str:
         "cabrillo": "Cabrillo_College_articulation.json",
         "chabot": "Chabot_College_articulation.json",
         "city_college_of_san_francisco": "City_College_Of_San_Francisco_articulation.json",
-        "consumes_river": "Consumnes_River_College_articulation.json",
+        "cosumnes_river": "Cosumnes_River_College_articulation.json",
         "de_anza": "De_Anza_College_articulation.json",
         "diablo_valley": "Diablo_Valley_College_articulation.json",
         "folsom_lake": "Folsom_Lake_College_articulation.json",
