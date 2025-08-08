@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # === CONFIGURATION ===
-json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/18_units_automation_results/pathway_results_IGETC_20250808_094422.json"
+json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/chill_workload/sem-qtr_pathway_results_IGETC_20250808_102557.json"
 
 # === LOAD DATA ===
 with open(json_path, 'r') as f:
