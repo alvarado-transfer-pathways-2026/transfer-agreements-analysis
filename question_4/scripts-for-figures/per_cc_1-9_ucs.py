@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Replace this with the path to your JSON file
-json_file_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/18_units_automation_results/palomar/palomar_IGETC_20250808_094422.json"
+json_file_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/intense_workload/foothill/foothill_IGETC_20250808_111729.json"
 
 # Load JSON data from file
 with open(json_file_path, 'r') as f:
