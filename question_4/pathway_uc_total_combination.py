@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 import itertools
 import json
-import os
 from pathlib import Path
-from datetime import datetime
-
-# Add pathway_generator folder to sys.path so we can import generate_pathway
 import sys
+
+# Make pathway_generator importable
 sys.path.append(str(Path(__file__).resolve().parents[1] / "pathway_generator"))
 from pathway_generator import (
     generate_pathway,
@@ -16,8 +14,9 @@ from pathway_generator import (
     SUPPORTED_UCS,
 )
 
-# --- Config ---
+# -------------------- Config --------------------
 
+# EXACT fifteen CC keys we'll run
 TOP15_CCS = [
     "city_college_of_san_francisco",
     "cabrillo",
@@ -36,17 +35,34 @@ TOP15_CCS = [
     "de_anza",
 ]
 
+# Run both patterns
 GE_PATTERNS = ["IGETC", "7CoursePattern"]
 
+# Where outputs go
 OUTPUT_ROOT = Path(__file__).resolve().parent / "pathway_runs"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
-# Fix articulation filename typo for Cosumnes
-ARTICULATION_FILENAME_OVERRIDES = {
+# ---- Hardcoded articulation filenames (authoritative, no guessing) ----
+# These MUST exactly match files in articulated_courses_json/
+ARTICULATION_FILES = {
+    "cabrillo": "Cabrillo_College_articulation.json",
+    "chabot": "Chabot_College_articulation.json",
+    "city_college_of_san_francisco": "City_College_Of_San_Francisco_articulation.json",
     "cosumnes_river": "Cosumnes_River_College_articulation.json",
+    "de_anza": "De_Anza_College_articulation.json",
+    "diablo_valley": "Diablo_Valley_College_articulation.json",
+    "folsom_lake": "Folsom_Lake_College_articulation.json",
+    "foothill": "Foothill_College_articulation.json",
+    "la_city": "Los_Angeles_City_College_articulation.json",              # <- LA City
+    "las_positas": "Las_Positas_College_articulation.json",
+    "los_angeles_pierce": "Los_Angeles_Pierce_College_articulation.json",
+    "miracosta": "MiraCosta_College_articulation.json",
+    "mt_san_jacinto": "Mt._San_Jacinto_College_articulation.json",        # <- DOT after Mt.
+    "orange_coast": "Orange_Coast_College_articulation.json",
+    "palomar": "Palomar_College_articulation.json",
 }
 
-# Map CC -> prereq filename (matches prereq folder files)
+# ---- Prereq filenames (match prerequisites/ folder) ----
 PREREQ_FILES = {
     "cabrillo": "cabrillo_college_prereqs.json",
     "chabot": "chabot_college_prereqs.json",
@@ -65,41 +81,55 @@ PREREQ_FILES = {
     "palomar": "palomar_prereqs.json",
 }
 
-def articulation_path_for(cc_key: str) -> Path:
-    if cc_key in ARTICULATION_FILENAME_OVERRIDES:
-        fname = ARTICULATION_FILENAME_OVERRIDES[cc_key]
-    else:
-        # Find articulation file matching cc_key words heuristically
-        candidates = list(ARTICULATION_DIR.glob("*_articulation.json"))
-        parts = cc_key.replace("_", " ").split()
-        for c in candidates:
-            name = c.name.lower()
-            if all(part in name for part in parts):
-                return c
-        raise FileNotFoundError(f"No articulation file found for {cc_key!r}")
-    return ARTICULATION_DIR / fname
+# -------------------- Helpers --------------------
 
-def prereq_path_for(cc_key: str) -> Path:
-    fname = PREREQ_FILES.get(cc_key)
+def articulation_path_for(cc_id: str) -> Path:
+    """Strictly map CC key to its articulation file; raise helpful errors if missing."""
+    fname = ARTICULATION_FILES.get(cc_id)
     if not fname:
-        raise FileNotFoundError(f"No prereq mapping for {cc_key}")
-    path = PREREQS_DIR / fname
+        raise FileNotFoundError(f"No articulation mapping for '{cc_id}'. Add it to ARTICULATION_FILES.")
+    path = ARTICULATION_DIR / fname
     if not path.exists():
-        raise FileNotFoundError(f"Prereq file not found: {path}")
+        # Helpful debug: show a few files from the folder
+        sample = [p.name for p in list(ARTICULATION_DIR.glob('*_articulation.json'))[:10]]
+        raise FileNotFoundError(
+            f"Articulation file for '{cc_id}' not found at {path}.\n"
+            f"Check punctuation/case. Example files: {sample} ..."
+        )
     return path
 
-def uc_slug(ucs):
+def prereq_path_for(cc_id: str) -> Path:
+    """Strictly map CC key to its prereq file; raise helpful errors if missing."""
+    fname = PREREQ_FILES.get(cc_id)
+    if not fname:
+        raise FileNotFoundError(f"No prereq mapping for '{cc_id}'. Add it to PREREQ_FILES.")
+    path = PREREQS_DIR / fname
+    if not path.exists():
+        sample = [p.name for p in list(PREREQS_DIR.glob('*.json'))]
+        raise FileNotFoundError(
+            f"Prereq file for '{cc_id}' not found at {path}.\n"
+            f"Available in prerequisites/: {sample}"
+        )
+    return path
+
+def uc_slug(ucs) -> str:
     return "-".join(sorted(ucs))
 
 def summarize_plan(plan):
-    total_terms = len(plan)
-    total_units = 0
-    total_courses = 0
+    terms = len(plan)
+    units = 0
+    courses = 0
     for term in plan:
-        total_courses += len(term.get("courses", []))
-        for c in term.get("courses", []):
-            total_units += int(c.get("units", 0))
-    return total_terms, total_units, total_courses
+        cs = term.get("courses", [])
+        courses += len(cs)
+        for c in cs:
+            try:
+                units += int(c.get("units", 0))
+            except Exception:
+                pass
+    return terms, units, courses
+
+# -------------------- Main --------------------
 
 def main():
     ge_json_path = PREREQS_DIR / "ge_reqs.json"
@@ -110,7 +140,7 @@ def main():
     runs = 0
 
     for ge_pattern in GE_PATTERNS:
-        print(f"Starting runs for GE pattern: {ge_pattern}")
+        print(f"== GE pattern: {ge_pattern} ==")
         ge_out_dir = OUTPUT_ROOT / ge_pattern
         ge_out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -121,13 +151,17 @@ def main():
             art_path = articulation_path_for(cc)
             prereq_path = prereq_path_for(cc)
 
-            for k in range(1, 10):  # UC subset sizes 1 to 9
+            for k in range(1, 10):  # UC subset sizes: 1..9
+                size_dir = cc_out_dir / f"{k}UC"
+                size_dir.mkdir(parents=True, exist_ok=True)
+
                 for uc_combo in itertools.combinations(SUPPORTED_UCS, k):
                     slug = uc_slug(uc_combo)
-                    out_json = cc_out_dir / f"{cc}__{slug}.json"
 
-                    if out_json.exists():
-                        # Skip if already done
+                    # New organized location + legacy flat location (skip if either exists)
+                    out_json = size_dir / f"{cc}__{slug}.json"
+                    legacy_out_json = cc_out_dir / f"{cc}__{slug}.json"
+                    if out_json.exists() or legacy_out_json.exists():
                         continue
 
                     try:
@@ -154,12 +188,11 @@ def main():
                             courses,
                             str(out_json.relative_to(OUTPUT_ROOT))
                         ])
-
                         runs += 1
-                        print(f"[OK] {cc} | {ge_pattern} | {slug} -> {terms} terms, {units} units")
+                        print(f"[OK] {cc} | {ge_pattern} | {k} UC | {slug} -> {terms} terms, {units} units")
 
                     except Exception as e:
-                        err_path = cc_out_dir / f"{cc}__{slug}__ERROR.txt"
+                        err_path = size_dir / f"{cc}__{slug}__ERROR.txt"
                         err_path.write_text(str(e), encoding="utf-8")
                         manifest_rows.append([
                             cc,
@@ -170,9 +203,9 @@ def main():
                             "ERROR",
                             str(err_path.relative_to(OUTPUT_ROOT))
                         ])
-                        print(f"[ERR] {cc} | {slug} | {ge_pattern}: {e}")
+                        print(f"[ERR] {cc} | {ge_pattern} | {k} UC | {slug}: {e}")
 
-    # Write manifest.csv
+    # Write manifest.csv at OUTPUT_ROOT
     manifest_path = OUTPUT_ROOT / "manifest.csv"
     with open(manifest_path, "w", encoding="utf-8") as f:
         f.write("cc,ge_pattern,ucs,terms,total_units,total_courses,relative_path\n")
