@@ -19,7 +19,7 @@ from plan_exporter import export_term_plan, save_plan_to_json
 # ─── Constants - MODIFY THESE TO CHANGE LIMITS ───────────────────────────────
 MAX_UNITS = 15            # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
 TOTAL_UNITS_REQUIRED = 60  # ← CHANGE THIS: Total units needed for transfer completion
-TERMS_FOR_TWO_YEARS = 4    # ← CHANGE THIS: How many terms = 2 years (4 for semesters, 6 for quarters)
+TERMS_FOR_TWO_YEARS = 6    # ← CHANGE THIS: How many terms = 2 years (4 for semesters, 6 for quarters)
 
 # ─── 1) Locate directories ────────────────────────────────────────────────────
 SCRIPT_DIR       = Path(__file__).parent.resolve()

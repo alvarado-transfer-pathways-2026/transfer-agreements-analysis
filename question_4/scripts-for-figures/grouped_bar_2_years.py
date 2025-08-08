@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # === CONFIGURATION ===
 # Path to your JSON file with results
-json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/18_units_automation_results/pathway_results_IGETC_20250808_094422.json"  # Change this to your file
+json_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/intense_workload/sem-qtr_pathway_results_IGETC_20250808_094422.json"  # Change this to your file
 
 # === LOAD DATA ===
 with open(json_path, 'r') as f:
