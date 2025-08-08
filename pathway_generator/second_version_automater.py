@@ -34,7 +34,9 @@ RESULTS_DIR.mkdir(exist_ok=True)
 
 # ─── 2) CC and UC options ─────────────────────────────────────────────────────
 SUPPORTED_UCS = ["UCSD", "UCLA", "UCI", "UCR", "UCSB", "UCD", "UCB", "UCSC", "UCM"]
-GE_PATTERNS = ["7CoursePattern", "IGETC"]
+#GE_PATTERNS = ["7CoursePattern", "IGETC"]
+GE_PATTERNS = ["IGETC"]
+
 
 def discover_cc_files():
     """Discover CC files that have both articulation AND prerequisite files."""
@@ -188,6 +190,7 @@ def discover_cc_files():
     print(f"\n🎯 Successfully matched {matched_count} CCs with both files")
     print(f"📋 Matched CCs: {list(cc_files.keys())}")
     return cc_files, prereq_mapping
+
 def load_json(path):
     """Load JSON file with error handling."""
     try:
@@ -349,7 +352,7 @@ def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
     cc_csv_path = cc_folder / f"{cc_name}_{ge_pattern}_{timestamp}.csv"
     with open(cc_csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
-            'cc', 'ucs', 'ge_pattern', 'status', 'total_terms', 'total_units', 
+            'cc', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
             'over_2_years', 'units_term_1', 'units_term_2', 'units_term_3', 
             'units_term_4', 'units_term_5', 'units_term_6', 'error'
         ])
@@ -359,6 +362,7 @@ def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
             row = {
                 'cc': result['cc'],
                 'ucs': result['ucs'],
+                'uc_count': result['uc_count'],
                 'ge_pattern': result['ge_pattern'],
                 'status': result['status'],
                 'total_terms': result['total_terms'],
@@ -449,8 +453,9 @@ def run_automation(ge_pattern_filter=None):
             for ge_pattern in patterns_to_test:
                 current_run += 1
                 uc_combo_str = "+".join(sorted(uc_combo))
+                uc_count = len(uc_combo)  # Calculate UC count
                 
-                print(f"  [{current_run}/{total_combinations}] {cc_name} -> {uc_combo_str} ({ge_pattern})")
+                print(f"  [{current_run}/{total_combinations}] {cc_name} -> {uc_combo_str} ({ge_pattern}) - {uc_count} UCs")
                 
                 summary_stats['total_runs'] += 1
                 
@@ -464,13 +469,13 @@ def run_automation(ge_pattern_filter=None):
                     summary_stats['successful_runs'] += 1
                     summary_stats['by_cc'][cc_name]['success'] += 1
                     summary_stats['by_ge_pattern'][ge_pattern] = summary_stats['by_ge_pattern'].get(ge_pattern, 0) + 1
-                    uc_count = len(uc_combo)
                     summary_stats['by_uc_count'][uc_count] = summary_stats['by_uc_count'].get(uc_count, 0) + 1
                     
                     # Store successful result
                     result_entry = {
                         'cc': cc_name,
                         'ucs': uc_combo_str,
+                        'uc_count': uc_count,
                         'ge_pattern': ge_pattern,
                         'total_terms': result['total_terms'],
                         'total_units': result['total_units'],
@@ -492,6 +497,7 @@ def run_automation(ge_pattern_filter=None):
                     result_entry = {
                         'cc': cc_name,
                         'ucs': uc_combo_str,
+                        'uc_count': uc_count,
                         'ge_pattern': ge_pattern,
                         'total_terms': 0,
                         'total_units': 0,
@@ -515,11 +521,8 @@ def run_automation(ge_pattern_filter=None):
     for cc_name, cc_result_list in cc_results.items():
         if cc_result_list:  # Only save if there are results
             try:
-                cc_json_path, cc_csv_path = save_results_for_cc(cc_name, cc_result_list, ge_pattern_filter or "ALL", timestamp)
-                if cc_json_path and cc_csv_path:  # Check if files were created successfully
-                    print(f"  📁 {cc_name}: {len(cc_result_list)} combinations saved")
-                else:
-                    print(f"  ❌ {cc_name}: Failed to save files")
+                save_results_for_cc(cc_name, cc_result_list, ge_pattern_filter or "ALL", timestamp)
+                print(f"  📁 {cc_name}: {len(cc_result_list)} combinations saved")
             except Exception as e:
                 print(f"  ❌ {cc_name}: Error during save - {e}")
         else:
@@ -549,7 +552,7 @@ def run_automation(ge_pattern_filter=None):
     csv_path = RESULTS_DIR / f"pathway_summary{ge_suffix}_{timestamp}.csv"
     with open(csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
-            'cc', 'ucs', 'ge_pattern', 'status', 'total_terms', 'total_units', 
+            'cc', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
             'over_2_years', 'units_term_1', 'units_term_2', 'units_term_3', 
             'units_term_4', 'units_term_5', 'units_term_6', 'error'
         ])
@@ -559,6 +562,7 @@ def run_automation(ge_pattern_filter=None):
             row = {
                 'cc': result['cc'],
                 'ucs': result['ucs'],
+                'uc_count': result['uc_count'],
                 'ge_pattern': result['ge_pattern'],
                 'status': result['status'],
                 'total_terms': result['total_terms'],
@@ -600,6 +604,10 @@ def run_automation(ge_pattern_filter=None):
             rate = stats['success'] / total * 100
             print(f"  {cc}: {rate:.1f}% ({stats['success']}/{total})")
     
+    print(f"\n🎯 Success Rates by UC Count:")
+    for uc_count in sorted(summary_stats['by_uc_count'].keys()):
+        print(f"  {uc_count} UC{'s' if uc_count > 1 else ''}: {summary_stats['by_uc_count'][uc_count]} successful runs")
+    
     print(f"\n📋 Settings Used:")
     print(f"  Max units per term: {MAX_UNITS}")
     print(f"  Total units required: {TOTAL_UNITS_REQUIRED}")
@@ -609,21 +617,27 @@ def run_automation(ge_pattern_filter=None):
     return results  # Return results so the function doesn't end early
 
 if __name__ == "__main__":
-    # Allow running separate GE patterns or both
+    # Allow running separate GE patterns or all patterns in GE_PATTERNS
     if len(sys.argv) > 1:
         ge_pattern = sys.argv[1].upper()
-        if ge_pattern in ["IGETC", "7COURSEPATTERN"]:
+        # Check if the requested pattern is in our supported patterns
+        all_supported = ["IGETC", "7COURSEPATTERN"]
+        if ge_pattern in all_supported:
             run_automation(ge_pattern)
         else:
-            print("❌ Invalid GE pattern. Use 'IGETC' or '7CoursePattern'")
+            print(f"❌ Invalid GE pattern. Available patterns: {', '.join(all_supported)}")
             print("Usage:")
             print("  python automated_pathway_generator.py IGETC")
             print("  python automated_pathway_generator.py 7CoursePattern") 
-            print("  python automated_pathway_generator.py  # (runs both)")
+            print("  python automated_pathway_generator.py  # (runs all patterns in GE_PATTERNS)")
     else:
-        # Run both patterns
-        print("🔄 Running IGETC first...")
-        run_automation("IGETC")
-        print("\n" + "="*80 + "\n")
-        print("🔄 Now running 7CoursePattern...")
-        run_automation("7CoursePattern")
+        # Run all patterns defined in GE_PATTERNS
+        if len(GE_PATTERNS) == 1:
+            print(f"🔄 Running {GE_PATTERNS[0]}...")
+            run_automation(GE_PATTERNS[0])
+        else:
+            for i, pattern in enumerate(GE_PATTERNS):
+                if i > 0:
+                    print("\n" + "="*80 + "\n")
+                print(f"🔄 Running {pattern} ({i+1}/{len(GE_PATTERNS)})...")
+                run_automation(pattern)
