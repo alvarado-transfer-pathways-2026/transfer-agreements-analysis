@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Replace this with the path to your JSON file
-json_file_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/15_unit_automation_results/palomar/palomar_IGETC_20250808_102557.json"
+json_file_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/question_4/data/18_units_automation_results/palomar/palomar_IGETC_20250808_094422.json"
 
 # Load JSON data from file
 with open(json_file_path, 'r') as f:
@@ -30,6 +30,6 @@ plt.ylabel("Average Number of Terms (total_terms)")
 plt.title(f"Average Total Terms by UC Count for CC: {data.get('cc_name', '')}")
 plt.xticks(range(1, 10))  # Assuming uc_count is between 1 and 9
 cc_name = data.get("cc_name", "unknown_cc").replace(" ", "_").lower()
-output_file = f"average_terms_by_uc_count_{cc_name}.png"
+output_file = f"{cc_name}_average_terms_by_uc_count.png"
 plt.savefig(output_file, dpi=300, bbox_inches='tight')
 plt.show()
