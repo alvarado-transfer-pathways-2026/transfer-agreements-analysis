@@ -87,8 +87,10 @@ def main():
     # Replace 'your_data.json' with the path to your JSON file
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
-    json_file_path = os.path.join(project_root, 'data', '15_unit_automation_results', 'pathway_results_IGETC_20250808_102557.json')
-    
+
+    # json_file_path = os.path.join(project_root, 'data', 'chill_workload', 'sem-qtr_pathway_results_IGETC_20250808_102557.json')
+    json_file_path = os.path.join(project_root, 'data', 'intense_workload', 'sem-qtr_pathway_results_IGETC_20250808_094422.json')
+
     print(f"Looking for data file at: {json_file_path}")
     print(f"File exists: {os.path.exists(json_file_path)}")
     try:
@@ -104,10 +106,11 @@ def main():
         print("\nCreating visualization...")
         plt = create_visualization(uc_counts, avg_terms)
         
-        save_dir = 'question_4/figures/15_units'
+        # save_dir = 'question_4/figures/chill_workload'
+        save_dir = 'question_4/figures/intense_workload'
         os.makedirs(save_dir, exist_ok=True)
         
-        save_path = os.path.join(save_dir, '15_units_uc_transfer_analysis.png')
+        save_path = os.path.join(save_dir, 'uc_transfer_analysis.png')
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"\nVisualization saved as '{save_path}'")
         
