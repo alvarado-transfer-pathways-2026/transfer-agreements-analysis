@@ -17,7 +17,7 @@ from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 from plan_exporter import export_term_plan, save_plan_to_json
 
 # ─── Constants - MODIFY THESE TO CHANGE LIMITS ───────────────────────────────
-MAX_UNITS = 18             # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
+MAX_UNITS = 15            # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
 TOTAL_UNITS_REQUIRED = 60  # ← CHANGE THIS: Total units needed for transfer completion
 TERMS_FOR_TWO_YEARS = 4    # ← CHANGE THIS: How many terms = 2 years (4 for semesters, 6 for quarters)
 
@@ -51,68 +51,143 @@ def discover_cc_files():
     
     print("🔍 Discovering CC files...")
     
-    # First, discover all prerequisite files
+    # First, discover all prerequisite files with improved name extraction
     prereq_files = {}
     print(f"📁 Scanning prerequisite files in: {PREREQS_DIR}")
     for prereq_file in PREREQS_DIR.glob("*_prereqs.json"):
-        # Extract CC name from prerequisite filename
-        cc_name = prereq_file.stem.replace("_prereqs", "").replace("_college", "").lower()
+        filename = prereq_file.stem
+        print(f"Processing prereq file: {filename}")  # DEBUG
+        
+        # Remove _prereqs suffix first
+        base_name = filename.replace("_prereqs", "")
+        print(f"  After removing _prereqs: {base_name}")  # DEBUG
+        
+        # Special handling for files that have _college before _prereqs
+        # BUT NOT for los_angeles_city_college - we want to keep that as-is
+        if base_name.endswith("_college") and base_name != "los_angeles_city_college":
+            original_base = base_name
+            base_name = base_name[:-8]  # Remove _college suffix
+            print(f"  Removed _college suffix: {original_base} -> {base_name}")  # DEBUG
+        
+        # Normalize the name to lowercase with underscores
+        cc_name = base_name.lower().replace(" ", "_")
+        print(f"  Final normalized name: {cc_name}")  # DEBUG
+        
         prereq_files[cc_name] = prereq_file.name
         print(f"Found prereq file: {cc_name} -> {prereq_file.name}")
+        
+        # Special debug for LA City College
+        if "los_angeles" in cc_name and "city" in cc_name:
+            print(f"  *** LA CITY PREREQ DEBUG: {cc_name} ***")
     
     print(f"📁 Scanning articulation files in: {ARTICULATION_DIR}")
-    # Then, find matching articulation files
+    
+    # Create a mapping of normalized names to actual articulation files
+    articulation_files = {}
+    for art_file in ARTICULATION_DIR.glob("*_articulation.json"):
+        filename = art_file.stem
+        print(f"Processing articulation file: {filename}")  # DEBUG
+        
+        # Remove _articulation suffix
+        base_name = filename.replace("_articulation", "")
+        print(f"  After removing _articulation: {base_name}")  # DEBUG
+        
+        # Handle the special case for City_College_Of_San_Francisco_college
+        if base_name.lower() == "city_college_of_san_francisco_college":
+            base_name = "city_college_of_san_francisco"
+            print(f"  Special case for SF: {base_name}")  # DEBUG
+        elif base_name.endswith("_college") or base_name.endswith("_College"):
+            # Remove _college or _College suffix if present
+            original_base = base_name
+            base_name = base_name.replace("_college", "").replace("_College", "")
+            print(f"  Removed college suffix: {original_base} -> {base_name}")  # DEBUG
+        
+        # Normalize to lowercase with underscores, handle spaces and mixed case
+        normalized_name = base_name.lower().replace(" ", "_")
+        print(f"  Final normalized name: {normalized_name}")  # DEBUG
+        
+        articulation_files[normalized_name] = art_file.name
+        print(f"Found articulation file: {normalized_name} -> {art_file.name}")
+        
+        # Special debug for LA City College
+        if "los_angeles" in normalized_name and "city" in normalized_name:
+            print(f"  *** LA CITY DEBUG: {normalized_name} ***")
+    
+    print(f"\n🔗 Matching prerequisite and articulation files...")
+    
+    # Now match prerequisite files to articulation files
     matched_count = 0
     for cc_name, prereq_filename in prereq_files.items():
-        # Try different naming patterns for articulation files
-        possible_art_names = [
-            f"{cc_name}_articulation.json",
-            f"{cc_name}_college_articulation.json"
-        ]
+        print(f"\n🔍 Looking for match for: {cc_name}")
         
-        # Also try capitalized versions and other variations
-        cc_parts = cc_name.split('_')
+        # Direct match first
+        if cc_name in articulation_files:
+            cc_files[cc_name] = articulation_files[cc_name]
+            prereq_mapping[cc_name] = prereq_filename
+            print(f"✅ Direct match: {cc_name} -> {articulation_files[cc_name]} + {prereq_filename}")
+            matched_count += 1
+            continue
         
-        # Try title case variations
-        title_case_name = '_'.join([part.title() for part in cc_parts])
-        possible_art_names.extend([
-            f"{title_case_name}_articulation.json",
-            f"{title_case_name}_College_articulation.json"
-        ])
+        # Try variations with common patterns
+        possible_variations = []
         
-        # Try with "College" inserted
+        # Handle specific known mismatches with more comprehensive matching
+        if cc_name == "diablo_valley":
+            possible_variations.extend(["diablo_valley_college"])
+        elif cc_name == "los_angeles_pierce":
+            possible_variations.extend(["los_angeles_pierce_college"])
+        elif cc_name == "palomar":
+            possible_variations.extend(["palomar_college"])
+        elif cc_name == "miracosta":
+            possible_variations.extend(["miracosta_college"])
+        elif cc_name == "mt._san_jacinto":
+            possible_variations.extend(["mt._san_jacinto_college", "mt_san_jacinto", "mt_san_jacinto_college"])
+        elif cc_name == "los_angeles_city_college":
+            # This should match directly, but add variations just in case
+            possible_variations.extend(["los_angeles_city", "la_city_college"])
+        elif cc_name == "city_college_of_san_francisco":
+            # This should now match directly due to special handling above
+            possible_variations.extend(["city_college_of_san_francisco_college"])
+        
+        # General variations - add college suffix
         if "college" not in cc_name:
-            possible_art_names.extend([
-                f"{cc_name}_college_articulation.json",
-                f"{title_case_name}_College_articulation.json"
+            possible_variations.append(f"{cc_name}_college")
+        
+        # Try with different word separators and handle periods
+        cc_parts = cc_name.replace("_", " ").replace(".", "").split()
+        if len(cc_parts) > 1:
+            # Try with different separators
+            possible_variations.extend([
+                "_".join(cc_parts),
+                "_".join(cc_parts) + "_college"
             ])
         
-        # Special handling for common variations
-        if cc_name == "santa_monica":
-            possible_art_names.extend([
-                "Santa_Monica_College_articulation.json",
-                "santa_monica_college_articulation.json",
-                "Santa_Monica_articulation.json"
-            ])
-        
+        # Try to find matches
         found_match = False
-        for art_name in possible_art_names:
-            art_path = ARTICULATION_DIR / art_name
-            if art_path.exists():
-                cc_files[cc_name] = art_name
+        for variation in possible_variations:
+            variation = variation.lower()
+            print(f"  Trying: {variation}")
+            if variation in articulation_files:
+                cc_files[cc_name] = articulation_files[variation]
                 prereq_mapping[cc_name] = prereq_filename
-                print(f"✅ Matched CC: {cc_name} -> {art_name} + {prereq_filename}")
+                print(f"✅ Variation match: {cc_name} -> {articulation_files[variation]} + {prereq_filename}")
                 matched_count += 1
                 found_match = True
                 break
         
         if not found_match:
-            print(f"⚠️ No matching articulation file found for {cc_name} (has prereq: {prereq_filename})")
-            print(f"   Tried: {possible_art_names[:3]}...")
+            print(f"⚠️ No matching articulation file found for {cc_name}")
+            print(f"   Prereq file: {prereq_filename}")
+            print(f"   Available articulation files starting with similar names:")
+            # Show articulation files that might be close matches
+            similar = [name for name in articulation_files.keys() 
+                      if any(part in name for part in cc_name.split("_")[:2])]
+            for sim in similar[:3]:
+                print(f"     - {sim}")
     
-    print(f"🎯 Successfully matched {matched_count} CCs with both files")
+    print(f"\n🎯 Successfully matched {matched_count} CCs with both files")
+    print(f"📋 Matched CCs: {list(cc_files.keys())}")
     return cc_files, prereq_mapping
-
 def load_json(path):
     """Load JSON file with error handling."""
     try:

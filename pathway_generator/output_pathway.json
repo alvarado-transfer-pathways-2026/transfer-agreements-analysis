@@ -3,27 +3,27 @@
     "term": "Term 1",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_1A",
         "units": 3
       },
       {
-        "courseCode": "MATH 1A",
+        "courseCode": "IG_1B",
         "units": 3
       },
       {
-        "courseCode": "CIS 40",
+        "courseCode": "IG_2",
         "units": 3
       },
       {
-        "courseCode": "CIS 36A",
+        "courseCode": "IG_3A",
         "units": 3
       },
       {
-        "courseCode": "CIS 22A",
+        "courseCode": "IG_3B",
         "units": 3
       },
       {
-        "courseCode": "CIS 21JA",
+        "courseCode": "IG_3_Leftover",
         "units": 3
       }
     ]
@@ -32,27 +32,23 @@
     "term": "Term 2",
     "courses": [
       {
-        "courseCode": "GE_WrittenComm",
+        "courseCode": "IG_4",
         "units": 3
       },
       {
-        "courseCode": "CIS 36B",
+        "courseCode": "IG_Physical",
         "units": 3
       },
       {
-        "courseCode": "MATH 1B",
+        "courseCode": "IG_Biological",
         "units": 3
       },
       {
-        "courseCode": "CIS 41A",
+        "courseCode": "IG_Lab",
         "units": 3
       },
       {
-        "courseCode": "GE_QuantReason",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General",
+        "courseCode": "IG_7",
         "units": 3
       }
     ]
@@ -61,128 +57,7 @@
     "term": "Term 3",
     "courses": [
       {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 1C",
-        "units": 3
-      },
-      {
-        "courseCode": "CIS 41B",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_ArtsHum",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_SocBeh",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_PhyBio",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 4",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 1D",
-        "units": 3
-      },
-      {
-        "courseCode": "GE_General_Leftover",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 5",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 2A",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 6",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 2B",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 7",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      },
-      {
-        "courseCode": "MATH 22",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 8",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 9",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 10",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 11",
-    "courses": [
-      {
-        "courseCode": "GE_General",
-        "units": 3
-      }
-    ]
-  },
-  {
-    "term": "Term 12",
-    "courses": [
-      {
-        "courseCode": "GE_General",
+        "courseCode": "IG_4",
         "units": 3
       }
     ]
