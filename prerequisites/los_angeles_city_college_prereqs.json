@@ -45,19 +45,19 @@
     "courseCode": "CS 116",
     "courseName": "Programming in C++",
     "units": 3,
-    "prerequisites": ["CS 101",  "CS 111"]
+    "prerequisites": ["MATH 261"]
   },
   {
     "courseCode": "CS 216",
     "courseName": "Object‑Oriented Programming in C++",
     "units": 3,
-    "prerequisites": ["CS 116", "CS 113", "CS 114"]
+    "prerequisites": ["CS 116"]
   },
   {
     "courseCode": "CS 136",
     "courseName": "Introduction to Data Structures",
     "units": 3,
-    "prerequisites": ["CS 113", "CS 116"]
+    "prerequisites": ["CS 216"]
   },
   {
     "courseCode": "CS 130",
@@ -69,12 +69,30 @@
     "courseCode": "CS 113",
     "courseName": "Programming in Java",
     "units": 3,
-    "prerequisites": ["CS 101", "CS 111"]
+    "prerequisites": ["CS 101"]
   },
   {
     "courseCode": "CS 213",
     "courseName": "Advanced Programming in Java",
     "units": 3,
-    "prerequisites": ["CS 113", "CS 116"]
+    "prerequisites": ["CS 101", "CS 113"]
+  },
+  {
+    "courseCode": "CS 102",
+    "courseName": "Programming Logic and Design",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 131",
+    "courseName": "Discrete Math",
+    "units": 3,
+    "prerequisites": ["MATH 261"]
+  },
+  {
+    "courseCode": "CS 101",
+    "courseName": "Introduction to Computer Science",
+    "units": 3,
+    "prerequisites": []
   }
 ]
