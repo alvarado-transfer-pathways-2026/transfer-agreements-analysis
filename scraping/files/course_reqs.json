@@ -52,7 +52,7 @@
       "LinearAlgebra": [["MATH 024", "A", 1]]
     },
     "UCSC": {
-      "DataStructures": [["CSE 12", "A", 1]],
+      "Organization": [["CSE 12", "A", 1]],
       "DiscreteMath": [["CSE 16", "A", 1]],
       "Intro": [["CSE 30", "A", 1]],
       "Calc1": [["MATH 19A", "A", 1]],
