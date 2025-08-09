@@ -17,7 +17,7 @@ from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 from plan_exporter import export_term_plan, save_plan_to_json
 
 # ─── Constants - MODIFY THESE TO CHANGE LIMITS ───────────────────────────────
-MAX_UNITS = 15            # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
+MAX_UNITS = 12            # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
 TOTAL_UNITS_REQUIRED = 60  # ← CHANGE THIS: Total units needed for transfer completion
 TERMS_FOR_TWO_YEARS = 4    # ← CHANGE THIS: How many terms = 2 years (4 for semesters, 6 for quarters)
 

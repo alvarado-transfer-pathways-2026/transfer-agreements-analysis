@@ -36,7 +36,9 @@
     "courseName": "Discrete Structures for Computer Science",
     "units": 3,
     "prerequisites": {
-      "and": ["CS 111"]
+      "and": [
+        { "or": ["CS 116", "CO SCI 575"] }
+      ]
     }
   },
   {
@@ -44,7 +46,7 @@
     "courseName": "Introduction to Data Structures",
     "units": 3,
     "prerequisites": {
-      "and": ["CS 131"]
+      "and": ["CS 116"]
     }
   },
   {
@@ -83,6 +85,46 @@
     "units": 3,
     "prerequisites": {
       "and": ["MATH 261", "MATH 262"]
+    }
+  },
+  {
+    "courseCode": "CS 216",
+    "courseName": "",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 116", "CO SCI 575"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 213",
+    "courseName": "",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 116", "CO SCI 575"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 230",
+    "courseName": "",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 130", "CO SCI 516"] }
+      ]
+    }
+  },
+  {
+    "courseCode": "CS 236",
+    "courseName": "",
+    "units": 3,
+    "prerequisites": {
+      "and": [
+        { "or": ["CS 136", "CO SCI 536"] }
+      ]
     }
   }
 ]
