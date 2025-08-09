@@ -1,49 +1,49 @@
 [
   {
     "courseCode": "MATH 1A",
-    "courseName": "Calculus",
+    "courseName": "Calculus I",
     "units": 5,
     "prerequisites": []
   },
   {
     "courseCode": "MATH 1AH",
-    "courseName": "Calculus - Honors",
+    "courseName": "Calculus I - Honors",
     "units": 5,
     "prerequisites": []
   },
   {
     "courseCode": "MATH 1B",
-    "courseName": "Calculus",
+    "courseName": "Calculus II",
     "units": 5,
     "prerequisites": ["MATH 1A", "MATH 1AH"]
   },
   {
     "courseCode": "MATH 1BH",
-    "courseName": "Calculus - Honors",
+    "courseName": "Calculus II - Honors",
     "units": 5,
     "prerequisites": ["MATH 1A", "MATH 1AH"]
   },
   {
     "courseCode": "MATH 1C",
-    "courseName": "Calculus",
+    "courseName": "Calculus III",
     "units": 5,
     "prerequisites": ["MATH 1B", "MATH 1BH"]
   },
   {
     "courseCode": "MATH 1CH",
-    "courseName": "Calculus - Honors",
+    "courseName": "Calculus III - Honors",
     "units": 5,
     "prerequisites": ["MATH 1B", "MATH 1BH"]
   },
   {
     "courseCode": "MATH 1D",
-    "courseName": "Calculus",
+    "courseName": "Calculus IV",
     "units": 5,
     "prerequisites": ["MATH 1C", "MATH 1CH"]
   },
   {
     "courseCode": "MATH 1DH",
-    "courseName": "Calculus - Honors",
+    "courseName": "Calculus IV - Honors",
     "units": 5,
     "prerequisites": ["MATH 1C", "MATH 1CH"]
   },
@@ -63,25 +63,25 @@
     "courseCode": "MATH 2B",
     "courseName": "Differential Equations",
     "units": 5,
-    "prerequisites": ["MATH 2A", "MATH 2AH"]
+    "prerequisites": ["MATH 1D", "MATH 1DH"]
   },
   {
     "courseCode": "MATH 2BH",
     "courseName": "Differential Equations - Honors",
     "units": 5,
-    "prerequisites": ["MATH 2A", "MATH 2AH"]
+    "prerequisites": ["MATH 1D", "MATH 1DH"]
   },
   {
     "courseCode": "MATH 22",
-    "courseName": "Linear Algebra & Differential Equations",
+    "courseName": "Discrete Mathematics",
     "units": 5,
-    "prerequisites": ["MATH 2B", "MATH 2BH"]
+    "prerequisites": []
   },
   {
     "courseCode": "MATH 22H",
-    "courseName": "Linear Algebra & Differential Equations - Honors",
+    "courseName": "Discrete Mathematics - Honors",
     "units": 5,
-    "prerequisites": ["MATH 2B", "MATH 2BH"]
+    "prerequisites": []
   },
   {
     "courseCode": "CIS 22A",
@@ -117,37 +117,37 @@
     "courseCode": "CIS 26A",
     "courseName": "Java Programming I",
     "units": 4.5,
-    "prerequisites": ["CIS 22A"]
+    "prerequisites": ["CIS 22A, CIS 36A"]
   },
   {
     "courseCode": "CIS 26B",
     "courseName": "Java Programming II",
     "units": 4.5,
-    "prerequisites": ["CIS 26A"]
+    "prerequisites": []
   },
   {
     "courseCode": "CIS 26BH",
     "courseName": "Java Programming II - Honors",
     "units": 4.5,
-    "prerequisites": ["CIS 26A"]
+    "prerequisites": []
   },
   {
     "courseCode": "CIS 27",
     "courseName": "Data Abstraction and Structures",
     "units": 4.5,
-    "prerequisites": ["CIS 22B", "CIS 22BH", "CIS 29"]
+    "prerequisites": []
   },
   {
     "courseCode": "CIS 28",
     "courseName": "Object-Oriented Analysis and Design",
     "units": 4.5,
-    "prerequisites": ["CIS 22B"]
+    "prerequisites": []
   },
   {
     "courseCode": "CIS 29",
     "courseName": "Advanced C++ Programming",
     "units": 4.5,
-    "prerequisites": ["CIS 22A"]
+    "prerequisites": ["CIS 22B, CIS 22BH, CIS 27"]
   },
   {
     "courseCode": "CIS 35A",
@@ -177,7 +177,7 @@
     "courseCode": "CIS 41A",
     "courseName": "Database Management Systems",
     "units": 4.5,
-    "prerequisites": ["CIS 40"]
+    "prerequisites": ["CIS 22A, CIS 36A, CIS 40"]
   },
   {
     "courseCode": "CIS 41B",
@@ -189,7 +189,7 @@
     "courseCode": "CIS 21JA",
     "courseName": "Introduction to x86 Assembly Language",
     "units": 4.5,
-    "prerequisites": []
+    "prerequisites": ["CIS 22B, CIS 22BH, CIS 26A, CIS 35A, CIS 36B, CIS 41A"]
   },
   {
     "courseCode": "CIS 21JB",
