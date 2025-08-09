@@ -76,5 +76,23 @@
     "courseName": "Advanced Programming in Java",
     "units": 3,
     "prerequisites": ["CS 113 or CS 116"]
+  },
+  {
+    "courseCode": "CS 102",
+    "courseName": "Programming Logic and Design",
+    "units": 3,
+    "prerequisites": []
+  },
+  {
+    "courseCode": "CS 131",
+    "courseName": "Discrete Math",
+    "units": 3,
+    "prerequisites": ["MATH 261"]
+  },
+  {
+    "courseCode": "CS 101",
+    "courseName": "Introduction to Computer Science",
+    "units": 3,
+    "prerequisites": []
   }
 ]
