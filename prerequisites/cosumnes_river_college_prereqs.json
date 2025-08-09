@@ -3,7 +3,7 @@
     "courseCode": "MATH 400",
     "courseName": "Calculus I",
     "units": 5,
-    "prerequisites": ["MATH 372", "MATH 373"]  
+    "prerequisites": []  
   },
   {
     "courseCode": "MATH 401",
@@ -64,5 +64,11 @@
     "courseName": "Assembly Language Programming on Microcomputers",
     "units": 4,
     "prerequisites": ["CISP 360"]
+  },
+  {
+    "courseCode": "CISP 300",
+    "courseName": "Algorithm Design",
+    "units": 4,
+    "prerequisites": []
   }
 ]

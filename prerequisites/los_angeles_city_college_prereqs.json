@@ -3,13 +3,13 @@
     "courseCode": "MATH 261",
     "courseName": "Calculus I",
     "units": 5,
-    "prerequisites": ["MATH 260", "MATH 260S"]
+    "prerequisites": []
   },
   {
     "courseCode": "MATH 261S",
     "courseName": "Calculus I with Support",
     "units": 5,
-    "prerequisites": ["MATH 260", "MATH 260S"]
+    "prerequisites": []
   },
   {
     "courseCode": "MATH 262",
@@ -45,36 +45,36 @@
     "courseCode": "CS 116",
     "courseName": "Programming in C++",
     "units": 3,
-    "prerequisites": ["CS 101 or CS 111 or equivalent"]
+    "prerequisites": ["CS 101",  "CS 111"]
   },
   {
     "courseCode": "CS 216",
     "courseName": "Object‑Oriented Programming in C++",
     "units": 3,
-    "prerequisites": ["CS 116 or CS 113 or CS 114"]
+    "prerequisites": ["CS 116", "CS 113", "CS 114"]
   },
   {
     "courseCode": "CS 136",
     "courseName": "Introduction to Data Structures",
     "units": 3,
-    "prerequisites": ["CS 113 or CS 116"]
+    "prerequisites": ["CS 113", "CS 116"]
   },
   {
     "courseCode": "CS 130",
     "courseName": "Introduction to Computer Architecture and Organization",
     "units": 3,
-    "prerequisites": ["CS 113 or CS 116"]
+    "prerequisites": ["CS 113", "CS 116"]
   },
   {
     "courseCode": "CS 113",
     "courseName": "Programming in Java",
     "units": 3,
-    "prerequisites": ["CS 101 or CS 111"]
+    "prerequisites": ["CS 101", "CS 111"]
   },
   {
     "courseCode": "CS 213",
     "courseName": "Advanced Programming in Java",
     "units": 3,
-    "prerequisites": ["CS 113 or CS 116"]
+    "prerequisites": ["CS 113", "CS 116"]
   }
 ]
