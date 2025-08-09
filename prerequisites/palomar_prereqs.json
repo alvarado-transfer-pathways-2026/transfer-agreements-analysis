@@ -44,11 +44,25 @@
     "prerequisites": []
   },
   {
+    "courseCode": "MATH 140E",
+    "courseName": "Calculus I Enhanced",
+    "units": 5,
+    "prerequisites": []
+  },
+  {
     "courseCode": "MATH 141",
     "courseName": "Calculus II",
     "units": 4,
     "prerequisites": {
       "and": ["MATH 140"]
+    }
+  },
+  {
+    "courseCode": "MATH 141E",
+    "courseName": "Calculus II Enhanced",
+    "units": 4,
+    "prerequisites": {
+      "or": ["MATH 140", "MATH 140E"]
     }
   },
   {

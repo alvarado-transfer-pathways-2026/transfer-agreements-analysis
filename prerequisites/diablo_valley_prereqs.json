@@ -18,7 +18,7 @@
     "courseName": "Calculus III (Multivariable)",
     "units": 5,
     "prerequisites": {
-      "and": ["MATH 192", "MATH 193"]
+      "and": ["MATH 193"]
     }
   },
   {
@@ -56,7 +56,7 @@
     "courseName": "Advanced Programming with C and C++",
     "units": 4,
     "prerequisites": {
-      "and": ["COMSC 110"]
+      "or": ["COMSC 110", "ENGIN 135"]
     }
   },
   {
@@ -72,7 +72,7 @@
     "courseName": "Program Design and Data Structures",
     "units": 4,
     "prerequisites": {
-      "and": ["COMSC 165"]
+      "and": ["COMSC 165", "COMSC 200"]
     }
   },
   {
@@ -80,7 +80,7 @@
     "courseName": "Discrete Mathematical Structures for Computer Science",
     "units": 3,
     "prerequisites": {
-      "and": ["COMSC 110", "MATH 195"]
+      "or": ["COMSC 165", "COMSC 140"]
     }
   },
   {
@@ -89,6 +89,14 @@
     "units": 4,
     "prerequisites": {
       "and": ["COMSC 165"]
+    }
+  },
+  {
+    "courseCode": "ENGIN 135",
+    "courseName": "Assembly Language Programming / Computer Organization",
+    "units": 4,
+    "prerequisites": {
+      "and": ["MATH 192"]
     }
   }
 ]
