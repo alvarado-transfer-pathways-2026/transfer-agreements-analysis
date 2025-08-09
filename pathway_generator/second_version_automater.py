@@ -1,3 +1,5 @@
+#semester: 12, 15, 18
+#quarter: 12, 16, 20
 #!/usr/bin/env python3
 import json
 import os
@@ -16,12 +18,38 @@ from ge_helper import load_ge_lookup, build_ge_courses
 from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 from plan_exporter import export_term_plan, save_plan_to_json
 
-# ─── Constants - MODIFY THESE TO CHANGE LIMITS ───────────────────────────────
-MAX_UNITS = 12            # ← CHANGE THIS: Units per term limit (18 for semesters, 20 for quarters)
-TOTAL_UNITS_REQUIRED = 60  # ← CHANGE THIS: Total units needed for transfer completion
-TERMS_FOR_TWO_YEARS = 4    # ← CHANGE THIS: How many terms = 2 years (4 for semesters, 6 for quarters)
+# ─── System-Specific Constants ─────────────────────────────────────────────────
+# Quarter System Settings
+QUARTER_SETTINGS = {
+    'MAX_UNITS': 12,            # Units per quarter
+    'TOTAL_UNITS_REQUIRED': 90, # Total units for transfer (quarters typically need more)
+    'TERMS_FOR_TWO_YEARS': 6    # 6 quarters = 2 years
+}
 
-# ─── 1) Locate directories ────────────────────────────────────────────────────
+# Semester System Settings  
+SEMESTER_SETTINGS = {
+    'MAX_UNITS': 12,            # Units per semester
+    'TOTAL_UNITS_REQUIRED': 60, # Total units for transfer
+    'TERMS_FOR_TWO_YEARS': 4    # 4 semesters = 2 years
+}
+
+# ─── CC System Classifications ─────────────────────────────────────────────────
+# TODO: Add your CC names to the appropriate list below
+QUARTER_SYSTEM_CCS = [
+    "de_anza", "foothill"
+    # Add quarter system CC names here (exact names as they appear in your files)
+    # Example: "de_anza", "foothill", etc.
+]
+
+SEMESTER_SYSTEM_CCS = [
+    # Add semester system CC names here (exact names as they appear in your files)  
+    # Example: "santa_monica", "los_angeles_city_college", etc.
+    "cabrillo", "chabot", "city_college_of_san_francisco", "cosumnes_river",
+    "diablo_valley", "folsom_lake", "las_positas", "los_angeles_city", "los_angeles_pierce"
+    "miracosta", "mt_san_jacinto", "orange_coast", "palomar"
+]
+
+# ─── Directory Setup ───────────────────────────────────────────────────────────
 SCRIPT_DIR       = Path(__file__).parent.resolve()
 PROJECT_ROOT     = SCRIPT_DIR.parent
 ARTICULATION_DIR = PROJECT_ROOT / "articulated_courses_json"
@@ -32,11 +60,20 @@ RESULTS_DIR      = SCRIPT_DIR / "automation_results"
 # Create results directory
 RESULTS_DIR.mkdir(exist_ok=True)
 
-# ─── 2) CC and UC options ─────────────────────────────────────────────────────
+# ─── UC and GE Options ─────────────────────────────────────────────────────────
 SUPPORTED_UCS = ["UCSD", "UCLA", "UCI", "UCR", "UCSB", "UCD", "UCB", "UCSC", "UCM"]
-#GE_PATTERNS = ["7CoursePattern", "IGETC"]
 GE_PATTERNS = ["IGETC"]
 
+def get_system_settings(cc_name):
+    """Get the appropriate system settings for a given CC."""
+    if cc_name in QUARTER_SYSTEM_CCS:
+        return QUARTER_SETTINGS, "quarter"
+    elif cc_name in SEMESTER_SYSTEM_CCS:
+        return SEMESTER_SETTINGS, "semester"
+    else:
+        print(f"⚠️ Warning: {cc_name} not classified as quarter or semester system!")
+        print(f"   Using semester settings as default. Please add to appropriate list.")
+        return SEMESTER_SETTINGS, "semester"
 
 def discover_cc_files():
     """Discover CC files that have both articulation AND prerequisite files."""
@@ -212,9 +249,14 @@ def generate_uc_combinations(max_combinations=None):
     
     return all_combinations
 
-def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id, uc_list, ge_pattern):
+def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id, uc_list, ge_pattern, system_settings):
     """Modified pathway generation that returns summary statistics."""
     try:
+        # Use the system-specific settings
+        MAX_UNITS = system_settings['MAX_UNITS']
+        TOTAL_UNITS_REQUIRED = system_settings['TOTAL_UNITS_REQUIRED'] 
+        TERMS_FOR_TWO_YEARS = system_settings['TERMS_FOR_TWO_YEARS']
+        
         articulated = load_json(art_path)
         if not articulated:
             return None
@@ -317,7 +359,8 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             'total_units': total_units,
             'terms': terms_data,
             'over_2_years': len(terms_data) > TERMS_FOR_TWO_YEARS,  # True if takes more than 2 years
-            'meets_unit_requirement': total_units >= TOTAL_UNITS_REQUIRED
+            'meets_unit_requirement': total_units >= TOTAL_UNITS_REQUIRED,
+            'system_settings': system_settings  # Include the settings used
         }
         
     except Exception as e:
@@ -327,17 +370,18 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             'traceback': traceback.format_exc()
         }
 
-def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
+def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp, system_type):
     """Save individual CC results to its own folder and files."""
     # Create CC-specific folder
     cc_folder = RESULTS_DIR / cc_name
     cc_folder.mkdir(exist_ok=True)
     
-    # Save CC-specific JSON
-    cc_json_path = cc_folder / f"{cc_name}_{ge_pattern}_{timestamp}.json"
+    # Include system type in filename
+    cc_json_path = cc_folder / f"{cc_name}_{ge_pattern}_{system_type}_{timestamp}.json"
     with open(cc_json_path, 'w', encoding='utf-8') as f:
         json.dump({
             'cc_name': cc_name,
+            'system_type': system_type,
             'ge_pattern': ge_pattern,
             'results': cc_results,
             'summary': {
@@ -349,10 +393,10 @@ def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
         }, f, indent=2)
     
     # Save CC-specific CSV
-    cc_csv_path = cc_folder / f"{cc_name}_{ge_pattern}_{timestamp}.csv"
+    cc_csv_path = cc_folder / f"{cc_name}_{ge_pattern}_{system_type}_{timestamp}.csv"
     with open(cc_csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
-            'cc', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
+            'cc', 'system_type', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
             'over_2_years', 'units_term_1', 'units_term_2', 'units_term_3', 
             'units_term_4', 'units_term_5', 'units_term_6', 'error'
         ])
@@ -361,6 +405,7 @@ def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
         for result in cc_results:
             row = {
                 'cc': result['cc'],
+                'system_type': result.get('system_type', system_type),
                 'ucs': result['ucs'],
                 'uc_count': result['uc_count'],
                 'ge_pattern': result['ge_pattern'],
@@ -380,7 +425,7 @@ def save_results_for_cc(cc_name, cc_results, ge_pattern, timestamp):
                     row[term_key] = 0
             
             writer.writerow(row)
-    
+
 def run_automation(ge_pattern_filter=None):
     """Main automation function with optional GE pattern filtering."""
     if ge_pattern_filter:
@@ -392,6 +437,12 @@ def run_automation(ge_pattern_filter=None):
     
     print("=" * 60)
     
+    # Check if system classifications are set up
+    if not QUARTER_SYSTEM_CCS and not SEMESTER_SYSTEM_CCS:
+        print("⚠️ WARNING: No CCs classified as quarter or semester systems!")
+        print("   Please add CC names to QUARTER_SYSTEM_CCS and SEMESTER_SYSTEM_CCS lists")
+        print("   All CCs will default to semester system settings.")
+    
     # Discover CC files that have BOTH articulation AND prerequisite files
     cc_files, prereq_mapping = discover_cc_files()
     
@@ -401,8 +452,20 @@ def run_automation(ge_pattern_filter=None):
     
     print(f"📁 Found {len(cc_files)} CCs with both articulation and prerequisite files")
     
+    # Show system classification for discovered CCs
+    quarter_ccs = [cc for cc in cc_files.keys() if cc in QUARTER_SYSTEM_CCS]
+    semester_ccs = [cc for cc in cc_files.keys() if cc in SEMESTER_SYSTEM_CCS]
+    unclassified_ccs = [cc for cc in cc_files.keys() if cc not in QUARTER_SYSTEM_CCS and cc not in SEMESTER_SYSTEM_CCS]
+    
+    print(f"\n📊 System Classifications:")
+    print(f"  Quarter System ({len(quarter_ccs)}): {quarter_ccs}")
+    print(f"  Semester System ({len(semester_ccs)}): {semester_ccs}")
+    if unclassified_ccs:
+        print(f"  Unclassified ({len(unclassified_ccs)}): {unclassified_ccs}")
+        print(f"    ⚠️ These will use semester settings by default")
+    
     # Generate ALL UC combinations (1 to 9 UCs)
-    print("🎯 Generating UC combinations...")
+    print("\n🎯 Generating UC combinations...")
     uc_combinations = generate_uc_combinations()  # This generates ALL combinations 1-9
     
     print(f"🎯 Generated {len(uc_combinations)} UC combinations")
@@ -420,7 +483,8 @@ def run_automation(ge_pattern_filter=None):
         'failed_runs': 0,
         'by_cc': {},
         'by_ge_pattern': {},
-        'by_uc_count': {}
+        'by_uc_count': {},
+        'by_system_type': {'quarter': {'runs': 0, 'success': 0}, 'semester': {'runs': 0, 'success': 0}}
     }
     
     # Check required files
@@ -441,12 +505,16 @@ def run_automation(ge_pattern_filter=None):
     
     # Main automation loop - only process CCs that have prerequisite files
     for cc_name in cc_files.keys():  # Only iterate over CCs with both files
-        print(f"🏫 Processing CC: {cc_name}")
+        # Get system settings for this CC
+        system_settings, system_type = get_system_settings(cc_name)
+        
+        print(f"🏫 Processing CC: {cc_name} ({system_type.upper()} system)")
+        print(f"   Settings: {system_settings['MAX_UNITS']} max units, {system_settings['TOTAL_UNITS_REQUIRED']} total required, {system_settings['TERMS_FOR_TWO_YEARS']} terms = 2 years")
         
         art_path = ARTICULATION_DIR / cc_files[cc_name]
         prereq_path = PREREQS_DIR / prereq_mapping[cc_name]
         
-        summary_stats['by_cc'][cc_name] = {'success': 0, 'failed': 0}
+        summary_stats['by_cc'][cc_name] = {'success': 0, 'failed': 0, 'system_type': system_type}
         cc_results[cc_name] = []  # Initialize results list for this CC
         
         for uc_combo in uc_combinations:
@@ -455,14 +523,15 @@ def run_automation(ge_pattern_filter=None):
                 uc_combo_str = "+".join(sorted(uc_combo))
                 uc_count = len(uc_combo)  # Calculate UC count
                 
-                print(f"  [{current_run}/{total_combinations}] {cc_name} -> {uc_combo_str} ({ge_pattern}) - {uc_count} UCs")
+                print(f"  [{current_run}/{total_combinations}] {cc_name} ({system_type}) -> {uc_combo_str} ({ge_pattern}) - {uc_count} UCs")
                 
                 summary_stats['total_runs'] += 1
+                summary_stats['by_system_type'][system_type]['runs'] += 1
                 
-                # Run pathway generation
+                # Run pathway generation with system-specific settings
                 result = generate_pathway_automated(
                     art_path, prereq_path, ge_path, COURSE_REQS_FILE,
-                    cc_name, uc_combo, ge_pattern
+                    cc_name, uc_combo, ge_pattern, system_settings
                 )
                 
                 if result and result.get('success'):
@@ -470,10 +539,12 @@ def run_automation(ge_pattern_filter=None):
                     summary_stats['by_cc'][cc_name]['success'] += 1
                     summary_stats['by_ge_pattern'][ge_pattern] = summary_stats['by_ge_pattern'].get(ge_pattern, 0) + 1
                     summary_stats['by_uc_count'][uc_count] = summary_stats['by_uc_count'].get(uc_count, 0) + 1
+                    summary_stats['by_system_type'][system_type]['success'] += 1
                     
                     # Store successful result
                     result_entry = {
                         'cc': cc_name,
+                        'system_type': system_type,
                         'ucs': uc_combo_str,
                         'uc_count': uc_count,
                         'ge_pattern': ge_pattern,
@@ -481,7 +552,8 @@ def run_automation(ge_pattern_filter=None):
                         'total_units': result['total_units'],
                         'over_2_years': result['over_2_years'],
                         'terms_detail': result['terms'],
-                        'status': 'success'
+                        'status': 'success',
+                        'settings_used': result['system_settings']
                     }
                     
                     results.append(result_entry)
@@ -496,6 +568,7 @@ def run_automation(ge_pattern_filter=None):
                     
                     result_entry = {
                         'cc': cc_name,
+                        'system_type': system_type,
                         'ucs': uc_combo_str,
                         'uc_count': uc_count,
                         'ge_pattern': ge_pattern,
@@ -521,8 +594,9 @@ def run_automation(ge_pattern_filter=None):
     for cc_name, cc_result_list in cc_results.items():
         if cc_result_list:  # Only save if there are results
             try:
-                save_results_for_cc(cc_name, cc_result_list, ge_pattern_filter or "ALL", timestamp)
-                print(f"  📁 {cc_name}: {len(cc_result_list)} combinations saved")
+                _, system_type = get_system_settings(cc_name)
+                save_results_for_cc(cc_name, cc_result_list, ge_pattern_filter or "ALL", timestamp, system_type)
+                print(f"  📁 {cc_name} ({system_type}): {len(cc_result_list)} combinations saved")
             except Exception as e:
                 print(f"  ❌ {cc_name}: Error during save - {e}")
         else:
@@ -541,10 +615,15 @@ def run_automation(ge_pattern_filter=None):
                 'cc_files_processed': list(cc_files.keys()),
                 'ge_patterns_tested': patterns_to_test,
                 'uc_combinations_count': len(uc_combinations),
-                'max_units_per_term': MAX_UNITS,
-                'total_units_required': TOTAL_UNITS_REQUIRED,
-                'terms_for_two_years': TERMS_FOR_TWO_YEARS,
-                'over_2_years_explanation': f"True if total_terms > {TERMS_FOR_TWO_YEARS} (takes more than 2 years to complete)"
+                'system_settings': {
+                    'quarter': QUARTER_SETTINGS,
+                    'semester': SEMESTER_SETTINGS
+                },
+                'cc_classifications': {
+                    'quarter_ccs': quarter_ccs,
+                    'semester_ccs': semester_ccs,
+                    'unclassified_ccs': unclassified_ccs
+                }
             }
         }, f, indent=2)
     
@@ -552,7 +631,7 @@ def run_automation(ge_pattern_filter=None):
     csv_path = RESULTS_DIR / f"pathway_summary{ge_suffix}_{timestamp}.csv"
     with open(csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
-            'cc', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
+            'cc', 'system_type', 'ucs', 'uc_count', 'ge_pattern', 'status', 'total_terms', 'total_units', 
             'over_2_years', 'units_term_1', 'units_term_2', 'units_term_3', 
             'units_term_4', 'units_term_5', 'units_term_6', 'error'
         ])
@@ -561,6 +640,7 @@ def run_automation(ge_pattern_filter=None):
         for result in results:
             row = {
                 'cc': result['cc'],
+                'system_type': result['system_type'],
                 'ucs': result['ucs'],
                 'uc_count': result['uc_count'],
                 'ge_pattern': result['ge_pattern'],
@@ -590,46 +670,93 @@ def run_automation(ge_pattern_filter=None):
     print(f"❌ Failed: {summary_stats['failed_runs']}")
     print(f"📈 Success rate: {summary_stats['successful_runs']/summary_stats['total_runs']*100:.1f}%")
     
+    # System-specific statistics
+    print(f"\n📊 Success Rates by System:")
+    for system_type, stats in summary_stats['by_system_type'].items():
+        if stats['runs'] > 0:
+            rate = stats['success'] / stats['runs'] * 100
+            print(f"  {system_type.title()} System: {rate:.1f}% ({stats['success']}/{stats['runs']})")
+    
     print(f"\n📁 Master Results saved to:")
     print(f"  JSON: {results_json_path}")
     print(f"  CSV:  {csv_path}")
     
     print(f"\n📂 Individual CC folders created in: {RESULTS_DIR}")
     print(f"   Each CC has its own folder with separate JSON/CSV files")
+    print(f"   Filenames now include system type (quarter/semester)")
     
     print(f"\n🏫 CC Success Rates:")
     for cc, stats in summary_stats['by_cc'].items():
         total = stats['success'] + stats['failed']
+        system_type = stats['system_type']
         if total > 0:
             rate = stats['success'] / total * 100
-            print(f"  {cc}: {rate:.1f}% ({stats['success']}/{total})")
+            print(f"  {cc} ({system_type}): {rate:.1f}% ({stats['success']}/{total})")
     
     print(f"\n🎯 Success Rates by UC Count:")
     for uc_count in sorted(summary_stats['by_uc_count'].keys()):
         print(f"  {uc_count} UC{'s' if uc_count > 1 else ''}: {summary_stats['by_uc_count'][uc_count]} successful runs")
     
-    print(f"\n📋 Settings Used:")
-    print(f"  Max units per term: {MAX_UNITS}")
-    print(f"  Total units required: {TOTAL_UNITS_REQUIRED}")
-    print(f"  Terms for 2 years: {TERMS_FOR_TWO_YEARS}")
-    print(f"  'over_2_years' = True when total_terms > {TERMS_FOR_TWO_YEARS}")
+    print(f"\n📋 System Settings Used:")
+    print(f"  Quarter System:")
+    print(f"    Max units per term: {QUARTER_SETTINGS['MAX_UNITS']}")
+    print(f"    Total units required: {QUARTER_SETTINGS['TOTAL_UNITS_REQUIRED']}")
+    print(f"    Terms for 2 years: {QUARTER_SETTINGS['TERMS_FOR_TWO_YEARS']}")
+    print(f"  Semester System:")
+    print(f"    Max units per term: {SEMESTER_SETTINGS['MAX_UNITS']}")
+    print(f"    Total units required: {SEMESTER_SETTINGS['TOTAL_UNITS_REQUIRED']}")
+    print(f"    Terms for 2 years: {SEMESTER_SETTINGS['TERMS_FOR_TWO_YEARS']}")
     
     return results  # Return results so the function doesn't end early
+
+def print_cc_classification_helper():
+    """Helper function to print discovered CCs for manual classification."""
+    print("\n" + "=" * 60)
+    print("🏫 CC CLASSIFICATION HELPER")
+    print("=" * 60)
+    
+    cc_files, _ = discover_cc_files()
+    
+    if not cc_files:
+        print("❌ No CC files found. Run discovery first.")
+        return
+    
+    print(f"📋 Found {len(cc_files)} CCs that need classification:")
+    print("\nCopy and paste the appropriate CC names into the lists at the top of the script:")
+    print("\nQUARTER_SYSTEM_CCS = [")
+    for cc in sorted(cc_files.keys()):
+        print(f'    # "{cc}",  # <-- Add this if it\'s a quarter system')
+    print("]\n")
+    
+    print("SEMESTER_SYSTEM_CCS = [")
+    for cc in sorted(cc_files.keys()):
+        print(f'    # "{cc}",  # <-- Add this if it\'s a semester system')
+    print("]")
+    
+    print(f"\n💡 Tip: Most California CCs use semester system.")
+    print(f"   Quarter system CCs include: De Anza, Foothill, some CSU-adjacent colleges")
 
 if __name__ == "__main__":
     # Allow running separate GE patterns or all patterns in GE_PATTERNS
     if len(sys.argv) > 1:
-        ge_pattern = sys.argv[1].upper()
+        arg = sys.argv[1].upper()
+        
+        # Special command to help with CC classification
+        if arg == "HELP" or arg == "CLASSIFY":
+            print_cc_classification_helper()
+            sys.exit(0)
+        
         # Check if the requested pattern is in our supported patterns
         all_supported = ["IGETC", "7COURSEPATTERN"]
-        if ge_pattern in all_supported:
-            run_automation(ge_pattern)
+        if arg in all_supported:
+            run_automation(arg)
         else:
             print(f"❌ Invalid GE pattern. Available patterns: {', '.join(all_supported)}")
             print("Usage:")
             print("  python automated_pathway_generator.py IGETC")
             print("  python automated_pathway_generator.py 7CoursePattern") 
-            print("  python automated_pathway_generator.py  # (runs all patterns in GE_PATTERNS)")
+            print("  python automated_pathway_generator.py help     # Show CC classification helper")
+            print("  python automated_pathway_generator.py          # (runs all patterns in GE_PATTERNS)")
     else:
         # Run all patterns defined in GE_PATTERNS
         if len(GE_PATTERNS) == 1:
