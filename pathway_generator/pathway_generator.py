@@ -7,7 +7,12 @@ import datetime
 
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
-from prereq_resolver import get_eligible_courses, load_prereq_data, add_missing_prereqs
+from prereq_resolver import (
+    get_eligible_courses,
+    load_prereq_data,
+    add_missing_prereqs,
+    get_unlocker_courses,  # NEW: proactively schedule prereq unlockers
+)
 from ge_helper import load_ge_lookup, build_ge_courses
 from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 # from elective_filler import fill_electives
@@ -58,17 +63,18 @@ ARTICULATION_FILES = {
     "folsom_lake":"Folsom_Lake_College_articulation.json",
     "foothill":   "Foothill_College_articulation.json",
     "los_angeles_city_college":    "Los_Angeles_City_College_articulation.json",
-    "las_positas":"Las_Positas_College_articulation.json",
-    "los_angeles_pierce":"Los_Angeles_Pierce_College_articulation.json",
+    "las_positas": "Las_Positas_College_articulation.json",
+    "los_angeles_pierce": "Los_Angeles_Pierce_College_articulation.json",
     "miracosta":  "MiraCosta_College_articulation.json",
-    "mt_san_jacinto":"Mt_San_Jacinto_College_articulation.json",
-    "orange_coast":"Orange_Coast_College_articulation.json",
+    "mt_san_jacinto": "Mt_San_Jacinto_College_articulation.json",
+    "orange_coast": "Orange_Coast_College_articulation.json",
     "palomar":    "Palomar_College_articulation.json",
 }
 SUPPORTED_CCS = list(ARTICULATION_FILES.keys())
 SUPPORTED_UCS = ["UCSD", "UCLA", "UCI", "UCR", "UCSB", "UCD", "UCB", "UCSC", "UCM"]
 
 # ─── Helpers for User Input ──────────────────────────────────────────────────
+
 def normalize_cc_name(cc_input):
     """Map a short CC ID to the exact JSON filename in data/prereqs/."""
     mapping = {
@@ -85,7 +91,7 @@ def normalize_cc_name(cc_input):
         "los_angeles_pierce": "los_angeles_pierce_prereqs.json",
         "miracosta": "miracosta_college_prereqs.json",
         "mt_san_jacinto": "mt_san_jacinto_college_prereqs.json",
-        "orange_coast": "orange_coast_college_prereqs.json",
+        "orange_coast": "orange_coast_prereqs.json",
         "palomar": "palomar_prereqs.json"
     }
     return mapping.get(cc_input.strip().lower())
@@ -130,6 +136,7 @@ def get_user_inputs():
 
     return cc, uc_list, ge_pattern
 
+
 def build_file_paths(cc_id: str, uc_id: str):
     """Build all necessary file paths for the pathway generation."""
     # articulation file path
@@ -167,9 +174,11 @@ def build_file_paths(cc_id: str, uc_id: str):
         "course_reqs_json": COURSE_REQS_FILE
     }
 
+
 def load_json(path):
     with open(path, "r") as f:
         return json.load(f)
+
 
 def get_course_units(course_code, prereqs, articulated=None):
     """Get the unit count for a course from prereqs or articulated data."""
@@ -226,6 +235,7 @@ def get_course_units(course_code, prereqs, articulated=None):
     debug_log(f"Could not find units for {course_code}, defaulting to 3 units", {"course_code": course_code})
     return 3
 
+
 def ensure_course_has_units(course_dict, prereqs, articulated=None):
     course_code = course_dict.get('courseCode')
     if not course_code:
@@ -235,6 +245,7 @@ def ensure_course_has_units(course_dict, prereqs, articulated=None):
     units = get_course_units(course_code, prereqs, articulated)
     course_dict['units'] = units
     return course_dict
+
 
 def is_major_requirement_complete(major_reqs, completed, articulated):
     """Check if all major requirements are truly complete by examining remaining courses."""
@@ -253,6 +264,7 @@ def is_major_requirement_complete(major_reqs, completed, articulated):
         })
         return False
 
+
 def can_make_progress(eligible_major, eligible_ge, completed_before_term):
     eligible_major_codes = {c.get('courseCode') for c in eligible_major}
     eligible_ge_codes = {c.get('courseCode') for c in eligible_ge}
@@ -268,7 +280,25 @@ def can_make_progress(eligible_major, eligible_ge, completed_before_term):
     })
     return can_progress
 
+
+# ─── Small util: first-win dedupe by courseCode ──────────────────────────────
+
+def _dedupe_by_code(items: list[dict]) -> list[dict]:
+    seen = set()
+    out = []
+    for it in items:
+        c = it.get("courseCode")
+        if not c:
+            continue
+        if c in seen:
+            continue
+        seen.add(c)
+        out.append(it)
+    return out
+
+
 # ─── GE helpers: normalize area key & expand multi-course areas into slots ────
+
 def _infer_ge_key(course: dict) -> str | None:
     """
     Derive the *real* GE area to credit (e.g., 'IG_4') from a course dict that may
@@ -292,6 +322,7 @@ def _infer_ge_key(course: dict) -> str | None:
         return code.split("__")[0]
 
     return None
+
 
 def _expand_ge_into_slots(ge_remaining: dict, ge_course_dicts: list, prereqs, articulated, completed: set):
     """
@@ -349,7 +380,9 @@ def _expand_ge_into_slots(ge_remaining: dict, ge_course_dicts: list, prereqs, ar
     })
     return expanded
 
+
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
+
 def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_list: list[str], ge_pattern: str):
     debug_log("PATHWAY GENERATION STARTED", {
         "cc_id": cc_id,
@@ -491,15 +524,17 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             }
         })
 
-        # Add missing prerequisites
+        # Add missing prerequisites (pulls in obvious prereqs not yet in the pool)
         major_cands = add_missing_prereqs(major_cands, prereqs, completed)
         debug_log(f"TERM {term_num} - MAJOR CANDIDATES AFTER ADDING PREREQS", {
             "count": len(major_cands),
             "course_codes": [m.get('courseCode', 'NO_CODE') for m in major_cands]
         })
         
+        # Ensure every candidate has a units value
         major_cands = [ensure_course_has_units(course, prereqs, articulated) for course in major_cands]
         
+        # Check completion state
         major_complete = is_major_requirement_complete(major_reqs, completed, articulated)
         
         # GE remaining
@@ -549,11 +584,40 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             })
             break
         
-        # Eligible courses this term
+        # Eligible courses this term (major)
         eligible_major = get_eligible_courses(completed, major_cands, prereqs)
+        # NEW: If some required courses are blocked, pull in schedulable unlockers
+        # Build the list of major courses that are still blocked (not eligible yet)
+        # --- Identify major courses that are still blocked by prerequisites
+        blocked_major = [
+            c for c in major_cands
+            if (c["courseCode"] if isinstance(c, dict) else c)
+            not in {e['courseCode'] for e in eligible_major}
+        ]
+
+        # Normalize to dict form for unlocker detection
+        blocked_major = [
+            c if isinstance(c, dict) else {
+                "courseCode": c,
+                "units": prereqs.get(c, {}).get("units", 3)
+            }
+            for c in blocked_major
+        ]
+
+        # Correct argument order: (remaining_major, completed_courses, prereqs)
+        unlockers = get_unlocker_courses(blocked_major, completed, prereqs)
+
+        if unlockers:
+            debug_log(f"TERM {term_num} - UNLOCKER COURSES FOUND", {
+                "unlocker_codes": [u.get('courseCode') for u in unlockers]
+            })
+
+        # Prefer unlockers first so blocked majors open up next term
+        merged_major_pool = _dedupe_by_code(unlockers + eligible_major)
+
         debug_log(f"TERM {term_num} - ELIGIBLE MAJOR COURSES", {
-            "count": len(eligible_major),
-            "course_codes": [e.get('courseCode') for e in eligible_major]
+            "count": len(merged_major_pool),
+            "course_codes": [e.get('courseCode') for e in merged_major_pool]
         })
 
         # Only include GE items not yet “completed” by code (slots are fresh codes)
@@ -598,20 +662,21 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
                 })
                 available_ge_courses = available_ge_courses + padding  # treat as additional options
 
-        if not can_make_progress(eligible_major, available_ge_courses, completed_before_term):
+        if not can_make_progress(merged_major_pool, available_ge_courses, completed_before_term):
             debug_log(f"TERM {term_num} - CANNOT MAKE PROGRESS", {
                 "reason": "No new courses available that aren't already completed",
-                "eligible_major_count": len(eligible_major),
+                "eligible_major_count": len(merged_major_pool),
                 "available_ge_count": len(available_ge_courses),
                 "completed_courses": len(completed)
             })
             break
 
-        # Build eligibility list with correct units
+        # Build eligibility list with correct units (for majors + unlockers)
         eligible_course_dicts = []
-        for e in eligible_major:
-            actual_units = get_course_units(e['courseCode'], prereqs, articulated)
-            course_dict = {'courseCode': e['courseCode'], 'units': actual_units}
+        for e in merged_major_pool:
+            code = e['courseCode']
+            actual_units = get_course_units(code, prereqs, articulated)
+            course_dict = {'courseCode': code, 'units': actual_units}
             for key, value in e.items():
                 if key not in course_dict and key != 'units':
                     course_dict[key] = value
@@ -633,7 +698,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         if not total_eligible:
             debug_log(f"TERM {term_num} - NO ELIGIBLE COURSES", {
                 "major_candidates_exist": len(major_cands) > 0,
-                "eligible_major_after_filter": len(eligible_major),
+                "eligible_major_after_filter": len(eligible_course_dicts),
                 "ge_courses_available": len(available_ge_courses),
                 "possible_issue": "All remaining courses may have unmet prerequisites or are completed"
             })
@@ -761,6 +826,7 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     })
 
     return pathway
+
 
 # ─── Script Entrypoint ───────────────────────────────────────────────────────
 if __name__ == "__main__":
