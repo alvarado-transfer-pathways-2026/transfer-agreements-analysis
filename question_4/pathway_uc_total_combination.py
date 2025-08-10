@@ -6,8 +6,10 @@ import sys
 
 # Make pathway_generator importable
 sys.path.append(str(Path(__file__).resolve().parents[1] / "pathway_generator"))
+
+# We import the module itself so we can set MAX_UNITS dynamically.
+import pathway_generator as PG
 from pathway_generator import (
-    generate_pathway,
     ARTICULATION_DIR,
     PREREQS_DIR,
     COURSE_REQS_FILE,
@@ -35,8 +37,11 @@ TOP15_CCS = [
     "de_anza",
 ]
 
-# Run both patterns
-GE_PATTERNS = ["IGETC", "7CoursePattern"]
+# IGETC only
+GE_PATTERN = "IGETC"
+
+# Run each scenario with these per-term unit caps
+UNITS_CAPS = [12, 15, 18]
 
 # Where outputs go
 OUTPUT_ROOT = Path(__file__).resolve().parent / "pathway_runs"
@@ -90,7 +95,6 @@ def articulation_path_for(cc_id: str) -> Path:
         raise FileNotFoundError(f"No articulation mapping for '{cc_id}'. Add it to ARTICULATION_FILES.")
     path = ARTICULATION_DIR / fname
     if not path.exists():
-        # Helpful debug: show a few files from the folder
         sample = [p.name for p in list(ARTICULATION_DIR.glob('*_articulation.json'))[:10]]
         raise FileNotFoundError(
             f"Articulation file for '{cc_id}' not found at {path}.\n"
@@ -116,10 +120,11 @@ def uc_slug(ucs) -> str:
     return "-".join(sorted(ucs))
 
 def summarize_plan(plan):
-    terms = len(plan)
+    terms = 0
     units = 0
     courses = 0
     for term in plan:
+        terms += 1
         cs = term.get("courses", [])
         courses += len(cs)
         for c in cs:
@@ -139,13 +144,20 @@ def main():
     manifest_rows = []
     runs = 0
 
-    for ge_pattern in GE_PATTERNS:
-        print(f"== GE pattern: {ge_pattern} ==")
-        ge_out_dir = OUTPUT_ROOT / ge_pattern
-        ge_out_dir.mkdir(parents=True, exist_ok=True)
+    # Root under IGETC with subfolders by cap
+    base_out = OUTPUT_ROOT / GE_PATTERN
+    base_out.mkdir(parents=True, exist_ok=True)
+
+    for units_cap in UNITS_CAPS:
+        print(f"\n== GE pattern: {GE_PATTERN} | cap {units_cap} ==")
+        cap_out_dir = base_out / f"cap{units_cap}"
+        cap_out_dir.mkdir(parents=True, exist_ok=True)
+
+        # Set per-term unit cap dynamically in the generator
+        PG.MAX_UNITS = units_cap
 
         for cc in TOP15_CCS:
-            cc_out_dir = ge_out_dir / cc
+            cc_out_dir = cap_out_dir / cc
             cc_out_dir.mkdir(parents=True, exist_ok=True)
 
             art_path = articulation_path_for(cc)
@@ -158,21 +170,21 @@ def main():
                 for uc_combo in itertools.combinations(SUPPORTED_UCS, k):
                     slug = uc_slug(uc_combo)
 
-                    # New organized location + legacy flat location (skip if either exists)
+                    # Organized output; also check a legacy flat file (within this cap) to skip dupes
                     out_json = size_dir / f"{cc}__{slug}.json"
                     legacy_out_json = cc_out_dir / f"{cc}__{slug}.json"
                     if out_json.exists() or legacy_out_json.exists():
                         continue
 
                     try:
-                        plan = generate_pathway(
+                        plan = PG.generate_pathway(
                             art_path,
                             prereq_path,
                             ge_json_path,
                             COURSE_REQS_FILE,
                             cc,
                             list(uc_combo),
-                            ge_pattern
+                            GE_PATTERN
                         )
 
                         with open(out_json, "w", encoding="utf-8") as f:
@@ -181,7 +193,8 @@ def main():
                         terms, units, courses = summarize_plan(plan)
                         manifest_rows.append([
                             cc,
-                            ge_pattern,
+                            GE_PATTERN,
+                            units_cap,
                             ",".join(uc_combo),
                             terms,
                             units,
@@ -189,26 +202,27 @@ def main():
                             str(out_json.relative_to(OUTPUT_ROOT))
                         ])
                         runs += 1
-                        print(f"[OK] {cc} | {ge_pattern} | {k} UC | {slug} -> {terms} terms, {units} units")
+                        print(f"[OK] cap={units_cap} | {cc} | {k} UC | {slug} -> {terms} terms, {units} units")
 
                     except Exception as e:
                         err_path = size_dir / f"{cc}__{slug}__ERROR.txt"
                         err_path.write_text(str(e), encoding="utf-8")
                         manifest_rows.append([
                             cc,
-                            ge_pattern,
+                            GE_PATTERN,
+                            units_cap,
                             ",".join(uc_combo),
                             "ERROR",
                             "ERROR",
                             "ERROR",
                             str(err_path.relative_to(OUTPUT_ROOT))
                         ])
-                        print(f"[ERR] {cc} | {ge_pattern} | {k} UC | {slug}: {e}")
+                        print(f"[ERR] cap={units_cap} | {cc} | {k} UC | {slug}: {e}")
 
     # Write manifest.csv at OUTPUT_ROOT
     manifest_path = OUTPUT_ROOT / "manifest.csv"
     with open(manifest_path, "w", encoding="utf-8") as f:
-        f.write("cc,ge_pattern,ucs,terms,total_units,total_courses,relative_path\n")
+        f.write("cc,ge_pattern,units_cap,ucs,terms,total_units,total_courses,relative_path\n")
         for row in manifest_rows:
             f.write(",".join(map(str, row)) + "\n")
 

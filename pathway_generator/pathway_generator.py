@@ -5,7 +5,6 @@ from pathlib import Path
 from pprint import pprint
 import datetime
 
-
 from major_checker import MajorRequirements, get_major_requirements
 from ge_checker import GE_Tracker
 from prereq_resolver import get_eligible_courses, load_prereq_data, add_missing_prereqs
@@ -15,8 +14,12 @@ from unit_balancer import select_courses_for_term, prune_uc_to_cc_map
 from plan_exporter import export_term_plan, save_plan_to_json
 
 # ─── Constants ────────────────────────────────────────────────────────────────
-MAX_UNITS = 16             # semester cap (use 20 for quarters)
-TOTAL_UNITS_REQUIRED = 60  # typical CC → UC transfer target
+MAX_UNITS = 16             # per-term cap (use 20 for quarters)
+TOTAL_UNITS_REQUIRED = 60  # minimum CC → UC transferable units
+
+# Elective padding when requirements are done but units < 60
+ELECTIVE_PADDING_MAX_POOL = 50   # how many elective candidates to consider per term
+MAX_TERMS_SAFETY_LIMIT = 12
 
 # ─── Debug logging setup ─────────────────────────────────────────────────────
 DEBUG_LOG = []
@@ -44,7 +47,6 @@ ARTICULATION_DIR = PROJECT_ROOT / "articulated_courses_json"
 PREREQS_DIR      = PROJECT_ROOT / "prerequisites"
 COURSE_REQS_FILE = PROJECT_ROOT / "scraping" / "files" / "course_reqs.json"
 
-
 # ─── 2) CC and UC options ─────────────────────────────────────────────────────
 ARTICULATION_FILES = {
     "cabrillo":   "Cabrillo_College_articulation.json",
@@ -65,7 +67,6 @@ ARTICULATION_FILES = {
 }
 SUPPORTED_CCS = list(ARTICULATION_FILES.keys())
 SUPPORTED_UCS = ["UCSD", "UCLA", "UCI", "UCR", "UCSB", "UCD", "UCB", "UCSC", "UCM"]
-
 
 # ─── Helpers for User Input ──────────────────────────────────────────────────
 def normalize_cc_name(cc_input):
@@ -89,7 +90,6 @@ def normalize_cc_name(cc_input):
     }
     return mapping.get(cc_input.strip().lower())
 
-
 def get_user_inputs():
     """Prompt until the user picks a valid CC, UC, and GE pattern."""
     print("📍 Available Community Colleges:")
@@ -102,26 +102,18 @@ def get_user_inputs():
     print("\n🎓 Available UC Campuses:")
     for uc in SUPPORTED_UCS:
         print(f"  • {uc}")
-    # uc = input("\nEnter the UC campus (e.g., 'ucsd'): ").strip().upper()
-    # while uc not in SUPPORTED_UCS:
-    #     uc = input("Invalid UC. Try again: ").strip().upper()
     while True:
         uc_input = input("\nEnter one or more UC campuses (comma-separated, e.g., 'ucsd, ucla'): ").strip()
         raw_ucs = [uc.strip().upper() for uc in uc_input.split(",")]
-        
         valid_ucs = [uc for uc in raw_ucs if uc in SUPPORTED_UCS]
         invalid_ucs = [uc for uc in raw_ucs if uc not in SUPPORTED_UCS]
-
         if not valid_ucs:
             print("❌ None of the UC campuses you entered are valid. Please try again.")
             continue
-
         if invalid_ucs:
-            print(f"⚠️ The following UC campuses were ignored because they're invalid: {', '.join(invalid_ucs)}")
-
+            print(f"⚠️ Ignored invalid campuses: {', '.join(invalid_ucs)}")
         uc_list = valid_ucs
         break
-
 
     print("\n📚 Available GE Patterns:")
     print("  • 7CoursePattern - Basic 7-Course GE Pattern")
@@ -137,7 +129,6 @@ def get_user_inputs():
     })
 
     return cc, uc_list, ge_pattern
-
 
 def build_file_paths(cc_id: str, uc_id: str):
     """Build all necessary file paths for the pathway generation."""
@@ -176,16 +167,12 @@ def build_file_paths(cc_id: str, uc_id: str):
         "course_reqs_json": COURSE_REQS_FILE
     }
 
-
 def load_json(path):
     with open(path, "r") as f:
         return json.load(f)
 
-
 def get_course_units(course_code, prereqs, articulated=None):
     """Get the unit count for a course from prereqs or articulated data."""
-    # First try to get units from prerequisites data
-    # Based on your example, prereqs is a list of course objects
     if isinstance(prereqs, list):
         for course in prereqs:
             if isinstance(course, dict) and course.get('courseCode') == course_code:
@@ -197,8 +184,6 @@ def get_course_units(course_code, prereqs, articulated=None):
                     units = course['courseUnits']
                     debug_log(f"Found courseUnits for {course_code} in prereqs list", {"units": units})
                     return units
-    
-    # If prereqs is a dict (fallback for different data structures)
     elif isinstance(prereqs, dict):
         if course_code in prereqs:
             course_data = prereqs[course_code]
@@ -212,7 +197,6 @@ def get_course_units(course_code, prereqs, articulated=None):
                     debug_log(f"Found courseUnits for {course_code} in prereqs dict", {"units": units})
                     return units
             elif isinstance(course_data, list):
-                # Sometimes the value might be a list with course info
                 for item in course_data:
                     if isinstance(item, dict) and item.get('courseCode') == course_code:
                         if 'units' in item:
@@ -220,7 +204,6 @@ def get_course_units(course_code, prereqs, articulated=None):
                             debug_log(f"Found units for {course_code} in prereqs dict list", {"units": units})
                             return units
 
-    # Then try articulated data if provided
     if articulated:
         for uc_data in articulated.values():
             if isinstance(uc_data, dict):
@@ -240,42 +223,29 @@ def get_course_units(course_code, prereqs, articulated=None):
                                                     units = course['courseUnits']
                                                     debug_log(f"Found courseUnits for {course_code} in articulated", {"units": units})
                                                     return units
-    
-    # Default to 3 units if not found
     debug_log(f"Could not find units for {course_code}, defaulting to 3 units", {"course_code": course_code})
     return 3
 
-
 def ensure_course_has_units(course_dict, prereqs, articulated=None):
-    """Ensure a course dictionary has proper unit information."""
     course_code = course_dict.get('courseCode')
     if not course_code:
         return course_dict
-    
-    # If units already exist, use them
     if 'units' in course_dict and course_dict['units'] is not None:
         return course_dict
-    
-    # Otherwise, look up units
     units = get_course_units(course_code, prereqs, articulated)
     course_dict['units'] = units
     return course_dict
-
 
 def is_major_requirement_complete(major_reqs, completed, articulated):
     """Check if all major requirements are truly complete by examining remaining courses."""
     try:
         remaining_major = major_reqs.get_remaining_courses(completed, articulated)
-        
         debug_log("MAJOR COMPLETION CHECK", {
             "remaining_courses_count": len(remaining_major),
             "remaining_course_codes": [c.get('courseCode', 'NO_CODE') for c in remaining_major] if remaining_major else [],
             "completed_courses": sorted(list(completed))
         })
-        
-        # If there are no remaining courses, major requirements are complete
         return len(remaining_major) == 0
-        
     except Exception as e:
         debug_log("ERROR IN MAJOR COMPLETION CHECK", {
             "error": str(e),
@@ -283,20 +253,11 @@ def is_major_requirement_complete(major_reqs, completed, articulated):
         })
         return False
 
-
 def can_make_progress(eligible_major, eligible_ge, completed_before_term):
-    """
-    Check if we can make progress this term by comparing what we can take
-    versus what we've already completed.
-    """
-    # Get course codes that are eligible
     eligible_major_codes = {c.get('courseCode') for c in eligible_major}
     eligible_ge_codes = {c.get('courseCode') for c in eligible_ge}
     all_eligible_codes = eligible_major_codes.union(eligible_ge_codes)
-    
-    # Check if any eligible courses are not already completed
     can_progress = len(all_eligible_codes - completed_before_term) > 0
-    
     debug_log("PROGRESS CHECK", {
         "eligible_major_codes": list(eligible_major_codes),
         "eligible_ge_codes": list(eligible_ge_codes),
@@ -305,9 +266,88 @@ def can_make_progress(eligible_major, eligible_ge, completed_before_term):
         "new_courses_available": list(all_eligible_codes - completed_before_term),
         "can_make_progress": can_progress
     })
-    
     return can_progress
 
+# ─── GE helpers: normalize area key & expand multi-course areas into slots ────
+def _infer_ge_key(course: dict) -> str | None:
+    """
+    Derive the *real* GE area to credit (e.g., 'IG_4') from a course dict that may
+    be a per-slot placeholder like 'IG_4__slot1'.
+    Priority: explicit geKey > first reqIds entry > courseCode prefix.
+    """
+    if not isinstance(course, dict):
+        return None
+
+    ge_key = course.get("geKey")
+    if isinstance(ge_key, str) and ge_key:
+        return ge_key.split("__")[0]
+
+    req_ids = course.get("reqIds")
+    if isinstance(req_ids, list) and req_ids:
+        if isinstance(req_ids[0], str):
+            return req_ids[0].split("__")[0]
+
+    code = course.get("courseCode")
+    if isinstance(code, str) and code.startswith("IG_"):
+        return code.split("__")[0]
+
+    return None
+
+def _expand_ge_into_slots(ge_remaining: dict, ge_course_dicts: list, prereqs, articulated, completed: set):
+    """
+    For any GE area that requires multiple courses (e.g., IG_4 with 2),
+    generate distinct per-slot placeholders so the balancer can choose
+    the area more than once even if 'IG_4' itself is already in completed.
+    """
+    # Index the base template from what's already built
+    base_templates = {c.get("courseCode"): c for c in ge_course_dicts if isinstance(c, dict)}
+    expanded = []
+
+    for ge_key, info in (ge_remaining or {}).items():
+        need = int((info or {}).get("courses_remaining", 0) or 0)
+        if need <= 0:
+            continue
+
+        base_template = base_templates.get(ge_key)
+        if not base_template:
+            # fallback template with units 3 if build_ge_courses didn't emit the base
+            base_template = {"courseCode": ge_key, "units": 3, "reqIds": [ge_key], "geKey": ge_key}
+        else:
+            base_template = ensure_course_has_units(dict(base_template), prereqs, articulated)
+            # ensure geKey present for normalization later
+            if "geKey" not in base_template:
+                base_template["geKey"] = ge_key
+            if "reqIds" not in base_template:
+                base_template["reqIds"] = [ge_key]
+
+        base_in_completed = ge_key in completed
+
+        if base_in_completed:
+            # If we've already completed the base (e.g., 'IG_4'), create `need` slot items
+            for i in range(1, need + 1):
+                expanded.append({
+                    "courseCode": f"{ge_key}__slot{i}",
+                    "units": base_template.get("units", 3),
+                    "reqIds": [ge_key],
+                    "geKey": ge_key
+                })
+        else:
+            # Use the base once + (need-1) slots
+            expanded.append(base_template)
+            for i in range(1, max(need - 1, 0) + 1):
+                expanded.append({
+                    "courseCode": f"{ge_key}__slot{i}",
+                    "units": base_template.get("units", 3),
+                    "reqIds": [ge_key],
+                    "geKey": ge_key
+                })
+
+    debug_log("GE SLOT EXPANSION", {
+        "areas_with_need": {k: int((v or {}).get("courses_remaining", 0) or 0) for k,v in (ge_remaining or {}).items()},
+        "expanded_count": len(expanded),
+        "expanded_codes": [e.get("courseCode") for e in expanded]
+    })
+    return expanded
 
 # ─── Core Pathway Generation ─────────────────────────────────────────────────
 def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_list: list[str], ge_pattern: str):
@@ -325,62 +365,25 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         "total_entries": sum(len(v) if isinstance(v, dict) else 1 for v in articulated.values())
     })
 
-    # Load and analyze the course requirements structure
+    # Load and analyze the course requirements structure (quiet/clean)
     course_reqs = load_json(major_path)
-    debug_log("LOADED COURSE REQUIREMENTS", {
-        "top_level_keys": list(course_reqs.keys()),
-        "structure_analysis": {
-            key: list(value.keys()) if isinstance(value, dict) else type(value).__name__
-            for key, value in course_reqs.items()
-        }
-    })
-
-    # Find the correct key structure for De Anza College
-    cc_key = None
-    if "UC_REQUIREMENTS" in course_reqs:
+    if "UC_REQUIREMENTS" in course_reqs and isinstance(course_reqs["UC_REQUIREMENTS"], dict):
         uc_reqs = course_reqs["UC_REQUIREMENTS"]
-        debug_log("UC_REQUIREMENTS STRUCTURE", {
-            "colleges_available": list(uc_reqs.keys()) if isinstance(uc_reqs, dict) else "not a dict",
-            "looking_for_variants": ["De_Anza_College", "de_anza", "De Anza College"]
-        })
-        
-        # Try different possible keys for De Anza
-        possible_keys = ["De_Anza_College", "de_anza", "De Anza College", "DE_ANZA_COLLEGE"]
-        for key in possible_keys:
-            if key in uc_reqs:
-                cc_key = key
-                debug_log("FOUND CC KEY", {"key": cc_key})
-                break
-        
-        if cc_key and cc_key in uc_reqs:
-            debug_log("DETAILED COURSE REQUIREMENTS ANALYSIS", {
+        if cc_id in uc_reqs:
+            debug_log("UC_REQUIREMENTS STRUCTURE", {
                 "cc_found": True,
-                "cc_key_used": cc_key,
-                "available_ucs": list(uc_reqs[cc_key].keys()),
-                "detailed_requirements": {
-                    uc: {
-                        req_name: {
-                            "num_required": req_data.get("num_required", "unknown"),
-                            "course_groups_count": len(req_data.get("course_groups", [])),
-                            "first_group_courses": [course.get("course") for course in req_data.get("course_groups", [[]])[0]],
-                            "receiving_course": req_data.get("receiving_course", "unknown")
-                        }
-                        for req_name, req_data in uc_reqs[cc_key].get(uc, {}).items()
-                    }
-                    for uc in uc_list[:3]  # First 3 UCs for detailed analysis
-                    if uc in uc_reqs[cc_key]
-                }
+                "cc_key_used": cc_id,
+                "available_ucs": list(uc_reqs[cc_id].keys())
             })
         else:
-            debug_log("CC KEY NOT FOUND", {
-                "available_cc_keys": list(uc_reqs.keys()) if isinstance(uc_reqs, dict) else "not a dict",
-                "tried_keys": possible_keys
+            debug_log("UC REQUIREMENTS CC NOT FOUND", {
+                "cc_id": cc_id,
+                "available_ccs": list(uc_reqs.keys())
             })
     else:
         debug_log("COURSE REQUIREMENTS ANALYSIS", {
             "uc_requirements_found": False,
-            "available_top_level_keys": list(course_reqs.keys()),
-            "looking_for": "UC_REQUIREMENTS"
+            "available_top_level_keys": list(course_reqs.keys())
         })
 
     # load as a dict: courseCode -> metadata
@@ -398,7 +401,6 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     
     # Initialize the classes
     ge_tracker = GE_Tracker(ge_data)
-    # Load the appropriate GE pattern
     ge_tracker.load_pattern(ge_pattern)
     debug_log("GE TRACKER INITIALIZED", {
         "pattern_loaded": ge_pattern,
@@ -440,24 +442,11 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         "sample_mappings": {uc: list(cmap.keys())[:5] for uc, cmap in major_map.items()}
     })
 
-    # Let's examine the actual course requirements structure in detail
+    # Optional detailed dump for this CC in course_reqs (kept compact)
     if cc_id in course_reqs:
         debug_log("DETAILED COURSE REQUIREMENTS ANALYSIS", {
             "cc_found": True,
-            "available_ucs": list(course_reqs[cc_id].keys()),
-            "detailed_requirements": {
-                uc: {
-                    req_name: {
-                        "num_required": req_data.get("num_required", "unknown"),
-                        "course_groups_count": len(req_data.get("course_groups", [])),
-                        "first_group_courses": [course.get("course") for course in req_data.get("course_groups", [[]])[0]],
-                        "receiving_course": req_data.get("receiving_course", "unknown")
-                    }
-                    for req_name, req_data in course_reqs[cc_id].get(uc, {}).items()
-                }
-                for uc in uc_list[:3]  # First 3 UCs for detailed analysis
-                if uc in course_reqs[cc_id]
-            }
+            "available_ucs": list(course_reqs[cc_id].keys())
         })
     else:
         debug_log("COURSE REQUIREMENTS ANALYSIS", {
@@ -469,13 +458,12 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     uc_to_cc_map: dict[str, list[list[str]]] = {}
     for uc, cmap in major_map.items():
         for uc_course, blocks in cmap.items():
-            # merge blocks for the same UC-course across campuses
             uc_to_cc_map.setdefault(uc_course, []).extend(blocks)
     
     debug_log("UC TO CC MAP CREATED", {
         "total_uc_courses": len(uc_to_cc_map),
-        "uc_courses": list(uc_to_cc_map.keys())[:10],  # First 10 for brevity
-        "sample_mappings": {k: v[:2] for k, v in list(uc_to_cc_map.items())[:5]}  # First 5 mappings, 2 options each
+        "uc_courses": list(uc_to_cc_map.keys())[:10],
+        "sample_mappings": {k: v[:2] for k, v in list(uc_to_cc_map.items())[:5]}
     })
 
     all_cc_course_codes = set(prereqs.keys())
@@ -489,10 +477,9 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             "completed_courses": sorted(list(completed))
         })
         
-        # Store completed courses at start of term for progress checking
         completed_before_term = completed.copy()
         
-        # Get fresh major candidates for this term
+        # Fresh major candidates
         major_cands = major_reqs.get_remaining_courses(completed, articulated)
         debug_log(f"TERM {term_num} - FRESH MAJOR CANDIDATES", {
             "count": len(major_cands),
@@ -511,27 +498,28 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             "course_codes": [m.get('courseCode', 'NO_CODE') for m in major_cands]
         })
         
-        # Ensure all major candidates have proper unit information
         major_cands = [ensure_course_has_units(course, prereqs, articulated) for course in major_cands]
         
-        # Check if major requirements are complete
         major_complete = is_major_requirement_complete(major_reqs, completed, articulated)
         
-        # For GE courses, we need to get remaining requirements and find courses that fulfill them
+        # GE remaining
         ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
         debug_log(f"TERM {term_num} - GE REQUIREMENTS CHECK", {
             "remaining_ge_categories": list(ge_remaining.keys()),
             "ge_requirements_detail": ge_remaining
         })
         
-        # Build GE courses and ensure they have unit information
-        ge_course_dicts = build_ge_courses(ge_remaining, ge_lookup, unit_count=3)
-        ge_course_dicts = [ensure_course_has_units(course, prereqs, articulated) for course in ge_course_dicts]
-        debug_log(f"TERM {term_num} - GE COURSES BUILT", {
-            "count": len(ge_course_dicts),
-            "course_codes": [c.get('courseCode') for c in ge_course_dicts],
-            "courses_with_units": [(c.get('courseCode'), c.get('units')) for c in ge_course_dicts]
+        # Build GE courses (base placeholders)
+        base_ge_courses = build_ge_courses(ge_remaining, ge_lookup, unit_count=3)
+        base_ge_courses = [ensure_course_has_units(course, prereqs, articulated) for course in base_ge_courses]
+        debug_log(f"TERM {term_num} - GE COURSES BUILT (base)", {
+            "count": len(base_ge_courses),
+            "course_codes": [c.get('courseCode') for c in base_ge_courses],
+            "courses_with_units": [(c.get('courseCode'), c.get('units')) for c in base_ge_courses]
         })
+
+        # 🔁 Expand multi-course GE areas into per-slot placeholders
+        ge_course_dicts = _expand_ge_into_slots(ge_remaining, base_ge_courses, prereqs, articulated, completed)
 
         debug_log(f"TERM {term_num} - MAJOR REQUIREMENTS CHECK", {
             "major_candidates_remaining": len(major_cands),
@@ -539,50 +527,77 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             "major_complete": major_complete
         })
 
-        # Check termination conditions with improved logic
-        no_major_reqs = major_complete  # Use the proper completion check
-        no_ge_reqs = not ge_remaining
-        unit_cap_reached = total_units >= TOTAL_UNITS_REQUIRED
-        
+        # New termination semantics: finish only when major complete AND GE complete AND units ≥ 60
+        major_done = major_complete
+        ge_done = (not ge_remaining)
+        min_units_met = (total_units >= TOTAL_UNITS_REQUIRED)
+
         debug_log(f"TERM {term_num} - TERMINATION CONDITIONS", {
-            "major_requirements_complete": no_major_reqs,
-            "no_ge_requirements": no_ge_reqs,
-            "unit_cap_reached": unit_cap_reached,
-            "should_terminate_requirements": no_major_reqs and no_ge_reqs,
-            "should_terminate_units": unit_cap_reached
+            "major_complete": major_done,
+            "ge_complete": ge_done,
+            "min_units_met_60+": min_units_met,
+            "will_terminate": major_done and ge_done and min_units_met
         })
-        
-        # Only terminate if both major and GE requirements are complete, OR if we've hit unit cap
-        if (no_major_reqs and no_ge_reqs) or unit_cap_reached:
+
+        if major_done and ge_done and min_units_met:
             debug_log("PATHWAY GENERATION COMPLETED", {
-                "reason": "Requirements complete" if (no_major_reqs and no_ge_reqs) else "Unit cap reached",
+                "reason": "Major + GE complete and 60+ units reached",
                 "final_units": total_units,
                 "total_terms": term_num - 1,
-                "major_complete": no_major_reqs,
-                "ge_complete": no_ge_reqs
+                "major_complete": True,
+                "ge_complete": True
             })
             break
         
-        # Get eligible courses for this term
+        # Eligible courses this term
         eligible_major = get_eligible_courses(completed, major_cands, prereqs)
         debug_log(f"TERM {term_num} - ELIGIBLE MAJOR COURSES", {
             "count": len(eligible_major),
             "course_codes": [e.get('courseCode') for e in eligible_major]
         })
 
-        # Filter out already completed GE courses
+        # Only include GE items not yet “completed” by code (slots are fresh codes)
         available_ge_courses = [
             course for course in ge_course_dicts
             if course.get('courseCode') not in completed
         ]
-        
         debug_log(f"TERM {term_num} - AVAILABLE GE COURSES", {
             "total_ge_built": len(ge_course_dicts),
             "available_ge_after_filter": len(available_ge_courses),
             "available_ge_codes": [c.get('courseCode') for c in available_ge_courses]
         })
 
-        # Check if we can make progress this term
+        # If requirements are already done but units < 60, add electives to pool
+        if major_done and ge_done and not min_units_met:
+            # If you have elective_filler.fill_electives, call it here to get a curated list
+            # padding = fill_electives(...)
+            padding = []
+            counter = 0
+            for code in sorted(all_cc_course_codes):
+                if counter >= ELECTIVE_PADDING_MAX_POOL:
+                    break
+                if code in completed:
+                    continue
+                # Skip GE placeholders and likely UC receiving placeholders
+                if code.startswith("IG_"):
+                    continue
+                # Skip obviously malformed codes (heuristic)
+                if " " not in code and not any(code.startswith(prefix) for prefix in ["CS", "MATH", "PHYS", "CHEM", "BIO", "ENGL", "HIST", "PHIL", "ECON", "PSY", "SOC"]):
+                    continue
+
+                units = get_course_units(code, prereqs, articulated)
+                if not units:
+                    continue
+                padding.append({"courseCode": code, "units": units, "tag": "ELECTIVE"})
+                counter += 1
+
+            if padding:
+                debug_log(f"TERM {term_num} - ELECTIVE PADDING ADDED", {
+                    "padding_count": len(padding),
+                    "sample": [(c["courseCode"], c["units"]) for c in padding[:10]]
+                })
+                available_ge_courses = available_ge_courses + padding  # treat as additional options
+
         if not can_make_progress(eligible_major, available_ge_courses, completed_before_term):
             debug_log(f"TERM {term_num} - CANNOT MAKE PROGRESS", {
                 "reason": "No new courses available that aren't already completed",
@@ -592,19 +607,13 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             })
             break
 
-        # Build eligibility list and ensure units are properly set
+        # Build eligibility list with correct units
         eligible_course_dicts = []
         for e in eligible_major:
-            # Get the correct units for this course
             actual_units = get_course_units(e['courseCode'], prereqs, articulated)
-            
-            course_dict = {
-                'courseCode': e['courseCode'],
-                'units': actual_units  # Always use the looked-up units
-            }
-            # Copy over any other properties from the original course, except units
+            course_dict = {'courseCode': e['courseCode'], 'units': actual_units}
             for key, value in e.items():
-                if key not in course_dict and key != 'units':  # Don't overwrite our correct units
+                if key not in course_dict and key != 'units':
                     course_dict[key] = value
             eligible_course_dicts.append(course_dict)
 
@@ -680,27 +689,30 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             "courses_to_add": [c['courseCode'] for c in selected]
         })
         
-        # 6) Update GE‐tracker state and completed courses
+        # 6) Update GE‐tracker state and completed courses (normalize GE area)
         for course in selected:
             code = course["courseCode"]
-            
-            # Add to completed set
             completed.add(code)
             debug_log(f"TERM {term_num} - ADDED TO COMPLETED", {
                 "course_code": code,
                 "course_units": course.get('units')
             })
-            
-            # Update GE tracker if it's a GE course
-            if "reqIds" in course:
-                for req in course["reqIds"]:
-                    ge_tracker.add_completed_course(code, req)
-                    debug_log(f"TERM {term_num} - GE REQUIREMENT FULFILLED", {
-                        "course_code": code,
-                        "ge_requirement": req
-                    })
+
+            ge_key = _infer_ge_key(course)
+            if ge_key is not None:
+                ge_tracker.add_completed_course(code, ge_key)
+                debug_log(f"TERM {term_num} - GE REQUIREMENT FULFILLED (normalized)", {
+                    "course_code": code,
+                    "credited_ge_key": ge_key
+                })
             else:
-                ge_tracker.add_completed_course(code, course.get("tag", code))
+                # Non-GE: optionally credit a tag or itself for downstream logic
+                credited = course.get("tag", code)
+                ge_tracker.add_completed_course(code, credited)
+                debug_log(f"TERM {term_num} - NON-GE OR TAGGED COURSE CREDITED", {
+                    "course_code": code,
+                    "credited_key": credited
+                })
         
         debug_log(f"TERM {term_num} - STATE AFTER UPDATE", {
             "completed_after": sorted(list(completed)),
@@ -720,9 +732,9 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
         })
 
         # Safety check to prevent infinite loops
-        if term_num > 12:
+        if term_num > MAX_TERMS_SAFETY_LIMIT:
             debug_log("MAXIMUM TERMS REACHED", {
-                "max_terms": 12,
+                "max_terms": MAX_TERMS_SAFETY_LIMIT,
                 "current_term": term_num,
                 "reason": "Safety limit reached"
             })
@@ -733,15 +745,14 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
             debug_log(f"TERM {term_num-1} - NO PROGRESS MADE", {
                 "reason": "No new courses were completed this term",
                 "completed_before": sorted(list(completed_before_term)),
-                "completed_after": sorted(list(completed)),
-                "selected_courses": [c['courseCode'] for c in selected]
+                "completed_after": sorted(list(completed))
             })
             break
 
     debug_log("PATHWAY GENERATION FINAL RESULTS", {
         "total_terms": term_num - 1,
         "final_total_units": total_units,
-        "target_units": TOTAL_UNITS_REQUIRED,
+        "target_units_minimum": TOTAL_UNITS_REQUIRED,
         "average_units_per_term": total_units / max(1, term_num - 1),
         "final_completed_courses": sorted(list(completed)),
         "final_completed_count": len(completed),
@@ -750,7 +761,6 @@ def generate_pathway(art_path, prereq_path, ge_path, major_path, cc_id: str, uc_
     })
 
     return pathway
-
 
 # ─── Script Entrypoint ───────────────────────────────────────────────────────
 if __name__ == "__main__":
