@@ -1,5 +1,3 @@
-#semester: 12, 15, 18
-#quarter: 12, 16, 20
 #!/usr/bin/env python3
 import json
 import os
@@ -21,15 +19,15 @@ from plan_exporter import export_term_plan, save_plan_to_json
 # ─── System-Specific Constants ─────────────────────────────────────────────────
 # Quarter System Settings
 QUARTER_SETTINGS = {
-    'MAX_UNITS': 12,            # Units per quarter
+    'MAX_UNITS': 16,            # Units per quarter (matches pathway_generator for quarters)
     'TOTAL_UNITS_REQUIRED': 90, # Total units for transfer (quarters typically need more)
     'TERMS_FOR_TWO_YEARS': 6    # 6 quarters = 2 years
 }
 
 # Semester System Settings  
 SEMESTER_SETTINGS = {
-    'MAX_UNITS': 12,            # Units per semester
-    'TOTAL_UNITS_REQUIRED': 60, # Total units for transfer
+    'MAX_UNITS': 15,            # Units per semester (matches pathway_generator)
+    'TOTAL_UNITS_REQUIRED': 60, # Total units for transfer (matches pathway_generator)
     'TERMS_FOR_TWO_YEARS': 4    # 4 semesters = 2 years
 }
 
@@ -45,7 +43,7 @@ SEMESTER_SYSTEM_CCS = [
     # Add semester system CC names here (exact names as they appear in your files)  
     # Example: "santa_monica", "los_angeles_city_college", etc.
     "cabrillo", "chabot", "city_college_of_san_francisco", "cosumnes_river",
-    "diablo_valley", "folsom_lake", "las_positas", "los_angeles_city", "los_angeles_pierce"
+    "diablo_valley", "folsom_lake", "las_positas", "los_angeles_city_college", "los_angeles_pierce",
     "miracosta", "mt_san_jacinto", "orange_coast", "palomar"
 ]
 
@@ -250,7 +248,7 @@ def generate_uc_combinations(max_combinations=None):
     return all_combinations
 
 def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id, uc_list, ge_pattern, system_settings):
-    """Modified pathway generation that returns summary statistics."""
+    """Modified pathway generation that matches the working pathway_generator.py logic."""
     try:
         # Use the system-specific settings
         MAX_UNITS = system_settings['MAX_UNITS']
@@ -267,7 +265,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
         if not ge_data:
             return None
         
-        # Initialize the classes
+        # Initialize the classes (exactly like pathway_generator.py)
         ge_tracker = GE_Tracker(ge_data)
         ge_tracker.load_pattern(ge_pattern)
         
@@ -286,7 +284,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
 
         ge_lookup = load_ge_lookup(PREREQS_DIR / "ge_reqs.json")
 
-        # Get major course mapping
+        # Get major course mapping (exactly like pathway_generator.py)
         major_map = MajorRequirements.get_cc_to_uc_map(cc_id, uc_list, art_path)
         uc_to_cc_map = {}
         for uc, cmap in major_map.items():
@@ -300,7 +298,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
         max_terms = 12
         
         while term_num <= max_terms:
-            # Get remaining requirements
+            # Get remaining requirements (exactly like pathway_generator.py)
             ge_remaining = ge_tracker.get_remaining_requirements(ge_pattern)
             
             if not major_cands and not ge_remaining:
@@ -308,7 +306,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             
             ge_course_dicts = build_ge_courses(ge_remaining, ge_lookup, unit_count=3)
             
-            # Filter eligible courses
+            # Filter eligible courses (exactly like pathway_generator.py)
             eligible = get_eligible_courses(completed, major_cands, prereqs)
             
             eligible_course_dicts = [
@@ -319,7 +317,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             all_cc_course_codes = set(prereqs.keys())
             total_eligible = eligible_course_dicts + ge_course_dicts
             
-            # Select courses for this term
+            # Select courses for this term (exactly like pathway_generator.py)
             selected, units, pruned_codes = select_courses_for_term(
                 total_eligible, completed, uc_to_cc_map, all_cc_course_codes, MAX_UNITS
             )
@@ -333,7 +331,7 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             if not selected:
                 break
             
-            # Update GE tracker state
+            # Update GE tracker state (exactly like pathway_generator.py)
             for course in selected:
                 code = course["courseCode"]
                 if "reqIds" in course:
@@ -358,9 +356,9 @@ def generate_pathway_automated(art_path, prereq_path, ge_path, major_path, cc_id
             'total_terms': len(terms_data),
             'total_units': total_units,
             'terms': terms_data,
-            'over_2_years': len(terms_data) > TERMS_FOR_TWO_YEARS,  # True if takes more than 2 years
+            'over_2_years': len(terms_data) > TERMS_FOR_TWO_YEARS,
             'meets_unit_requirement': total_units >= TOTAL_UNITS_REQUIRED,
-            'system_settings': system_settings  # Include the settings used
+            'system_settings': system_settings
         }
         
     except Exception as e:
