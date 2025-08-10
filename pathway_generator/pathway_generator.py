@@ -24,7 +24,7 @@ TOTAL_UNITS_REQUIRED = 60  # minimum CC → UC transferable units
 
 # Elective padding when requirements are done but units < 60
 ELECTIVE_PADDING_MAX_POOL = 50   # how many elective candidates to consider per term
-MAX_TERMS_SAFETY_LIMIT = 12
+MAX_TERMS_SAFETY_LIMIT = 9
 
 # ─── Debug logging setup ─────────────────────────────────────────────────────
 DEBUG_LOG = []

@@ -3,13 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # === CONFIGURATION ===
-json_path = "question_4/data/min_units/pathway_results_IGETC_20250809_145559.json"
+json_path = "question_4/data/max-units/pathway_results_IGETC_20250810_145038.json"
 
 # === MANUAL CC EXCLUSION ===
 # Add the community college codes you want to exclude here
 exclude_ccs = [
     "de_anza",
-    "foothill"
+    "foothill",
+    "mt_san_jacinto"
 ]
 
 # === LOAD DATA ===
