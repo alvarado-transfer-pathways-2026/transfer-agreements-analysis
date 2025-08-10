@@ -24,13 +24,13 @@ from unit_balancer import select_courses_for_term
 
 # ─── System-Specific Constants ─────────────────────────────────────────────────
 QUARTER_SETTINGS = {
-    'MAX_UNITS': 20,
+    'MAX_UNITS': 15,
     'TOTAL_UNITS_REQUIRED': 90,
     'TERMS_FOR_TWO_YEARS': 6
 }
 
 SEMESTER_SETTINGS = {
-    'MAX_UNITS': 18,
+    'MAX_UNITS': 12,
     'TOTAL_UNITS_REQUIRED': 60,
     'TERMS_FOR_TWO_YEARS': 4
 }
