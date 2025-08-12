@@ -25,16 +25,18 @@ def load_avg_terms(json_path: str, exclude=None) -> pd.DataFrame:
     if exclude:
         df = df[~df["cc"].isin(exclude)]
 
+    # mean & std for error bars
     out = (
-        df.groupby("cc", as_index=False)["total_terms"]
-          .mean()
+        df.groupby("cc", as_index=False)
+          .agg(mean_terms=("total_terms", "mean"),
+               std_terms=("total_terms", "std"))
     )
     return out
 
 # --- load & merge ---
-df12 = load_avg_terms(json_12, exclude_ccs).rename(columns={"total_terms": "u12"})
-df15 = load_avg_terms(json_15, exclude_ccs).rename(columns={"total_terms": "u15"})
-df18 = load_avg_terms(json_18, exclude_ccs).rename(columns={"total_terms": "u18"})
+df12 = load_avg_terms(json_12, exclude_ccs).rename(columns={"mean_terms": "u12", "std_terms": "e12"})
+df15 = load_avg_terms(json_15, exclude_ccs).rename(columns={"mean_terms": "u15", "std_terms": "e15"})
+df18 = load_avg_terms(json_18, exclude_ccs).rename(columns={"mean_terms": "u18", "std_terms": "e18"})
 
 merged = df18.merge(df15, on="cc", how="outer").merge(df12, on="cc", how="outer")
 
@@ -54,10 +56,28 @@ col18 = "tab:orange"  # 18u
 col15 = "tab:blue"    # 15u
 col12 = "tab:red"     # 12u
 
-# Colors inspired by image: Teal, Red, Yellow
-bars18 = ax.bar(x - width, merged["u18"].values, width, label="18 units/term", color="#B5E81BD2", edgecolor="black",linewidth=1.8)
-bars15 = ax.bar(x,          merged["u15"].values, width, label="15 units/term", color="#43D5E9", edgecolor="black",linewidth=1.8)
-bars12 = ax.bar(x + width,  merged["u12"].values, width, label="12 units/term", color="#FC9B2C", edgecolor="black",linewidth=1.8)
+bars18 = ax.bar(
+    x - width, merged["u18"].values, width,
+    label="18 units/term", color="#B5E81BD2", edgecolor="black", linewidth=1.8,
+    yerr=merged["e18"].values, capsize=4, ecolor="black"
+)
+bars15 = ax.bar(
+    x, merged["u15"].values, width,
+    label="15 units/term", color="#43D5E9", edgecolor="black", linewidth=1.8,
+    yerr=merged["e15"].values, capsize=4, ecolor="black"
+)
+bars12 = ax.bar(
+    x + width, merged["u12"].values, width,
+    label="12 units/term", color="#FC9B2C", edgecolor="black", linewidth=1.8,
+    yerr=merged["e12"].values, capsize=4, ecolor="black"
+)
+
+# --- NEW: horizontal line at y=4 ---
+ax.axhline(y=4, color="red", linestyle="-", linewidth=1.5)
+
+# --- NEW: small advising text ---
+ax.text(0.99, 0.97, "4 Terms = 2 Years", transform=ax.transAxes,
+        ha="right", va="top", fontsize=10, color="red")
 
 ax.set_ylabel("Average Number of Terms")
 ax.set_xlabel("Community College")
