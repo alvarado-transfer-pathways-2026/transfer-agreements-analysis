@@ -49,6 +49,9 @@ merged["cc_label"] = merged["cc"].str.replace("_", " ")
 x = np.arange(len(merged))
 width = 0.25
 
+# Increase default font size globally
+plt.rcParams.update({'font.size': 14})
+
 fig, ax = plt.subplots(figsize=(12, 7))
 
 # brighter colors
@@ -72,23 +75,34 @@ bars12 = ax.bar(
     yerr=merged["e12"].values, capsize=4, ecolor="black"
 )
 
-# --- NEW: horizontal line at y=4 ---
+# horizontal line at y=4
 ax.axhline(y=4, color="red", linestyle="-", linewidth=1.5)
 
-# --- NEW: small advising text ---
-ax.text(0.99, 0.97, "4 Terms = 2 Years", transform=ax.transAxes,
-        ha="right", va="top", fontsize=10, color="red")
+# advising text
+ax.text(0.99, 0.99, "4 Terms = 2 Years", transform=ax.transAxes,
+        ha="right", va="top", fontsize=12, color="red", fontweight="bold")
 
-ax.set_ylabel("Average Number of Terms")
-ax.set_xlabel("Community College")
-ax.set_title("Average Terms to Transfer by CC (Grouped by Unit Cap)")
+# Bold axis labels
+ax.set_ylabel("Average Number of Terms", fontweight="bold", fontsize=14)
+ax.set_xlabel("Community College", fontweight="bold", fontsize=14)
+
+# Bigger, bold title
+ax.set_title("Average Terms to Transfer by CC (Grouped by Unit Cap)", fontsize=16, fontweight="bold")
+
 ax.set_xticks(x)
-ax.set_xticklabels(merged["cc_label"], rotation=45, ha="right")
+ax.set_xticklabels(merged["cc_label"], rotation=45, ha="right", fontsize=12, )
+
+# Make Y tick labels bold and slightly larger
+for lbl in ax.get_yticklabels():
+    lbl.set_fontsize(12)
+    lbl.set_fontweight("bold")
+
 ymax = merged[["u12","u15","u18"]].stack().max()
 ax.set_ylim(0, float(ymax) + 1)
 ax.grid(axis="y", alpha=0.3)
-# legend in ascending order of units (18, 15, 12)
-ax.legend(handles=[bars18, bars15, bars12], title=None)
+
+# legend in ascending order of units (18, 15, 12) with bigger font
+ax.legend(handles=[bars18, bars15, bars12], title=None, fontsize=12)
 
 plt.tight_layout()
 plt.savefig(out_png, dpi=300)
