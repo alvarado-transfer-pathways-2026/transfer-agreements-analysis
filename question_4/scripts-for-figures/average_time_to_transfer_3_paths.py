@@ -90,7 +90,7 @@ ax.set_xlabel("Community College", fontweight="bold", fontsize=14)
 ax.set_title("Average Terms to Transfer by CC (Grouped by Unit Cap)", fontsize=16, fontweight="bold")
 
 ax.set_xticks(x)
-ax.set_xticklabels(merged["cc_label"], rotation=45, ha="right", fontsize=12, )
+ax.set_xticklabels(merged["cc_label"].str.title(), rotation=45, ha="right", fontsize=12, )
 
 # Make Y tick labels bold and slightly larger
 for lbl in ax.get_yticklabels():
