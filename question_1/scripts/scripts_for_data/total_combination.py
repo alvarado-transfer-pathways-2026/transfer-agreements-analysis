@@ -9,7 +9,7 @@ uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 def generate_combinations(uc_schools):
     # Change the number here for different permutation sizes
-    return list(permutations(uc_schools, 4))
+    return list(permutations(uc_schools, 9))
 
 def get_roles(k):
     suffixes = ['st', 'nd', 'rd'] + ['th'] * 6
@@ -270,5 +270,5 @@ def process_all_csvs(folder_path):
             f.write("\n")
 
 if __name__ == "__main__":
-    folder_path = "/Users/yasminkabir/transfer-agreements-analysis/district_csvs"
+    folder_path = "/Users/yasminkabir/GitHub/transfer-agreements-analysis-4/district_csvs"
     process_all_csvs(folder_path)
