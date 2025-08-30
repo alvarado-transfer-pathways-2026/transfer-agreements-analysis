@@ -4,29 +4,28 @@ To answer this question we have divided it up into two sections and have two dif
 
 First we will be explaining the concept of the 3-UC combination sequences
 
-## 3-UC Combination Sequences
+## 3-UC Combination Sequences (and more than 3 UC combindations as well)
 We analyzed 3-UC combination in order-dependent sequences (e.g., [UCSD, UCLA, UCSD]). In each 3-UC sequence, the first UC covers as many requirements as possible, the second only contributes courses not already fulfilled, and the third adds anything that is still unmet. This reveals how much each UC contributes when added to an existing pair.​
 
 ## Folders and what's inside:
 
-**data_txts**
+**txts**
 This is where the data we developed that is in txt form is stored.
 
 **graphs**
 This is where all the graphs/visualizations we developed is stored.
 
-**order_csvs**
+**csvs**
 This is where all the csvs of each order is stored.
 
-**scripts_for_data**
-This is where the scripts to create the data_txts and order_csvs is stored.
+**scripts**
+This is where all the scripts to create the data, csvs, and graphs is stored.
 
-**scripts_for_graphs**
-This is where all the scripts to create the graphs is stored.
+## What's inside each folder and what they do (relatively):
 
-## What's inside each folder and what they do:
+### txts
+in each of the folders under this folder is data for many differnet combinations. data_3_txts mean it is for 3-UC combination sequences. and so on data_4_txts mean it is for 4-UC combination sequences. and so on. The data is stored in txt form.
 
-### data_txts
 #### average_combination_order.txt
 For each of the 3-UC combination sequences, this txt file stores the average number of courses for each Community College District (CCD) in California for each of the UCs. At the end it has the total average for all the CCDs along with the total average only considering CCDs that are transferrable (meaning all requirements can be met through courses at that CCD).
 
