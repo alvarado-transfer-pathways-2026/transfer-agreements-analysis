@@ -12,6 +12,18 @@ COURSE_GROUPS = {
     'Discrete Math':        {'color': '#FF9F1C', 'patterns': ['discrete']},
 }
 
+UC_NAME_INDICES = {
+    'UCD':    'UC1*',
+    'UCM':    'UC2 ',
+    'UCSD':   'UC3*',
+    'UCSB':   'UC4*',
+    'UCLA':   'UC5*',
+    'UCB':    'UC6 ',
+    'UCSC':   'UC7*',
+    'UCI':    'UC8*',
+    'UCR':    'UC9*',
+}
+
 COURSE_CATEGORIES = list(COURSE_GROUPS.keys())
 
 def can_transfer_to_uc(df, uc_name):
@@ -72,6 +84,7 @@ def count_transfer_options(file_path):
     
     records = []
     for uc in df['UC Name'].unique():
+        uc_index = UC_NAME_INDICES.get(uc, uc)
         uc_df = df[df['UC Name'] == uc]
         # gather unarticulated courses by group, considering Set IDs
         grouped = {}
@@ -125,7 +138,7 @@ def count_transfer_options(file_path):
             count = 1
     
         records.append({
-            'UC Name': uc,
+            'UC Index': uc_index,
             'counts': count,
             'unarticulated_courses': detail
         })
