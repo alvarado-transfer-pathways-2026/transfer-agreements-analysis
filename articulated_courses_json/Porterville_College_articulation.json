@@ -1,32 +1,6 @@
 {
   "Porterville_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH P103",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH P104",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -427,6 +401,19 @@
           ]
         ],
         "receiving_course": "CMPSC 16"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC P152",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 40"
       }
     },
     "UCSC": {
@@ -438,10 +425,6 @@
             {
               "course": "MATH P103",
               "units": 4.0
-            },
-            {
-              "course": "MATH P104",
-              "units": 4.0
             }
           ]
         ],
@@ -452,10 +435,6 @@
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH P103",
-              "units": 4.0
-            },
             {
               "course": "MATH P104",
               "units": 4.0

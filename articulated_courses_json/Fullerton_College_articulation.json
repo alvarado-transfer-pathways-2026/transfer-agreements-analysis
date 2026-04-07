@@ -1,44 +1,6 @@
 {
   "Fullerton_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 151 F",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 151HF",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 152 F",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 152HF",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -83,6 +45,12 @@
         "course_groups": [
           [
             {
+              "course": "MATH 170 F",
+              "units": 5.0
+            }
+          ],
+          [
+            {
               "course": "MATH 171 F",
               "units": 4.0
             }
@@ -90,7 +58,7 @@
           [
             {
               "course": "MATH 172 F",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -553,7 +521,7 @@
           [
             {
               "course": "MATH 170 F",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],
@@ -744,7 +712,7 @@
           [
             {
               "course": "MATH 170 F",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -778,7 +746,7 @@
           [
             {
               "course": "MATH 170 F",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [

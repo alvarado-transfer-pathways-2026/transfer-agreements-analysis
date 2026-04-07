@@ -1,32 +1,6 @@
 {
   "Butte_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 30",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 31",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -438,6 +412,12 @@
               "course": "MATH 30",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 30s",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -555,6 +535,12 @@
           [
             {
               "course": "MATH 30",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 30s",
               "units": 5.0
             }
           ]

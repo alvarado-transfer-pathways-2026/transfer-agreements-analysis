@@ -1,32 +1,6 @@
 {
   "Santa_Monica_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 7",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 8",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -141,8 +115,18 @@
     "UCI": {
       "Intro": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 3,
         "course_groups": [
+          [
+            {
+              "course": "CS 55",
+              "units": 3.0
+            },
+            {
+              "course": "CS 56",
+              "units": 3.0
+            }
+          ],
           [
             {
               "course": "CS 87A",
@@ -156,7 +140,8 @@
         ],
         "receiving_courses": [
           "I&C SCI 31",
-          "I&C SCI 32"
+          "I&C SCI 32",
+          "I&C SCI 33"
         ]
       },
       "Calc1": {
@@ -419,19 +404,6 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 55",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
         "set_id": "B",
         "num_required": 1,
         "course_groups": [
@@ -702,10 +674,6 @@
         "num_required": 1,
         "course_groups": [
           [
-            {
-              "course": "MATH 7",
-              "units": 5.0
-            },
             {
               "course": "MATH 8",
               "units": 5.0

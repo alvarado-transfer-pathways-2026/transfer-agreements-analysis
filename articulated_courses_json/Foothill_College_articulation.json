@@ -1,42 +1,6 @@
 {
   "Foothill_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 1A",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 1AH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 1B",
-              "units": 5.0
-            },
-            {
-              "course": "MATH 1C",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -295,6 +259,12 @@
           [
             {
               "course": "C S 2A",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "C S 2B",
               "units": 4.5
             }
           ]
@@ -572,7 +542,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -588,7 +558,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DataStructures": {
         "set_id": "A",
@@ -871,6 +841,12 @@
               "course": "MATH 1A",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 1AH",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 19A"
@@ -882,6 +858,16 @@
           [
             {
               "course": "MATH 1B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 1C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 1BH",
               "units": 5.0
             },
             {

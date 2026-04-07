@@ -1,32 +1,6 @@
 {
   "Ventura_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH V21A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH V21B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -94,6 +68,19 @@
           ]
         ],
         "receiving_course": "ECS 036A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS V30",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036B"
       },
       "DataStructures": {
         "set_id": "A",
@@ -172,8 +159,18 @@
     "UCI": {
       "Intro": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 3,
         "course_groups": [
+          [
+            {
+              "course": "CS V40",
+              "units": 3.0
+            },
+            {
+              "course": "CS V42",
+              "units": 3.0
+            }
+          ],
           [
             {
               "course": "CS V11",
@@ -187,7 +184,8 @@
         ],
         "receiving_courses": [
           "I&C SCI 31",
-          "I&C SCI 32"
+          "I&C SCI 32",
+          "I&C SCI 33"
         ]
       },
       "Calc1": {
@@ -431,7 +429,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -441,7 +439,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DataStructures": {
         "set_id": "A",

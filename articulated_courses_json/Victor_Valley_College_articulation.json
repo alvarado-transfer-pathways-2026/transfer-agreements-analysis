@@ -1,36 +1,17 @@
 {
   "Victor_Valley_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 226",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 226H",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 227",
-              "units": 4.0
+              "course": "MATH 228",
+              "units": 5.0
             },
             {
-              "course": "MATH 228",
+              "course": "MATH 228H",
               "units": 5.0
             }
           ]
@@ -613,6 +594,19 @@
           ]
         ],
         "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 264",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
       },
       "Calc1": {
         "set_id": "A",

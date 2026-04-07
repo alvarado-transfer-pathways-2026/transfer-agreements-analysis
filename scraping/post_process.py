@@ -30,19 +30,47 @@ RESULTS_DIR = os.path.join(BASE_DIR, "..", "results")
 FILTERED_DIR = os.path.join(BASE_DIR, "..", "filtered_results")
 
 # ------------------------------------------------------------------
+def _normalize_course_code(code: str) -> str:
+    return " ".join((code or "").upper().split())
+
+
+def _receiving_tokens(receiving_course: str):
+    return {
+        _normalize_course_code(token)
+        for token in (receiving_course or "").split(";")
+        if token.strip()
+    }
+
+
 def match_requirement(uc_abbr: str, receiving_course: str):
     """
     Return a list of (group_id, set_id, num_required) tuples from
     UC_REQUIREMENTS that match the given receiving‑course string.
     """
+    receiving_codes = _receiving_tokens(receiving_course)
+    if not receiving_codes:
+        return []
+
     matches = []
     reqs = UC_REQUIREMENTS.get(uc_abbr, {})
     for group_id, entries in reqs.items():
         if not isinstance(entries[0], list):
             entries = [entries]  # normalize single entry
+        matched_by_set = {}
         for course_code, set_id, num_required in entries:
-            if course_code.lower() in receiving_course.lower():
-                matches.append((group_id, set_id, num_required))
+            if _normalize_course_code(course_code) in receiving_codes:
+                key = (group_id, set_id)
+                current = matched_by_set.get(key)
+                if current is None:
+                    matched_by_set[key] = [num_required, 1]
+                else:
+                    current[1] += 1
+
+        for (gid, sid), (configured_required, matched_count) in matched_by_set.items():
+            # Prevent inflated duplicates for multi-course receiving rows while
+            # preserving requirement cardinality when a full set is present.
+            effective_required = min(configured_required, matched_count)
+            matches.append((gid, sid, effective_required))
     return matches
 
 
@@ -51,6 +79,7 @@ def process_csv(csv_path):
     Read one *_allUC.csv file and return a list of matched-row dicts.
     """
     matched_rows = []
+    seen_rows = set()
     total, matched_total = 0, 0
 
     with open(csv_path, newline='', encoding="utf-8") as fh:
@@ -77,6 +106,18 @@ def process_csv(csv_path):
             ]
 
             for group_id, set_id, num_required in matches:
+                row_key = (
+                    uc_abbr,
+                    group_id,
+                    set_id,
+                    num_required,
+                    receiving,
+                    tuple(or_groups),
+                )
+                if row_key in seen_rows:
+                    continue
+                seen_rows.add(row_key)
+
                 matched_rows.append(
                     {
                         "UC Name": uc_abbr,

@@ -1,32 +1,6 @@
 {
   "Merritt_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -142,6 +116,10 @@
             {
               "course": "MATH 3A",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16A",
+              "units": 4.0
             }
           ]
         ],
@@ -155,6 +133,10 @@
             {
               "course": "MATH 3B",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16B",
+              "units": 3.0
             }
           ]
         ],
@@ -354,7 +336,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -364,7 +346,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DiscreteMath": {
         "set_id": "A",

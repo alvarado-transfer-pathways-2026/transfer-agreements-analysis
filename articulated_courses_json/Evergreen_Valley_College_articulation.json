@@ -1,44 +1,6 @@
 {
   "Evergreen_Valley_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 071",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 066",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 072",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 067",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -199,11 +161,13 @@
         "course_groups": [
           [
             {
+              "course": "MATH 062",
+              "units": 3.0
+            },
+            {
               "course": "MATH 066",
               "units": 4.0
-            }
-          ],
-          [
+            },
             {
               "course": "MATH 071",
               "units": 5.0
@@ -220,9 +184,7 @@
             {
               "course": "MATH 067",
               "units": 4.0
-            }
-          ],
-          [
+            },
             {
               "course": "MATH 072",
               "units": 5.0
@@ -499,25 +461,18 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "COMSC 076",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
         "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CIT 044",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "COMSC 076",
               "units": 3.0
             }
           ]
@@ -679,6 +634,12 @@
         "course_groups": [
           [
             {
+              "course": "COMSC 041",
+              "units": 3.0
+            }
+          ],
+          [
+            {
               "course": "COMSC 079C",
               "units": 3.0
             }
@@ -696,6 +657,16 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
+          [
+            {
+              "course": "COMSC 041",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 076",
+              "units": 3.0
+            }
+          ],
           [
             {
               "course": "COMSC 042",

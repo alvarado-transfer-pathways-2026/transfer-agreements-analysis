@@ -1,6 +1,4 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1,Courses Group 2
-UCB,Calc1,A,1,MATH 1A,MATH 190 (4.00),MATH 190H (4.00)
-UCB,Calc2,A,1,MATH 1B,MATH 191 (4.00),
 UCB,MultivariableCalc,A,1,MATH 53,MATH 250 (4.00),
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MATH 260 (4.00); MATH 270 (4.00),
 UCD,DiscreteMath,A,1,ECS 020,Not Articulated,
@@ -10,11 +8,8 @@ UCD,DataStructures,A,1,ECS 036C,Not Articulated,
 UCD,Organization,A,1,ECS 050,Not Articulated,
 UCD,Calc1,A,1,MAT 021A,MATH 190 (4.00),MATH 190H (4.00)
 UCD,Calc2,A,1,MAT 021B,MATH 191 (4.00),
-UCD,Calc3,A,1,MAT 021C,MATH 250 (4.00),
+UCD,Calc3,A,1,MAT 021C; MAT 021D,MATH 250 (4.00),
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated,
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated,
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated,
-UCI,Intro,A,2,I&C SCI 31; I&C SCI 32,CIT 127 (3.00); CIT 128 (3.00),
 UCI,Intro,A,2,I&C SCI 31; I&C SCI 32,CIT 127 (3.00); CIT 128 (3.00),
 UCI,Calc1,A,1,MATH 2A,MATH 190 (4.00),MATH 190H (4.00)
 UCI,Calc2,A,1,MATH 2B,MATH 191 (4.00),
@@ -30,14 +25,10 @@ UCM,Calc1,A,1,MATH 021,MATH 190 (4.00),MATH 190H (4.00)
 UCM,Calc2,A,1,MATH 022,MATH 191 (4.00),
 UCM,VectorCalc,A,1,MATH 023,MATH 250 (4.00),
 UCM,LinearAlgebra,A,1,MATH 024,MATH 260 (4.00); MATH 270 (4.00),MATH 251 (5.00)
-UCM,DataStructures,A,1,CSE 030,CIT 127 (3.00); CIT 128 (3.00),
 UCR,Intro1,A,1,CS 10A,CIT 125 (4.00),CIT 135 (4.00)
 UCR,Intro2,A,1,CS 10B,CIT 126 (4.00),
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 190 (4.00); MATH 191 (4.00),
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 190 (4.00); MATH 191 (4.00),
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 190 (4.00); MATH 191 (4.00),
-UCSD,Intro,A,1,CSE 8B,CIT 136 (4.00),
-UCSD,Intro,B,1,CSE 11,Not Articulated,
+UCSD,Intro,B,1,CSE 11,CIT 136 (4.00),
 UCSD,DataStructures,A,1,CSE 12,Not Articulated,
 UCSD,DiscreteMath,A,1,CSE 20,CS 152 (3.00),
 UCSD,LinearAlgebra,A,1,MATH 18,MATH 260 (4.00),MATH 251 (5.00)

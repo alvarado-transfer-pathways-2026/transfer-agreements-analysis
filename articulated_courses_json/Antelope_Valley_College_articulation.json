@@ -1,32 +1,6 @@
 {
   "Antelope_Valley_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 150",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 160",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -66,11 +40,89 @@
           [
             {
               "course": "CS 150",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
         "receiving_course": "ECS 020"
+      },
+      "Intro1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 120",
+              "units": 3.0
+            },
+            {
+              "course": "CS 130",
+              "units": 3.0
+            },
+            {
+              "course": "CS 230",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS 121",
+              "units": 3.0
+            },
+            {
+              "course": "CS 131",
+              "units": 3.0
+            },
+            {
+              "course": "CS 231",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "ECS 036A",
+          "ECS 036B",
+          "ECS 036C"
+        ]
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 120",
+              "units": 3.0
+            },
+            {
+              "course": "CS 130",
+              "units": 3.0
+            },
+            {
+              "course": "CS 230",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS 121",
+              "units": 3.0
+            },
+            {
+              "course": "CS 131",
+              "units": 3.0
+            },
+            {
+              "course": "CS 231",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "ECS 036A",
+          "ECS 036B",
+          "ECS 036C"
+        ]
       },
       "DataStructures": {
         "set_id": "A",
@@ -78,12 +130,38 @@
         "course_groups": [
           [
             {
+              "course": "CS 120",
+              "units": 3.0
+            },
+            {
+              "course": "CS 130",
+              "units": 3.0
+            },
+            {
+              "course": "CS 230",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS 121",
+              "units": 3.0
+            },
+            {
               "course": "CS 131",
+              "units": 3.0
+            },
+            {
+              "course": "CS 231",
               "units": 3.0
             }
           ]
         ],
-        "receiving_course": "ECS 036C"
+        "receiving_courses": [
+          "ECS 036A",
+          "ECS 036B",
+          "ECS 036C"
+        ]
       },
       "Organization": {
         "set_id": "A",
@@ -465,7 +543,7 @@
           [
             {
               "course": "CS 150",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -603,7 +681,7 @@
           [
             {
               "course": "CS 150",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -631,7 +709,7 @@
           [
             {
               "course": "CS 150",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],

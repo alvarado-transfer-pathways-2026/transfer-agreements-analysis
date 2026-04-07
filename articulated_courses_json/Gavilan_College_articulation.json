@@ -1,32 +1,6 @@
 {
   "Gavilan_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 1A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 1B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -152,7 +126,10 @@
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {

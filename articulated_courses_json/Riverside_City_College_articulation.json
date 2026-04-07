@@ -1,32 +1,6 @@
 {
   "Riverside_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MAT 1A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MAT 1B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -264,6 +238,12 @@
             {
               "course": "CIS 17A",
               "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 5",
+              "units": 4.0
             }
           ]
         ],
@@ -544,6 +524,12 @@
           [
             {
               "course": "MAT 1A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MAT 1AH",
               "units": 4.0
             }
           ]

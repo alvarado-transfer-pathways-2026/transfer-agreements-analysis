@@ -1,44 +1,6 @@
 {
   "Irvine_Valley_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 3AH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 3BH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -172,22 +134,7 @@
             {
               "course": "MATH 3A",
               "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 3AH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 021A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
+            },
             {
               "course": "MATH 3B",
               "units": 5.0
@@ -195,12 +142,89 @@
           ],
           [
             {
+              "course": "MATH 3AH",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3B",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3A",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3BH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3AH",
+              "units": 5.0
+            },
+            {
               "course": "MATH 3BH",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 3A",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3B",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3AH",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3B",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3A",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3BH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3AH",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 3BH",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -208,18 +232,35 @@
         "course_groups": [
           [
             {
+              "course": "MATH 3B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 4A",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3BH",
+              "units": 5.0
+            },
+            {
               "course": "MATH 4A",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
       "Intro": {
         "set_id": "A",
-        "num_required": 3,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -341,6 +382,12 @@
               "course": "MATH 4A",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 4AH",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 32A"
@@ -354,6 +401,12 @@
               "course": "MATH 4A",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 4AH",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 32B"
@@ -365,6 +418,12 @@
           [
             {
               "course": "MATH 26",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 26H",
               "units": 4.0
             }
           ]
@@ -452,6 +511,12 @@
               "course": "MATH 4A",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 4AH",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 023"
@@ -472,11 +537,31 @@
           ],
           [
             {
+              "course": "MATH 24",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 26H",
+              "units": 4.0
+            }
+          ],
+          [
+            {
               "course": "MATH 24H",
               "units": 4.0
             },
             {
               "course": "MATH 26",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 24H",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 26H",
               "units": 4.0
             }
           ]
@@ -517,12 +602,6 @@
           [
             {
               "course": "CS 38",
-              "units": 3.0
-            }
-          ],
-          [
-            {
-              "course": "CS 41",
               "units": 3.0
             }
           ]
@@ -702,6 +781,12 @@
           [
             {
               "course": "MATH 26",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 26H",
               "units": 4.0
             }
           ]

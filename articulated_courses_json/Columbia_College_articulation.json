@@ -1,32 +1,6 @@
 {
   "Columbia_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 18A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 18B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -106,10 +80,18 @@
             {
               "course": "MATH 18B",
               "units": 4.0
+            },
+            {
+              "course": "MATH 18C",
+              "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -126,7 +108,11 @@
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
@@ -158,23 +144,6 @@
       }
     },
     "UCLA": {
-      "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "COMP 11P",
-              "units": 4.0
-            },
-            {
-              "course": "COMP 12P",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 31"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -200,6 +169,32 @@
           ]
         ],
         "receiving_course": "MATH 31B"
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 18C",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32A"
+      },
+      "Calc4": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 18C",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 32B"
       },
       "LinearAlgebra": {
         "set_id": "A",

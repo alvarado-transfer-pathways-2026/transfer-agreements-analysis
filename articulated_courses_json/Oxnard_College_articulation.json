@@ -1,32 +1,6 @@
 {
   "Oxnard_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH R120",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH R121",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -131,6 +105,19 @@
       }
     },
     "UCLA": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS R131",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 31"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -397,6 +384,49 @@
           ]
         ],
         "receiving_course": "MATH 4B"
+      },
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS R131",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 16"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS R131",
+              "units": 3.0
+            },
+            {
+              "course": "CS R132",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 24"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS R152",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CMPSC 40"
       }
     },
     "UCSC": {

@@ -1,32 +1,6 @@
 {
   "Canada_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 251",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 252",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -104,6 +78,19 @@
         ],
         "receiving_course": "ECS 036B"
       },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 252",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036C"
+      },
       "Organization": {
         "set_id": "A",
         "num_required": 1,
@@ -138,10 +125,17 @@
             {
               "course": "MATH 252",
               "units": 5.0
+            },
+            {
+              "course": "MATH 253",
+              "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -149,12 +143,19 @@
         "course_groups": [
           [
             {
+              "course": "MATH 252",
+              "units": 5.0
+            },
+            {
               "course": "MATH 253",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C"
+        ]
       }
     },
     "UCI": {

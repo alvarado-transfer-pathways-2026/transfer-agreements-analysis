@@ -1,36 +1,6 @@
 {
   "Lake_Tahoe_Community_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MAT 105",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MAT 106",
-              "units": 5.0
-            },
-            {
-              "course": "MAT 107",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -136,6 +106,10 @@
           [
             {
               "course": "MAT 105",
+              "units": 5.0
+            },
+            {
+              "course": "MAT 118",
               "units": 5.0
             }
           ]
@@ -370,7 +344,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -380,7 +354,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DataStructures": {
         "set_id": "A",

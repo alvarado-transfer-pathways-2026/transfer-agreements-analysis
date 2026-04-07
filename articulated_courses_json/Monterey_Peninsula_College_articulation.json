@@ -1,32 +1,6 @@
 {
   "Monterey_Peninsula_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 20A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 20B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -71,7 +45,7 @@
           ],
           [
             {
-              "course": "CSIS 12",
+              "course": "CSCI 12",
               "units": 3.0
             }
           ]
@@ -84,7 +58,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10B",
+              "course": "CSCI 10B",
               "units": 4.0
             }
           ]
@@ -97,7 +71,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10C",
+              "course": "CSCI 10C",
               "units": 4.0
             }
           ]
@@ -110,7 +84,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 11",
+              "course": "CSCI 11",
               "units": 3.0
             }
           ]
@@ -125,10 +99,17 @@
             {
               "course": "MATH 20A",
               "units": 4.0
+            },
+            {
+              "course": "MATH 20B",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MAT 021A"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
       },
       "Calc2": {
         "set_id": "A",
@@ -136,12 +117,19 @@
         "course_groups": [
           [
             {
+              "course": "MATH 20A",
+              "units": 4.0
+            },
+            {
               "course": "MATH 20B",
               "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -149,12 +137,19 @@
         "course_groups": [
           [
             {
+              "course": "MATH 20B",
+              "units": 4.0
+            },
+            {
               "course": "MATH 20C",
               "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
@@ -164,15 +159,15 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10A",
+              "course": "CSCI 10A",
               "units": 4.0
             },
             {
-              "course": "CSIS 10B",
+              "course": "CSCI 10B",
               "units": 4.0
             },
             {
-              "course": "CSIS 10C",
+              "course": "CSCI 10C",
               "units": 4.0
             }
           ]
@@ -217,7 +212,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10C",
+              "course": "CSCI 10C",
               "units": 4.0
             }
           ]
@@ -310,7 +305,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10B",
+              "course": "CSCI 10B",
               "units": 4.0
             }
           ]
@@ -381,13 +376,13 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10A",
+              "course": "CSCI 10A",
               "units": 4.0
             }
           ],
           [
             {
-              "course": "CSIS 10C",
+              "course": "CSCI 10C",
               "units": 4.0
             }
           ]
@@ -400,7 +395,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10B",
+              "course": "CSCI 10B",
               "units": 4.0
             }
           ]
@@ -555,7 +550,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10C",
+              "course": "CSCI 10C",
               "units": 4.0
             }
           ]
@@ -568,7 +563,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 12",
+              "course": "CSCI 12",
               "units": 3.0
             }
           ],
@@ -589,7 +584,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 11",
+              "course": "CSCI 11",
               "units": 3.0
             }
           ]
@@ -602,7 +597,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 12",
+              "course": "CSCI 12",
               "units": 3.0
             }
           ],
@@ -621,7 +616,7 @@
         "course_groups": [
           [
             {
-              "course": "CSIS 10B",
+              "course": "CSCI 10B",
               "units": 4.0
             }
           ]

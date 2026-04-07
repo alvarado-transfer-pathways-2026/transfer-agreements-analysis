@@ -1,32 +1,6 @@
 {
   "Los_Angeles_Harbor_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 265",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 266",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -81,6 +55,12 @@
               "course": "CS 113",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "MATH 173",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "ECS 036A"
@@ -97,6 +77,19 @@
           ]
         ],
         "receiving_course": "ECS 036B"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 273",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036C"
       },
       "Organization": {
         "set_id": "A",
@@ -120,6 +113,12 @@
               "course": "MATH 265",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 265S",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MAT 021A"
@@ -132,10 +131,18 @@
             {
               "course": "MATH 266",
               "units": 5.0
+            },
+            {
+              "course": "MATH 267",
+              "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -143,12 +150,20 @@
         "course_groups": [
           [
             {
+              "course": "MATH 266",
+              "units": 5.0
+            },
+            {
               "course": "MATH 267",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
@@ -181,6 +196,10 @@
             {
               "course": "MATH 265",
               "units": 5.0
+            },
+            {
+              "course": "MATH 265S",
+              "units": 5.0
             }
           ]
         ],
@@ -207,7 +226,7 @@
         "course_groups": [
           [
             {
-              "course": "CS 136",
+              "course": "CS 216",
               "units": 3.0
             }
           ]
@@ -221,6 +240,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -314,6 +339,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -425,29 +456,12 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 113",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
         "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CS 113",
-              "units": 3.0
-            },
-            {
-              "course": "CS 136",
               "units": 3.0
             }
           ]
@@ -528,6 +542,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -659,6 +679,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]

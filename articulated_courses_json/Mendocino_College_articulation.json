@@ -1,36 +1,6 @@
 {
   "Mendocino_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MTH 210",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MTH 211",
-              "units": 5.0
-            },
-            {
-              "course": "MTH 212",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -70,7 +40,7 @@
           [
             {
               "course": "CSC 221",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -245,11 +215,7 @@
           [
             {
               "course": "CSC 222",
-              "units": 3.0
-            },
-            {
-              "course": "CSC 222L",
-              "units": 1.0
+              "units": 4.0
             }
           ]
         ],
@@ -320,7 +286,7 @@
           [
             {
               "course": "CSC 221",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -333,7 +299,7 @@
           [
             {
               "course": "CSC 222",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -363,17 +329,17 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CSC 222",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "LinearAlgebra": {
         "set_id": "A",

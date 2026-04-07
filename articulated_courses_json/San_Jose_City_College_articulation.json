@@ -1,32 +1,6 @@
 {
   "San_Jose_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 071",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 072",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -684,6 +658,12 @@
           [
             {
               "course": "MATH 071",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 071H",
               "units": 5.0
             }
           ]

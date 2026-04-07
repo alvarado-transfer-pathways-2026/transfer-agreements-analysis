@@ -1,6 +1,4 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
-UCB,Calc1,A,1,MATH 1A,MATH 218 (4.00)
-UCB,Calc2,A,1,MATH 1B,MATH 220 (4.00)
 UCB,MultivariableCalc,A,1,MATH 53,MATH 222 (4.00)
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,Not Articulated
 UCD,DiscreteMath,A,1,ECS 020,Not Articulated
@@ -11,8 +9,6 @@ UCD,Organization,A,1,ECS 050,Not Articulated
 UCD,Calc1,A,1,MAT 021A,MATH 218 (4.00)
 UCD,Calc2,A,1,MAT 021B,MATH 220 (4.00)
 UCD,Calc3,A,1,MAT 021C,Not Articulated
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Calc1,A,1,MATH 2A,MATH 218 (4.00)
 UCI,Calc2,A,1,MATH 2B,MATH 220 (4.00)
@@ -28,13 +24,9 @@ UCM,Calc1,A,1,MATH 021,MATH 218 (4.00)
 UCM,Calc2,A,1,MATH 022,MATH 220 (4.00)
 UCM,VectorCalc,A,1,MATH 023,MATH 222 (4.00)
 UCM,LinearAlgebra,A,1,MATH 024,Not Articulated
-UCM,DataStructures,A,1,CSE 030,Not Articulated
 UCR,Intro1,A,1,CS 10A,Not Articulated
 UCR,Intro2,A,1,CS 10B,Not Articulated
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 218 (4.00); MATH 220 (4.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 218 (4.00); MATH 220 (4.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 218 (4.00); MATH 220 (4.00)
-UCSD,Intro,A,1,CSE 8B,Not Articulated
 UCSD,Intro,B,1,CSE 11,Not Articulated
 UCSD,DataStructures,A,1,CSE 12,Not Articulated
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated

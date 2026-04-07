@@ -1,32 +1,6 @@
 {
   "Cuesta_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 265A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 265B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -61,7 +35,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 241",
+              "course": "CS 241",
               "units": 3.0
             }
           ]
@@ -74,11 +48,11 @@
         "course_groups": [
           [
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -95,11 +69,11 @@
         "course_groups": [
           [
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -116,11 +90,11 @@
         "course_groups": [
           [
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -137,7 +111,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 240",
+              "course": "CS 240",
               "units": 3.0
             }
           ]
@@ -181,7 +155,10 @@
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
@@ -299,7 +276,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -366,13 +343,13 @@
         "course_groups": [
           [
             {
-              "course": "CIS 217",
+              "course": "CS 217",
               "units": 3.0
             }
           ],
           [
             {
-              "course": "CIS 231",
+              "course": "CS 231",
               "units": 4.0
             }
           ]
@@ -385,11 +362,11 @@
         "course_groups": [
           [
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -420,25 +397,25 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CIS 231",
+              "course": "CS 231",
               "units": 4.0
             },
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DataStructures": {
         "set_id": "A",
@@ -446,15 +423,15 @@
         "course_groups": [
           [
             {
-              "course": "CIS 231",
+              "course": "CS 231",
               "units": 4.0
             },
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]
@@ -467,7 +444,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 241",
+              "course": "CS 241",
               "units": 3.0
             }
           ]
@@ -586,7 +563,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 217",
+              "course": "CS 217",
               "units": 3.0
             }
           ]
@@ -599,7 +576,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 241",
+              "course": "CS 241",
               "units": 3.0
             }
           ]
@@ -614,7 +591,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 240",
+              "course": "CS 240",
               "units": 3.0
             }
           ]
@@ -627,7 +604,7 @@
         "course_groups": [
           [
             {
-              "course": "CIS 241",
+              "course": "CS 241",
               "units": 3.0
             }
           ]
@@ -640,11 +617,11 @@
         "course_groups": [
           [
             {
-              "course": "CIS 232",
+              "course": "CS 232",
               "units": 2.0
             },
             {
-              "course": "CIS 233",
+              "course": "CS 233",
               "units": 2.0
             }
           ]

@@ -1,32 +1,6 @@
 {
   "East_Los_Angeles_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 261",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 262",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -118,6 +92,10 @@
             {
               "course": "MATH 261",
               "units": 5.0
+            },
+            {
+              "course": "MATH 262",
+              "units": 5.0
             }
           ]
         ],
@@ -141,6 +119,10 @@
         "num_required": 1,
         "course_groups": [
           [
+            {
+              "course": "MATH 262",
+              "units": 5.0
+            },
             {
               "course": "MATH 263",
               "units": 5.0
@@ -200,6 +182,25 @@
       }
     },
     "UCLA": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 216",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 173",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 31"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -523,6 +524,12 @@
               "course": "MATH 261",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 261S",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -652,6 +659,12 @@
           [
             {
               "course": "MATH 261",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 261S",
               "units": 5.0
             }
           ]

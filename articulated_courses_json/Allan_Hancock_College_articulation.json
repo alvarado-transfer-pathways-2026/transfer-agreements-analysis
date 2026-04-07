@@ -1,32 +1,6 @@
 {
   "Allan_Hancock_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 181",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 182",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -350,7 +324,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -360,7 +334,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DiscreteMath": {
         "set_id": "A",
@@ -480,32 +454,6 @@
           ]
         ],
         "receiving_course": "MATH 4B"
-      },
-      "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 111",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 16"
-      },
-      "DataStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 112",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 24"
       },
       "DiscreteMath": {
         "set_id": "A",

@@ -1,32 +1,6 @@
 {
   "Mount_San_Antonio_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 180",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 181",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -92,9 +66,7 @@
             {
               "course": "CISP 31",
               "units": 3.0
-            }
-          ],
-          [
+            },
             {
               "course": "CISP 31L",
               "units": 0.5
@@ -147,16 +119,7 @@
             {
               "course": "MATH 181",
               "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 021B"
-      },
-      "Calc3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
+            },
             {
               "course": "MATH 280",
               "units": 5.0
@@ -164,6 +127,28 @@
           ]
         ],
         "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 181",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 280",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 021B",
           "MAT 021C",
           "MAT 021D"
         ]
@@ -211,6 +196,12 @@
           [
             {
               "course": "CISP 31",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CISP 34",
               "units": 3.0
             }
           ]
@@ -319,16 +310,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "CSCI 220",
-              "units": 3.5
-            },
-            {
-              "course": "CSCI 230",
-              "units": 3.5
-            }
-          ],
           [
             {
               "course": "CSCI 240",
@@ -710,16 +691,6 @@
               "course": "CISP 34L",
               "units": 0.5
             }
-          ],
-          [
-            {
-              "course": "CSCI 220",
-              "units": 3.5
-            },
-            {
-              "course": "CSCI 230",
-              "units": 3.5
-            }
           ]
         ],
         "receiving_course": "CMPSC 24"
@@ -764,19 +735,6 @@
           ]
         ],
         "receiving_course": "CSE 16"
-      },
-      "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSCI 220",
-              "units": 3.5
-            }
-          ]
-        ],
-        "receiving_course": "CSE 30"
       },
       "Calc1": {
         "set_id": "A",

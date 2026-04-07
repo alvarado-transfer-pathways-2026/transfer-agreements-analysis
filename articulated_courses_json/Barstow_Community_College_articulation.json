@@ -1,32 +1,6 @@
 {
   "Barstow_Community_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -116,6 +90,23 @@
       }
     },
     "UCI": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 3,
+        "course_groups": [
+          [
+            {
+              "course": "CSIS 33",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "I&C SCI 31",
+          "I&C SCI 32",
+          "I&C SCI 33"
+        ]
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

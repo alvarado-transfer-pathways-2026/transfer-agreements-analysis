@@ -1,32 +1,6 @@
 {
   "Ohlone_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 101A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 101B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -151,10 +125,17 @@
             {
               "course": "MATH 101B",
               "units": 5.0
+            },
+            {
+              "course": "MATH 101C",
+              "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -162,12 +143,19 @@
         "course_groups": [
           [
             {
+              "course": "MATH 101B",
+              "units": 5.0
+            },
+            {
               "course": "MATH 101C",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C"
+        ]
       }
     },
     "UCI": {

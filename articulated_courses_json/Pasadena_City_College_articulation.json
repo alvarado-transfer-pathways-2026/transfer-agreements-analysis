@@ -1,52 +1,6 @@
 {
   "Pasadena_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 005A",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 005AH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 005B",
-              "units": 5.0
-            },
-            {
-              "course": "MATH 055",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 005BH",
-              "units": 5.0
-            },
-            {
-              "course": "MATH 055H",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -102,7 +56,7 @@
           [
             {
               "course": "CS 045",
-              "units": 5.0
+              "units": 4.0
             }
           ],
           [
@@ -127,13 +81,13 @@
           [
             {
               "course": "CS 003B",
-              "units": 4.0
+              "units": 3.0
             }
           ],
           [
             {
               "course": "CS 003C",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -146,11 +100,28 @@
           [
             {
               "course": "CS 003A",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
         "receiving_course": "ECS 036B"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 008",
+              "units": 3.0
+            },
+            {
+              "course": "CS 008L",
+              "units": 1.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036C"
       },
       "Organization": {
         "set_id": "A",
@@ -159,7 +130,7 @@
           [
             {
               "course": "CS 066",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -200,11 +171,11 @@
           ],
           [
             {
-              "course": "MATH 005B",
-              "units": 5.0
+              "course": "MATH 005BE",
+              "units": 5.5
             },
             {
-              "course": "MATH 005CH",
+              "course": "MATH 005C",
               "units": 5.0
             }
           ],
@@ -215,6 +186,26 @@
             },
             {
               "course": "MATH 005C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 005CH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
+            },
+            {
+              "course": "MATH 005CH",
               "units": 5.0
             }
           ],
@@ -251,11 +242,11 @@
           ],
           [
             {
-              "course": "MATH 005B",
-              "units": 5.0
+              "course": "MATH 005BE",
+              "units": 5.5
             },
             {
-              "course": "MATH 005CH",
+              "course": "MATH 005C",
               "units": 5.0
             }
           ],
@@ -266,6 +257,26 @@
             },
             {
               "course": "MATH 005C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 005CH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
+            },
+            {
+              "course": "MATH 005CH",
               "units": 5.0
             }
           ],
@@ -299,7 +310,11 @@
             },
             {
               "course": "CS 003B",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 003BL",
+              "units": 1.0
             }
           ],
           [
@@ -309,13 +324,21 @@
             },
             {
               "course": "CS 003C",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 003CL",
+              "units": 1.0
             }
           ],
           [
             {
               "course": "CS 003B",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 003BL",
+              "units": 1.0
             },
             {
               "course": "CS 033",
@@ -325,7 +348,11 @@
           [
             {
               "course": "CS 003C",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 003CL",
+              "units": 1.0
             },
             {
               "course": "CS 034",
@@ -353,6 +380,10 @@
               "units": 5.0
             },
             {
+              "course": "MATH 005AE",
+              "units": 5.5
+            },
+            {
               "course": "MATH 005AH",
               "units": 5.0
             },
@@ -372,9 +403,11 @@
             {
               "course": "MATH 005B",
               "units": 5.0
-            }
-          ],
-          [
+            },
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
+            },
             {
               "course": "MATH 005BH",
               "units": 5.0
@@ -392,7 +425,11 @@
           [
             {
               "course": "CS 003A",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 003AL",
+              "units": 1.0
             }
           ]
         ],
@@ -413,6 +450,12 @@
               "course": "MATH 005AH",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 005AE",
+              "units": 5.5
+            }
           ]
         ],
         "receiving_course": "MATH 31A"
@@ -432,6 +475,12 @@
               "course": "MATH 005BH",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
+            }
           ]
         ],
         "receiving_course": "MATH 31B"
@@ -445,6 +494,12 @@
               "course": "MATH 005C",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 005CH",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 32A"
@@ -456,6 +511,12 @@
           [
             {
               "course": "MATH 005C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005CH",
               "units": 5.0
             }
           ]
@@ -509,7 +570,7 @@
           [
             {
               "course": "CS 008",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -634,13 +695,13 @@
           [
             {
               "course": "CS 003B",
-              "units": 4.0
+              "units": 3.0
             }
           ],
           [
             {
               "course": "CS 003C",
-              "units": 4.0
+              "units": 3.0
             }
           ],
           [
@@ -665,7 +726,7 @@
           [
             {
               "course": "CS 003A",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -695,26 +756,13 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 003B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
         "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CS 003B",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -727,7 +775,7 @@
           [
             {
               "course": "CS 008",
-              "units": 4.0
+              "units": 3.0
             }
           ]
         ],
@@ -780,6 +828,12 @@
               "course": "MATH 005AH",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 005AE",
+              "units": 5.5
+            }
           ]
         ],
         "receiving_course": "MATH 20A"
@@ -798,6 +852,12 @@
             {
               "course": "MATH 005BH",
               "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
             }
           ]
         ],
@@ -836,6 +896,12 @@
           ],
           [
             {
+              "course": "MATH 005AE",
+              "units": 5.5
+            }
+          ],
+          [
+            {
               "course": "MATH 005AH",
               "units": 5.0
             }
@@ -851,6 +917,12 @@
             {
               "course": "MATH 005B",
               "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
             }
           ],
           [
@@ -906,8 +978,12 @@
         "course_groups": [
           [
             {
-              "course": "CS 002",
-              "units": 4.0
+              "course": "CS 003A",
+              "units": 3.0
+            },
+            {
+              "course": "CS 003AL",
+              "units": 1.0
             }
           ]
         ],
@@ -919,12 +995,12 @@
         "course_groups": [
           [
             {
-              "course": "CS 003A",
-              "units": 4.0
+              "course": "CS 008",
+              "units": 3.0
             },
             {
-              "course": "CS 008",
-              "units": 4.0
+              "course": "CS 008L",
+              "units": 1.0
             }
           ]
         ],
@@ -937,7 +1013,7 @@
           [
             {
               "course": "CS 045",
-              "units": 5.0
+              "units": 4.0
             }
           ],
           [
@@ -958,7 +1034,11 @@
           [
             {
               "course": "CS 066",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 066L",
+              "units": 1.0
             }
           ]
         ],
@@ -971,7 +1051,7 @@
           [
             {
               "course": "CS 045",
-              "units": 5.0
+              "units": 4.0
             }
           ],
           [
@@ -990,7 +1070,11 @@
           [
             {
               "course": "CS 008",
-              "units": 4.0
+              "units": 3.0
+            },
+            {
+              "course": "CS 008L",
+              "units": 1.0
             }
           ],
           [
@@ -1014,6 +1098,12 @@
           ],
           [
             {
+              "course": "MATH 005AE",
+              "units": 5.5
+            }
+          ],
+          [
+            {
               "course": "MATH 005AH",
               "units": 5.0
             }
@@ -1029,6 +1119,12 @@
             {
               "course": "MATH 005B",
               "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 005BE",
+              "units": 5.5
             }
           ],
           [

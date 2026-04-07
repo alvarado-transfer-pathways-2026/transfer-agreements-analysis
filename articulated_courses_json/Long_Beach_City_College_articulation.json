@@ -1,44 +1,6 @@
 {
   "Long_Beach_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 60",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 60H",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 70",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 70H",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -226,12 +188,14 @@
             {
               "course": "MATH 70",
               "units": 5.0
-            }
-          ],
-          [
+            },
             {
               "course": "MATH 70H",
               "units": 5.0
+            },
+            {
+              "course": "MATH 70S",
+              "units": 6.0
             }
           ]
         ],
@@ -546,6 +510,12 @@
               "course": "MATH 60H",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 60S",
+              "units": 6.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -564,6 +534,12 @@
             {
               "course": "MATH 70H",
               "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 70S",
+              "units": 6.0
             }
           ]
         ],
@@ -681,6 +657,18 @@
               "course": "MATH 60",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 60H",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 60S",
+              "units": 6.0
+            }
           ]
         ],
         "receiving_course": "MATH 19A"
@@ -693,6 +681,18 @@
             {
               "course": "MATH 70",
               "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 70H",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 70S",
+              "units": 6.0
             }
           ]
         ],

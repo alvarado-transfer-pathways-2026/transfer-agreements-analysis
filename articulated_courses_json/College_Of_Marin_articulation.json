@@ -1,32 +1,6 @@
 {
   "College_Of_Marin": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 123",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 124",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -52,6 +26,12 @@
             {
               "course": "MATH 224",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
             }
           ]
         ],
@@ -319,6 +299,12 @@
               "course": "MATH 116",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 33A"
@@ -331,6 +317,12 @@
             {
               "course": "MATH 224",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
             }
           ]
         ],
@@ -402,6 +394,12 @@
             {
               "course": "MATH 224",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
             }
           ]
         ],
@@ -579,6 +577,12 @@
               "course": "MATH 116",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 4A"
@@ -591,6 +595,12 @@
             {
               "course": "MATH 224",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 216",
+              "units": 5.0
             }
           ]
         ],

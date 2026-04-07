@@ -1,6 +1,4 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
-UCB,Calc1,A,1,MATH 1A,MATH R120 (5.00)
-UCB,Calc2,A,1,MATH 1B,MATH R121 (5.00)
 UCB,MultivariableCalc,A,1,MATH 53,MATH R122 (5.00)
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MATH R134 (3.00); MATH R143 (3.00)
 UCD,DiscreteMath,A,1,ECS 020,Not Articulated
@@ -12,11 +10,9 @@ UCD,Calc1,A,1,MAT 021A,MATH R120 (5.00)
 UCD,Calc2,A,1,MAT 021B,MATH R121 (5.00)
 UCD,Calc3,A,1,MAT 021C; MAT 021D,MATH R122 (5.00)
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Calc1,A,1,MATH 2A,MATH R120 (5.00)
 UCI,Calc2,A,1,MATH 2B,MATH R121 (5.00)
-UCLA,Intro,A,1,COM SCI 31,Not Articulated
+UCLA,Intro,A,1,COM SCI 31,CS R131 (3.00)
 UCLA,Calc1,A,1,MATH 31A,MATH R120 (5.00)
 UCLA,Calc2,A,1,MATH 31B,MATH R121 (5.00)
 UCLA,Calc3,A,1,MATH 32A,MATH R122 (5.00)
@@ -28,13 +24,9 @@ UCM,Calc1,A,1,MATH 021,MATH R120 (5.00)
 UCM,Calc2,A,1,MATH 022,MATH R121 (5.00)
 UCM,VectorCalc,A,1,MATH 023,MATH R122 (5.00)
 UCM,LinearAlgebra,A,1,MATH 024,MATH R134 (3.00); MATH R143 (3.00)
-UCM,DataStructures,A,1,CSE 030,Not Articulated
 UCR,Intro1,A,1,CS 10A,Not Articulated
 UCR,Intro2,A,1,CS 10B,Not Articulated
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH R120 (5.00); MATH R121 (5.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH R120 (5.00); MATH R121 (5.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH R120 (5.00); MATH R121 (5.00)
-UCSD,Intro,A,1,CSE 8B,Not Articulated
 UCSD,Intro,B,1,CSE 11,Not Articulated
 UCSD,DataStructures,A,1,CSE 12,Not Articulated
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
@@ -46,9 +38,9 @@ UCSB,Calc1,A,1,MATH 3A,MATH R120 (5.00)
 UCSB,Calc2,A,1,MATH 3B,MATH R121 (5.00)
 UCSB,LinearAlgebra,A,1,MATH 4A,MATH R134 (3.00)
 UCSB,DifferentialEquations,A,1,MATH 4B,MATH R143 (3.00)
-UCSB,Intro,A,1,CMPSC 16,Not Articulated
-UCSB,DataStructures,A,1,CMPSC 24,Not Articulated
-UCSB,DiscreteMath,A,1,CMPSC 40,Not Articulated
+UCSB,Intro,A,1,CMPSC 16,CS R131 (3.00)
+UCSB,DataStructures,A,1,CMPSC 24,CS R131 (3.00); CS R132 (3.00)
+UCSB,DiscreteMath,A,1,CMPSC 40,CS R152 (3.00)
 UCSC,DataStructures,A,1,CSE 12,Not Articulated
 UCSC,DiscreteMath,A,1,CSE 16,Not Articulated
 UCSC,Intro,A,1,CSE 30,Not Articulated

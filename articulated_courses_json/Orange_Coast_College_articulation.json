@@ -1,56 +1,6 @@
 {
   "Orange_Coast_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH A180",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH A180H",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH A182H",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH A182H",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH A185",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH A185H",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -58,13 +8,13 @@
           [
             {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A280H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -77,13 +27,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -181,23 +131,38 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
+            },
+            {
+              "course": "MATH A185",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A280",
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "MATH A182H",
               "units": 5.0
+            },
+            {
+              "course": "MATH A185H",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A280H",
+              "units": 6.0
             }
           ]
         ],
-        "receiving_course": "MAT 021A"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       },
       "Calc2": {
         "set_id": "A",
@@ -205,24 +170,39 @@
         "course_groups": [
           [
             {
-              "course": "MATH A182H",
+              "course": "MATH A180",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A185",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A280",
               "units": 5.0
             }
           ],
           [
             {
-              "course": "MATH A185",
-              "units": 4.0
-            }
-          ],
-          [
+              "course": "MATH A180H",
+              "units": 5.0
+            },
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
+            },
+            {
+              "course": "MATH A280H",
+              "units": 6.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       },
       "Calc3": {
         "set_id": "A",
@@ -230,25 +210,56 @@
         "course_groups": [
           [
             {
+              "course": "MATH A180",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A185",
+              "units": 5.0
+            },
+            {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
-              "course": "MATH A280H",
+              "course": "MATH A180H",
               "units": 5.0
+            },
+            {
+              "course": "MATH A185H",
+              "units": 5.0
+            },
+            {
+              "course": "MATH A280H",
+              "units": 6.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
       }
     },
     "UCI": {
       "Intro": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 3,
         "course_groups": [
+          [
+            {
+              "course": "CS A150",
+              "units": 4.0
+            },
+            {
+              "course": "CS A250",
+              "units": 4.0
+            }
+          ],
           [
             {
               "course": "CS A131",
@@ -262,7 +273,8 @@
         ],
         "receiving_courses": [
           "I&C SCI 31",
-          "I&C SCI 32"
+          "I&C SCI 32",
+          "I&C SCI 33"
         ]
       },
       "Calc1": {
@@ -272,13 +284,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -297,13 +309,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -337,13 +349,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -368,13 +380,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],
@@ -387,13 +399,13 @@
           [
             {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A280H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -406,13 +418,13 @@
           [
             {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A280H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -425,13 +437,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -444,13 +456,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -478,13 +490,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],
@@ -503,13 +515,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],
@@ -522,13 +534,13 @@
           [
             {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A280H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -541,13 +553,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -606,11 +618,11 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             },
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -686,13 +698,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -705,13 +717,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -730,13 +742,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -755,13 +767,13 @@
           [
             {
               "course": "MATH A280",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A280H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -776,13 +788,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -807,13 +819,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],
@@ -826,13 +838,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -845,13 +857,13 @@
           [
             {
               "course": "MATH A285",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A285H",
-              "units": 5.0
+              "units": 6.0
             }
           ]
         ],
@@ -960,13 +972,13 @@
           [
             {
               "course": "MATH A180",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A180H",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
@@ -991,13 +1003,13 @@
           [
             {
               "course": "MATH A185",
-              "units": 4.0
+              "units": 5.0
             }
           ],
           [
             {
               "course": "MATH A185H",
-              "units": 4.0
+              "units": 5.0
             }
           ]
         ],

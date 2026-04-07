@@ -1,32 +1,6 @@
 {
   "Diablo_Valley_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 192",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 193",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -67,6 +41,12 @@
             {
               "course": "MATH 195",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "COMSC 230",
+              "units": 3.0
             }
           ]
         ],
@@ -174,6 +154,10 @@
         "course_groups": [
           [
             {
+              "course": "MATH 193",
+              "units": 5.0
+            },
+            {
               "course": "MATH 292",
               "units": 5.0
             }
@@ -187,6 +171,16 @@
         "set_id": "A",
         "num_required": 3,
         "course_groups": [
+          [
+            {
+              "course": "COMSC 140",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 240",
+              "units": 3.0
+            }
+          ],
           [
             {
               "course": "COMSC 110",
@@ -482,7 +476,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -494,14 +488,7 @@
               "course": "COMSC 255",
               "units": 4.0
             }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
-        "set_id": "B",
-        "num_required": 1,
-        "course_groups": [
+          ],
           [
             {
               "course": "COMSC 200",

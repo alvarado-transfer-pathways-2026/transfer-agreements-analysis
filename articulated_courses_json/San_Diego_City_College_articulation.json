@@ -1,32 +1,6 @@
 {
   "San_Diego_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 150",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 151",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -189,6 +163,12 @@
           [
             {
               "course": "CISC 192",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CISC 201",
               "units": 4.0
             }
           ]
@@ -394,6 +374,38 @@
       }
     },
     "UCSD": {
+      "Intro": {
+        "set_id": "B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CISC 191",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 11"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CISC 187",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CISC 191",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
       "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,
@@ -401,6 +413,12 @@
           [
             {
               "course": "MATH 245",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CISC 246",
               "units": 3.0
             }
           ]

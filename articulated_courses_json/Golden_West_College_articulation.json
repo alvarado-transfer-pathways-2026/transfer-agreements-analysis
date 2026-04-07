@@ -1,32 +1,6 @@
 {
   "Golden_West_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH G180",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH G185",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -168,7 +142,7 @@
             },
             {
               "course": "CS G179",
-              "units": 4.0
+              "units": 3.0
             },
             {
               "course": "CS G189",
@@ -285,12 +259,6 @@
         "course_groups": [
           [
             {
-              "course": "MATH G235",
-              "units": 4.0
-            }
-          ],
-          [
-            {
               "course": "MATH G285",
               "units": 5.0
             }
@@ -320,6 +288,12 @@
           [
             {
               "course": "CS G189",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS G154",
               "units": 3.0
             }
           ]
@@ -436,25 +410,18 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS G154",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
         "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CS G153",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS G154",
               "units": 3.0
             }
           ]
@@ -491,12 +458,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "MATH G235",
-              "units": 4.0
-            }
-          ],
           [
             {
               "course": "MATH G285",
@@ -577,12 +538,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "MATH G235",
-              "units": 4.0
-            }
-          ],
           [
             {
               "course": "MATH G285",

@@ -1,32 +1,6 @@
 {
   "Berkeley_City_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -59,18 +33,18 @@
       }
     },
     "UCD": {
-      "Intro1": {
+      "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CIS 6",
-              "units": 5.0
+              "course": "MATH 11",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "ECS 036A"
+        "receiving_course": "ECS 020"
       },
       "Intro2": {
         "set_id": "A",
@@ -85,12 +59,6 @@
           [
             {
               "course": "CIS 36A",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "CIS 36B",
               "units": 4.0
             }
           ]
@@ -211,6 +179,10 @@
             {
               "course": "MATH 3A",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16A",
+              "units": 4.0
             }
           ]
         ],
@@ -224,6 +196,10 @@
             {
               "course": "MATH 3B",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16B",
+              "units": 3.0
             }
           ]
         ],
@@ -243,6 +219,12 @@
             {
               "course": "CIS 27",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 6",
+              "units": 5.0
             }
           ]
         ],

@@ -1,32 +1,6 @@
 {
   "Laney_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -89,6 +63,12 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
+          [
+            {
+              "course": "CIS 25",
+              "units": 4.0
+            }
+          ],
           [
             {
               "course": "CIS 36A",
@@ -163,6 +143,10 @@
             {
               "course": "MATH 3A",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16A",
+              "units": 4.0
             }
           ]
         ],
@@ -176,6 +160,10 @@
             {
               "course": "MATH 3B",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16B",
+              "units": 3.0
             }
           ]
         ],

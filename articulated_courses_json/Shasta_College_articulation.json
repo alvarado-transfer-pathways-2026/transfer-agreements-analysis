@@ -1,36 +1,6 @@
 {
   "Shasta_College": {
     "UCB": {
-      "Calc1": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3A",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1A"
-      },
-      "Calc2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3B",
-              "units": 5.0
-            },
-            {
-              "course": "MATH 4B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 1B"
-      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
@@ -112,12 +82,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "CIS 63",
-              "units": 4.0
-            }
-          ],
           [
             {
               "course": "CIS 66",
@@ -468,6 +432,12 @@
               "course": "MATH 3A",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -552,19 +522,6 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 63",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 12"
-      },
       "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,
@@ -586,6 +543,12 @@
             {
               "course": "MATH 3A",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
             }
           ]
         ],
