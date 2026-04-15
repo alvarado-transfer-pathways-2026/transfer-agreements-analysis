@@ -72,28 +72,48 @@ def create_simple_bar_plot(data):
     plt.close()
 
 def create_horizontal_heatmap(data):
-    # Pivot the data for the heatmap - swap index and columns
+    import matplotlib.colors as mcolors
+
     heatmap_data = data.pivot(index='UC Index', columns='District', values='counts')
-    
-    # Set font sizes
-    # plt.rcParams.update({'font.size': 22})  # Increase base font size
-    # Create a figure with adjusted size for flipped axes
-    plt.figure(figsize=(40, 25))  # Swapped dimensions
-    
-    # Create heatmap with a different colormap to emphasize binary nature
-    sns.heatmap(heatmap_data, annot=False, cbar=False, cmap=sns.color_palette(["white", "#1a237e"], as_cmap=True), fmt='g', vmin=0, vmax=1, linewidths=1, linecolor='black', square=True)
-    # plt.title('Valid Transfer Paths to UCs by CC District', pad=20, fontsize=36)
-    plt.ylabel('UC Campus', fontsize=36)  # Swapped labels
-    plt.xlabel('Community College District', fontsize=36)
-    
-    # Adjust rotation for the new axis orientation
-    plt.xticks(rotation=90, ha='center', fontsize=20)
-    plt.yticks(rotation=0, fontsize=20)
-    
+
+    fig, ax = plt.subplots(figsize=(18, 6))
+
+    cmap = mcolors.ListedColormap(["white", "#1a237e"])
+
+    sns.heatmap(
+        heatmap_data,
+        cmap=cmap,
+        cbar=False,
+        linewidths=0.8,
+        linecolor='black',
+        vmin=0,
+        vmax=1,
+        ax=ax
+    )
+
+    cbar = fig.colorbar(
+        ax.collections[0],
+        ax=ax,
+        fraction=0.02,
+        pad=0.02
+    )
+    cbar.set_ticks([0, 1])
+    cbar.set_ticklabels(["Missing ≥1 Required Course", "Full Articulation"])
+    #cbar.set_label("Articulation Status", rotation=0, labelpad=5)
+
+    ax.set_ylabel('UC Campus', fontsize=24)
+    ax.set_xlabel('Community College District', fontsize=24)
+
+    plt.xticks(rotation=90, ha='center', fontsize=10)
+    plt.yticks(rotation=0, fontsize=16)
+
     plt.tight_layout()
-    # Save to the same directory as the script
-    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'district_transfer_availability_horizontal_heatmap.png')
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+    output_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'district_transfer_availability_horizontal_heatmap.png'
+    )
+    plt.savefig(output_path, dpi=300, bbox_inches='tight', pad_inches=0.1)
     plt.close()
 
 def create_vertical_heatmap(data):
