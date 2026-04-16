@@ -2,17 +2,32 @@ import pandas as pd
 from itertools import permutations
 import os
 import math
+import sys
 
 # List of UC campuses
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR","UCM"]
 
+
+def get_cc_name_from_path(file_path):
+    base = os.path.basename(file_path)
+    name = base.replace("_filtered.csv", "").replace(".csv", "")
+    return name.replace("_", " ")
+
 # Change the number here for different permutation sizes
 def generate_combinations(uc_schools):
-    return list(permutations(uc_schools, 9))
+    return list(permutations(uc_schools, 3))
 
 def get_roles(k):
     suffixes = ['st', 'nd', 'rd'] + ['th'] * 6
     return [f"{i+1}{suffixes[i] if i < 3 else 'th'}" for i in range(k)]
+
+
+def print_progress(current, total, prefix="Progress", length=30):
+    filled = int(length * current // total)
+    bar = "█" * filled + "-" * (length - filled)
+    percent = (current / total) * 100 if total else 100
+    sys.stdout.write(f"\r{prefix}: |{bar}| {percent:6.2f}% ({current}/{total})")
+    sys.stdout.flush()
 
 def get_requirement_options(df, combo):
     df.columns = df.columns.str.strip()
@@ -141,23 +156,24 @@ def count_required_courses_global(df, combo):
 
     return articulated_courses, unarticulated_courses, uc_counts
 
-def process_combinations(df, uc_list, txt_file="articulation_output.txt"):
+def process_combinations(df, uc_list, txt_file="greedy_articulation_output.txt", cc_name="Unknown CC"):
     all_combinations = generate_combinations(uc_list)
     k = len(all_combinations[0])
     n = len(uc_list)
     roles = get_roles(k)
     per_uc_per_position = math.factorial(n-1) // math.factorial(n-k)
 
-    # Only this progress message will print to terminal
+    print(f"Community College: {cc_name}")
     print(f"Total UC combinations generated: {len(all_combinations)}")
     with open(txt_file, "w") as f:
+        f.write(f"Community College: {cc_name}\n")
         f.write(f"Total UC combinations generated: {len(all_combinations)}\n")
 
         uc_role_totals = {
             uc: {role: {'articulated': 0, 'unarticulated': 0} for role in roles} for uc in uc_list
         }
 
-        for combo in all_combinations:
+        for idx, combo in enumerate(all_combinations, start=1):
             articulated_courses, unarticulated_courses, uc_counts = count_required_courses_global(df, combo)
             total_unique_courses = len(set([course for (_, course) in articulated_courses] +
                                            [course for (_, course) in unarticulated_courses]))
@@ -194,6 +210,10 @@ def process_combinations(df, uc_list, txt_file="articulation_output.txt"):
             for res in results:
                 f.write(res + "\n")
 
+            print_progress(idx, len(all_combinations), prefix="Processing combinations")
+
+        print()
+
         f.write("\n--- Final Totals Per UC by Role in Combination ---\n\n")
         for uc in uc_list:
             f.write(f"{uc}:\n")
@@ -216,11 +236,12 @@ def load_csv(file_path):
     return pd.read_csv(file_path)
 
 if __name__ == "__main__":
-    file_path = "/Users/yasminkabir/assist_web_scraping/district_csvs/Merced_Community_College_District.csv" #change to path of csv of the cc/district you want
+    file_path = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/filtered_results/Allan_Hancock_College_filtered.csv" #change to path of csv of the cc/district you want
 
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"❌ File not found: {file_path}")
 
     df = load_csv(file_path)
     uc_list = uc_schools
-    process_combinations(df, uc_list)
+    cc_name = get_cc_name_from_path(file_path)
+    process_combinations(df, uc_list, cc_name=cc_name)

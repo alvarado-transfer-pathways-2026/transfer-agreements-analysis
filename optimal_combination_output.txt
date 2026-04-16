@@ -1,0 +1,73 @@
+Community College: Allan Hancock College
+UCs included: UCSD, UCSB, UCSC, UCLA, UCB, UCI, UCD, UCR, UCM
+Total requirements: 55
+Coverable requirements: 46
+Covered requirements: 46
+Uncovered requirements: 9
+Total selected courses: 8
+
+=== Optimal Course List ===
+1. CS 111 (4.00)
+2. CS 112 (4.00)
+3. CS 131 (3.00)
+4. CS 161 (3.00)
+5. MATH 181 (4.00)
+6. MATH 182 (4.00)
+7. MATH 183 (4.00)
+8. MATH 184 (5.00)
+
+=== Per-UC Summary ===
+
+UCSD:
+  articulated: 6
+  unarticulated: 1
+  articulated_courses: CS 112 (4.00); CS 161 (3.00); MATH 181 (4.00); MATH 182 (4.00); MATH 183 (4.00); MATH 184 (5.00)
+  unarticulated_courses: CSE 12
+
+UCSB:
+  articulated: 6
+  unarticulated: 0
+  articulated_courses: CS 111 (4.00); CS 112 (4.00); CS 161 (3.00); MATH 181 (4.00); MATH 182 (4.00); MATH 184 (5.00)
+  unarticulated_courses: -
+
+UCSC:
+  articulated: 5
+  unarticulated: 0
+  articulated_courses: CS 112 (4.00); CS 131 (3.00); CS 161 (3.00); MATH 181 (4.00); MATH 182 (4.00)
+  unarticulated_courses: -
+
+UCLA:
+  articulated: 4
+  unarticulated: 1
+  articulated_courses: MATH 181 (4.00); MATH 182 (4.00); MATH 183 (4.00); MATH 184 (5.00)
+  unarticulated_courses: COM SCI 31
+
+UCB:
+  articulated: 4
+  unarticulated: 0
+  articulated_courses: MATH 181 (4.00); MATH 182 (4.00); MATH 183 (4.00); MATH 184 (5.00)
+  unarticulated_courses: -
+
+UCI:
+  articulated: 2
+  unarticulated: 3
+  articulated_courses: MATH 181 (4.00); MATH 182 (4.00)
+  unarticulated_courses: I&C SCI 31; I&C SCI 32; I&C SCI 33
+
+UCD:
+  articulated: 5
+  unarticulated: 3
+  articulated_courses: CS 131 (3.00); CS 161 (3.00); MATH 181 (4.00); MATH 182 (4.00); MATH 183 (4.00)
+  unarticulated_courses: ECS 036A; ECS 036B; ECS 036C
+
+UCR:
+  articulated: 3
+  unarticulated: 0
+  articulated_courses: CS 111 (4.00); CS 112 (4.00); MATH 181 (4.00)
+  unarticulated_courses: -
+
+UCM:
+  articulated: 5
+  unarticulated: 0
+  articulated_courses: CS 112 (4.00); MATH 181 (4.00); MATH 182 (4.00); MATH 183 (4.00); MATH 184 (5.00)
+  unarticulated_courses: -
