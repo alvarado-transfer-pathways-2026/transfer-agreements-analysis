@@ -18,7 +18,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -37,7 +37,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -156,7 +156,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -169,6 +169,19 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 079",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -199,11 +212,13 @@
         "course_groups": [
           [
             {
+              "course": "MATH 062",
+              "units": 3.0
+            },
+            {
               "course": "MATH 066",
               "units": 4.0
-            }
-          ],
-          [
+            },
             {
               "course": "MATH 071",
               "units": 5.0
@@ -220,9 +235,7 @@
             {
               "course": "MATH 067",
               "units": 4.0
-            }
-          ],
-          [
+            },
             {
               "course": "MATH 072",
               "units": 5.0
@@ -230,6 +243,68 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 041",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 042",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 45C"
+      },
+      "Programming_C": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 077",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
+      },
+      "Programming_F": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 080",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
+      },
+      "Programming_G": {
+        "set_id": "G",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 080",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 070",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6D"
       }
     },
     "UCLA": {
@@ -245,6 +320,52 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 041",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 076",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "COMSC 042",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 076",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "COMSC 042",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "COMSC 077",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -335,6 +456,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 070",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -504,20 +638,13 @@
         "course_groups": [
           [
             {
-              "course": "COMSC 076",
+              "course": "CIT 044",
               "units": 3.0
             }
-          ]
-        ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
-        "set_id": "B",
-        "num_required": 1,
-        "course_groups": [
+          ],
           [
             {
-              "course": "CIT 044",
+              "course": "COMSC 076",
               "units": 3.0
             }
           ]
@@ -679,6 +806,12 @@
         "course_groups": [
           [
             {
+              "course": "COMSC 041",
+              "units": 3.0
+            }
+          ],
+          [
+            {
               "course": "COMSC 079C",
               "units": 3.0
             }
@@ -696,6 +829,16 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
+          [
+            {
+              "course": "COMSC 041",
+              "units": 3.0
+            },
+            {
+              "course": "COMSC 076",
+              "units": 3.0
+            }
+          ],
           [
             {
               "course": "COMSC 042",

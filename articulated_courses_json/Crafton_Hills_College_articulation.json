@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -157,23 +157,52 @@
             {
               "course": "MATH 251",
               "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 021B"
-      },
-      "Calc3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
+            },
             {
               "course": "MATH 252",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 2,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 251",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 252",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -206,6 +235,10 @@
             {
               "course": "MATH 250",
               "units": 4.0
+            },
+            {
+              "course": "MATH 250E",
+              "units": 4.0
             }
           ]
         ],
@@ -223,9 +256,67 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 240",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
+      },
+      "Programming_G": {
+        "set_id": "G",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 200",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 200",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6D"
       }
     },
     "UCLA": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 110",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 120",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -233,6 +324,12 @@
           [
             {
               "course": "MATH 250",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 250E",
               "units": 4.0
             }
           ]
@@ -303,6 +400,25 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 200",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 200",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -489,6 +605,12 @@
               "course": "MATH 250",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 250E",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -618,6 +740,12 @@
           [
             {
               "course": "MATH 250",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 250E",
               "units": 4.0
             }
           ]

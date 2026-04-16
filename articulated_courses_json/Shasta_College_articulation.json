@@ -10,9 +10,15 @@
               "course": "MATH 3A",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
+            }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -29,7 +35,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -114,12 +120,6 @@
         "course_groups": [
           [
             {
-              "course": "CIS 63",
-              "units": 4.0
-            }
-          ],
-          [
-            {
               "course": "CIS 66",
               "units": 3.0
             }
@@ -155,7 +155,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -168,6 +168,19 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 6",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -276,6 +289,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 67",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -468,6 +494,12 @@
               "course": "MATH 3A",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -552,19 +584,6 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 63",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CSE 12"
-      },
       "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,
@@ -586,6 +605,12 @@
             {
               "course": "MATH 3A",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
             }
           ]
         ],

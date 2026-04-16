@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -59,12 +59,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "CIS 223 C",
-              "units": 3.0
-            }
-          ],
           [
             {
               "course": "CIS 226 C",
@@ -115,7 +109,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -178,6 +172,14 @@
         "course_groups": [
           [
             {
+              "course": "MATH 130 C",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 130PC",
+              "units": 4.0
+            },
+            {
               "course": "MATH 150AC",
               "units": 4.0
             }
@@ -197,6 +199,53 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 123 C",
+              "units": 3.0
+            },
+            {
+              "course": "CSCI 133 C",
+              "units": 3.0
+            },
+            {
+              "course": "CIS 247 C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 45C"
+      },
+      "Programming_C": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 242 C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
+      },
+      "Programming_F": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 252 C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
       }
     },
     "UCLA": {
@@ -212,6 +261,32 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 133 C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 242 C",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -420,7 +495,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
@@ -580,12 +655,6 @@
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
-          [
-            {
-              "course": "CIS 223 C",
-              "units": 3.0
-            }
-          ],
           [
             {
               "course": "CSCI 123 C",

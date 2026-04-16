@@ -18,9 +18,9 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
-      "MultivariableCalc": {
+      "Calc2": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
@@ -30,7 +30,34 @@
               "units": 4.0
             },
             {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 227H",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
+      "MultivariableCalc": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
               "course": "MATH 228",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 228H",
               "units": 5.0
             }
           ]
@@ -122,7 +149,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -141,6 +168,19 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 231",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -184,6 +224,19 @@
       }
     },
     "UCLA": {
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 208",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -426,7 +479,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
@@ -613,6 +666,19 @@
           ]
         ],
         "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 264",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
       },
       "Calc1": {
         "set_id": "A",

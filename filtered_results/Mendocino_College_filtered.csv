@@ -1,41 +1,48 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
-UCB,Calc1,A,1,MATH 1A,MTH 210 (5.00)
-UCB,Calc2,A,1,MATH 1B,MTH 211 (5.00); MTH 212 (5.00)
+UCB,Calc1,A,1,MATH 51,MTH 210 (5.00)
+UCB,Calc2,A,1,MATH 52,MTH 211 (5.00); MTH 212 (5.00)
 UCB,MultivariableCalc,A,1,MATH 53,MTH 212 (5.00)
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MTH 214 (4.00); MTH 215 (3.00)
 UCD,DiscreteMath,A,1,ECS 020,Not Articulated
-UCD,Intro1,A,1,ECS 036A,CSC 221 (3.00)
+UCD,Intro1,A,1,ECS 036A,CSC 221 (4.00)
 UCD,Intro2,A,1,ECS 036B,Not Articulated
 UCD,DataStructures,A,1,ECS 036C,Not Articulated
 UCD,Organization,A,1,ECS 050,CSC 210 (3.00)
 UCD,Calc1,A,1,MAT 021A,MTH 210 (5.00)
 UCD,Calc2,A,1,MAT 021B,MTH 211 (5.00)
 UCD,Calc3,A,1,MAT 021C,MTH 212 (5.00)
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
-UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
+UCD,Linear Algebra,A,1,MAT 022A,MTH 214 (4.00)
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Calc1,A,1,MATH 2A,MTH 210 (5.00)
 UCI,Calc2,A,1,MATH 2B,MTH 211 (5.00)
+UCI,Programming,A,1,I&C SCI 45C,Not Articulated
+UCI,Programming,B,1,I&C SCI 46,Not Articulated
+UCI,Programming,C,1,I&C SCI 51,Not Articulated
+UCI,Programming,D,1,I&C SCI 53,Not Articulated
+UCI,Programming,E,1,IN4MATX 43,Not Articulated
+UCI,Programming,F,1,I&C SCI 6B,Not Articulated
+UCI,Programming,G,1,I&C SCI 6D,Not Articulated
+UCI,Programming,H,1,STATS 67,Not Articulated
 UCLA,Intro,A,1,COM SCI 31,Not Articulated
+UCLA,Intro2,A,1,COM SCI 32,Not Articulated
+UCLA,Intro3,A,1,COM SCI 33,Not Articulated
+UCLA,SoftwareConstruction,A,1,COM SCI 35L,Not Articulated
 UCLA,Calc1,A,1,MATH 31A,MTH 210 (5.00)
 UCLA,Calc2,A,1,MATH 31B,MTH 211 (5.00)
 UCLA,Calc3,A,1,MATH 32A,MTH 212 (5.00)
 UCLA,Calc4,A,1,MATH 32B,MTH 212 (5.00)
 UCLA,LinearAlgebra,A,1,MATH 33A,MTH 214 (4.00)
 UCLA,DifferentialEquations,A,1,MATH 33B,MTH 215 (3.00)
-UCM,DataStructures,A,1,CSE 030,CSC 222 (3.00); CSC 222L (1.00)
+UCLA,DiscreteStructures,A,1,MATH 61,Not Articulated
+UCM,DataStructures,A,1,CSE 030,CSC 222 (4.00)
 UCM,Calc1,A,1,MATH 021,MTH 210 (5.00)
 UCM,Calc2,A,1,MATH 022,MTH 211 (5.00)
 UCM,VectorCalc,A,1,MATH 023,MTH 212 (5.00)
 UCM,LinearAlgebra,A,1,MATH 024,MTH 214 (4.00); MTH 215 (3.00)
-UCM,DataStructures,A,1,CSE 030,CSC 222 (3.00); CSC 222L (1.00)
-UCR,Intro1,A,1,CS 10A,CSC 221 (3.00)
-UCR,Intro2,A,1,CS 10B,CSC 222 (3.00)
+UCR,Intro1,A,1,CS 10A,CSC 221 (4.00)
+UCR,Intro2,A,1,CS 10B,CSC 222 (4.00)
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MTH 210 (5.00); MTH 211 (5.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MTH 210 (5.00); MTH 211 (5.00)
-UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MTH 210 (5.00); MTH 211 (5.00)
-UCSD,Intro,A,1,CSE 8B,CSC 222 (3.00)
-UCSD,Intro,B,1,CSE 11,Not Articulated
+UCSD,Intro,A,1,CSE 11,CSC 222 (4.00)
 UCSD,DataStructures,A,1,CSE 12,Not Articulated
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
 UCSD,LinearAlgebra,A,1,MATH 18,MTH 214 (4.00)

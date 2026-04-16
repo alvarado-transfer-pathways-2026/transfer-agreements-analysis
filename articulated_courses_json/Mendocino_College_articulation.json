@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -29,7 +29,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -70,7 +70,7 @@
           [
             {
               "course": "CSC 221",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -127,6 +127,19 @@
           ]
         ],
         "receiving_course": "MAT 021C"
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MTH 214",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -245,11 +258,7 @@
           [
             {
               "course": "CSC 222",
-              "units": 3.0
-            },
-            {
-              "course": "CSC 222L",
-              "units": 1.0
+              "units": 4.0
             }
           ]
         ],
@@ -320,7 +329,7 @@
           [
             {
               "course": "CSC 221",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -333,7 +342,7 @@
           [
             {
               "course": "CSC 222",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
@@ -369,11 +378,11 @@
           [
             {
               "course": "CSC 222",
-              "units": 3.0
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "LinearAlgebra": {
         "set_id": "A",
