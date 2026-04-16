@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -59,18 +59,18 @@
       }
     },
     "UCD": {
-      "Intro1": {
+      "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CIS 6",
-              "units": 5.0
+              "course": "MATH 11",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "ECS 036A"
+        "receiving_course": "ECS 020"
       },
       "Intro2": {
         "set_id": "A",
@@ -85,12 +85,6 @@
           [
             {
               "course": "CIS 36A",
-              "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "CIS 36B",
               "units": 4.0
             }
           ]
@@ -169,6 +163,19 @@
           ]
         ],
         "receiving_course": "MAT 021C"
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 3E",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -211,6 +218,10 @@
             {
               "course": "MATH 3A",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16A",
+              "units": 4.0
             }
           ]
         ],
@@ -224,10 +235,27 @@
             {
               "course": "MATH 3B",
               "units": 5.0
+            },
+            {
+              "course": "MATH 16B",
+              "units": 3.0
             }
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 20",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
       }
     },
     "UCLA": {
@@ -244,9 +272,55 @@
               "course": "CIS 27",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "CIS 6",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 25",
+              "units": 4.0
+            },
+            {
+              "course": "CIS 27",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 6",
+              "units": 5.0
+            },
+            {
+              "course": "CIS 27",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 20",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -455,7 +529,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [

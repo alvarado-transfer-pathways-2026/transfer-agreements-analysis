@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -64,9 +64,28 @@
               "course": "CMPR 112",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "CMPR 120",
+              "units": 3.0
+            }
           ]
         ],
         "receiving_course": "ECS 036A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPR 131",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036B"
       },
       "Organization": {
         "set_id": "A",
@@ -143,6 +162,22 @@
           "MAT 021B",
           "MAT 021C"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 287",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 022A",
+          "MAT 022B"
+        ]
       }
     },
     "UCI": {
@@ -212,6 +247,32 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPR 140",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
+      },
+      "Programming_G": {
+        "set_id": "G",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPR 140",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6D"
       }
     },
     "UCLA": {
@@ -227,6 +288,32 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPR 131",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPR 129",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -412,7 +499,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [

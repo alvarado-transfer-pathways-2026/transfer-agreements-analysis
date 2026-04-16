@@ -1,5 +1,6 @@
-Closes {LINK TO GH ISSUE}
+Closes # <!--Issue Number HERE-->
 
+<!--fill in as much as u can !-->
 
 ## Changes
 

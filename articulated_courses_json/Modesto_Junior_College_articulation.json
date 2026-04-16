@@ -8,11 +8,11 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -34,7 +34,7 @@
           [
             {
               "course": "MATH 173",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -118,11 +118,18 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
+            },
+            {
+              "course": "MATH 172",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MAT 021A"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
       },
       "Calc2": {
         "set_id": "A",
@@ -130,25 +137,59 @@
         "course_groups": [
           [
             {
+              "course": "MATH 171",
+              "units": 4.0
+            },
+            {
               "course": "MATH 172",
               "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MAT 021B"
+        "receiving_courses": [
+          "MAT 021A",
+          "MAT 021B"
+        ]
       },
       "Calc3": {
+        "set_id": "A",
+        "num_required": 2,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 172",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 173",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Linear Algebra": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 173",
-              "units": 5.0
+              "course": "MATH 191",
+              "units": 3.0
+            },
+            {
+              "course": "MATH 193",
+              "units": 3.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 022A",
+          "MAT 022B"
+        ]
       }
     },
     "UCI": {
@@ -180,7 +221,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -201,6 +242,19 @@
       }
     },
     "UCLA": {
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 273",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -208,7 +262,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -234,7 +288,7 @@
           [
             {
               "course": "MATH 173",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -247,7 +301,7 @@
           [
             {
               "course": "MATH 173",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -278,6 +332,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 204",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -301,7 +368,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -327,7 +394,7 @@
           [
             {
               "course": "MATH 173",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -391,7 +458,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             },
             {
               "course": "MATH 172",
@@ -440,7 +507,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -466,7 +533,7 @@
           [
             {
               "course": "MATH 173",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -481,7 +548,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -587,7 +654,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             },
             {
               "course": "MATH 172",
@@ -604,7 +671,7 @@
           [
             {
               "course": "MATH 171",
-              "units": 5.0
+              "units": 4.0
             },
             {
               "course": "MATH 172",

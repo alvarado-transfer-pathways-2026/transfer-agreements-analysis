@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -144,6 +144,19 @@
           ]
         ],
         "receiving_course": "MAT 021C"
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 42",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -175,6 +188,19 @@
       }
     },
     "UCLA": {
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 21",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -438,6 +464,12 @@
               "course": "MATH 30",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 30s",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MATH 3A"
@@ -555,6 +587,12 @@
           [
             {
               "course": "MATH 30",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 30s",
               "units": 5.0
             }
           ]
