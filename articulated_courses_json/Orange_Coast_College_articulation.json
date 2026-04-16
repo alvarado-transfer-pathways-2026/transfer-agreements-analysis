@@ -1,6 +1,56 @@
 {
   "Orange_Coast_College": {
     "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH A180",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH A180H",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH A182H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH A182H",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH A185",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH A185H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,

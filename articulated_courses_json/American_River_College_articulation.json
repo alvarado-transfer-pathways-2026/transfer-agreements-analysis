@@ -1,6 +1,36 @@
 {
   "American_River_College": {
     "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 400",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 401",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 420",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,

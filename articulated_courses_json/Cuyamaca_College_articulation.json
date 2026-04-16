@@ -1,6 +1,32 @@
 {
   "Cuyamaca_College": {
     "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 180",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 280",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,

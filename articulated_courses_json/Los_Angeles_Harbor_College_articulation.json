@@ -1,6 +1,32 @@
 {
   "Los_Angeles_Harbor_College": {
     "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 265",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,

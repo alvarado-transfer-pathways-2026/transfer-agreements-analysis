@@ -1,5 +1,33 @@
 {
   "Lassen_Community_College": {
+    "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 1A",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 1B",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      }
+    },
     "UCD": {
       "Calc1": {
         "set_id": "A",

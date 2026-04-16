@@ -1,6 +1,38 @@
 {
   "Rio_Hondo_College": {
     "UCB": {
+      "Calc1": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 190",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 190H",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 51"
+      },
+      "Calc2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 191",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 52"
+      },
       "MultivariableCalc": {
         "set_id": "A",
         "num_required": 1,
