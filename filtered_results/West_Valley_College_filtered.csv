@@ -1,4 +1,6 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1,Courses Group 2,Courses Group 3
+UCB,Calc1,A,1,MATH 51,MATH 003A (5.00),MATH 003AH (5.00),
+UCB,Calc2,A,1,MATH 52,MATH 003B (5.00),MATH 003BH (5.00),
 UCB,MultivariableCalc,A,1,MATH 53,MATH 004A (5.00),,
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MATH 004B (4.00); MATH 004C (4.00),,
 UCD,DiscreteMath,A,1,ECS 020,MATH 019 (4.00),,

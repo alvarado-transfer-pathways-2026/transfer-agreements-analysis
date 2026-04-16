@@ -1,4 +1,6 @@
 UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
+UCB,Calc1,A,1,MATH 51,Not Articulated
+UCB,Calc2,A,1,MATH 52,Not Articulated
 UCB,MultivariableCalc,A,1,MATH 53,Not Articulated
 UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,Not Articulated
 UCD,DiscreteMath,A,1,ECS 020,Not Articulated
