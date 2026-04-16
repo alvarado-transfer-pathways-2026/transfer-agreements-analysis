@@ -29,6 +29,46 @@ def parse_receiving_courses(receiving_raw):
     else:
         return courses     # Multiple courses as array
 
+
+def receiving_to_list(requirement_entry):
+    if "receiving_courses" in requirement_entry and requirement_entry["receiving_courses"]:
+        return list(requirement_entry["receiving_courses"])
+    if "receiving_course" in requirement_entry and requirement_entry["receiving_course"]:
+        return [requirement_entry["receiving_course"]]
+    return []
+
+
+def set_receiving(requirement_entry, values):
+    values = [v for v in values if v]
+    if "receiving_course" in requirement_entry:
+        del requirement_entry["receiving_course"]
+    if "receiving_courses" in requirement_entry:
+        del requirement_entry["receiving_courses"]
+
+    if not values:
+        return
+    if len(values) == 1:
+        requirement_entry["receiving_course"] = values[0]
+    else:
+        requirement_entry["receiving_courses"] = values
+
+
+def merge_unique_course_groups(existing_groups, new_groups):
+    seen = set()
+    merged = []
+
+    for group in existing_groups + new_groups:
+        signature = tuple(
+            (course_obj.get("course"), course_obj.get("units"))
+            for course_obj in group
+        )
+        if signature in seen:
+            continue
+        seen.add(signature)
+        merged.append(group)
+
+    return merged
+
 # Iterate through all filtered CSVs
 for filename in os.listdir(input_dir):
     if not filename.endswith("_filtered.csv"):
@@ -88,6 +128,19 @@ for filename in os.listdir(input_dir):
                 if existing["set_id"] != set_id:
                     # Different set_id, create unique key
                     requirement_key = f"{req_category}_{set_id}"
+                else:
+                    # Same requirement + same set: merge rows instead of overwrite.
+                    existing["num_required"] = max(existing.get("num_required", 1), num_required)
+                    existing["course_groups"] = merge_unique_course_groups(
+                        existing.get("course_groups", []),
+                        course_groups
+                    )
+                    merged_receiving = receiving_to_list(existing)
+                    for course in (receiving_courses if isinstance(receiving_courses, list) else [receiving_courses] if receiving_courses else []):
+                        if course not in merged_receiving:
+                            merged_receiving.append(course)
+                    set_receiving(existing, merged_receiving)
+                    continue
             
             # Create the requirement entry
             requirement_data = {

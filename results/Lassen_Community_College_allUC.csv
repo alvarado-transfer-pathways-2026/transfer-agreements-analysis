@@ -1,12 +1,12 @@
 UC Campus,CC,UC Course Requirement,Courses Group 1
-University of California Berkeley,Lassen Community College,MATH 1A,MATH 1A (5.00)
-University of California Berkeley,Lassen Community College,MATH 1B,MATH 1B (5.00)
+University of California Berkeley,Lassen Community College,MATH 51,MATH 1A (5.00)
+University of California Berkeley,Lassen Community College,MATH 52,MATH 1B (5.00)
 University of California Berkeley,Lassen Community College,MATH 53,Not Articulated
 University of California Berkeley,Lassen Community College,MATH 54,Not Articulated
 University of California Berkeley,Lassen Community College,PHYSICS 7A,Not Articulated
 University of California Berkeley,Lassen Community College,PHYSICS 7B,Not Articulated
-University of California Berkeley,Lassen Community College,ENGLISH R1A,ENGL 1 (3.00)
-University of California Berkeley,Lassen Community College,ENGLISH R1B,ENGL 9 (3.00)
+University of California Berkeley,Lassen Community College,,ENGL C1000 (3.00)
+University of California Berkeley,Lassen Community College,,ENGL C1001 (3.00)
 University of California Berkeley,Lassen Community College,ASTRON 7A,Not Articulated
 University of California Berkeley,Lassen Community College,ASTRON 7B,Not Articulated
 University of California Berkeley,Lassen Community College,BIOLOGY 1A; BIOLOGY 1AL; BIOLOGY 1B,BIOL 1 (4.00); BIOL 4 (5.00)
@@ -46,16 +46,16 @@ University of California Davis,Lassen Community College,PHY 009C,Not Articulated
 University of California Irvine,Lassen Community College,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 University of California Irvine,Lassen Community College,MATH 2A,MATH 1A (5.00)
 University of California Irvine,Lassen Community College,MATH 2B,MATH 1B (5.00)
-University of California Irvine,Lassen Community College,MATH 3A,Not Articulated
-University of California Irvine,Lassen Community College,I&C SCI 6N,Not Articulated
-University of California Irvine,Lassen Community College,I&C SCI 6B,Not Articulated
-University of California Irvine,Lassen Community College,I&C SCI 6D,Not Articulated
 University of California Irvine,Lassen Community College,I&C SCI 45C,Not Articulated
 University of California Irvine,Lassen Community College,I&C SCI 46,Not Articulated
 University of California Irvine,Lassen Community College,I&C SCI 51,Not Articulated
 University of California Irvine,Lassen Community College,I&C SCI 53,Not Articulated
 University of California Irvine,Lassen Community College,IN4MATX 43,Not Articulated
+University of California Irvine,Lassen Community College,I&C SCI 6B,Not Articulated
+University of California Irvine,Lassen Community College,I&C SCI 6D,Not Articulated
 University of California Irvine,Lassen Community College,STATS 67,Not Articulated
+University of California Irvine,Lassen Community College,I&C SCI 6N,Not Articulated
+University of California Irvine,Lassen Community College,MATH 3A,Not Articulated
 University of California Los Angeles,Lassen Community College,COM SCI 31,Not Articulated
 University of California Los Angeles,Lassen Community College,COM SCI 32,Not Articulated
 University of California Los Angeles,Lassen Community College,COM SCI 33,Not Articulated
@@ -69,11 +69,9 @@ University of California Los Angeles,Lassen Community College,MATH 32B,Not Artic
 University of California Los Angeles,Lassen Community College,MATH 33A,Not Articulated
 University of California Los Angeles,Lassen Community College,MATH 33B,Not Articulated
 University of California Los Angeles,Lassen Community College,MATH 61,Not Articulated
-University of California Los Angeles,Lassen Community College,PHYSICS 1A; PHYSICS 1B; PHYSICS 1C,Not Articulated
-University of California Los Angeles,Lassen Community College,PHYSICS 4AL,Not Articulated
-University of California Los Angeles,Lassen Community College,PHYSICS 4BL,Not Articulated
-University of California Los Angeles,Lassen Community College,ENGCOMP 3,ENGL 1 (3.00)
-University of California Los Angeles,Lassen Community College,,ENGL 9 (3.00)
+University of California Los Angeles,Lassen Community College,PHYSICS 1A; PHYSICS 1B; PHYSICS 1C; PHYSICS 4AL; PHYSICS 4BL,Not Articulated
+University of California Los Angeles,Lassen Community College,ENGCOMP 3,ENGL C1000 (3.00)
+University of California Los Angeles,Lassen Community College,,ENGL C1001 (3.00)
 University of California Los Angeles,Lassen Community College,,Not Articulated
 University of California Merced,Lassen Community College,CSE 022,Not Articulated
 University of California Merced,Lassen Community College,CSE 030,Not Articulated
@@ -92,8 +90,8 @@ University of California Merced,Lassen Community College,ENGR 065,Not Articulate
 University of California Merced,Lassen Community College,ENGR 091,Not Articulated
 University of California Merced,Lassen Community College,MATH 032,Not Articulated
 University of California Merced,Lassen Community College,ENGR 080,Not Articulated
-University of California Merced,Lassen Community College,WRI 001,ENGL 1 (3.00)
-University of California Merced,Lassen Community College,WRI 010,ENGL 9 (3.00)
+University of California Merced,Lassen Community College,WRI 001,ENGL C1000 (3.00)
+University of California Merced,Lassen Community College,WRI 010,ENGL C1001 (3.00)
 University of California Riverside,Lassen Community College,CS 10A,Not Articulated
 University of California Riverside,Lassen Community College,CS 10B,Not Articulated
 University of California Riverside,Lassen Community College,MATH 9A; MATH 9B; MATH 9C,MATH 1A (5.00); MATH 1B (5.00)
@@ -106,11 +104,9 @@ University of California Riverside,Lassen Community College,PHYS 40B,Not Articul
 University of California Riverside,Lassen Community College,PHYS 40C,Not Articulated
 University of California Riverside,Lassen Community College,EE 20B,Not Articulated
 University of California Riverside,Lassen Community College,MATH 31,Not Articulated
-University of California San Diego,Lassen Community College,CSE 8A,Not Articulated
-University of California San Diego,Lassen Community College,CSE 8B,Not Articulated
 University of California San Diego,Lassen Community College,CSE 11,Not Articulated
 University of California San Diego,Lassen Community College,CSE 12,Not Articulated
-University of California San Diego,Lassen Community College,CSE 15L,Not Articulated
+University of California San Diego,Lassen Community College,CSE 29,Not Articulated
 University of California San Diego,Lassen Community College,CSE 20,Not Articulated
 University of California San Diego,Lassen Community College,CSE 21,Not Articulated
 University of California San Diego,Lassen Community College,CSE 30,Not Articulated
@@ -146,7 +142,7 @@ University of California Santa Barbara,Lassen Community College,PHYS 7B,Not Arti
 University of California Santa Barbara,Lassen Community College,PHYS 7C,Not Articulated
 University of California Santa Barbara,Lassen Community College,PHYS 7D,Not Articulated
 University of California Santa Barbara,Lassen Community College,PHYS 7L,Not Articulated
-University of California Santa Barbara,Lassen Community College,CHEM 1A; CHEM 1AL; CHEM 1B; CHEM 1BL; CHEM 1C; CHEM 1CL,CHEM 1A (5.00); CHEM 1B (5.00)
+University of California Santa Barbara,Lassen Community College,CHEM 1A; CHEM 1B; CHEM 1C; CHEM 2AL; CHEM 2BL,CHEM 1A (5.00); CHEM 1B (5.00)
 University of California Santa Barbara,Lassen Community College,MCDB 1A; MCDB 1LL,BIOL 1 (4.00); BIOL 4 (5.00)
 University of California Santa Barbara,Lassen Community College,MCDB 1B,BIOL 1 (4.00); BIOL 4 (5.00)
 University of California Santa Barbara,Lassen Community College,PSTAT 120A,Not Articulated

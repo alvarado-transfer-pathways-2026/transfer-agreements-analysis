@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -109,7 +109,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -121,6 +121,26 @@
         "receiving_courses": [
           "MAT 021C",
           "MAT 021D"
+        ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 183",
+              "units": 4.0
+            },
+            {
+              "course": "MATH 184",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 022A",
+          "MAT 022B"
         ]
       }
     },
@@ -150,6 +170,32 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 131",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
+      },
+      "Programming_F": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 161",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
       }
     },
     "UCLA": {
@@ -230,6 +276,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 161",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -360,7 +419,7 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
+        "receiving_course": "CSE 11"
       },
       "DiscreteMath": {
         "set_id": "A",
@@ -480,32 +539,6 @@
           ]
         ],
         "receiving_course": "MATH 4B"
-      },
-      "Intro": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 111",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 16"
-      },
-      "DataStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 112",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "CMPSC 24"
       },
       "DiscreteMath": {
         "set_id": "A",

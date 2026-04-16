@@ -51,7 +51,8 @@ UC_REQUIREMENTS = {
         #website for ucla "Preperation for the major section": https://catalog.registrar.ucla.edu/major/2025/ComputerScienceBS
     },
     "UCB": {
-        "Calc": [["MATH 51", "A", 2], ["MATH 52", "A", 2]],
+        "Calc1": [["MATH 51", "A", 1]],
+        "Calc2": [["MATH 52", "A", 1]],
         "MultivariableCalc": [["MATH 53", "A", 1]], # Change to Calc3?
         "LinearAlgebraAndDifferentialEqations": [["MATH 54", "A", 1]], # Too long
         #webiste for uc berkeley: https://eecs.berkeley.edu/academics/undergraduate/eecs-bs/community-coll-transfers/

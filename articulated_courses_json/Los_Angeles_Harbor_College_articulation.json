@@ -12,7 +12,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -25,7 +25,7 @@
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -81,6 +81,12 @@
               "course": "CS 113",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "MATH 173",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "ECS 036A"
@@ -97,6 +103,19 @@
           ]
         ],
         "receiving_course": "ECS 036B"
+      },
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 273",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 036C"
       },
       "Organization": {
         "set_id": "A",
@@ -120,6 +139,12 @@
               "course": "MATH 265",
               "units": 5.0
             }
+          ],
+          [
+            {
+              "course": "MATH 265S",
+              "units": 5.0
+            }
           ]
         ],
         "receiving_course": "MAT 021A"
@@ -132,23 +157,52 @@
             {
               "course": "MATH 266",
               "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 021B"
-      },
-      "Calc3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
+            },
             {
               "course": "MATH 267",
               "units": 5.0
             }
           ]
         ],
-        "receiving_course": "MAT 021C"
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Calc3": {
+        "set_id": "A",
+        "num_required": 2,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 266",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 267",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_courses": [
+          "MAT 021B",
+          "MAT 021C",
+          "MAT 021D"
+        ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -181,6 +235,10 @@
             {
               "course": "MATH 265",
               "units": 5.0
+            },
+            {
+              "course": "MATH 265S",
+              "units": 5.0
             }
           ]
         ],
@@ -198,10 +256,53 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 116",
+              "units": 3.0
+            },
+            {
+              "course": "CS 216",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 45C"
+      },
+      "Programming_C": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 130",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
       }
     },
     "UCLA": {
       "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 216",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
@@ -212,7 +313,20 @@
             }
           ]
         ],
-        "receiving_course": "COM SCI 31"
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 130",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -221,6 +335,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -314,6 +434,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -435,23 +561,6 @@
             }
           ]
         ],
-        "receiving_course": "CSE 8B"
-      },
-      "Intro_B": {
-        "set_id": "B",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 113",
-              "units": 3.0
-            },
-            {
-              "course": "CS 136",
-              "units": 3.0
-            }
-          ]
-        ],
         "receiving_course": "CSE 11"
       },
       "DataStructures": {
@@ -528,6 +637,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]
@@ -659,6 +774,12 @@
           [
             {
               "course": "MATH 265",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 265S",
               "units": 5.0
             }
           ]

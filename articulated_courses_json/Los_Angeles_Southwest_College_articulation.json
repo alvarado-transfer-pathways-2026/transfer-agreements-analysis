@@ -8,11 +8,11 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 1A"
+        "receiving_course": "MATH 51"
       },
       "Calc2": {
         "set_id": "A",
@@ -21,11 +21,11 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 1B"
+        "receiving_course": "MATH 52"
       },
       "MultivariableCalc": {
         "set_id": "A",
@@ -34,7 +34,7 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -92,7 +92,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -105,7 +105,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -118,11 +118,24 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
         "receiving_course": "MAT 021C"
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 270",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -133,7 +146,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -146,7 +159,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -154,6 +167,19 @@
       }
     },
     "UCLA": {
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS 118",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -161,7 +187,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -174,7 +200,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -187,7 +213,7 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -200,7 +226,7 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -254,7 +280,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -267,7 +293,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -280,7 +306,7 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -325,11 +351,11 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             },
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -342,7 +368,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
@@ -391,7 +417,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -404,7 +430,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -417,7 +443,7 @@
           [
             {
               "course": "MATH 267",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -432,7 +458,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -445,7 +471,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -525,7 +551,7 @@
           [
             {
               "course": "MATH 265",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
@@ -538,7 +564,7 @@
           [
             {
               "course": "MATH 266",
-              "units": 5.0
+              "units": 4.0
             }
           ]
         ],
