@@ -152,7 +152,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -175,6 +175,19 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 214",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -230,6 +243,19 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPSCI 122",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -308,6 +334,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CMPSCI 256",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -446,7 +485,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [

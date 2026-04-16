@@ -204,7 +204,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -223,6 +223,25 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 107",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 107H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -288,6 +307,53 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 211",
+              "units": 4.0
+            },
+            {
+              "course": "CS/IS 212",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 46"
+      },
+      "Programming_C": {
+        "set_id": "C",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 165",
+              "units": 4.0
+            },
+            {
+              "course": "CS/IS 166",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 51"
+      },
+      "Programming_F": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 125",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
       }
     },
     "UCLA": {
@@ -309,6 +375,32 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 211",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 165",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -429,6 +521,19 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS/IS 125",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -607,7 +712,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [

@@ -11,16 +11,29 @@ UCD,Organization,A,1,ECS 050,Not Articulated
 UCD,Calc1,A,1,MAT 021A,MATH 190 (5.00)
 UCD,Calc2,A,1,MAT 021B,MATH 190 (5.00); MATH 191 (5.00)
 UCD,Calc3,A,1,MAT 021C,MATH 191 (5.00); MATH 220 (5.00)
+UCD,Linear Algebra,A,1,MAT 022A,MATH 270 (5.00)
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,CSCI 101 (4.00); CSCI 102 (5.00)
 UCI,Calc1,A,1,MATH 2A,MATH 190 (5.00)
 UCI,Calc2,A,1,MATH 2B,MATH 191 (5.00)
+UCI,Programming,A,1,I&C SCI 45C,Not Articulated
+UCI,Programming,B,1,I&C SCI 46,Not Articulated
+UCI,Programming,C,1,I&C SCI 51,Not Articulated
+UCI,Programming,D,1,I&C SCI 53,Not Articulated
+UCI,Programming,E,1,IN4MATX 43,Not Articulated
+UCI,Programming,F,1,I&C SCI 6B,Not Articulated
+UCI,Programming,G,1,I&C SCI 6D,MATH 210 (5.00)
+UCI,Programming,H,1,STATS 67,Not Articulated
 UCLA,Intro,A,1,COM SCI 31,Not Articulated
+UCLA,Intro2,A,1,COM SCI 32,Not Articulated
+UCLA,Intro3,A,1,COM SCI 33,Not Articulated
+UCLA,SoftwareConstruction,A,1,COM SCI 35L,Not Articulated
 UCLA,Calc1,A,1,MATH 31A,MATH 190 (5.00)
 UCLA,Calc2,A,1,MATH 31B,MATH 191 (5.00)
 UCLA,Calc3,A,1,MATH 32A,MATH 220 (5.00)
 UCLA,Calc4,A,1,MATH 32B,MATH 220 (5.00)
 UCLA,LinearAlgebra,A,1,MATH 33A,MATH 270 (5.00)
 UCLA,DifferentialEquations,A,1,MATH 33B,MATH 270 (5.00)
+UCLA,DiscreteStructures,A,1,MATH 61,MATH 210 (5.00)
 UCM,DataStructures,A,1,CSE 030,CSCI 102 (5.00)
 UCM,Calc1,A,1,MATH 021,MATH 190 (5.00)
 UCM,Calc2,A,1,MATH 022,MATH 191 (5.00)
@@ -29,7 +42,7 @@ UCM,LinearAlgebra,A,1,MATH 024,MATH 270 (5.00)
 UCR,Intro1,A,1,CS 10A,Not Articulated
 UCR,Intro2,A,1,CS 10B,Not Articulated
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 190 (5.00); MATH 191 (5.00)
-UCSD,Intro,B,1,CSE 11,CSCI 103 (4.00)
+UCSD,Intro,A,1,CSE 11,CSCI 103 (4.00)
 UCSD,DataStructures,A,1,CSE 12,CSCI 102 (5.00); CSCI 103 (4.00)
 UCSD,DiscreteMath,A,1,CSE 20,MATH 210 (5.00)
 UCSD,LinearAlgebra,A,1,MATH 18,MATH 270 (5.00)

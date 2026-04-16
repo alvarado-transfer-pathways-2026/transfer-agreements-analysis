@@ -294,7 +294,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 1,
+        "num_required": 2,
         "course_groups": [
           [
             {
@@ -341,6 +341,25 @@
           "MAT 021C",
           "MAT 021D"
         ]
+      },
+      "Linear Algebra": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 2B",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 2BH",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -408,6 +427,97 @@
           ]
         ],
         "receiving_course": "MATH 2B"
+      },
+      "Programming": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 22A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22B",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 29",
+              "units": 4.5
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 45C"
+      },
+      "Programming_B": {
+        "set_id": "B",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 22A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22B",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22C",
+              "units": 4.5
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 46"
+      },
+      "Programming_F": {
+        "set_id": "F",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 22",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 22H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6B"
+      },
+      "Programming_G": {
+        "set_id": "G",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 22",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 22H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "I&C SCI 6D"
+      },
+      "Programming_H": {
+        "set_id": "H",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 23",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "STATS 67"
       }
     },
     "UCLA": {
@@ -437,6 +547,58 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 22C",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22CH",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22B",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22BH",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 27",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 29",
+              "units": 4.5
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 32"
+      },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 21JA",
+              "units": 4.5
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -569,6 +731,23 @@
           ]
         ],
         "receiving_course": "MATH 33B"
+      },
+      "DiscreteStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MATH 22",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 22H",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -799,7 +978,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "B",
+        "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
