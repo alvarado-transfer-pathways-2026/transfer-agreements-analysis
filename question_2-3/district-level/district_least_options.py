@@ -27,10 +27,8 @@ def create_bar_plot(data):
     plt.close()
 
 def create_simple_bar_plot(data):
-    """
-    Creates a simplified bar plot showing the distribution of how many UCs
-    each district has complete articulation with.
-    """
+    import numpy as np
+
     # Calculate how many UCs each district has complete articulation with
     district_complete_counts = {}
     for district in data['District'].unique():
@@ -50,20 +48,32 @@ def create_simple_bar_plot(data):
     
     bars = plt.bar(x, y)
     
-    # Add value labels on top of each bar
+    # Add value labels
     for bar in bars:
         height = bar.get_height()
         plt.text(bar.get_x() + bar.get_width()/2., height,
                 f'{int(height)}',
                 ha='center', va='bottom', fontsize=14)
     
-    # plt.title('Distribution of Complete UC Articulations per District', fontsize=24)
+    # 🔥 ADD THIS PART (mean line)
+    values = []
+    for k, v in frequency.items():
+        values.extend([k] * v)
+
+    mean_val = np.mean(values)
+    plt.axvline(mean_val, color='red', linestyle='--', linewidth=2,
+                label=f'Mean: {mean_val:.2f}')
+    plt.legend()
+
+    # 🔥 BETTER TITLE
+    plt.title("Distribution of CCC Districts by Number of UC Campuses with Full Articulation", fontsize=16)
+
     plt.xlabel('Number of UCs with Complete Articulation', fontsize=20)
     plt.ylabel('Number of Districts', fontsize=20)
     plt.xticks(range(10), fontsize=16)
     plt.yticks(fontsize=16)
 
-    # Save the plot
+    # Save
     output_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         'district_simple_total_transfer_availability.png'
