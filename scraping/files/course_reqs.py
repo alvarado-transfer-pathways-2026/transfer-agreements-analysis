@@ -67,7 +67,7 @@ UC_REQUIREMENTS = {
         #website for uc merced: https://admissions.ucmerced.edu/transfer/major-preparation-schools#soe
     },
     "UCSC": {
-        "DataStructures": [["CSE 12", "A", 1]],
+        "Organization": [["CSE 12", "A", 1]],
         "DiscreteMath": [["CSE 16", "A", 1]],
         "Intro": [["CSE 30", "A", 1]],
         "Calc1": [["MATH 19A", "A", 1]],
