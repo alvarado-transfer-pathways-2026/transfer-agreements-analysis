@@ -1,0 +1,55 @@
+year,uc,course_category,impacted_districts,pct_districts_impacted,missing_group_occurrences
+2025-2026,UC1*,Data Structures,38,52.78,38
+2025-2026,UC1*,Intro Programming,23,31.94,33
+2025-2026,UC1*,Computer Organization,18,25.0,18
+2025-2026,UC1*,Discrete Math,15,20.83,15
+2025-2026,UC1*,Calculus,4,5.56,6
+2025-2026,UC1*,Advanced Math,3,4.17,3
+2025-2026,UC2 ,Data Structures,7,9.72,7
+2025-2026,UC2 ,Advanced Math,3,4.17,3
+2025-2026,UC2 ,Calculus,2,2.78,4
+2025-2026,UC2 ,Intro Programming,0,0.0,0
+2025-2026,UC2 ,Computer Organization,0,0.0,0
+2025-2026,UC2 ,Discrete Math,0,0.0,0
+2025-2026,UC3*,Data Structures,30,41.67,30
+2025-2026,UC3*,Intro Programming,25,34.72,25
+2025-2026,UC3*,Discrete Math,23,31.94,23
+2025-2026,UC3*,Advanced Math,4,5.56,4
+2025-2026,UC3*,Calculus,3,4.17,4
+2025-2026,UC3*,Computer Organization,0,0.0,0
+2025-2026,UC4*,Data Structures,20,27.78,20
+2025-2026,UC4*,Intro Programming,14,19.44,14
+2025-2026,UC4*,Discrete Math,6,8.33,6
+2025-2026,UC4*,Advanced Math,3,4.17,5
+2025-2026,UC4*,Calculus,1,1.39,2
+2025-2026,UC4*,Computer Organization,0,0.0,0
+2025-2026,UC5*,Data Structures,72,100.0,93
+2025-2026,UC5*,Intro Programming,38,52.78,79
+2025-2026,UC5*,Advanced Math,5,6.94,9
+2025-2026,UC5*,Calculus,3,4.17,8
+2025-2026,UC5*,Computer Organization,0,0.0,0
+2025-2026,UC5*,Discrete Math,0,0.0,0
+2025-2026,UC6 ,Advanced Math,3,4.17,3
+2025-2026,UC6 ,Calculus,2,2.78,4
+2025-2026,UC6 ,Intro Programming,0,0.0,0
+2025-2026,UC6 ,Data Structures,0,0.0,0
+2025-2026,UC6 ,Computer Organization,0,0.0,0
+2025-2026,UC6 ,Discrete Math,0,0.0,0
+2025-2026,UC7*,Data Structures,18,25.0,18
+2025-2026,UC7*,Intro Programming,17,23.61,17
+2025-2026,UC7*,Discrete Math,15,20.83,15
+2025-2026,UC7*,Calculus,1,1.39,2
+2025-2026,UC7*,Advanced Math,0,0.0,0
+2025-2026,UC7*,Computer Organization,0,0.0,0
+2025-2026,UC8*,Intro Programming,33,45.83,51
+2025-2026,UC8*,Calculus,1,1.39,2
+2025-2026,UC8*,Data Structures,0,0.0,0
+2025-2026,UC8*,Advanced Math,0,0.0,0
+2025-2026,UC8*,Computer Organization,0,0.0,0
+2025-2026,UC8*,Discrete Math,0,0.0,0
+2025-2026,UC9*,Intro Programming,15,20.83,20
+2025-2026,UC9*,Calculus,1,1.39,1
+2025-2026,UC9*,Data Structures,0,0.0,0
+2025-2026,UC9*,Advanced Math,0,0.0,0
+2025-2026,UC9*,Computer Organization,0,0.0,0
+2025-2026,UC9*,Discrete Math,0,0.0,0
