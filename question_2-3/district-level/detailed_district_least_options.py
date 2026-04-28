@@ -6,7 +6,7 @@ import os
 import matplotlib.colors as mcolors
 
 from district_indices import DISTRICT_INDICES
-from helper import analyze_all_districts, COURSE_GROUPS, COURSE_CATEGORIES
+from helper import analyze_all_districts, COURSE_GROUPS, COURSE_CATEGORIES, UC_NAME_INDICES
 
 def create_course_heatmap(data, directory):
     """
@@ -30,7 +30,7 @@ def create_course_heatmap(data, directory):
     missing_lookup = {}
     for _, row in data.iterrows():
         d_idx = row['District']
-        uc = row['UC Name']
+        uc = row['UC Index']
         raw = row['unarticulated_courses']
         gids = set()
         if isinstance(raw, str) and raw.strip():
@@ -50,7 +50,8 @@ def create_course_heatmap(data, directory):
             continue
         df = pd.read_csv(os.path.join(directory, fn))
         for uc, grp in df.groupby('UC Name')['Group ID']:
-            required_lookup.setdefault((d_idx, uc), set()).update(grp.unique())
+            uc_index = UC_NAME_INDICES.get(uc, uc)
+            required_lookup.setdefault((d_idx, uc_index), set()).update(grp.unique())
 
     # 3) Map raw Group ID -> category
     group_to_cat = {}
@@ -65,7 +66,7 @@ def create_course_heatmap(data, directory):
 
     # 4) Setup plot
     districts = sorted(data['District'].unique())
-    ucs = sorted(data['UC Name'].unique())
+    ucs = sorted(data['UC Index'].unique())
     nD, nU = len(districts), len(ucs)
     fig, ax = plt.subplots(figsize=(nU * 1.2, nD * 0.6))
     ax.set_xlim(0, nU)
@@ -127,7 +128,7 @@ def create_course_heatmap(data, directory):
 def create_heatmap(data):
     # --- detailed view with per-group lines ---
     plt.figure(figsize=(30, 80))
-    detailed = data.pivot(index='District', columns='UC Name', values='unarticulated_courses')
+    detailed = data.pivot(index='District', columns='UC Index', values='unarticulated_courses')
     # blank → NaN so that isna()==True means "good" → green
     detailed = detailed.replace('', np.nan)
     status = detailed.isna().astype(int)
@@ -157,7 +158,11 @@ def create_heatmap(data):
                     color='white', fontweight='bold'
                 )
 
-    plt.title('Detailed District Articulation (Green = OK, Red = Missing)', pad=20)
+    plt.title(
+        'Detailed District Articulation (Green = OK, Red = Missing)\n'
+        '(Groups with no articulation anywhere are excluded)',
+        pad=20
+    )
     plt.ylabel('Community College District')
     plt.xlabel('UC Campus')
     plt.xticks(rotation=30, ha='right')

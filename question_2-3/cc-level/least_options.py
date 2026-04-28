@@ -13,7 +13,12 @@ def create_heatmap(data):
     
     # Create heatmap with a different colormap to emphasize binary nature
     sns.heatmap(heatmap_data, annot=True, cmap='RdYlGn', cbar=False, fmt='g', vmin=0, vmax=1, linewidths=1, linecolor='black')
-    plt.title('Valid Transfer Paths to UCs\n(1=All courses articulated, 0=Some courses not articulated)', pad=20)
+    plt.title(
+        'Valid Transfer Paths to UCs\n'
+        '(1=All evaluated groups articulated, 0=Some not articulated)\n'
+        '(Groups with no articulation anywhere are excluded)',
+        pad=20
+    )
     plt.ylabel('Community College')
     plt.xlabel('UC Campus')
     
@@ -35,7 +40,10 @@ def create_bar_plot(data):
     # Create bar plot with increased figure size for better label spacing
     plt.figure(figsize=(20, 10))
     ax = total_options.plot(kind='bar')
-    plt.title('Number of Valid UC Transfer Paths by Community College')
+    plt.title(
+        'Number of Valid UC Transfer Paths by Community College\n'
+        '(Groups with no articulation anywhere are excluded)'
+    )
     plt.xlabel('Community College')
     plt.ylabel('Number of UCs with All Courses Articulated')
     
@@ -81,7 +89,10 @@ def create_simple_bar_plot(data):
                 f'{int(height)}',
                 ha='center', va='bottom')
     
-    plt.title('Distribution of Complete UC Articulations per College')
+    plt.title(
+        'Distribution of Complete UC Articulations per College\n'
+        '(Groups with no articulation anywhere are excluded)'
+    )
     plt.xlabel('Number of UCs with Complete Articulation')
     plt.ylabel('Number of Colleges')
     plt.xticks(range(10))

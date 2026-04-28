@@ -2,6 +2,7 @@ import pandas as pd
 from itertools import permutations
 import os
 import math
+import argparse
 
 # List of UC campuses
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR","UCM"]
@@ -215,12 +216,20 @@ def process_combinations(df, uc_list, txt_file="articulation_output.txt"):
 def load_csv(file_path):
     return pd.read_csv(file_path)
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run per-district Q1 combination analysis.")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.abspath(os.path.join(script_dir, "..", "..", "..", ".."))
+    parser.add_argument(
+        "--input-csv",
+        default=os.path.join(repo_root, "district_csvs", "Merced_Community_College_District.csv"),
+    )
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    file_path = "/Users/yasminkabir/assist_web_scraping/district_csvs/Merced_Community_College_District.csv" #change to path of csv of the cc/district you want
-
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"❌ File not found: {file_path}")
-
-    df = load_csv(file_path)
-    uc_list = uc_schools
-    process_combinations(df, uc_list)
+    args = parse_args()
+    if not os.path.exists(args.input_csv):
+        raise FileNotFoundError(f"File not found: {args.input_csv}")
+    df = load_csv(args.input_csv)
+    process_combinations(df, uc_schools)
