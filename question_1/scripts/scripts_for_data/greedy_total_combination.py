@@ -2,6 +2,7 @@ import pandas as pd
 from itertools import permutations
 import os
 import math
+import argparse
 
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
@@ -340,6 +341,14 @@ def process_all_csvs(folder_path):
                 f.write(f"{cc}: {ucs}\n")
             f.write("\n")
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Generate greedy Q1 order outputs.")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.abspath(os.path.join(script_dir, "..", "..", "..", ".."))
+    parser.add_argument("--input-folder", default=os.path.join(repo_root, "district_csvs"))
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    folder_path = "/Users/yasminkabir/transfer-agreements-analysis/district_csvs"
-    process_all_csvs(folder_path)
+    args = parse_args()
+    process_all_csvs(args.input_folder)

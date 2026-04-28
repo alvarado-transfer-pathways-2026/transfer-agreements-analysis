@@ -39,7 +39,11 @@ def create_heatmap(data):
                     color='white', fontweight='bold'
                 )
 
-    plt.title('Detailed Articulation (Green = OK, Red = Missing)', pad=20)
+    plt.title(
+        'Detailed Articulation (Green = OK, Red = Missing)\n'
+        '(Groups with no articulation anywhere are excluded)',
+        pad=20
+    )
     plt.ylabel('Community College')
     plt.xlabel('UC Campus')
     plt.xticks(rotation=30, ha='right')

@@ -5,6 +5,36 @@ import os
 
 from helper import analyze_all_districts, COURSE_GROUPS
 
+def _build_uc_category_missing_district_counts(data, uc_names, categories):
+    """
+    Count missing-articulation by unique district occurrence so that each
+    district contributes at most once per (UC, category).
+    """
+    uc_cat_counts = {
+        uc: {cat: 0 for cat in categories}
+        for uc in uc_names
+    }
+
+    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
+        uc = row['UC Index']
+        if uc not in uc_cat_counts:
+            continue
+
+        row_categories = set()
+        for line in row['unarticulated_courses'].split('\n'):
+            if ':' not in line:
+                continue
+            gid = line.split(':', 1)[0].strip().lower()
+            for cat, info in COURSE_GROUPS.items():
+                if any(pat in gid for pat in info['patterns']):
+                    row_categories.add(cat)
+                    break
+
+        for cat in row_categories:
+            uc_cat_counts[uc][cat] += 1
+
+    return uc_cat_counts
+
 
 def create_group_frequency_graph(data):
     """
@@ -188,7 +218,12 @@ def create_normalized_group_graph(data):
         for uc in uc_names
     ], dtype=float)
     row_sums = counts.sum(axis=1, keepdims=True)
-    percents = np.divide(counts, row_sums, where=row_sums>0) * 100
+    percents = np.divide(
+        counts,
+        row_sums,
+        out=np.zeros_like(counts),
+        where=row_sums > 0
+    ) * 100
 
     # 3) plot
     fig, ax = plt.subplots(figsize=(15, 8))
@@ -243,20 +278,9 @@ def create_per_course_graphs(data, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     # --- Build missing‐articulation counts ---
-    uc_cat_counts = {
-        uc: {cat: 0 for cat in categories}
-        for uc in uc_names
-    }
-    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
-        uc = row['UC Index']
-        for line in row['unarticulated_courses'].split('\n'):
-            if ':' not in line:
-                continue
-            gid = line.split(':',1)[0].strip().lower()
-            for cat, info in COURSE_GROUPS.items():
-                if any(pat in gid for pat in info['patterns']):
-                    uc_cat_counts[uc][cat] += 1
-                    break
+    uc_cat_counts = _build_uc_category_missing_district_counts(
+        data, uc_names, categories
+    )
 
     # --- Now, per‐category plotting ---
     grey = '#DDDDDD'
@@ -322,17 +346,9 @@ def create_all_course_graphs(data, output_dir):
     n_districts = data['District'].nunique()
 
     # Build raw counts
-    uc_cat_counts = { uc: {cat:0 for cat in categories} for uc in uc_names }
-    for _, row in data.dropna(subset=['unarticulated_courses']).iterrows():
-        uc = row['UC Index']
-        for line in row['unarticulated_courses'].split('\n'):
-            if ':' not in line:
-                continue
-            gid = line.split(':',1)[0].strip().lower()
-            for cat, info in COURSE_GROUPS.items():
-                if any(pat in gid for pat in info['patterns']):
-                    uc_cat_counts[uc][cat] += 1
-                    break
+    uc_cat_counts = _build_uc_category_missing_district_counts(
+        data, uc_names, categories
+    )
 
     # Create 2×3 grid
     fig, axes2d = plt.subplots(2, 3, figsize=(18, 10), sharey=True)
@@ -349,21 +365,24 @@ def create_all_course_graphs(data, output_dir):
         ]
 
         bars = ax.bar(uc_names, heights, color=colors, edgecolor='k')
+        # Bars can legitimately be 100% (gray = not required), so keep headroom.
+        y_max = 105
+        ax.set_ylim(0, y_max)
 
         # annotate only coloured bars
         for rect, p in zip(bars, perc):
             if p > 0:    
                 height = rect.get_height()
+                label_y = min(height + 1.2, y_max - 1.5)
                 ax.text(
                     rect.get_x() + rect.get_width() / 2,  # x-center of bar
-                    height + 0.01 * ax.get_ylim()[1],      # a 1%-of-axis‐height offset
+                    label_y,
                     f"{p:.1f}%",                           # the label
                     ha="center", va="bottom",              # center horizontally, bottom-align vertically
                     fontsize=8,
                     color="black"
                 )
 
-        ax.set_ylim(0, 60)
         ax.set_title(cat.replace('_',' ').title(), fontsize=20)
         ax.set_xticks(np.arange(len(uc_names)))
         ax.set_xticklabels(uc_names, rotation=20, ha='right')

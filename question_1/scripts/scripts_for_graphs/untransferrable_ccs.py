@@ -1,39 +1,61 @@
+import argparse
+import os
+
 import matplotlib.pyplot as plt
 
-# File path to your TXT file
-file_path = "/workspaces/assist_web_scraping/question_1/data_txts/untrasferrable_ccs.txt"  # <-- update this!
+UC_LIST = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
-# Initialize count for each UC
-uc_list = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
-untransferrable_counts = {uc: 0 for uc in uc_list}
 
-# Read the file and count untransferrable UCs
-with open(file_path, 'r') as f:
-    for line in f:
-        if ':' not in line:
-            continue
-        _, uc_str = line.strip().split(':')
-        uc_str = uc_str.strip()
-        if not uc_str:
-            continue
-        ucs = [uc.strip() for uc in uc_str.split(',') if uc.strip()]
-        for uc in ucs:
-            if uc in untransferrable_counts:
-                untransferrable_counts[uc] += 1
+def create_untransferable_plot(input_txt, output_file):
+    counts = {uc: 0 for uc in UC_LIST}
+    with open(input_txt, "r", encoding="utf-8") as f:
+        for line in f:
+            if ":" not in line:
+                continue
+            parts = line.strip().split(":", 1)
+            if len(parts) != 2:
+                continue
+            uc_str = parts[1].strip()
+            if not uc_str:
+                continue
+            for uc in [item.strip() for item in uc_str.split(",") if item.strip()]:
+                if uc in counts:
+                    counts[uc] += 1
 
-# Plotting
-plt.figure(figsize=(10, 6))
-bars = plt.bar(untransferrable_counts.keys(), untransferrable_counts.values(), color='indianred')
+    plt.figure(figsize=(10, 6))
+    bars = plt.bar(counts.keys(), counts.values(), color="indianred")
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2.0, height + 0.2, str(height), ha="center", va="bottom")
+    plt.title("Number of Districts Untransferable to Each UC")
+    plt.xlabel("UC")
+    plt.ylabel("Untransferable District Count")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
 
-# Add value labels
-for bar in bars:
-    height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width()/2., height + 0.2, str(height), ha='center', va='bottom')
 
-plt.title("Number of Districts Untransferrable to Each UC")
-plt.xlabel("UC")
-plt.ylabel("Untransferrable District Count")
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.savefig("untransferrable_districts_from_txt.png")
-plt.show()
+def parse_args():
+    parser = argparse.ArgumentParser(description="Create untransferable district counts per UC.")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.abspath(os.path.join(script_dir, "..", "..", "..", ".."))
+    parser.add_argument(
+        "--input-txt",
+        default=os.path.join(repo_root, "question_1", "csvs", "order_3_csvs", "transferable_cc_uc_pairs.txt"),
+    )
+    parser.add_argument(
+        "--output-file",
+        default=os.path.join(repo_root, "question_1", "graphs", "greedy_order_graphs", "untransferable_districts.png"),
+    )
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+    os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
+    create_untransferable_plot(args.input_txt, args.output_file)
+
+
+if __name__ == "__main__":
+    main()

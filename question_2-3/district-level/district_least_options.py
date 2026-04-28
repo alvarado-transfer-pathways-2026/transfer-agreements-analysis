@@ -11,7 +11,10 @@ def create_bar_plot(data):
     # Create bar plot with increased figure size for better label spacing
     plt.figure(figsize=(20, 5))
     ax = total_options.plot(kind='bar')
-    plt.title('Number of Valid UC Transfer Paths by Community College District')
+    plt.title(
+        'Number of Valid UC Transfer Paths by Community College District\n'
+        '(Groups with no articulation anywhere are excluded)'
+    )
     plt.xlabel('Community College District')
     plt.ylabel('Number of UCs with All Courses Articulated')
     
@@ -106,7 +109,12 @@ def create_vertical_heatmap(data):
     
     # Create heatmap with a different colormap to emphasize binary nature
     sns.heatmap(heatmap_data, annot=False, cbar=False, cmap=sns.color_palette(["white", "#1a237e"], as_cmap=True), fmt='g', vmin=0, vmax=1, linewidths=1, linecolor='black')
-    plt.title('Valid Transfer Paths to UCs by District', pad=20, fontsize=30)
+    plt.title(
+        'Valid Transfer Paths to UCs by District\n'
+        '(Groups with no articulation anywhere are excluded)',
+        pad=20,
+        fontsize=30
+    )
     plt.ylabel('Community College District', fontsize=30)
     plt.xlabel('UC Campus', fontsize=30)
     
