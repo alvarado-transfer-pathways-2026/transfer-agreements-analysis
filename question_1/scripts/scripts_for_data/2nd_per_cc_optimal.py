@@ -33,78 +33,159 @@ def get_requirement_options(df, combo):
 	course_options = {}
 	uc_group_map = {}
 	receiving_map = {}
+	required_counts = {}
 
 	for (uc, group_id), group_df in filtered_df.groupby(['UC Name', 'Group ID']):
 		uc_group_map.setdefault((uc, group_id), [])
 		for set_id, set_df in group_df.groupby('Set ID'):
-			for idx, row in set_df.iterrows():
-				key = (uc, group_id, set_id, idx)
+			# Each row in this Set ID becomes a separate requirement
+			for row_idx, (_, row) in enumerate(set_df.iterrows()):
+				key = (uc, group_id, set_id, row_idx)
 				uc_group_map[(uc, group_id)].append(key)
-				options = set()
+				requirements.append(key)
+				
+				# For this row, collect all OR options from Courses Group columns
+				options = []
 				for col in row.index:
 					if col.lower().startswith("courses group"):
 						val = str(row[col]).strip()
 						if val and val.lower() != "not articulated" and val.lower() != "nan":
-							options.update([v.strip() for v in val.split(';') if v.strip()])
+							# Semicolon-separated = AND bundle
+							bundle = frozenset(v.strip() for v in val.split(';') if v.strip())
+							if bundle:
+								options.append(bundle)
+				
 				course_options[key] = options
-				requirements.append(key)
-				receiving = set([r.strip() for r in str(row['Receiving']).split(';') if r.strip()])
-				receiving_map[key] = receiving
-	return requirements, course_options, uc_group_map, receiving_map
+				
+				# Receiving courses: split by semicolon to get the UC courses
+				receiving_courses = [r.strip() for r in str(row['Receiving']).split(';') if r.strip()]
+				receiving_map[key] = set(receiving_courses)
+				
+				# Num Required
+				try:
+					num_required = int(row['Num Required'])
+				except Exception:
+					num_required = 1
+				required_counts[key] = num_required
+	
+	return requirements, course_options, uc_group_map, receiving_map, required_counts
 
 
-def optimal_set_cover(requirements, course_options, time_limit=None):
-	# Try MILP exact solver via pulp; if unavailable, fall back to greedy
-	try:
-		import pulp
-	except Exception:
-		# fallback: greedy selection
-		course_to_reqs = {}
-		for req in requirements:
-			for c in course_options.get(req, set()):
-				course_to_reqs.setdefault(c, set()).add(req)
-
-		uncovered = set(requirements)
-		req_to_course = {}
-		selected = set()
-		while uncovered:
-			best_course = None
-			best_cover = set()
-			for course in sorted(course_to_reqs):
-				cover = course_to_reqs[course] & uncovered
-				if len(cover) > len(best_cover):
-					best_course = course
-					best_cover = cover
-			if not best_course:
-				break
-			selected.add(best_course)
-			for req in best_cover:
-				req_to_course[req] = best_course
-			uncovered -= best_cover
-		return selected, req_to_course, set(r for r in requirements if r not in req_to_course)
-
-	# Build course->requirements map
-	from collections import defaultdict
-	course_to_reqs = defaultdict(set)
-	for req in requirements:
-		for course in course_options.get(req, set()):
-			course_to_reqs[course].add(req)
-
-	all_courses = sorted(course_to_reqs.keys())
+def optimal_set_cover(requirements, course_options, required_counts, uc_group_map, time_limit=None):
+	# Group requirements by (uc, group_id, set_id) to enforce set selection constraint
+	# Within a group, only ONE set_id can be chosen
+	req_options = {req: [opt for opt in course_options.get(req, []) if opt] for req in requirements}
+	all_courses = sorted({course for opts in req_options.values() for opt in opts for course in opt})
 	if not all_courses:
 		return set(), {}, set(requirements)
 
+	try:
+		import pulp
+	except Exception:
+		# Greedy fallback
+		selected_courses = set()
+		req_to_bundles = {}
+
+		def req_satisfied(req, chosen_courses):
+			return any(opt.issubset(chosen_courses) for opt in req_options.get(req, []))
+
+		# Ensure per-group, per-set-id constraint: only one set per group
+		group_set_constraint = {}
+		for req in requirements:
+			uc, group_id, set_id = req[0], req[1], req[2]
+			group_set_constraint.setdefault((uc, group_id), set()).add(set_id)
+
+		while True:
+			uncovered = [req for req in requirements if not req_satisfied(req, selected_courses)]
+			if not uncovered:
+				break
+
+			best_req = None
+			best_opt = None
+			best_add = None
+			best_gain = None
+
+			for req in uncovered:
+				for opt in req_options.get(req, []):
+					add_count = len(opt - selected_courses)
+					gain = sum(1 for r in uncovered if any(o.issubset(selected_courses | opt) for o in req_options.get(r, [])))
+					if (
+						best_opt is None
+						or add_count < best_add
+						or (add_count == best_add and gain > best_gain)
+					):
+						best_req = req
+						best_opt = opt
+						best_add = add_count
+						best_gain = gain
+
+			if best_opt is None:
+				break
+
+			selected_courses.update(best_opt)
+			req_to_bundles.setdefault(best_req, []).append(best_opt)
+
+			for req in requirements:
+				if req not in req_to_bundles and req_satisfied(req, selected_courses):
+					for opt in req_options.get(req, []):
+						if opt.issubset(selected_courses):
+							req_to_bundles.setdefault(req, []).append(opt)
+							break
+
+		return selected_courses, req_to_bundles, set(r for r in requirements if r not in req_to_bundles)
+
 	model = pulp.LpProblem("OptimalSetCover", pulp.LpMinimize)
 	x = pulp.LpVariable.dicts("x", all_courses, cat="Binary")
+	y = {}
+	for req in requirements:
+		y[req] = pulp.LpVariable.dicts(f"y_{abs(hash(req))}", list(range(len(req_options.get(req, [])))), cat="Binary")
 
+	# Minimize total CC courses used
 	model += pulp.lpSum(x[c] for c in all_courses)
 
-	# cover constraints for requirements that have options
+	# Constraint 1: For each Group ID, choose exactly one Set ID
+	group_set_map = {}
 	for req in requirements:
-		options = sorted(course_options.get(req, set()))
+		uc, group_id, set_id = req[0], req[1], req[2]
+		group_set_map.setdefault((uc, group_id), set()).add(set_id)
+
+	z_by_group_set = {}
+
+	# For each group, create one selector variable per set_id
+	for (uc, group_id), set_ids in group_set_map.items():
+		group_reqs = [req for req in requirements if req[0] == uc and req[1] == group_id]
+		set_id_reqs = {}
+		for req in group_reqs:
+			set_id = req[2]
+			set_id_reqs.setdefault(set_id, []).append(req)
+
+		set_id_vars = {}
+		for set_id, set_reqs in set_id_reqs.items():
+			z_set = pulp.LpVariable(f"z_{uc}_{group_id}_{set_id}", cat="Binary")
+			set_id_vars[set_id] = z_set
+			z_by_group_set[(uc, group_id, set_id)] = z_set
+
+		model += pulp.lpSum(set_id_vars.values()) == 1
+
+	# Constraint 2: Row satisfaction is gated by the chosen set_id.
+	for req in requirements:
+		options = req_options.get(req, [])
 		if not options:
 			continue
-		model += pulp.lpSum(x[c] for c in options) >= 1
+
+		z_req = z_by_group_set[(req[0], req[1], req[2])]
+		sum_y = pulp.lpSum(y[req][i] for i in range(len(options)))
+
+		# Chosen set row must be satisfied; unchosen set row must be 0.
+		model += sum_y >= z_req
+		model += sum_y <= len(options) * z_req
+
+		# Within a row, Courses Group columns are OR: choose at most one cell.
+		model += sum_y <= 1
+
+		for i, opt in enumerate(options):
+			for course in opt:
+				model += x[course] >= y[req][i]
 
 	solver = pulp.PULP_CBC_CMD(msg=False)
 	status = model.solve(solver)
@@ -112,15 +193,17 @@ def optimal_set_cover(requirements, course_options, time_limit=None):
 		return set(), {}, set(requirements)
 
 	selected_courses = {c for c in all_courses if pulp.value(x[c]) > 0.5}
-	req_to_course = {}
+	req_to_bundles = {}
 	for req in requirements:
-		for course in sorted(course_options.get(req, set())):
-			if course in selected_courses:
-				req_to_course[req] = course
-				break
+		bundles = []
+		for i, opt in enumerate(req_options.get(req, [])):
+			if pulp.value(y[req][i]) > 0.5:
+				bundles.append(opt)
+		if bundles:
+			req_to_bundles[req] = bundles
 
-	uncovered = {req for req in requirements if req not in req_to_course}
-	return selected_courses, req_to_course, uncovered
+	uncovered = {req for req in requirements if req not in req_to_bundles}
+	return selected_courses, req_to_bundles, uncovered
 
 
 def get_course_name_sets(articulated_courses, unarticulated_courses):
@@ -130,64 +213,49 @@ def get_course_name_sets(articulated_courses, unarticulated_courses):
 
 
 def count_required_courses_optimal(df, combo):
-	requirements, course_options, uc_group_map, receiving_map = get_requirement_options(df, combo)
-	selected_courses, req_to_course, uncovered = optimal_set_cover(requirements, course_options)
+	requirements, course_options, uc_group_map, receiving_map, required_counts = get_requirement_options(df, combo)
+	selected_courses, req_to_bundles, uncovered = optimal_set_cover(requirements, course_options, required_counts, uc_group_map)
 
+	# Count articulated and unarticulated at the row level
 	uc_counts = {uc: {'articulated': set(), 'unarticulated': set()} for uc in [uc.lower() for uc in combo]}
+	
 	for uc in uc_counts:
+		# Get all Group IDs for this UC
 		uc_groups = [k for k in uc_group_map if k[0] == uc]
+		
 		for group_key in uc_groups:
 			group_reqs = uc_group_map[group_key]
-			# Organize by set_id
-			sets = {}
+			
+			# Determine which set_id is chosen for this group
+			chosen_set_ids = set()
 			for req in group_reqs:
-				_, _, set_id, idx = req
-				sets.setdefault(set_id, []).append(req)
-			group_fulfilled = False
-			for set_id, reqs in sets.items():
-				# Get Num Required from the first row in this set
-				num_required = None
-				for req in reqs:
-					mask = (
-						(df['UC Name'].str.lower() == uc)
-						& (df['Group ID'] == group_key[1])
-						& (df['Set ID'] == set_id)
-					)
-					if mask.any():
-						num_required = int(df[mask]['Num Required'].iloc[0])
-						break
-				fulfilled = sum(1 for req in reqs if req in req_to_course)
-				if fulfilled >= num_required:
-					group_fulfilled = True
-					break
-			if not group_fulfilled:
-				# For each set, count how many more are needed to fulfill that set
-				min_needed = None
-				min_unfulfilled_reqs = []
-				for set_id, reqs in sets.items():
-					num_required = None
-					for req in reqs:
-						mask = (
-							(df['UC Name'].str.lower() == uc)
-							& (df['Group ID'] == group_key[1])
-							& (df['Set ID'] == set_id)
-						)
-						if mask.any():
-							num_required = int(df[mask]['Num Required'].iloc[0])
-							break
-					unfulfilled_reqs = [req for req in reqs if req not in req_to_course]
-					needed = max(0, num_required - sum(1 for req in reqs if req in req_to_course))
-					if min_needed is None or needed < min_needed:
-						min_needed = needed
-						min_unfulfilled_reqs = unfulfilled_reqs[:needed]
-				for req in min_unfulfilled_reqs:
-					uc_counts[uc]['unarticulated'].update(receiving_map[req])
+				if req in req_to_bundles:
+					chosen_set_ids.add(req[2])
+			
+			if chosen_set_ids:
+				# Group is fulfilled by chosen set(s): ignore unchosen sets entirely.
+				for req in group_reqs:
+					if req[2] in chosen_set_ids:
+						bundles = req_to_bundles.get(req, [])
+						if bundles:
+							for bundle in bundles:
+								uc_counts[uc]['articulated'].update(bundle)
+						else:
+							uc_counts[uc]['unarticulated'].update(receiving_map.get(req, set()))
+			else:
+				# No set was chosen; count only one fallback set (least receiving courses).
+				unchosen_set_ids = {}
+				for req in group_reqs:
+					set_id = req[2]
+					if set_id not in unchosen_set_ids:
+						unchosen_set_ids[set_id] = set()
+					unchosen_set_ids[set_id].update(receiving_map.get(req, set()))
 
-	# Articulated courses
-	for req in requirements:
-		uc, group_id, set_id, idx = req
-		if req in req_to_course:
-			uc_counts[uc]['articulated'].add(req_to_course[req])
+				if unchosen_set_ids:
+					min_unchosen_set_id = min(unchosen_set_ids.keys(), key=lambda s: len(unchosen_set_ids[s]))
+					for req in group_reqs:
+						if req[2] == min_unchosen_set_id:
+							uc_counts[uc]['unarticulated'].update(receiving_map.get(req, set()))
 
 	articulated_courses = set()
 	unarticulated_courses = set()
@@ -215,8 +283,8 @@ def process_combinations(df, uc_list, txt_file="optimal_articulation_output.txt"
 
 		for combo in tqdm(all_combinations, total=len(all_combinations), desc="Processing combinations", unit="combo"):
 			results = []
+			previous_articulated_names = set()
 			previous_unarticulated_names = set()
-			previous_total_unique = 0
 			final_total_unique_courses = 0
 			for idx, uc in enumerate(combo):
 				role = roles[idx]
@@ -226,25 +294,25 @@ def process_combinations(df, uc_list, txt_file="optimal_articulation_output.txt"
 				art_courses = sorted(uc_counts[uc_lower]['articulated'])
 				unart_courses = sorted(uc_counts[uc_lower]['unarticulated'])
 				current_articulated_names, current_unarticulated_names = get_course_name_sets(articulated_courses, unarticulated_courses)
-				current_total_unique = len(current_articulated_names | current_unarticulated_names)
-				final_total_unique_courses = current_total_unique
+				current_articulated_total = len(current_articulated_names)
+				current_unarticulated_total = len(current_unarticulated_names)
+				final_total_unique_courses = current_articulated_total + current_unarticulated_total
 
-				# Count only the net increase in total required courses from the previous prefix.
-				# This avoids over-counting when the optimal pathway changes course identity
-				# but the total number of required courses only increases by a small amount.
-				art_count = max(0, current_total_unique - previous_total_unique)
-				unart_count = max(0, len(current_unarticulated_names) - len(previous_unarticulated_names))
+				# Count articulated and unarticulated courses separately.
+				# The articulated count should not include unarticulated courses.
+				art_count = max(0, current_articulated_total - len(previous_articulated_names))
+				unart_count = max(0, current_unarticulated_total - len(previous_unarticulated_names))
 				uc_role_totals[uc][role]['articulated'] += art_count
 				uc_role_totals[uc][role]['unarticulated'] += unart_count
 				art_str = "; ".join(art_courses) if art_courses else "-"
 				unart_str = "; ".join(unart_courses) if unart_courses else "-"
 				results.append(
-					f"{uc} ({role}): +{art_count} Net Required Courses, +{unart_count} Unarticulated "
+					f"{uc} ({role}): +{art_count} Articulated Courses, +{unart_count} Unarticulated "
 					f"{{Current Optimal Articulated Courses: {art_str}; Current Optimal Unarticulated Courses: {unart_str}}}"
 				)
 
+				previous_articulated_names = current_articulated_names
 				previous_unarticulated_names = current_unarticulated_names
-				previous_total_unique = current_total_unique
 
 			combo_str = ", ".join(combo)
 			f.write(f"\nProcessing combination: {combo_str}\n")
@@ -279,7 +347,7 @@ def load_csv(file_path):
 
 
 if __name__ == "__main__":
-	file_path = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/filtered_results/Allan_Hancock_College_filtered.csv"  # change to your CSV path
+	file_path = "district_csvs/Merced_Community_College_District.csv"  # change to your CSV path
 
 	if not os.path.exists(file_path):
 		raise FileNotFoundError(f"❌ File not found: {file_path}")
