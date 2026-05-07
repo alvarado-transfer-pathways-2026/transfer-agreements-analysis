@@ -10,7 +10,7 @@ os.makedirs("question1/graphs", exist_ok=True)
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_9_csvs"
+csv_folder = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/question_1/csvs/2026/order_3_csvs"
 
 # Track which prefix was used for each order
 order_sources = []
@@ -171,15 +171,15 @@ uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
 # Mapping for display names
 
 uc_display_names = {
-    "UCD": "UC1*",
-    "UCM": "UC2",
-    "UCSD": "UC3*",
-    "UCSB": "UC4*",
-    "UCLA": "UC5*",
-    "UCB": "UC6",
-    "UCSC": "UC7*",
-    "UCI": "UC8*",
-    "UCR": "UC9*"
+    "UCD": "UCD*",
+    "UCM": "UCM",
+    "UCSD": "UCSD*",
+    "UCSB": "UCSB*",
+    "UCLA": "UCLA*",
+    "UCB": "UCB",
+    "UCSC": "UCSC*",
+    "UCI": "UCI*",
+    "UCR": "UCR*"
 }
 
 # ... rest of your plotting code ...

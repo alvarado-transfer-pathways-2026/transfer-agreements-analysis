@@ -2,6 +2,13 @@ import pandas as pd
 from itertools import permutations, combinations
 import os
 import math
+from importlib import import_module
+
+try:
+	tqdm = import_module("tqdm").tqdm
+except Exception:
+	def tqdm(iterable, **kwargs):
+		return iterable
 
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
@@ -116,6 +123,12 @@ def optimal_set_cover(requirements, course_options, time_limit=None):
 	return selected_courses, req_to_course, uncovered
 
 
+def get_course_name_sets(articulated_courses, unarticulated_courses):
+	articulated_names = {course for (_, course) in articulated_courses}
+	unarticulated_names = {course for (_, course) in unarticulated_courses}
+	return articulated_names, unarticulated_names
+
+
 def count_required_courses_optimal(df, combo):
 	requirements, course_options, uc_group_map, receiving_map = get_requirement_options(df, combo)
 	selected_courses, req_to_course, uncovered = optimal_set_cover(requirements, course_options)
@@ -200,71 +213,64 @@ def process_combinations(df, uc_list, txt_file="optimal_articulation_output.txt"
 			uc: {role: {'articulated': 0, 'unarticulated': 0} for role in roles} for uc in uc_list
 		}
 
-		for combo in all_combinations:
-			articulated_courses, unarticulated_courses, uc_counts = count_required_courses_optimal(df, combo)
-			total_unique_courses = len(set([course for (_, course) in articulated_courses] +
-										   [course for (_, course) in unarticulated_courses]))
+		for combo in tqdm(all_combinations, total=len(all_combinations), desc="Processing combinations", unit="combo"):
 			results = []
-			seen_courses = set()
-			seen_unarticulated = set()
+			previous_unarticulated_names = set()
+			previous_total_unique = 0
+			final_total_unique_courses = 0
 			for idx, uc in enumerate(combo):
 				role = roles[idx]
 				uc_lower = uc.lower()
+				prefix_combo = combo[:idx + 1]
+				articulated_courses, unarticulated_courses, uc_counts = count_required_courses_optimal(df, prefix_combo)
 				art_courses = sorted(uc_counts[uc_lower]['articulated'])
 				unart_courses = sorted(uc_counts[uc_lower]['unarticulated'])
+				current_articulated_names, current_unarticulated_names = get_course_name_sets(articulated_courses, unarticulated_courses)
+				current_total_unique = len(current_articulated_names | current_unarticulated_names)
+				final_total_unique_courses = current_total_unique
 
-				# Only show new courses/unarticulated for this UC
-				new_art_courses = [c for c in art_courses if c not in seen_courses]
-				new_unart_courses = [c for c in unart_courses if c not in seen_unarticulated]
-
-				art_count = len(new_art_courses)
-				unart_count = len(new_unart_courses)
+				# Count only the net increase in total required courses from the previous prefix.
+				# This avoids over-counting when the optimal pathway changes course identity
+				# but the total number of required courses only increases by a small amount.
+				art_count = max(0, current_total_unique - previous_total_unique)
+				unart_count = max(0, len(current_unarticulated_names) - len(previous_unarticulated_names))
 				uc_role_totals[uc][role]['articulated'] += art_count
 				uc_role_totals[uc][role]['unarticulated'] += unart_count
-				art_str = "; ".join(new_art_courses) if new_art_courses else "-"
-				unart_str = "; ".join(new_unart_courses) if new_unart_courses else "-"
+				art_str = "; ".join(art_courses) if art_courses else "-"
+				unart_str = "; ".join(unart_courses) if unart_courses else "-"
 				results.append(
-					f"{uc} ({role}): {art_count} Courses, {unart_count} Unarticulated "
-					f"{{Courses: {art_str}; Unarticulated: {unart_str}}}"
+					f"{uc} ({role}): +{art_count} Net Required Courses, +{unart_count} Unarticulated "
+					f"{{Current Optimal Articulated Courses: {art_str}; Current Optimal Unarticulated Courses: {unart_str}}}"
 				)
 
-				seen_courses.update(new_art_courses)
-				seen_unarticulated.update(new_unart_courses)
+				previous_unarticulated_names = current_unarticulated_names
+				previous_total_unique = current_total_unique
 
 			combo_str = ", ".join(combo)
-			print(f"\nProcessing combination: {combo_str}")
-			print(f"Total Unique Courses Required: {total_unique_courses}")
 			f.write(f"\nProcessing combination: {combo_str}\n")
-			f.write(f"Total Unique Courses Required: {total_unique_courses}\n")
+			f.write(f"Total Unique Courses Required: {final_total_unique_courses}\n")
 			for res in results:
-				print(res)
 				f.write(res + "\n")
 
-		print("\n--- Final Totals Per UC by Role in Combination ---\n")
+		print("\nDone. Detailed results were written to the output file.\n")
 		f.write("\n--- Final Totals Per UC by Role in Combination ---\n\n")
 		for uc in uc_list:
-			print(f"{uc}:")
 			f.write(f"{uc}:\n")
 			for role in roles:
 				art = uc_role_totals[uc][role]['articulated']
 				unart = uc_role_totals[uc][role]['unarticulated']
-				print(f"  As {role}: {art} Courses, {unart} Unarticulated")
 				f.write(f"  As {role}: {art} Courses, {unart} Unarticulated\n")
-			print()
 			f.write("\n")
 
 		# Print averages per UC per role
-		print("\n--- Average Per UC by Role in Combination ---\n")
+		print("\nDone. Averages were written to the output file.\n")
 		f.write("\n--- Average Per UC by Role in Combination ---\n\n")
 		for uc in uc_list:
-			print(f"{uc}:")
 			f.write(f"{uc}:\n")
 			for role in roles:
 				art_avg = uc_role_totals[uc][role]['articulated'] / per_uc_per_position
 				unart_avg = uc_role_totals[uc][role]['unarticulated'] / per_uc_per_position
-				print(f"  As {role}: {art_avg:.2f} Courses, {unart_avg:.2f} Unarticulated")
 				f.write(f"  As {role}: {art_avg:.2f} Courses, {unart_avg:.2f} Unarticulated\n")
-			print()
 			f.write("\n")
 
 
