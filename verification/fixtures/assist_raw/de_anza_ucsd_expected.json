@@ -1,0 +1,26 @@
+{
+  "cc": "De Anza College",
+  "uc": "University of California San Diego",
+  "rows": [
+    {"receiving": "CSE 11", "sending_options": [["CIS 35A (4.50)"], ["CIS 36B (4.50)"]]},
+    {"receiving": "CSE 12", "sending_options": [["CIS 22C (4.50)"], ["CIS 22CH (4.50)"]]},
+    {"receiving": "CSE 29", "sending_options": [["Not Articulated"]]},
+    {"receiving": "CSE 20", "sending_options": [["MATH 22 (5.00)"], ["MATH 22H (5.00)"]]},
+    {"receiving": "CSE 21", "sending_options": [["Not Articulated"]]},
+    {"receiving": "CSE 30", "sending_options": [["CIS 21JA (4.50)", "CIS 21JB (4.50)", "CIS 26B (4.50)"], ["CIS 21JA (4.50)", "CIS 21JB (4.50)", "CIS 26BH (4.50)"]]},
+    {"receiving": "MATH 18", "sending_options": [["MATH 2B (5.00)"], ["MATH 2BH (5.00)"]]},
+    {"receiving": "MATH 20A", "sending_options": [["MATH 1A (5.00)"], ["MATH 1AH (5.00)"]]},
+    {"receiving": "MATH 20B", "sending_options": [["MATH 1B (5.00)"], ["MATH 1BH (5.00)"]]},
+    {"receiving": "MATH 20C", "sending_options": [["MATH 1C (5.00)", "MATH 1D (5.00)"], ["MATH 1CH (5.00)", "MATH 1DH (5.00)"]]},
+    {"receiving": "BILD 1", "sending_options": [["BIOL 6A (6.00)", "BIOL 6B (6.00)", "BIOL 6C (6.00)"], ["BIOL 6AH (6.00)", "BIOL 6B (6.00)", "BIOL 6CH (6.00)"]]},
+    {"receiving": "BILD 2", "sending_options": [["BIOL 6A (6.00)", "BIOL 6B (6.00)", "BIOL 6C (6.00)"], ["BIOL 6AH (6.00)", "BIOL 6B (6.00)", "BIOL 6CH (6.00)"]]},
+    {"receiving": "BILD 3", "sending_options": [["BIOL 6A (6.00)", "BIOL 6B (6.00)", "BIOL 6C (6.00)"], ["BIOL 6AH (6.00)", "BIOL 6B (6.00)", "BIOL 6CH (6.00)"]]},
+    {"receiving": "CHEM 6A", "sending_options": [["CHEM 1A (5.00)"], ["CHEM 1AH (5.00)"]]},
+    {"receiving": "CHEM 6B", "sending_options": [["CHEM 1B (5.00)"], ["CHEM 1BH (5.00)"]]},
+    {"receiving": "PHYS 2A", "sending_options": [["PHYS 4A (6.00)"]]},
+    {"receiving": "PHYS 2B", "sending_options": [["PHYS 4B (6.00)"]]},
+    {"receiving": "PHYS 4A", "sending_options": [["Not Articulated"]]},
+    {"receiving": "PHYS 4B", "sending_options": [["Not Articulated"]]}
+  ]
+}
+

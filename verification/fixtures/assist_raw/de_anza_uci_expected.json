@@ -1,0 +1,20 @@
+{
+  "cc": "De Anza College",
+  "uc": "University of California Irvine",
+  "rows": [
+    {"receiving": "I&C SCI 31; I&C SCI 32; I&C SCI 33", "receiving_type": "Series(And)", "sending_options": [["CIS 40 (4.50)", "CIS 41A (4.50)", "CIS 41B (4.50)"]]},
+    {"receiving": "MATH 2A", "sending_options": [["MATH 1A (5.00)"], ["MATH 1AH (5.00)"], ["MATH 12 (5.00)"]]},
+    {"receiving": "MATH 2B", "sending_options": [["MATH 1B (5.00)"], ["MATH 1BH (5.00)"]]},
+    {"receiving": "I&C SCI 45C", "sending_options": [["CIS 22A (4.50)", "CIS 22B (4.50)"], ["CIS 29 (4.50)"]]},
+    {"receiving": "I&C SCI 46", "sending_options": [["CIS 22A (4.50)", "CIS 22B (4.50)", "CIS 22C (4.50)"]]},
+    {"receiving": "I&C SCI 51", "sending_options": [["Not Articulated"]]},
+    {"receiving": "I&C SCI 53", "sending_options": [["Not Articulated"]]},
+    {"receiving": "IN4MATX 43", "sending_options": [["Not Articulated"]]},
+    {"receiving": "I&C SCI 6B", "sending_options": [["MATH 22 (5.00)"], ["MATH 22H (5.00)"]]},
+    {"receiving": "I&C SCI 6D", "sending_options": [["MATH 22 (5.00)"], ["MATH 22H (5.00)"]]},
+    {"receiving": "STATS 67", "sending_options": [["MATH 23 (5.00)"]]},
+    {"receiving": "I&C SCI 6N", "sending_options": [["Not Articulated"]]},
+    {"receiving": "MATH 3A", "sending_options": [["MATH 2B (5.00)"], ["MATH 2BH (5.00)"]]}
+  ]
+}
+

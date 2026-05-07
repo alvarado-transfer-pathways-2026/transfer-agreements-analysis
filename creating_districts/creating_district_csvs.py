@@ -3,11 +3,18 @@ import pandas as pd
 import json
 from collections import defaultdict
 
+def normalize_college_name(name):
+    """Normalize college names for matching filenames to districts.json."""
+    return " ".join(str(name).split()).casefold()
+
 def count_total_courses(row, course_group_cols):
     """Helper to count total required courses (count semicolons across all course groups)."""
     total = 0
     for col in course_group_cols:
-        cell = str(row.get(col, ""))
+        cell_value = row.get(col, "")
+        if pd.isna(cell_value):
+            continue
+        cell = str(cell_value).strip()
         if cell and cell != "Not Articulated":
             total += cell.count(';') + 1  # Semicolons mean multiple required courses
     return total
@@ -29,9 +36,11 @@ with open(districts_json_path, 'r') as f:
 
 # Build college -> district lookup
 college_to_district = {}
+normalized_college_lookup = {}
 for district, info in districts_data.items():
     for college in info['colleges']:
         college_to_district[college] = district
+        normalized_college_lookup[normalize_college_name(college)] = (college, district)
 
 # --- Collect data by district ---
 district_data = defaultdict(list)
@@ -45,12 +54,22 @@ for filename in os.listdir(input_folder):
     file_path    = os.path.join(input_folder, filename)
     df           = pd.read_csv(file_path)
 
-    if college_name not in college_to_district:
+    if college_name in college_to_district:
+        canonical_college_name = college_name
+        district_name = college_to_district[college_name]
+    else:
+        normalized_match = normalized_college_lookup.get(normalize_college_name(college_name))
+        if normalized_match:
+            canonical_college_name, district_name = normalized_match
+        else:
+            print(f"  ⚠️  Warning: {college_name} not found in districts.json, skipping.")
+            continue
+
+    if not district_name:
         print(f"  ⚠️  Warning: {college_name} not found in districts.json, skipping.")
         continue
 
-    district_name = college_to_district[college_name]
-    df.insert(0, 'College Name', college_name)
+    df.insert(0, 'College Name', canonical_college_name)
     district_data[district_name].append(df)
 
 # --- Merge and pick best articulations per district ---

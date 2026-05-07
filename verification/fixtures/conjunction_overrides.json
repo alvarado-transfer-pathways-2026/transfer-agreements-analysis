@@ -1,0 +1,39 @@
+{
+  "overrides": [
+    {
+      "cc": "De Anza College",
+      "uc": "University of California Irvine",
+      "uc_abbr": "UCI",
+      "receiving": "MATH 2A",
+      "reason": "Assist sending-side group uses OR: MATH 1A or MATH 1AH or MATH 12.",
+      "sending_options": [
+        ["MATH 1A (5.00)"],
+        ["MATH 1AH (5.00)"],
+        ["MATH 12 (5.00)"]
+      ]
+    },
+    {
+      "cc": "De Anza College",
+      "uc": "University of California Irvine",
+      "uc_abbr": "UCI",
+      "receiving": "I&C SCI 6B",
+      "reason": "Assist sending-side group uses OR: MATH 22 or MATH 22H.",
+      "sending_options": [
+        ["MATH 22 (5.00)"],
+        ["MATH 22H (5.00)"]
+      ]
+    },
+    {
+      "cc": "De Anza College",
+      "uc": "University of California Irvine",
+      "uc_abbr": "UCI",
+      "receiving": "I&C SCI 6D",
+      "reason": "Assist sending-side group uses OR: MATH 22 or MATH 22H.",
+      "sending_options": [
+        ["MATH 22 (5.00)"],
+        ["MATH 22H (5.00)"]
+      ]
+    }
+  ]
+}
+
