@@ -13,8 +13,8 @@ UCD,Calc2,A,1,MAT 021B,MATH 3A (5.00); MATH 3B (5.00),
 UCD,Calc3,A,1,MAT 021C,MATH 3B (5.00); MATH 3C (5.00),
 UCD,Linear Algebra,A,1,MAT 022A,MATH 3E (3.00),
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,CIS 6 (5.00); CIS 25 (4.00),CIS 36A (4.00); CIS 36B (4.00)
-UCI,Calc1,A,1,MATH 2A,MATH 3A (5.00); MATH 16A (4.00),
-UCI,Calc2,A,1,MATH 2B,MATH 3B (5.00); MATH 16B (3.00),
+UCI,Calc1,A,1,MATH 2A,MATH 3A (5.00),MATH 16A (4.00)
+UCI,Calc2,A,1,MATH 2B,MATH 3B (5.00),MATH 16B (3.00)
 UCI,Programming,A,1,I&C SCI 45C,Not Articulated,
 UCI,Programming,B,1,I&C SCI 46,Not Articulated,
 UCI,Programming,C,1,I&C SCI 51,CIS 20 (4.00),
@@ -23,7 +23,7 @@ UCI,Programming,E,1,IN4MATX 43,Not Articulated,
 UCI,Programming,F,1,I&C SCI 6B,Not Articulated,
 UCI,Programming,G,1,I&C SCI 6D,Not Articulated,
 UCI,Programming,H,1,STATS 67,Not Articulated,
-UCLA,Intro,A,1,COM SCI 31,CIS 25 (4.00); CIS 27 (4.00),CIS 6 (5.00)
+UCLA,Intro,A,1,COM SCI 31,CIS 25 (4.00),CIS 6 (5.00)
 UCLA,Intro2,A,1,COM SCI 32,CIS 25 (4.00); CIS 27 (4.00),CIS 6 (5.00); CIS 27 (4.00)
 UCLA,Intro3,A,1,COM SCI 33,CIS 20 (4.00),
 UCLA,SoftwareConstruction,A,1,COM SCI 35L,Not Articulated,
@@ -43,7 +43,7 @@ UCR,Intro1,A,1,CS 10A,CIS 25 (4.00),CIS 36A (4.00)
 UCR,Intro2,A,1,CS 10B,CIS 36B (4.00),
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 3A (5.00); MATH 3B (5.00),
 UCSD,Intro,A,1,CSE 11,CIS 36A (4.00),
-UCSD,DataStructures,A,1,CSE 12,Not Articulated,
+UCSD,DataStructures,A,1,CSE 12,CIS 27 (4.00),
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated,
 UCSD,LinearAlgebra,A,1,MATH 18,MATH 3E (3.00),
 UCSD,Calc1,A,1,MATH 20A,MATH 3A (5.00),

@@ -13,8 +13,8 @@ UCD,Calc2,A,1,MAT 021B,MATH 3B (5.00),
 UCD,Calc3,A,1,MAT 021C,MATH 3B (5.00); MATH 3C (5.00),
 UCD,Linear Algebra,A,1,MAT 022A,MATH 3E (3.00),
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated,
-UCI,Calc1,A,1,MATH 2A,MATH 3A (5.00); MATH 16A (4.00),
-UCI,Calc2,A,1,MATH 2B,MATH 3B (5.00); MATH 16B (3.00),
+UCI,Calc1,A,1,MATH 2A,MATH 3A (5.00),MATH 16A (4.00)
+UCI,Calc2,A,1,MATH 2B,MATH 3B (5.00),MATH 16B (3.00)
 UCI,Programming,A,1,I&C SCI 45C,Not Articulated,
 UCI,Programming,B,1,I&C SCI 46,Not Articulated,
 UCI,Programming,C,1,I&C SCI 51,Not Articulated,

@@ -474,6 +474,19 @@
       }
     },
     "UCSC": {
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI C255",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

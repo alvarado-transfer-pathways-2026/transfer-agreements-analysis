@@ -294,7 +294,9 @@
             {
               "course": "MATH 261",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 261S",
               "units": 5.0
@@ -391,7 +393,9 @@
             {
               "course": "MATH 261",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 261S",
               "units": 5.0
@@ -630,6 +634,12 @@
             {
               "course": "CS 216",
               "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 173",
+              "units": 4.0
             }
           ]
         ],

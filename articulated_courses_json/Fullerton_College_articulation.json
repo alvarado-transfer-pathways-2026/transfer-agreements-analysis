@@ -58,18 +58,18 @@
         "course_groups": [
           [
             {
+              "course": "MATH 252 F",
+              "units": 4.0
+            }
+          ],
+          [
+            {
               "course": "MATH 255 F",
               "units": 3.0
             },
             {
               "course": "MATH 260 F",
               "units": 3.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 252 F",
-              "units": 4.0
             }
           ]
         ],
@@ -328,7 +328,9 @@
             {
               "course": "MATH 170 F",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 171 F",
               "units": 4.0
@@ -345,7 +347,9 @@
             {
               "course": "MATH 170 F",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 171 F",
               "units": 4.0
@@ -564,18 +568,18 @@
         "course_groups": [
           [
             {
+              "course": "MATH 252 F",
+              "units": 4.0
+            }
+          ],
+          [
+            {
               "course": "MATH 255 F",
               "units": 3.0
             },
             {
               "course": "MATH 260 F",
               "units": 3.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 252 F",
-              "units": 4.0
             }
           ]
         ],
@@ -614,18 +618,18 @@
         "course_groups": [
           [
             {
+              "course": "CIS 223 F",
+              "units": 3.0
+            }
+          ],
+          [
+            {
               "course": "CSCI 123 F",
               "units": 4.0
             },
             {
               "course": "CSCI 133 F",
               "units": 4.0
-            }
-          ],
-          [
-            {
-              "course": "CIS 223 F",
-              "units": 3.0
             }
           ]
         ],

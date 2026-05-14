@@ -239,11 +239,15 @@
             {
               "course": "MATH 70",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 70H",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 70S",
               "units": 6.0

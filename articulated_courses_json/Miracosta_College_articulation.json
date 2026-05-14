@@ -637,6 +637,18 @@
               "course": "CS 112",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "CS 139",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS 151",
+              "units": 3.0
+            }
           ]
         ],
         "receiving_course": "CSE 11"

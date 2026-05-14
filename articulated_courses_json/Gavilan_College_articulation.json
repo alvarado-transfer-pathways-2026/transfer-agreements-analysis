@@ -666,6 +666,12 @@
               "course": "CSIS 26",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "MATH 16",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "CSE 16"

@@ -52,3 +52,12 @@ UCSC,DiscreteMath,A,1,CSE 16,Not Articulated
 UCSC,Intro,A,1,CSE 30,ICS C123 (3.00)
 UCSC,Calc1,A,1,MATH 19A,MATH C180 (5.00)
 UCSC,Calc2,A,1,MATH 19B,MATH C185 (5.00)
+UCD,DiscreteMath,A,1,ECS 020,Not Articulated
+UCD,Intro1,A,1,ECS 036A,Not Articulated
+UCD,Intro2,A,1,ECS 036B,Not Articulated
+UCD,DataStructures,A,1,ECS 036C,ICS C123 (3.00)
+UCD,Organization,A,1,ECS 050,Not Articulated
+UCD,Calc1,A,1,MAT 021A,MATH C180 (5.00)
+UCD,Calc2,A,1,MAT 021B,MATH C185 (5.00)
+UCD,Calc3,A,2,MAT 021C; MAT 021D,MATH C280 (5.00)
+UCD,Linear Algebra,A,1,MAT 022A; MAT 022B,MATH C285 (5.00)

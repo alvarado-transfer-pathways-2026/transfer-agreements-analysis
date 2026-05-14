@@ -125,6 +125,19 @@
         ],
         "receiving_course": "ECS 036C"
       },
+      "Organization": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 45",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 050"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -707,6 +720,19 @@
       }
     },
     "UCSC": {
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI 45",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
       "DiscreteMath": {
         "set_id": "A",
         "num_required": 1,

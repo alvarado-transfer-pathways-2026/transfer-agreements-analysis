@@ -1,5 +1,11 @@
 import pandas as pd
 import os
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from course_group_semantics import is_articulated
 
 def can_transfer_to_uc(df, uc_name):
     # Get all requirements for this UC
@@ -24,9 +30,8 @@ def can_transfer_to_uc(df, uc_name):
                 current_set_unarticulated = []
                 
                 for _, row in set_data.iterrows():
-                    for col in [col for col in df.columns if col.startswith('Courses Group')]:
-                        if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                            current_set_unarticulated.append(row['Receiving'])
+                    if not is_articulated(row):
+                        current_set_unarticulated.append(row['Receiving'])
                             
                 if len(current_set_unarticulated) == 0:
                     set_satisfied = True
@@ -40,9 +45,8 @@ def can_transfer_to_uc(df, uc_name):
         else:
             # Single set ID - all courses must be satisfied
             for _, row in group_data.iterrows():
-                for col in [col for col in df.columns if col.startswith('Courses Group')]:
-                    if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                        unarticulated_courses.append(row['Receiving'])
+                if not is_articulated(row):
+                    unarticulated_courses.append(row['Receiving'])
     
     return unarticulated_courses
 
@@ -76,9 +80,8 @@ def count_transfer_options(file_path):
                     current_set_unarticulated = set()
                     
                     for _, row in set_data.iterrows():
-                        for col in [c for c in df.columns if c.startswith('Courses Group')]:
-                            if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                                current_set_unarticulated.add(row['Receiving'])
+                        if not is_articulated(row):
+                            current_set_unarticulated.add(row['Receiving'])
                     
                     if len(current_set_unarticulated) == 0:
                         set_satisfied = True
@@ -93,9 +96,8 @@ def count_transfer_options(file_path):
                 # Single Set ID - check all courses
                 unarticulated = set()
                 for _, row in group_data.iterrows():
-                    for col in [c for c in df.columns if c.startswith('Courses Group')]:
-                        if pd.notna(row[col]) and 'Not Articulated' in str(row[col]):
-                            unarticulated.add(row['Receiving'])
+                    if not is_articulated(row):
+                        unarticulated.add(row['Receiving'])
                 if unarticulated:
                     grouped[group_id] = unarticulated
         

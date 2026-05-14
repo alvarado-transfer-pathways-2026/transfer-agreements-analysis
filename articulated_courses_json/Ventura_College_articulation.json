@@ -412,7 +412,9 @@
             {
               "course": "CS V17",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH V52",
               "units": 3.0

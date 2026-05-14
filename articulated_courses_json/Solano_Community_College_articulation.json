@@ -72,6 +72,12 @@
               "course": "CIS 021",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "ENGR 012",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "ECS 020"

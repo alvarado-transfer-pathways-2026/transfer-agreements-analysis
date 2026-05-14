@@ -9,6 +9,7 @@ from .common import (
     AgreementRow,
     CsvIssue,
     PROJECT_ROOT,
+    classify_sending_mismatch,
     load_csv_rows,
     load_expected_agreement_rows,
     row_sending_options,
@@ -26,7 +27,7 @@ UC_FIXTURES = {
 }
 
 
-def raw_csv_rows(project_root: Path, cc_name: str, uc_name: str) -> dict[str, AgreementRow]:
+def raw_csv_row_list(project_root: Path, cc_name: str, uc_name: str) -> list[AgreementRow]:
     path = project_root / "results" / f"{cc_name.replace(' ', '_')}_allUC.csv"
     rows = []
     for csv_row in load_csv_rows(path):
@@ -38,6 +39,11 @@ def raw_csv_rows(project_root: Path, cc_name: str, uc_name: str) -> dict[str, Ag
                 sending_options=row_sending_options(csv_row),
             )
         )
+    return rows
+
+
+def raw_csv_rows(project_root: Path, cc_name: str, uc_name: str) -> dict[str, AgreementRow]:
+    rows = raw_csv_row_list(project_root, cc_name, uc_name)
     return rows_by_receiving(rows)
 
 
@@ -47,18 +53,39 @@ def compare_rows(expected: dict[str, AgreementRow], actual: dict[str, AgreementR
         expected_row = expected.get(receiving)
         actual_row = actual.get(receiving)
         if expected_row is None:
-            issues.append(CsvIssue(receiving, "unexpected raw CSV row", None, actual_row.sending_options))
+            issues.append(
+                CsvIssue(
+                    receiving,
+                    "unexpected raw CSV row",
+                    None,
+                    actual_row.sending_options,
+                    "unexpected_row",
+                )
+            )
             continue
         if actual_row is None:
-            issues.append(CsvIssue(receiving, "missing raw CSV row", expected_row.sending_options, None))
+            issues.append(
+                CsvIssue(
+                    receiving,
+                    "missing raw CSV row",
+                    expected_row.sending_options,
+                    None,
+                    "missing_row",
+                )
+            )
             continue
         if expected_row.sending_options != actual_row.sending_options:
+            issue_type = classify_sending_mismatch(
+                expected_row.sending_options,
+                actual_row.sending_options,
+            )
             issues.append(
                 CsvIssue(
                     receiving,
                     "sending options differ",
                     expected_row.sending_options,
                     actual_row.sending_options,
+                    issue_type,
                 )
             )
     return issues
@@ -113,4 +140,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

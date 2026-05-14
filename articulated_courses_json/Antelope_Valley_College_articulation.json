@@ -327,7 +327,9 @@
             {
               "course": "MATH 150",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 150H",
               "units": 5.0
@@ -644,7 +646,9 @@
             {
               "course": "CS 230",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 231",
               "units": 3.0
@@ -661,11 +665,15 @@
             {
               "course": "CS 130",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 131",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 132",
               "units": 3.0
@@ -879,6 +887,12 @@
           [
             {
               "course": "MATH 150",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 150H",
               "units": 5.0
             }
           ]

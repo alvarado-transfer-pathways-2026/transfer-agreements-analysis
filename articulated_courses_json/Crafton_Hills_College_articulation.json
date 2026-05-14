@@ -235,7 +235,9 @@
             {
               "course": "MATH 250",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 250E",
               "units": 4.0
@@ -562,6 +564,12 @@
           [
             {
               "course": "MATH 250",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 250E",
               "units": 4.0
             }
           ]

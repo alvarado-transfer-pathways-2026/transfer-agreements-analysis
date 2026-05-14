@@ -9,11 +9,15 @@
             {
               "course": "MATH 005A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005AH",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005AE",
               "units": 5.5
@@ -461,19 +465,27 @@
             {
               "course": "BUS 014B",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005AE",
               "units": 5.5
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005AH",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 006A",
               "units": 3.0
@@ -490,11 +502,15 @@
             {
               "course": "MATH 005B",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005BE",
               "units": 5.5
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 005BH",
               "units": 5.0
@@ -580,7 +596,9 @@
             {
               "course": "CS 045",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 022",
               "units": 4.0

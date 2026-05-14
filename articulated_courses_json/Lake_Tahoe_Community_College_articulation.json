@@ -150,7 +150,9 @@
             {
               "course": "MAT 105",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MAT 118",
               "units": 5.0

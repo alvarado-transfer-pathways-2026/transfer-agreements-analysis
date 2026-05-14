@@ -1,6 +1,4 @@
 College Name,UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
-Not Articulated,UCB,Calc1,A,1,MATH 51,Not Articulated
-Not Articulated,UCB,Calc2,A,1,MATH 52,Not Articulated
 Not Articulated,UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,Not Articulated
 Not Articulated,UCB,MultivariableCalc,A,1,MATH 53,Not Articulated
 Not Articulated,UCD,Calc1,A,1,MAT 021A,Not Articulated
@@ -10,30 +8,17 @@ Not Articulated,UCD,DataStructures,A,1,ECS 036C,Not Articulated
 Not Articulated,UCD,DiscreteMath,A,1,ECS 020,Not Articulated
 Not Articulated,UCD,Intro1,A,1,ECS 036A,Not Articulated
 Not Articulated,UCD,Intro2,A,1,ECS 036B,Not Articulated
-Not Articulated,UCD,Linear Algebra,A,1,MAT 022A,Not Articulated
 Not Articulated,UCD,Organization,A,1,ECS 050,Not Articulated
 Not Articulated,UCI,Calc1,A,1,MATH 2A,Not Articulated
 Not Articulated,UCI,Calc2,A,1,MATH 2B,Not Articulated
 Not Articulated,UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
-Not Articulated,UCI,Programming,A,1,I&C SCI 45C,Not Articulated
-Not Articulated,UCI,Programming,B,1,I&C SCI 46,Not Articulated
-Not Articulated,UCI,Programming,C,1,I&C SCI 51,Not Articulated
-Not Articulated,UCI,Programming,D,1,I&C SCI 53,Not Articulated
-Not Articulated,UCI,Programming,E,1,IN4MATX 43,Not Articulated
-Not Articulated,UCI,Programming,F,1,I&C SCI 6B,Not Articulated
-Not Articulated,UCI,Programming,G,1,I&C SCI 6D,Not Articulated
-Not Articulated,UCI,Programming,H,1,STATS 67,Not Articulated
 Not Articulated,UCLA,Calc1,A,1,MATH 31A,Not Articulated
 Not Articulated,UCLA,Calc2,A,1,MATH 31B,Not Articulated
 Not Articulated,UCLA,Calc3,A,1,MATH 32A,Not Articulated
 Not Articulated,UCLA,Calc4,A,1,MATH 32B,Not Articulated
 Not Articulated,UCLA,DifferentialEquations,A,1,MATH 33B,Not Articulated
-Not Articulated,UCLA,DiscreteStructures,A,1,MATH 61,Not Articulated
 Not Articulated,UCLA,Intro,A,1,COM SCI 31,Not Articulated
-Not Articulated,UCLA,Intro2,A,1,COM SCI 32,Not Articulated
-Not Articulated,UCLA,Intro3,A,1,COM SCI 33,Not Articulated
 Not Articulated,UCLA,LinearAlgebra,A,1,MATH 33A,Not Articulated
-Not Articulated,UCLA,SoftwareConstruction,A,1,COM SCI 35L,Not Articulated
 Not Articulated,UCM,Calc1,A,1,MATH 021,Not Articulated
 Not Articulated,UCM,Calc2,A,1,MATH 022,Not Articulated
 Not Articulated,UCM,DataStructures,A,1,CSE 030,Not Articulated
@@ -51,7 +36,6 @@ Not Articulated,UCSB,Intro,A,1,CMPSC 16,Not Articulated
 Not Articulated,UCSB,LinearAlgebra,A,1,MATH 4A,Not Articulated
 Not Articulated,UCSC,Calc1,A,1,MATH 19A,Not Articulated
 Not Articulated,UCSC,Calc2,A,1,MATH 19B,Not Articulated
-Not Articulated,UCSC,DataStructures,A,1,CSE 12,Not Articulated
 Not Articulated,UCSC,DiscreteMath,A,1,CSE 16,Not Articulated
 Not Articulated,UCSC,Intro,A,1,CSE 30,Not Articulated
 Palo Verde College,UCSD,Calc1,A,1,MATH 20A,MAT 220 (5.00)
@@ -59,5 +43,4 @@ Not Articulated,UCSD,Calc2,A,1,MATH 20B,Not Articulated
 Not Articulated,UCSD,Calc3,A,1,MATH 20C,Not Articulated
 Not Articulated,UCSD,DataStructures,A,1,CSE 12,Not Articulated
 Not Articulated,UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
-Not Articulated,UCSD,Intro,A,1,CSE 11,Not Articulated
 Not Articulated,UCSD,LinearAlgebra,A,1,MATH 18,Not Articulated

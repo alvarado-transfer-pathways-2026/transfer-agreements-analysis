@@ -6,7 +6,11 @@ import os
 import matplotlib.colors as mcolors
 
 from district_indices import DISTRICT_INDICES
-from helper import analyze_all_districts, COURSE_GROUPS, COURSE_CATEGORIES
+from helper import analyze_all_districts, COURSE_GROUPS, COURSE_CATEGORIES, UC_NAME_INDICES
+
+
+def uc_display_column(data):
+    return 'UC Index' if 'UC Index' in data.columns else 'UC Name'
 
 def create_course_heatmap(data, directory):
     """
@@ -28,9 +32,10 @@ def create_course_heatmap(data, directory):
 
     # 1) Build missing_lookup keyed by (district_idx, UC)
     missing_lookup = {}
+    uc_col = uc_display_column(data)
     for _, row in data.iterrows():
         d_idx = row['District']
-        uc = row['UC Name']
+        uc = row[uc_col]
         raw = row['unarticulated_courses']
         gids = set()
         if isinstance(raw, str) and raw.strip():
@@ -50,7 +55,8 @@ def create_course_heatmap(data, directory):
             continue
         df = pd.read_csv(os.path.join(directory, fn))
         for uc, grp in df.groupby('UC Name')['Group ID']:
-            required_lookup.setdefault((d_idx, uc), set()).update(grp.unique())
+            uc_key = UC_NAME_INDICES.get(uc, uc) if uc_col == 'UC Index' else uc
+            required_lookup.setdefault((d_idx, uc_key), set()).update(grp.unique())
 
     # 3) Map raw Group ID -> category
     group_to_cat = {}
@@ -65,7 +71,7 @@ def create_course_heatmap(data, directory):
 
     # 4) Setup plot
     districts = sorted(data['District'].unique())
-    ucs = sorted(data['UC Name'].unique())
+    ucs = sorted(data[uc_col].unique())
     nD, nU = len(districts), len(ucs)
     fig, ax = plt.subplots(figsize=(nU * 1.2, nD * 0.6))
     ax.set_xlim(0, nU)
@@ -127,7 +133,7 @@ def create_course_heatmap(data, directory):
 def create_heatmap(data):
     # --- detailed view with per-group lines ---
     plt.figure(figsize=(30, 80))
-    detailed = data.pivot(index='District', columns='UC Name', values='unarticulated_courses')
+    detailed = data.pivot(index='District', columns=uc_display_column(data), values='unarticulated_courses')
     # blank → NaN so that isna()==True means "good" → green
     detailed = detailed.replace('', np.nan)
     status = detailed.isna().astype(int)

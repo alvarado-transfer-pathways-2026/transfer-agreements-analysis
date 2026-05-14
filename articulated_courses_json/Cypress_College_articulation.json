@@ -174,11 +174,15 @@
             {
               "course": "MATH 130 C",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 130PC",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 150AC",
               "units": 4.0

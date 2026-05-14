@@ -193,6 +193,12 @@
               "course": "MATH 3A",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 3AS",
+              "units": 6.0
+            }
           ]
         ],
         "receiving_course": "MATH 2A"

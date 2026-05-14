@@ -2,6 +2,12 @@ import pandas as pd
 from itertools import permutations
 import os
 import math
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from course_group_semantics import articulated_options, greedy_requirement_cover
 
 # List of UC campuses
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR","UCM"]
@@ -31,45 +37,14 @@ def get_requirement_options(df, combo):
             for idx, row in set_df.iterrows():
                 key = (uc, group_id, set_id, idx)
                 uc_group_map[(uc, group_id)].append(key)
-                options = set()
-                for col in row.index:
-                    if col.lower().startswith("courses group"):
-                        val = str(row[col]).strip()
-                        if val and val.lower() != "not articulated" and val.lower() != "nan":
-                            options.update([v.strip() for v in val.split(';') if v.strip()])
-                course_options[key] = options
+                course_options[key] = articulated_options(row)
                 requirements.append(key)
                 receiving = set([r.strip() for r in str(row['Receiving']).split(';') if r.strip()])
                 receiving_map[key] = receiving
     return requirements, course_options, uc_group_map, receiving_map
 
 def greedy_set_cover(requirements, course_options):
-    uncovered = set(requirements)
-    course_to_reqs = {}
-    for req in uncovered:
-        for course in course_options[req]:
-            course_to_reqs.setdefault(course, set()).add(req)
-
-    selected_courses = set()
-    req_to_course = {}
-
-    while uncovered:
-        best_course = None
-        best_cover = set()
-        # Sort courses for deterministic tie-breaking
-        for course in sorted(course_to_reqs):
-            reqs = course_to_reqs[course]
-            cover = reqs & uncovered
-            if len(cover) > len(best_cover):
-                best_course = course
-                best_cover = cover
-        if not best_course:
-            break
-        selected_courses.add(best_course)
-        for req in best_cover:
-            req_to_course[req] = best_course
-        uncovered -= best_cover
-    return selected_courses, req_to_course, uncovered
+    return greedy_requirement_cover(requirements, course_options)
 
 def count_required_courses_global(df, combo):
     requirements, course_options, uc_group_map, receiving_map = get_requirement_options(df, combo)
@@ -127,11 +102,11 @@ def count_required_courses_global(df, combo):
                 for req in min_unfulfilled_reqs:
                     uc_counts[uc]['unarticulated'].update(receiving_map[req])
 
-    # Articulated courses (as before)
+    # Articulated courses
     for req in requirements:
         uc, group_id, set_id, idx = req
         if req in req_to_course:
-            uc_counts[uc]['articulated'].add(req_to_course[req])
+            uc_counts[uc]['articulated'].update(req_to_course[req])
 
     articulated_courses = set()
     unarticulated_courses = set()

@@ -33,6 +33,8 @@ def configured_fixture_pairs(cc_name: str | None = None) -> list[tuple[str, str]
 
 
 def is_probable_flattened_or(issue: CsvIssue) -> bool:
+    if issue.issue_type == "flattened_or":
+        return True
     if issue.message != "sending options differ":
         return False
     expected = issue.expected or ()
@@ -137,4 +139,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

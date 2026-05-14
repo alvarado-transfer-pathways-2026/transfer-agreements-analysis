@@ -396,11 +396,15 @@
             {
               "course": "MATH 1A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1AH",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 12",
               "units": 5.0
@@ -480,7 +484,9 @@
             {
               "course": "MATH 22",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 22H",
               "units": 5.0
@@ -497,7 +503,9 @@
             {
               "course": "MATH 22",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 22H",
               "units": 5.0
@@ -529,11 +537,15 @@
             {
               "course": "CIS 22B",
               "units": 4.5
-            },
+            }
+          ],
+          [
             {
               "course": "CIS 22BH",
               "units": 4.5
-            },
+            }
+          ],
+          [
             {
               "course": "CIS 29",
               "units": 4.5
@@ -558,25 +570,93 @@
               "units": 4.5
             },
             {
-              "course": "CIS 22CH",
+              "course": "CIS 22A",
               "units": 4.5
             }
           ],
           [
             {
-              "course": "CIS 22A",
+              "course": "CIS 22C",
               "units": 4.5
             },
             {
               "course": "CIS 22B",
               "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22C",
+              "units": 4.5
             },
             {
               "course": "CIS 22BH",
               "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22C",
+              "units": 4.5
             },
             {
               "course": "CIS 27",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22C",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 29",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22A",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22B",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22BH",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 27",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
               "units": 4.5
             },
             {
@@ -608,7 +688,9 @@
             {
               "course": "MATH 1A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1AH",
               "units": 5.0
@@ -672,7 +754,9 @@
             {
               "course": "MATH 1C",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1CH",
               "units": 5.0
@@ -689,7 +773,9 @@
             {
               "course": "MATH 1D",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1DH",
               "units": 5.0
@@ -706,7 +792,9 @@
             {
               "course": "MATH 2B",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 2BH",
               "units": 5.0
@@ -723,7 +811,9 @@
             {
               "course": "MATH 2A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 2AH",
               "units": 5.0
@@ -740,7 +830,9 @@
             {
               "course": "MATH 22",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 22H",
               "units": 5.0
@@ -758,6 +850,12 @@
           [
             {
               "course": "CIS 22C",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
               "units": 4.5
             }
           ]
@@ -880,16 +978,6 @@
         "course_groups": [
           [
             {
-              "course": "CIS 36A",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 36B",
-              "units": 4.5
-            }
-          ],
-          [
-            {
               "course": "CIS 22A",
               "units": 4.5
             }
@@ -905,14 +993,7 @@
               "course": "CIS 26B",
               "units": 4.5
             }
-          ]
-        ],
-        "receiving_course": "CS 10A"
-      },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
+          ],
           [
             {
               "course": "CIS 36A",
@@ -922,7 +1003,14 @@
               "course": "CIS 36B",
               "units": 4.5
             }
-          ],
+          ]
+        ],
+        "receiving_course": "CS 10A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
           [
             {
               "course": "CIS 22B",
@@ -944,6 +1032,16 @@
           [
             {
               "course": "CIS 29",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 36A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 36B",
               "units": 4.5
             }
           ]
@@ -1149,13 +1247,33 @@
               "units": 5.0
             },
             {
-              "course": "MATH 1BH",
+              "course": "MATH 1C",
               "units": 5.0
             }
           ],
           [
             {
+              "course": "MATH 1B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 1CH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 1BH",
+              "units": 5.0
+            },
+            {
               "course": "MATH 1C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 1BH",
               "units": 5.0
             },
             {

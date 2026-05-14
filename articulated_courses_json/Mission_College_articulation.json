@@ -65,6 +65,19 @@
       }
     },
     "UCD": {
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 020",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 020"
+      },
       "Intro1": {
         "set_id": "A",
         "num_required": 1,
@@ -432,7 +445,9 @@
             {
               "course": "MAT 003A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MAT 003AH",
               "units": 5.0
@@ -836,6 +851,19 @@
           ]
         ],
         "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 020",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
       },
       "Intro": {
         "set_id": "A",

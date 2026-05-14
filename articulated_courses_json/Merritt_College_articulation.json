@@ -155,7 +155,9 @@
             {
               "course": "MATH 3A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 16A",
               "units": 4.0
@@ -172,7 +174,9 @@
             {
               "course": "MATH 3B",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 16B",
               "units": 3.0

@@ -35,10 +35,12 @@ class CsvIssue:
     message: str
     expected: object = None
     actual: object = None
+    issue_type: str = ""
 
     def format(self) -> str:
+        label = f"{self.message} [{self.issue_type}]" if self.issue_type else self.message
         return (
-            f"{self.receiving}: {self.message}\n"
+            f"{self.receiving}: {label}\n"
             f"  expected: {self.expected}\n"
             f"  actual:   {self.actual}"
         )
@@ -108,5 +110,93 @@ def load_expected_agreement_rows(path: Path) -> dict[str, AgreementRow]:
 
 
 def rows_by_receiving(rows: Iterable[AgreementRow]) -> dict[str, AgreementRow]:
-    return {row.normalized().receiving: row.normalized() for row in rows}
+    by_receiving: dict[str, AgreementRow] = {}
+    for row in rows:
+        normalized = row.normalized()
+        existing = by_receiving.get(normalized.receiving)
+        if existing is None:
+            by_receiving[normalized.receiving] = normalized
+            continue
+        by_receiving[normalized.receiving] = merge_agreement_rows(existing, normalized)
+    return by_receiving
 
+
+def merge_agreement_rows(first: AgreementRow, second: AgreementRow) -> AgreementRow:
+    first = first.normalized()
+    second = second.normalized()
+    if first.receiving != second.receiving:
+        raise ValueError(f"Cannot merge different receiving rows: {first.receiving} != {second.receiving}")
+
+    options: list[tuple[str, ...]] = []
+    seen = set()
+    for option in (*first.sending_options, *second.sending_options):
+        if option in seen:
+            continue
+        seen.add(option)
+        options.append(option)
+
+    receiving_type = first.receiving_type
+    if first.receiving_type != second.receiving_type:
+        receiving_type = f"{first.receiving_type}+{second.receiving_type}"
+
+    return AgreementRow(
+        receiving=first.receiving,
+        receiving_type=receiving_type,
+        sending_options=tuple(options),
+    )
+
+
+def option_contains_not_articulated(options: tuple[tuple[str, ...], ...] | None) -> bool:
+    if not options:
+        return False
+    return any(option == (NOT_ARTICULATED,) for option in options)
+
+
+def classify_sending_mismatch(
+    expected: tuple[tuple[str, ...], ...] | None,
+    actual: tuple[tuple[str, ...], ...] | None,
+) -> str:
+    expected = expected or ()
+    actual = actual or ()
+
+    if option_contains_not_articulated(expected) or option_contains_not_articulated(actual):
+        return "not_articulated_mismatch"
+
+    if len(actual) == 1 and len(expected) > 1:
+        flattened_expected = tuple(course for option in expected for course in option)
+        if tuple(actual[0]) == flattened_expected:
+            return "flattened_or"
+
+    if len(expected) == 1 and len(expected[0]) > 1:
+        split_expected = tuple((course,) for course in expected[0])
+        if actual == split_expected:
+            return "split_and"
+
+    return "sending_options_mismatch"
+
+
+def classify_agreement_row(row: AgreementRow, *, duplicate_receiving: bool = False) -> tuple[str, ...]:
+    cases: list[str] = []
+    options = row.sending_options
+
+    if duplicate_receiving:
+        cases.append("duplicate_receiving_requirement")
+
+    if row.receiving_type.startswith("Series") or ";" in row.receiving:
+        cases.append("multi_course_receiving_series")
+
+    if options == ((NOT_ARTICULATED,),):
+        cases.append("no_articulation")
+    elif len(options) == 1 and len(options[0]) == 1:
+        cases.append("single_course")
+    elif len(options) == 1 and len(options[0]) > 1:
+        cases.append("pure_and")
+    elif len(options) > 1 and all(len(option) == 1 for option in options):
+        cases.append("pure_or")
+    elif len(options) > 1 and any(len(option) > 1 for option in options):
+        cases.append("or_of_and_groups")
+
+    if not cases:
+        cases.append("unknown_unsupported_payload_shape")
+
+    return tuple(cases)

@@ -206,7 +206,9 @@
             {
               "course": "MATH 178",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 180",
               "units": 5.0

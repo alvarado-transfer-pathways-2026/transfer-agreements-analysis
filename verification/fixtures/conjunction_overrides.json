@@ -5,6 +5,10 @@
       "uc": "University of California Irvine",
       "uc_abbr": "UCI",
       "receiving": "MATH 2A",
+      "assist_url": "https://assist.org/transfer/results?year=76&institution=113&agreement=120&agreementType=to&viewAgreementsOptions=true&view=agreement&viewBy=major&viewSendingAgreements=false&viewByKey=76%2F113%2Fto%2F120%2FMajor%2F7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "view_by_key": "76/113/to/120/Major/7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "reviewer": "research-team",
+      "reviewed_date": "2026-05-13",
       "reason": "Assist sending-side group uses OR: MATH 1A or MATH 1AH or MATH 12.",
       "sending_options": [
         ["MATH 1A (5.00)"],
@@ -17,6 +21,10 @@
       "uc": "University of California Irvine",
       "uc_abbr": "UCI",
       "receiving": "I&C SCI 6B",
+      "assist_url": "https://assist.org/transfer/results?year=76&institution=113&agreement=120&agreementType=to&viewAgreementsOptions=true&view=agreement&viewBy=major&viewSendingAgreements=false&viewByKey=76%2F113%2Fto%2F120%2FMajor%2F7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "view_by_key": "76/113/to/120/Major/7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "reviewer": "research-team",
+      "reviewed_date": "2026-05-13",
       "reason": "Assist sending-side group uses OR: MATH 22 or MATH 22H.",
       "sending_options": [
         ["MATH 22 (5.00)"],
@@ -28,6 +36,10 @@
       "uc": "University of California Irvine",
       "uc_abbr": "UCI",
       "receiving": "I&C SCI 6D",
+      "assist_url": "https://assist.org/transfer/results?year=76&institution=113&agreement=120&agreementType=to&viewAgreementsOptions=true&view=agreement&viewBy=major&viewSendingAgreements=false&viewByKey=76%2F113%2Fto%2F120%2FMajor%2F7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "view_by_key": "76/113/to/120/Major/7752acca-2b16-46d0-fb90-08dda2ee8889",
+      "reviewer": "research-team",
+      "reviewed_date": "2026-05-13",
       "reason": "Assist sending-side group uses OR: MATH 22 or MATH 22H.",
       "sending_options": [
         ["MATH 22 (5.00)"],
@@ -36,4 +48,3 @@
     }
   ]
 }
-

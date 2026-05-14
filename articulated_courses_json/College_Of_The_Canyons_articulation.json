@@ -199,15 +199,21 @@
             {
               "course": "MATH 211",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 211X",
               "units": 6.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 240",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 240X",
               "units": 6.0

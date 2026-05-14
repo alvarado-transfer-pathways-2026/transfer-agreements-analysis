@@ -214,11 +214,15 @@
             {
               "course": "MATH 062",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 066",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 071",
               "units": 5.0
@@ -235,7 +239,9 @@
             {
               "course": "MATH 067",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 072",
               "units": 5.0

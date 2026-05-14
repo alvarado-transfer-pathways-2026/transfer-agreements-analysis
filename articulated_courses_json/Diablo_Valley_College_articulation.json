@@ -253,7 +253,9 @@
             {
               "course": "MATH 182",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 192",
               "units": 5.0
@@ -321,7 +323,9 @@
             {
               "course": "COMSC 230",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 195",
               "units": 4.0

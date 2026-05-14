@@ -260,7 +260,9 @@
             {
               "course": "CS M155",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH M21",
               "units": 3.0

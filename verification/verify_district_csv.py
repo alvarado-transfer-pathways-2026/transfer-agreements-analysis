@@ -7,9 +7,50 @@ from collections import defaultdict
 from pathlib import Path
 
 from .common import CsvIssue, NOT_ARTICULATED, PROJECT_ROOT, course_group_columns, load_csv_rows, normalize_course_text, row_sending_options, write_issue_report
+from course_group_semantics import best_option_course_count
 
 
 BASE_COLUMNS = ["College Name", "UC Name", "Group ID", "Set ID", "Num Required", "Receiving"]
+
+
+def normalize_requirement_value(value: str) -> str:
+    return " ".join(str(value).strip().split())
+
+
+def normalize_receiving_requirement(value: str) -> str:
+    parts = [normalize_requirement_value(part) for part in str(value).split(";")]
+    parts = [part for part in parts if part]
+    return "; ".join(sorted(parts)) if len(parts) > 1 else (parts[0] if parts else "")
+
+
+def load_current_requirement_keys(project_root: Path) -> set[tuple[str, str, str, str]] | None:
+    path = project_root / "scraping" / "files" / "course_reqs.json"
+    if not path.exists():
+        return None
+    requirements = json.loads(path.read_text(encoding="utf-8")).get("UC_REQUIREMENTS", {})
+    keys = set()
+    for uc_name, groups in requirements.items():
+        for group_id, options in groups.items():
+            by_set: dict[str, list[str]] = defaultdict(list)
+            for option in options:
+                if len(option) < 2:
+                    continue
+                receiving, set_id = option[0], option[1]
+                by_set[normalize_requirement_value(set_id)].append(normalize_requirement_value(receiving))
+                keys.add((
+                    normalize_requirement_value(uc_name),
+                    normalize_requirement_value(group_id),
+                    normalize_requirement_value(set_id),
+                    normalize_receiving_requirement(receiving),
+                ))
+            for set_id, receiving_courses in by_set.items():
+                keys.add((
+                    normalize_requirement_value(uc_name),
+                    normalize_requirement_value(group_id),
+                    set_id,
+                    normalize_receiving_requirement("; ".join(receiving_courses)),
+                ))
+    return keys
 
 
 def normalize_college_name(name: str) -> str:
@@ -21,12 +62,8 @@ def safe_district_filename(district: str) -> str:
 
 
 def count_total_courses(row: dict[str, str]) -> int:
-    total = 0
-    for option in row_sending_options(row):
-        if option == (NOT_ARTICULATED,):
-            continue
-        total += len(option)
-    return total
+    count = best_option_course_count(row)
+    return count if count is not None else sys.maxsize
 
 
 def district_colleges(project_root: Path, district: str) -> list[str]:
@@ -62,6 +99,15 @@ def district_group_key(row: dict[str, str]) -> tuple[str, str, str, str]:
     )
 
 
+def current_requirement_key(row: dict[str, str]) -> tuple[str, str, str, str]:
+    return (
+        normalize_requirement_value(row.get("UC Name", "")),
+        normalize_requirement_value(row.get("Group ID", "")),
+        normalize_requirement_value(row.get("Set ID", "")),
+        normalize_receiving_requirement(row.get("Receiving", "")),
+    )
+
+
 def normalize_district_row(row: dict[str, str]) -> tuple:
     return (
         row.get("College Name", ""),
@@ -86,8 +132,11 @@ def blank_course_group_columns(row: dict[str, str]) -> dict[str, str]:
 
 def recompute_district_rows(project_root: Path, district: str) -> list[dict[str, str]]:
     grouped: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
+    current_requirement_keys = load_current_requirement_keys(project_root)
     for college in district_colleges(project_root, district):
         for row in filtered_rows_for_college(project_root, college):
+            if current_requirement_keys is not None and current_requirement_key(row) not in current_requirement_keys:
+                continue
             grouped[district_group_key(row)].append(row)
 
     expected = []
@@ -108,8 +157,11 @@ def recompute_district_rows(project_root: Path, district: str) -> list[dict[str,
 
 def acceptable_district_rows(project_root: Path, district: str) -> dict[tuple[str, str, str, str], set[tuple]]:
     grouped: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
+    current_requirement_keys = load_current_requirement_keys(project_root)
     for college in district_colleges(project_root, district):
         for row in filtered_rows_for_college(project_root, college):
+            if current_requirement_keys is not None and current_requirement_key(row) not in current_requirement_keys:
+                continue
             grouped[district_group_key(row)].append(row)
 
     acceptable = {}

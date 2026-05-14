@@ -512,6 +512,32 @@
       }
     },
     "UCSC": {
+      "DataStructures": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC P142",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC P152",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

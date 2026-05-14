@@ -548,11 +548,15 @@
               "units": 4.0
             },
             {
-              "course": "MATH- 215H",
-              "units": 4.0
+              "course": "MATH- 218",
+              "units": 3.0
             }
           ],
           [
+            {
+              "course": "MATH- 215H",
+              "units": 4.0
+            },
             {
               "course": "MATH- 218",
               "units": 3.0

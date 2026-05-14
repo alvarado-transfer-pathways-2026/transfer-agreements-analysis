@@ -183,6 +183,19 @@
         ],
         "receiving_course": "COM SCI 32"
       },
+      "Intro3": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CS R142",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "COM SCI 33"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
