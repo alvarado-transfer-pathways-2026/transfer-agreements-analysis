@@ -138,12 +138,23 @@ order_cmap = cm.get_cmap('Blues', n_orders + 2)
 order_colors = [order_cmap(n_orders + 1 - i) for i in range(n_orders)]  # reverse order
 
 # Plot the rest of the grouped bars (orders)
+choice_names = {
+    1: "1st Choice",
+    2: "2nd Choice",
+    3: "3rd Choice",
+    4: "4th Choice",
+    5: "5th Choice",
+    6: "6th Choice",
+    7: "7th Choice",
+    8: "8th Choice",
+    9: "9th Choice",
+}
 for j, col in enumerate([f"Order {i}" for i in range(1, n_orders + 1)]):
     if col in pivot_df.columns:
         vals = pivot_df[col].loc[uc_labels]
         bar_order = ax.bar(
             x + offsets[j+1], vals, width=bar_width,
-            color=order_colors[j], label=col, zorder=1
+            color=order_colors[j], label=choice_names.get(j + 1, col.replace("Order", "Choice")), zorder=1
         )
         # Annotate values above grouped bars (orders) - vertical, black
         for i, val in enumerate(vals):
@@ -207,7 +218,7 @@ else:
     source_str = " & ".join(used)
 plot_title = f"Transferable Courses by Order per UC"
 #plt.title(plot_title, fontsize=50)
-plt.ylabel("Average Articulated Courses", fontsize=35)
+plt.ylabel("Number of Courses", fontsize=35)
 plt.xlabel("University of California", fontsize=35)
 plt.tight_layout()
 
@@ -219,7 +230,7 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement",
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Choices/Requirements",
           loc='upper right', fontsize=22, title_fontsize=24)
 
 # plt.figtext(Add commentMore actions
