@@ -161,19 +161,6 @@
           ]
         ],
         "receiving_course": "MAT 021C"
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 284",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -206,7 +193,9 @@
             {
               "course": "MATH 178",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 180",
               "units": 5.0
@@ -302,19 +291,6 @@
         ],
         "receiving_course": "COM SCI 31"
       },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSIS 165",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -392,19 +368,6 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSIS 240",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MATH 61"
       }
     },
     "UCM": {
@@ -522,7 +485,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -727,7 +690,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

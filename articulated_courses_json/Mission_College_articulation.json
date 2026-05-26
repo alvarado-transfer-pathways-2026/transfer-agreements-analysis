@@ -65,6 +65,19 @@
       }
     },
     "UCD": {
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 020",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "ECS 020"
+      },
       "Intro1": {
         "set_id": "A",
         "num_required": 1,
@@ -257,7 +270,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -294,19 +307,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MAT 004C",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -394,36 +394,6 @@
         ],
         "receiving_course": "COM SCI 31"
       },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 040",
-              "units": 4.0
-            },
-            {
-              "course": "CIS 044",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 039",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -432,7 +402,9 @@
             {
               "course": "MAT 003A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MAT 003AH",
               "units": 5.0
@@ -508,6 +480,43 @@
       }
     },
     "UCM": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 007",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 037A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 040",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIS 043",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "EGR 030",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -641,7 +650,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -824,7 +833,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
@@ -836,6 +845,19 @@
           ]
         ],
         "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "MAT 020",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
       },
       "Intro": {
         "set_id": "A",

@@ -87,7 +87,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -100,19 +100,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH P208",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -186,36 +173,6 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
-      },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "ENGR P120",
-              "units": 4.0
-            },
-            {
-              "course": "ENGR P132",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSC P142",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
       },
       "Calc1": {
         "set_id": "A",
@@ -297,6 +254,19 @@
       }
     },
     "UCM": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "ENGR P120",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 022"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -512,6 +482,32 @@
       }
     },
     "UCSC": {
+      "Organization": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC P142",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 12"
+      },
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSC P152",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

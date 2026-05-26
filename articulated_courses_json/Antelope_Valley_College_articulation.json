@@ -264,19 +264,6 @@
           ]
         ],
         "receiving_course": "MAT 021C"
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 220",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -327,7 +314,9 @@
             {
               "course": "MATH 150",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 150H",
               "units": 5.0
@@ -411,32 +400,6 @@
       }
     },
     "UCLA": {
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 130",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CS 140",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -514,22 +477,28 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CS 150",
-              "units": 4.0
+              "course": "CS 110",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CS 121",
+              "units": 3.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -637,14 +606,16 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
             {
               "course": "CS 230",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 231",
               "units": 3.0
@@ -661,11 +632,15 @@
             {
               "course": "CS 130",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 131",
               "units": 3.0
-            },
+            }
+          ],
+          [
             {
               "course": "CS 132",
               "units": 3.0
@@ -827,7 +802,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
@@ -879,6 +854,12 @@
           [
             {
               "course": "MATH 150",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 150H",
               "units": 5.0
             }
           ]

@@ -1,17 +1,22 @@
 # This script will calculate the number of years it would take at a selected CC to transfer to a UC or UCs
+import sys
 import pandas as pd
 import math
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from course_group_semantics import best_option
 
 def min_courses_for_group(df_group):
     sets = []
     cc_courses_in_group = []
     unarticulated_in_group = []
     for set_id, df_set in df_group.groupby('Set ID'):
-        cell = str(df_set.iloc[0]['Courses Group 1']).strip()
+        row = df_set.iloc[0]
         uc_req = str(df_set.iloc[0]['Receiving']).strip()
-        if cell and cell != 'nan' and cell != 'Not Articulated':
-            courses = [c.strip() for c in cell.split(';') if c.strip()]
+        courses = best_option(row)
+        if courses:
             sets.append({'articulated': True, 'courses': len(courses), 'cc_courses': courses, 'uc_names': df_set['UC Name'].unique(), 'uc_req': uc_req})
         else:
             sets.append({'articulated': False, 'courses': 1, 'cc_courses': [], 'uc_names': df_set['UC Name'].unique(), 'uc_req': uc_req})

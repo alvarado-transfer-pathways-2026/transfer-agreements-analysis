@@ -294,7 +294,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -341,25 +341,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 2B",
-              "units": 5.0
-            }
-          ],
-          [
-            {
-              "course": "MATH 2BH",
-              "units": 5.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -396,11 +377,15 @@
             {
               "course": "MATH 1A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1AH",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 12",
               "units": 5.0
@@ -480,7 +465,9 @@
             {
               "course": "MATH 22",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 22H",
               "units": 5.0
@@ -497,7 +484,9 @@
             {
               "course": "MATH 22",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 22H",
               "units": 5.0
@@ -529,11 +518,15 @@
             {
               "course": "CIS 22B",
               "units": 4.5
-            },
+            }
+          ],
+          [
             {
               "course": "CIS 22BH",
               "units": 4.5
-            },
+            }
+          ],
+          [
             {
               "course": "CIS 29",
               "units": 4.5
@@ -548,58 +541,6 @@
         ],
         "receiving_course": "COM SCI 31"
       },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 22C",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 22CH",
-              "units": 4.5
-            }
-          ],
-          [
-            {
-              "course": "CIS 22A",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 22B",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 22BH",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 27",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 29",
-              "units": 4.5
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 21JA",
-              "units": 4.5
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -608,7 +549,9 @@
             {
               "course": "MATH 1A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1AH",
               "units": 5.0
@@ -672,7 +615,9 @@
             {
               "course": "MATH 1C",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1CH",
               "units": 5.0
@@ -689,7 +634,9 @@
             {
               "course": "MATH 1D",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 1DH",
               "units": 5.0
@@ -706,7 +653,9 @@
             {
               "course": "MATH 2B",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 2BH",
               "units": 5.0
@@ -723,7 +672,9 @@
             {
               "course": "MATH 2A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 2AH",
               "units": 5.0
@@ -731,26 +682,64 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 22",
-              "units": 5.0
+              "course": "CIS 22A",
+              "units": 4.5
             },
             {
-              "course": "MATH 22H",
-              "units": 5.0
+              "course": "CIS 22B",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 22BH",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 26A",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 27",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 36A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 36B",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 41A",
+              "units": 4.5
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -758,6 +747,12 @@
           [
             {
               "course": "CIS 22C",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 22CH",
               "units": 4.5
             }
           ]
@@ -880,16 +875,6 @@
         "course_groups": [
           [
             {
-              "course": "CIS 36A",
-              "units": 4.5
-            },
-            {
-              "course": "CIS 36B",
-              "units": 4.5
-            }
-          ],
-          [
-            {
               "course": "CIS 22A",
               "units": 4.5
             }
@@ -905,14 +890,7 @@
               "course": "CIS 26B",
               "units": 4.5
             }
-          ]
-        ],
-        "receiving_course": "CS 10A"
-      },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
+          ],
           [
             {
               "course": "CIS 36A",
@@ -922,7 +900,14 @@
               "course": "CIS 36B",
               "units": 4.5
             }
-          ],
+          ]
+        ],
+        "receiving_course": "CS 10A"
+      },
+      "Intro2": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
           [
             {
               "course": "CIS 22B",
@@ -944,6 +929,16 @@
           [
             {
               "course": "CIS 29",
+              "units": 4.5
+            }
+          ],
+          [
+            {
+              "course": "CIS 36A",
+              "units": 4.5
+            },
+            {
+              "course": "CIS 36B",
               "units": 4.5
             }
           ]
@@ -978,7 +973,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -1149,13 +1144,33 @@
               "units": 5.0
             },
             {
-              "course": "MATH 1BH",
+              "course": "MATH 1C",
               "units": 5.0
             }
           ],
           [
             {
+              "course": "MATH 1B",
+              "units": 5.0
+            },
+            {
+              "course": "MATH 1CH",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 1BH",
+              "units": 5.0
+            },
+            {
               "course": "MATH 1C",
+              "units": 5.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 1BH",
               "units": 5.0
             },
             {
@@ -1289,7 +1304,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

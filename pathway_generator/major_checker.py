@@ -12,8 +12,13 @@ Includes:
 """
 
 import json
+import sys
 from pathlib import Path
 from typing import Any, Dict, List, Set, Tuple
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from course_group_semantics import missing_courses, option_is_satisfied
 
 # ─── Low-Level JSON Loader ──────────────────────────────────────────────────
 
@@ -61,20 +66,26 @@ class MajorRequirements:
             satisfied = sum(
                 1
                 for block in blocks
-                if any(course in completed for course in block)
+                if option_is_satisfied(block, completed)
             )
             if satisfied >= num_req:
                 continue
 
-            for block in blocks:
-                if not any(course in completed for course in block):
-                    for cc_course in block:
-                        remaining.append({
-                            "courseCode": cc_course,
-                            "units": articulated.get(cc_course, {}).get("units", 3),
-                            "tag": f"{uc}:{group}"
-                        })
-                    break
+            unsatisfied = [
+                (missing_courses(block, completed), tuple(block))
+                for block in blocks
+                if not option_is_satisfied(block, completed)
+            ]
+            if not unsatisfied:
+                continue
+
+            missing, _ = min(unsatisfied, key=lambda item: (len(item[0]), item[0], item[1]))
+            for cc_course in missing:
+                remaining.append({
+                    "courseCode": cc_course,
+                    "units": articulated.get(cc_course, {}).get("units", 3),
+                    "tag": f"{uc}:{group}"
+                })
 
         return remaining
     

@@ -2,8 +2,14 @@ import pandas as pd
 from itertools import permutations
 import os
 import math
+import sys
+from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from tqdm import tqdm
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from course_group_semantics import best_option
 
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
@@ -36,16 +42,9 @@ def count_required_courses(df, selected_schools, articulated_tracker, unarticula
                 receiving = [r.strip() for r in str(row['Receiving']).split(';') if r.strip()]
                 all_receiving_courses.update(receiving)
 
-                best_option = None
-                for col in row.index:
-                    if col.lower().startswith("courses group"):
-                        val = str(row[col]).strip()
-                        if val and val.lower() != "not articulated" and val.lower() != "nan":
-                            option = [v.strip() for v in val.split(';') if v.strip()]
-                            if best_option is None or len(option) < len(best_option):
-                                best_option = option
-                if best_option:
-                    all_cc_courses.update(best_option)
+                option = best_option(row)
+                if option:
+                    all_cc_courses.update(option)
 
             if all_cc_courses:
                 fulfilled = True

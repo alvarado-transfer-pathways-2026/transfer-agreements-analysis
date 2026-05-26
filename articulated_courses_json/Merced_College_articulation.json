@@ -157,7 +157,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -170,19 +170,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH -08",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -352,22 +339,34 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CPSC -07",
+              "course": "CPSC -06",
               "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CPSC -14",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CPSC -20",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -677,7 +676,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

@@ -168,7 +168,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -181,19 +181,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 004C",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -318,32 +305,6 @@
         ],
         "receiving_course": "COM SCI 31"
       },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIST 004B",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIST 039",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -433,22 +394,40 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 019",
+              "course": "CIST 004A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIST 004A1",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIST 005A",
+              "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CIST 037",
               "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -796,7 +775,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

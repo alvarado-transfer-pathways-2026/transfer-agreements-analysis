@@ -131,19 +131,6 @@
           ]
         ],
         "receiving_course": "MAT 021C"
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 3E",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -155,7 +142,9 @@
             {
               "course": "MATH 3A",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 16A",
               "units": 4.0
@@ -172,7 +161,9 @@
             {
               "course": "MATH 3B",
               "units": 5.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 16B",
               "units": 3.0
@@ -263,6 +254,19 @@
       }
     },
     "UCM": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CIS 6",
+              "units": 5.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 022"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -375,7 +379,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [

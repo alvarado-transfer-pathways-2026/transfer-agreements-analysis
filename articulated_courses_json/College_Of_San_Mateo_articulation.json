@@ -155,7 +155,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -172,19 +172,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 270",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -341,32 +328,6 @@
         ],
         "receiving_course": "COM SCI 31"
       },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 279",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
-      "Intro3": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 264",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 33"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -444,28 +405,28 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 268",
+              "course": "CIS 117",
               "units": 4.0
             }
           ],
           [
             {
-              "course": "CIS 262",
-              "units": 3.0
+              "course": "CIS 254",
+              "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -621,7 +582,7 @@
     },
     "UCSD": {
       "Intro": {
-        "set_id": "A",
+        "set_id": "B",
         "num_required": 1,
         "course_groups": [
           [
@@ -818,7 +779,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

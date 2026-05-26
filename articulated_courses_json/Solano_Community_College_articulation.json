@@ -72,6 +72,12 @@
               "course": "CIS 021",
               "units": 3.0
             }
+          ],
+          [
+            {
+              "course": "ENGR 012",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "ECS 020"
@@ -162,7 +168,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -175,19 +181,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 040",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -256,19 +249,6 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
-      },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CIS 023",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
       },
       "Calc1": {
         "set_id": "A",
@@ -347,22 +327,22 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CIS 021",
+              "course": "CIS 022",
               "units": 3.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -616,7 +596,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [

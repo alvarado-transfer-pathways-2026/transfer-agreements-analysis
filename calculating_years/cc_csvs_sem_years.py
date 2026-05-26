@@ -1,8 +1,13 @@
 import os
+import sys
 import pandas as pd
 import math
 import re
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from course_group_semantics import best_option
 
 def extract_course_and_credits(course_str):
     match = re.match(r'(.+?)\s*\((\d+(?:\.\d+)?)\)', course_str)
@@ -13,17 +18,10 @@ def extract_course_and_credits(course_str):
 
 def min_courses_for_group(df_group):
     sets = []
-    group_cols = [col for col in df_group.columns if col.startswith("Courses Group")]
     for set_id, df_set in df_group.groupby('Set ID'):
         uc_req = str(df_set.iloc[0]['Receiving']).strip()
         uc_name = str(df_set.iloc[0]['UC Name']).strip()
-        best_courses = None
-        for col in group_cols:
-            cell = str(df_set.iloc[0][col]).strip()
-            if cell and cell != 'nan' and cell != 'Not Articulated':
-                courses = [c.strip() for c in cell.split(';') if c.strip()]
-                if best_courses is None or len(courses) < len(best_courses):
-                    best_courses = courses
+        best_courses = best_option(df_set.iloc[0])
         if best_courses:
             course_names = []
             course_credits = []

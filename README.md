@@ -55,7 +55,36 @@ The output will be saved in the `district_csvs/` folder.
 
 ---
 
-### Step 4: Analyze Research Questions
+### Step 4: Verify ASSIST Data
+Before using the datasets for analysis, verify the collected articulation rows against ASSIST's structured agreement API.
+```bash
+python3 -m verification.verify_all_assist --all-agreements --source live --write-report
+python3 -m verification.verify_overrides --source live
+python3 -m verification.verify_post_process --cc "De Anza College"
+python3 -m verification.verify_district_csv --district "Foothill-De Anza Community College District"
+python3 -m verification.verify_json_output --cc "De Anza College"
+```
+
+The all-agreements verifier writes `verification/reports/raw_assist_verification.json` and `verification/reports/raw_assist_verification_issues.csv`. It classifies each ASSIST row as single-course, AND, OR, OR-of-AND groups, multi-course receiving series, no articulation, duplicate receiving requirement, or unknown payload shape. Any override in `verification/fixtures/conjunction_overrides.json` must include reviewer/date metadata and must still match the ASSIST source.
+
+Long-running verification commands print per-agreement progress by default. Add `--quiet` when only the final summary is needed.
+
+To regenerate raw result CSVs from ASSIST's structured API instead of the HTML scraper, dry-run first:
+```bash
+python3 -m verification.export_results_from_assist_api --cc "De Anza College" --dry-run
+python3 -m verification.export_results_from_assist_api --cc "De Anza College" --output-dir verification/reports/api_generated_results --write
+```
+Only write into `results/` after comparing and verifying the generated CSV.
+
+To batch-refresh only colleges with high-impact filtered `flattened_or` findings:
+```bash
+python3 -m verification.fix_filtered_impact_batch
+python3 -m verification.fix_filtered_impact_batch --write
+```
+
+---
+
+### Step 5: Analyze Research Questions
 
 #### Q1: Complexity of UC Requirements
 Navigate to the `question_1/` folder and run the scripts or Jupyter notebooks to:
@@ -69,7 +98,7 @@ In the `question_2-3/` folder, you'll find:
 
 ---
 
-### Step 5: View Results
+### Step 6: View Results
 Visualizations and summary data are available in the `results/` folder. These include:
 - Bar charts of missing courses by UC
 - Ranked list of districts by articulation coverage

@@ -143,7 +143,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -156,19 +156,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 2",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -226,19 +213,6 @@
       }
     },
     "UCLA": {
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSIS 46",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
-      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -316,22 +290,34 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "MATH 16",
+              "course": "CSIS 24",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "CSIS 42",
               "units": 4.0
+            }
+          ],
+          [
+            {
+              "course": "CSIS 45",
+              "units": 3.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -640,7 +626,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
@@ -665,6 +651,12 @@
             {
               "course": "CSIS 26",
               "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "MATH 16",
+              "units": 4.0
             }
           ]
         ],

@@ -1,6 +1,6 @@
 UC_REQUIREMENTS = {
     "UCSD": {
-        "Intro": [["CSE 11", "A", 1]],
+        "Intro": [["CSE 8B", "A", 1], ["CSE 11", "B", 1]],
         "DataStructures": [["CSE 12", "A", 1]],
         "DiscreteMath": [["CSE 20", "A", 1]],
         "Calc1": [["MATH 20A", "A", 1]],
@@ -20,8 +20,7 @@ UC_REQUIREMENTS = {
     "UCD": {
         "Calc1": [["MAT 021A", "A", 1]],
         "Calc2": [["MAT 021B", "A", 1]],
-        "Calc3": [["MAT 021C", "A", 2], ["MAT 021D", "A", 2]],
-        "Linear Algebra": [["MAT 022A", "A", 1]],
+        "Calc3": [["MAT 021C", "A", 1]],
         "DiscreteMath": [["ECS 020", "A", 1]],
         "Intro1": [["ECS 036A", "A", 1]],
         "Intro2": [["ECS 036B", "A", 1]],
@@ -44,10 +43,6 @@ UC_REQUIREMENTS = {
         "LinearAlgebra": [["MATH 33A", "A", 1]],
         "DifferentialEquations": [["MATH 33B", "A", 1]],
         "Intro": [["COM SCI 31", "A", 1]],
-        "Intro2": [["COM SCI 32", "A", 1]],
-        "Intro3": [["COM SCI 33", "A", 1]],
-        "SoftwareConstruction": [["COM SCI 35L", "A", 1]],
-        "DiscreteStructures": [["MATH 61", "A", 1]],
         #website for ucla "Preperation for the major section": https://catalog.registrar.ucla.edu/major/2025/ComputerScienceBS
     },
     "UCB": {
@@ -59,7 +54,7 @@ UC_REQUIREMENTS = {
     },
     "UCM": {
         "DataStructures": [["CSE 030", "A", 1]],
-        "Intro": [["CSE 020", "A", 2], ["CSE 021", "A", 2]],
+        "Intro": [["CSE 022", "A", 1]],
         "Calc1": [["MATH 021", "A", 1]],
         "Calc2": [["MATH 022", "A", 1]],
         "VectorCalc": [["MATH 023", "A", 1]], # Change to Calc3?
@@ -67,7 +62,7 @@ UC_REQUIREMENTS = {
         #website for uc merced: https://admissions.ucmerced.edu/transfer/major-preparation-schools#soe
     },
     "UCSC": {
-        "DataStructures": [["CSE 12", "A", 1]],
+        "Organization": [["CSE 12", "A", 1]],
         "DiscreteMath": [["CSE 16", "A", 1]],
         "Intro": [["CSE 30", "A", 1]],
         "Calc1": [["MATH 19A", "A", 1]],

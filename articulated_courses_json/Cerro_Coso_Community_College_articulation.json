@@ -135,7 +135,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -148,19 +148,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH C257",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -272,6 +259,25 @@
       }
     },
     "UCM": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI C252",
+              "units": 3.0
+            }
+          ],
+          [
+            {
+              "course": "IT C251",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 022"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,
@@ -474,6 +480,19 @@
       }
     },
     "UCSC": {
+      "DiscreteMath": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "CSCI C255",
+              "units": 3.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 16"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

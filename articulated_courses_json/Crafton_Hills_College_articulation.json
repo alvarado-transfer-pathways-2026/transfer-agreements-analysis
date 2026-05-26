@@ -172,7 +172,7 @@
       },
       "Calc3": {
         "set_id": "A",
-        "num_required": 2,
+        "num_required": 1,
         "course_groups": [
           [
             {
@@ -190,19 +190,6 @@
           "MAT 021C",
           "MAT 021D"
         ]
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 265",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -235,7 +222,9 @@
             {
               "course": "MATH 250",
               "units": 4.0
-            },
+            }
+          ],
+          [
             {
               "course": "MATH 250E",
               "units": 4.0
@@ -303,19 +292,6 @@
           ]
         ],
         "receiving_course": "COM SCI 31"
-      },
-      "Intro2": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "CSCI 120",
-              "units": 3.0
-            }
-          ]
-        ],
-        "receiving_course": "COM SCI 32"
       },
       "Calc1": {
         "set_id": "A",
@@ -400,28 +376,28 @@
           ]
         ],
         "receiving_course": "MATH 33B"
-      },
-      "DiscreteStructures": {
+      }
+    },
+    "UCM": {
+      "Intro": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
           [
             {
-              "course": "CSCI 200",
-              "units": 4.0
+              "course": "CIS 113",
+              "units": 3.0
             }
           ],
           [
             {
-              "course": "MATH 200",
+              "course": "CSCI 110",
               "units": 4.0
             }
           ]
         ],
-        "receiving_course": "MATH 61"
-      }
-    },
-    "UCM": {
+        "receiving_course": "CSE 022"
+      },
       "DataStructures": {
         "set_id": "A",
         "num_required": 1,
@@ -564,6 +540,12 @@
               "course": "MATH 250",
               "units": 4.0
             }
+          ],
+          [
+            {
+              "course": "MATH 250E",
+              "units": 4.0
+            }
           ]
         ],
         "receiving_course": "MATH 20A"
@@ -688,7 +670,7 @@
       }
     },
     "UCSC": {
-      "DataStructures": {
+      "Organization": {
         "set_id": "A",
         "num_required": 1,
         "course_groups": [
