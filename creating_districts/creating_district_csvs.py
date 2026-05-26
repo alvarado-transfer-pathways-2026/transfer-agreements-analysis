@@ -8,55 +8,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from course_group_semantics import best_option_course_count, is_articulated
 
+
 def normalize_college_name(name):
     """Normalize college names for matching filenames to districts.json."""
     return " ".join(str(name).split()).casefold()
-
-def normalize_requirement_value(value):
-    return " ".join(str(value).strip().split())
-
-def normalize_receiving_requirement(value):
-    parts = [normalize_requirement_value(part) for part in str(value).split(';')]
-    parts = [part for part in parts if part]
-    return "; ".join(sorted(parts)) if len(parts) > 1 else (parts[0] if parts else "")
-
-def load_current_requirement_keys(path):
-    if not os.path.exists(path):
-        return None
-    with open(path, 'r', encoding='utf-8') as f:
-        requirements = json.load(f).get('UC_REQUIREMENTS', {})
-
-    keys = set()
-    for uc_name, groups in requirements.items():
-        for group_id, options in groups.items():
-            by_set = defaultdict(list)
-            for option in options:
-                if len(option) < 2:
-                    continue
-                receiving, set_id = option[0], option[1]
-                by_set[normalize_requirement_value(set_id)].append(normalize_requirement_value(receiving))
-                keys.add((
-                    normalize_requirement_value(uc_name),
-                    normalize_requirement_value(group_id),
-                    normalize_requirement_value(set_id),
-                    normalize_receiving_requirement(receiving),
-                ))
-            for set_id, receiving_courses in by_set.items():
-                keys.add((
-                    normalize_requirement_value(uc_name),
-                    normalize_requirement_value(group_id),
-                    set_id,
-                    normalize_receiving_requirement("; ".join(receiving_courses)),
-                ))
-    return keys
-
-def requirement_key(row):
-    return (
-        normalize_requirement_value(row.get('UC Name', '')),
-        normalize_requirement_value(row.get('Group ID', '')),
-        normalize_requirement_value(row.get('Set ID', '')),
-        normalize_receiving_requirement(row.get('Receiving', '')),
-    )
 
 def count_total_courses(row, course_group_cols):
     """Return the smallest complete option size for a row."""
@@ -70,7 +25,6 @@ root_dir   = os.path.dirname(script_dir)
 districts_json_path = os.path.join(script_dir, 'districts.json')
 input_folder        = os.path.join(root_dir, 'filtered_results')
 output_folder       = os.path.join(root_dir, 'district_csvs')
-course_reqs_path    = os.path.join(root_dir, 'scraping', 'files', 'course_reqs.json')
 
 # Make sure output folder exists
 os.makedirs(output_folder, exist_ok=True)
@@ -78,8 +32,6 @@ os.makedirs(output_folder, exist_ok=True)
 # --- Load district mapping ---
 with open(districts_json_path, 'r') as f:
     districts_data = json.load(f)['districts']
-
-current_requirement_keys = load_current_requirement_keys(course_reqs_path)
 
 # Build college -> district lookup
 college_to_district = {}
@@ -100,8 +52,6 @@ for filename in os.listdir(input_folder):
     college_name = filename.replace('_filtered.csv', '').replace('_', ' ')
     file_path    = os.path.join(input_folder, filename)
     df           = pd.read_csv(file_path)
-    if current_requirement_keys is not None:
-        df = df[df.apply(lambda row: requirement_key(row) in current_requirement_keys, axis=1)]
 
     if college_name in college_to_district:
         canonical_college_name = college_name
@@ -118,6 +68,9 @@ for filename in os.listdir(input_folder):
         print(f"  ⚠️  Warning: {college_name} not found in districts.json, skipping.")
         continue
 
+    # `filtered_results/` is already the canonical, requirement-matched source
+    # emitted by `scraping/post_process.py`, so district generation should only
+    # aggregate those rows instead of re-filtering them with a second schema.
     df.insert(0, 'College Name', canonical_college_name)
     district_data[district_name].append(df)
 

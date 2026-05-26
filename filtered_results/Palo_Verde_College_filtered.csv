@@ -11,7 +11,6 @@ UCD,Organization,A,1,ECS 050,Not Articulated
 UCD,Calc1,A,1,MAT 021A,Not Articulated
 UCD,Calc2,A,1,MAT 021B,Not Articulated
 UCD,Calc3,A,1,MAT 021C,Not Articulated
-UCD,Linear Algebra,A,1,MAT 022A,Not Articulated
 UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
 UCI,Calc1,A,1,MATH 2A,Not Articulated
 UCI,Calc2,A,1,MATH 2B,Not Articulated
@@ -24,16 +23,13 @@ UCI,Programming,F,1,I&C SCI 6B,Not Articulated
 UCI,Programming,G,1,I&C SCI 6D,Not Articulated
 UCI,Programming,H,1,STATS 67,Not Articulated
 UCLA,Intro,A,1,COM SCI 31,Not Articulated
-UCLA,Intro2,A,1,COM SCI 32,Not Articulated
-UCLA,Intro3,A,1,COM SCI 33,Not Articulated
-UCLA,SoftwareConstruction,A,1,COM SCI 35L,Not Articulated
 UCLA,Calc1,A,1,MATH 31A,Not Articulated
 UCLA,Calc2,A,1,MATH 31B,Not Articulated
 UCLA,Calc3,A,1,MATH 32A,Not Articulated
 UCLA,Calc4,A,1,MATH 32B,Not Articulated
 UCLA,LinearAlgebra,A,1,MATH 33A,Not Articulated
 UCLA,DifferentialEquations,A,1,MATH 33B,Not Articulated
-UCLA,DiscreteStructures,A,1,MATH 61,Not Articulated
+UCM,Intro,A,1,CSE 022,Not Articulated
 UCM,DataStructures,A,1,CSE 030,Not Articulated
 UCM,Calc1,A,1,MATH 021,Not Articulated
 UCM,Calc2,A,1,MATH 022,Not Articulated
@@ -42,7 +38,7 @@ UCM,LinearAlgebra,A,1,MATH 024,Not Articulated
 UCR,Intro1,A,1,CS 10A,Not Articulated
 UCR,Intro2,A,1,CS 10B,Not Articulated
 UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,Not Articulated
-UCSD,Intro,A,1,CSE 11,Not Articulated
+UCSD,Intro,B,1,CSE 11,Not Articulated
 UCSD,DataStructures,A,1,CSE 12,Not Articulated
 UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
 UCSD,LinearAlgebra,A,1,MATH 18,Not Articulated
@@ -56,7 +52,7 @@ UCSB,DifferentialEquations,A,1,MATH 4B,Not Articulated
 UCSB,Intro,A,1,CMPSC 16,Not Articulated
 UCSB,DataStructures,A,1,CMPSC 24,Not Articulated
 UCSB,DiscreteMath,A,1,CMPSC 40,Not Articulated
-UCSC,DataStructures,A,1,CSE 12,Not Articulated
+UCSC,Organization,A,1,CSE 12,Not Articulated
 UCSC,DiscreteMath,A,1,CSE 16,Not Articulated
 UCSC,Intro,A,1,CSE 30,Not Articulated
 UCSC,Calc1,A,1,MATH 19A,Not Articulated

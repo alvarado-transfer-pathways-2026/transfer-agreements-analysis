@@ -12,7 +12,10 @@
     "UCI": {
       "Calc1": [["MATH 2A", "A", 1]],
       "Calc2": [["MATH 2B", "A", 1]],
-      "Intro": [["I&C SCI 31", "A", 3], ["I&C SCI 33", "A", 3], ["I&C SCI 32", "A", 3]]
+      "Intro": [["I&C SCI 31", "A", 3], ["I&C SCI 33", "A", 3], ["I&C SCI 32", "A", 3]],
+      "Programming": [["I&C SCI 45C", "A", 1], ["I&C SCI 46", "B", 1], ["I&C SCI 51", "C", 1], ["I&C SCI 53", "D", 1],
+        ["IN4MATX 43", "E", 1], ["I&C SCI 6B", "F", 1], ["I&C SCI 6D", "G", 1],
+        ["STATS 67", "H", 1]]
     },
     "UCD": {
       "Calc1": [["MAT 021A", "A", 1]],
@@ -39,13 +42,14 @@
       "Intro": [["COM SCI 31", "A", 1]]
     },
     "UCB": {
-      "Calc1": [["MATH 1A", "A", 1]],
-      "Calc2": [["MATH 1B", "A", 1]],
+      "Calc1": [["MATH 51", "A", 1]],
+      "Calc2": [["MATH 52", "A", 1]],
       "MultivariableCalc": [["MATH 53", "A", 1]],
       "LinearAlgebraAndDifferentialEqations": [["MATH 54", "A", 1]]
     },
     "UCM": {
       "DataStructures": [["CSE 030", "A", 1]],
+      "Intro": [["CSE 022", "A", 1]],
       "Calc1": [["MATH 021", "A", 1]],
       "Calc2": [["MATH 022", "A", 1]],
       "VectorCalc": [["MATH 023", "A", 1]],

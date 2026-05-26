@@ -1,4 +1,6 @@
 College Name,UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
+Lassen Community College,UCB,Calc1,A,1,MATH 51,MATH 1A (5.00)
+Lassen Community College,UCB,Calc2,A,1,MATH 52,MATH 1B (5.00)
 Not Articulated,UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,Not Articulated
 Not Articulated,UCB,MultivariableCalc,A,1,MATH 53,Not Articulated
 Lassen Community College,UCD,Calc1,A,1,MAT 021A,MATH 1A (5.00)
@@ -12,6 +14,14 @@ Not Articulated,UCD,Organization,A,1,ECS 050,Not Articulated
 Lassen Community College,UCI,Calc1,A,1,MATH 2A,MATH 1A (5.00)
 Lassen Community College,UCI,Calc2,A,1,MATH 2B,MATH 1B (5.00)
 Not Articulated,UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,Not Articulated
+Not Articulated,UCI,Programming,A,1,I&C SCI 45C,Not Articulated
+Not Articulated,UCI,Programming,B,1,I&C SCI 46,Not Articulated
+Not Articulated,UCI,Programming,C,1,I&C SCI 51,Not Articulated
+Not Articulated,UCI,Programming,D,1,I&C SCI 53,Not Articulated
+Not Articulated,UCI,Programming,E,1,IN4MATX 43,Not Articulated
+Not Articulated,UCI,Programming,F,1,I&C SCI 6B,Not Articulated
+Not Articulated,UCI,Programming,G,1,I&C SCI 6D,Not Articulated
+Not Articulated,UCI,Programming,H,1,STATS 67,Not Articulated
 Lassen Community College,UCLA,Calc1,A,1,MATH 31A,MATH 1A (5.00)
 Lassen Community College,UCLA,Calc2,A,1,MATH 31B,MATH 1B (5.00)
 Not Articulated,UCLA,Calc3,A,1,MATH 32A,Not Articulated
@@ -22,6 +32,7 @@ Not Articulated,UCLA,LinearAlgebra,A,1,MATH 33A,Not Articulated
 Lassen Community College,UCM,Calc1,A,1,MATH 021,MATH 1A (5.00)
 Lassen Community College,UCM,Calc2,A,1,MATH 022,MATH 1B (5.00)
 Not Articulated,UCM,DataStructures,A,1,CSE 030,Not Articulated
+Not Articulated,UCM,Intro,A,1,CSE 022,Not Articulated
 Not Articulated,UCM,LinearAlgebra,A,1,MATH 024,Not Articulated
 Not Articulated,UCM,VectorCalc,A,1,MATH 023,Not Articulated
 Lassen Community College,UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 1A (5.00); MATH 1B (5.00)
@@ -38,9 +49,11 @@ Lassen Community College,UCSC,Calc1,A,1,MATH 19A,MATH 1A (5.00)
 Lassen Community College,UCSC,Calc2,A,1,MATH 19B,MATH 1B (5.00)
 Not Articulated,UCSC,DiscreteMath,A,1,CSE 16,Not Articulated
 Not Articulated,UCSC,Intro,A,1,CSE 30,Not Articulated
+Not Articulated,UCSC,Organization,A,1,CSE 12,Not Articulated
 Lassen Community College,UCSD,Calc1,A,1,MATH 20A,MATH 1A (5.00)
 Lassen Community College,UCSD,Calc2,A,1,MATH 20B,MATH 1B (5.00)
 Not Articulated,UCSD,Calc3,A,1,MATH 20C,Not Articulated
 Not Articulated,UCSD,DataStructures,A,1,CSE 12,Not Articulated
 Not Articulated,UCSD,DiscreteMath,A,1,CSE 20,Not Articulated
+Not Articulated,UCSD,Intro,B,1,CSE 11,Not Articulated
 Not Articulated,UCSD,LinearAlgebra,A,1,MATH 18,Not Articulated

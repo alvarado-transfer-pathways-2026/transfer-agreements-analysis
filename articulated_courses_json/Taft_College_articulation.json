@@ -110,19 +110,6 @@
           ]
         ],
         "receiving_course": "MAT 021C"
-      },
-      "Linear Algebra": {
-        "set_id": "A",
-        "num_required": 1,
-        "course_groups": [
-          [
-            {
-              "course": "MATH 2125",
-              "units": 4.0
-            }
-          ]
-        ],
-        "receiving_course": "MAT 022A"
       }
     },
     "UCI": {
@@ -221,6 +208,19 @@
       }
     },
     "UCM": {
+      "Intro": {
+        "set_id": "A",
+        "num_required": 1,
+        "course_groups": [
+          [
+            {
+              "course": "ENGR 1540",
+              "units": 4.0
+            }
+          ]
+        ],
+        "receiving_course": "CSE 022"
+      },
       "Calc1": {
         "set_id": "A",
         "num_required": 1,

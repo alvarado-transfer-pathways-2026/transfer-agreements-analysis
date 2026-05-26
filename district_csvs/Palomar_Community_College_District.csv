@@ -1,8 +1,11 @@
 College Name,UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1,Courses Group 2
+Palomar College,UCB,Calc1,A,1,MATH 51,MATH 140 (5.00),MATH 140E (5.00)
+Palomar College,UCB,Calc2,A,1,MATH 52,MATH 141 (4.00),MATH 141E (4.00); MATH 206 (4.00)
 Palomar College,UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MATH 200 (3.00); MATH 206 (4.00),
 Palomar College,UCB,MultivariableCalc,A,1,MATH 53,MATH 205 (4.00),
 Palomar College,UCD,Calc1,A,1,MAT 021A,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCD,Calc2,A,1,MAT 021B,MATH 141 (4.00),MATH 141E (4.00)
+Palomar College,UCD,Calc3,A,1,MAT 021C; MAT 021D,MATH 205 (4.00),
 Palomar College,UCD,DataStructures,A,1,ECS 036C,CSCI 210 (4.00),
 Palomar College,UCD,DiscreteMath,A,1,ECS 020,MATH 245 (3.00),
 Palomar College,UCD,Intro1,A,1,ECS 036A,CSCI 112 (4.00),CSCI 114 (4.00)
@@ -11,6 +14,14 @@ Palomar College,UCD,Organization,A,1,ECS 050,CSCI 212 (4.00),
 Palomar College,UCI,Calc1,A,1,MATH 2A,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCI,Calc2,A,1,MATH 2B,MATH 141 (4.00),MATH 141E (4.00)
 Palomar College,UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,CSIT 175 (3.00); CSIT 275 (3.00),CSCI 114 (4.00); CSCI 210 (4.00)
+Palomar College,UCI,Programming,A,1,I&C SCI 45C,CSCI 222 (4.00),
+Not Articulated,UCI,Programming,B,1,I&C SCI 46,Not Articulated,
+Not Articulated,UCI,Programming,C,1,I&C SCI 51,Not Articulated,
+Not Articulated,UCI,Programming,D,1,I&C SCI 53,Not Articulated,
+Not Articulated,UCI,Programming,E,1,IN4MATX 43,Not Articulated,
+Not Articulated,UCI,Programming,F,1,I&C SCI 6B,Not Articulated,
+Palomar College,UCI,Programming,G,1,I&C SCI 6D,MATH 245 (3.00),
+Not Articulated,UCI,Programming,H,1,STATS 67,Not Articulated,
 Palomar College,UCLA,Calc1,A,1,MATH 31A,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCLA,Calc2,A,1,MATH 31B,MATH 141 (4.00),MATH 141E (4.00)
 Palomar College,UCLA,Calc3,A,1,MATH 32A,MATH 205 (4.00),
@@ -21,6 +32,7 @@ Palomar College,UCLA,LinearAlgebra,A,1,MATH 33A,MATH 200 (3.00),
 Palomar College,UCM,Calc1,A,1,MATH 021,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCM,Calc2,A,1,MATH 022,MATH 141 (4.00),MATH 141E (4.00)
 Palomar College,UCM,DataStructures,A,1,CSE 030,CSCI 210 (4.00),
+Palomar College,UCM,Intro,A,1,CSE 022,CSCI 112 (4.00),CSCI 114 (4.00)
 Palomar College,UCM,LinearAlgebra,A,1,MATH 024,MATH 200 (3.00); MATH 206 (4.00),
 Palomar College,UCM,VectorCalc,A,1,MATH 023,MATH 205 (4.00),
 Palomar College,UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 140 (5.00); MATH 141 (4.00),
@@ -37,9 +49,11 @@ Palomar College,UCSC,Calc1,A,1,MATH 19A,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCSC,Calc2,A,1,MATH 19B,MATH 141 (4.00),MATH 141E (4.00)
 Palomar College,UCSC,DiscreteMath,A,1,CSE 16,MATH 245 (3.00),
 Palomar College,UCSC,Intro,A,1,CSE 30,CSCI 210 (4.00),
+Palomar College,UCSC,Organization,A,1,CSE 12,CSCI 212 (4.00),
 Palomar College,UCSD,Calc1,A,1,MATH 20A,MATH 140 (5.00),MATH 140E (5.00)
 Palomar College,UCSD,Calc2,A,1,MATH 20B,MATH 141 (4.00),MATH 141E (4.00)
 Palomar College,UCSD,Calc3,A,1,MATH 20C,MATH 205 (4.00),
 Palomar College,UCSD,DataStructures,A,1,CSE 12,CSCI 210 (4.00),
 Palomar College,UCSD,DiscreteMath,A,1,CSE 20,MATH 245 (3.00),
+Palomar College,UCSD,Intro,B,1,CSE 11,CSCI 114 (4.00),
 Palomar College,UCSD,LinearAlgebra,A,1,MATH 18,MATH 200 (3.00),

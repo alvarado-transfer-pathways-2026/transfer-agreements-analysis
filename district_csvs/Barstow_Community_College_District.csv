@@ -1,7 +1,11 @@
 College Name,UC Name,Group ID,Set ID,Num Required,Receiving,Courses Group 1
+Barstow Community College,UCB,Calc1,A,1,MATH 51,MATH 4A (4.00)
+Barstow Community College,UCB,Calc2,A,1,MATH 52,MATH 4B (4.00)
 Barstow Community College,UCB,LinearAlgebraAndDifferentialEqations,A,1,MATH 54,MATH 9 (3.00); MATH 10 (3.00)
 Barstow Community College,UCB,MultivariableCalc,A,1,MATH 53,MATH 4C (4.00)
 Barstow Community College,UCD,Calc1,A,1,MAT 021A,MATH 4A (4.00)
+Barstow Community College,UCD,Calc2,A,1,MAT 021B; MAT 021C; MAT 021D,MATH 4B (4.00); MATH 4C (4.00)
+Barstow Community College,UCD,Calc3,A,1,MAT 021B; MAT 021C; MAT 021D,MATH 4B (4.00); MATH 4C (4.00)
 Not Articulated,UCD,DataStructures,A,1,ECS 036C,Not Articulated
 Not Articulated,UCD,DiscreteMath,A,1,ECS 020,Not Articulated
 Not Articulated,UCD,Intro1,A,1,ECS 036A,Not Articulated
@@ -10,6 +14,14 @@ Not Articulated,UCD,Organization,A,1,ECS 050,Not Articulated
 Barstow Community College,UCI,Calc1,A,1,MATH 2A,MATH 4A (4.00)
 Barstow Community College,UCI,Calc2,A,1,MATH 2B,MATH 4B (4.00)
 Barstow Community College,UCI,Intro,A,3,I&C SCI 31; I&C SCI 32; I&C SCI 33,CSIS 33 (3.00)
+Barstow Community College,UCI,Programming,A,1,I&C SCI 45C,CSIS 35 (3.00)
+Not Articulated,UCI,Programming,B,1,I&C SCI 46,Not Articulated
+Not Articulated,UCI,Programming,C,1,I&C SCI 51,Not Articulated
+Not Articulated,UCI,Programming,D,1,I&C SCI 53,Not Articulated
+Not Articulated,UCI,Programming,E,1,IN4MATX 43,Not Articulated
+Not Articulated,UCI,Programming,F,1,I&C SCI 6B,Not Articulated
+Not Articulated,UCI,Programming,G,1,I&C SCI 6D,Not Articulated
+Not Articulated,UCI,Programming,H,1,STATS 67,Not Articulated
 Barstow Community College,UCLA,Calc1,A,1,MATH 31A,MATH 4A (4.00)
 Barstow Community College,UCLA,Calc2,A,1,MATH 31B,MATH 4B (4.00)
 Barstow Community College,UCLA,Calc3,A,1,MATH 32A,MATH 4C (4.00)
@@ -20,6 +32,7 @@ Not Articulated,UCLA,LinearAlgebra,A,1,MATH 33A,Not Articulated
 Barstow Community College,UCM,Calc1,A,1,MATH 021,MATH 4A (4.00)
 Barstow Community College,UCM,Calc2,A,1,MATH 022,MATH 4B (4.00)
 Barstow Community College,UCM,DataStructures,A,1,CSE 030,CSIS 35 (3.00)
+Barstow Community College,UCM,Intro,A,1,CSE 022,CSIS 33 (3.00)
 Barstow Community College,UCM,LinearAlgebra,A,1,MATH 024,MATH 9 (3.00); MATH 10 (3.00)
 Barstow Community College,UCM,VectorCalc,A,1,MATH 023,MATH 4C (4.00)
 Barstow Community College,UCR,Calc,A,3,MATH 9A; MATH 9B; MATH 9C,MATH 4A (4.00); MATH 4B (4.00)
@@ -36,9 +49,11 @@ Barstow Community College,UCSC,Calc1,A,1,MATH 19A,MATH 4A (4.00)
 Barstow Community College,UCSC,Calc2,A,1,MATH 19B,MATH 4B (4.00)
 Barstow Community College,UCSC,DiscreteMath,A,1,CSE 16,CSIS 18 (3.00)
 Not Articulated,UCSC,Intro,A,1,CSE 30,Not Articulated
+Not Articulated,UCSC,Organization,A,1,CSE 12,Not Articulated
 Barstow Community College,UCSD,Calc1,A,1,MATH 20A,MATH 4A (4.00)
 Barstow Community College,UCSD,Calc2,A,1,MATH 20B,MATH 4B (4.00)
 Barstow Community College,UCSD,Calc3,A,1,MATH 20C,MATH 4C (4.00)
 Barstow Community College,UCSD,DataStructures,A,1,CSE 12,CSIS 35 (3.00)
 Barstow Community College,UCSD,DiscreteMath,A,1,CSE 20,CSIS 18 (3.00)
+Barstow Community College,UCSD,Intro,B,1,CSE 11,CSIS 33 (3.00); CSIS 35 (3.00)
 Barstow Community College,UCSD,LinearAlgebra,A,1,MATH 18,MATH 10 (3.00)
