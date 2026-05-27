@@ -16,7 +16,7 @@ csv_folder = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/q
 order_sources = []
 
 # Set the number of orders you expect (change to 6 if you only have 5 orders, etc.)
-order_range = range(1, 10)
+order_range = range(1, 5)
 
 # Load and extract TRANSFERABLE AVERAGE row from each order CSV
 order_dfs = []
@@ -92,7 +92,7 @@ n_orders = len(order_range)
 total_bars = n_orders + 1  # 1 for CS/Math bar
 bar_width = 0.8 / total_bars
 
-fig, ax = plt.subplots(figsize=(30, 12))
+fig, ax = plt.subplots(figsize=(20, 12))
 
 # Calculate offsets so all bars are centered at each UC
 offsets = np.linspace(-0.4 + bar_width/2, 0.4 - bar_width/2, total_bars)
@@ -165,6 +165,7 @@ for j, col in enumerate([f"Order {i}" for i in range(1, n_orders + 1)]):
                 #,fontweight = 'bold'
             )
 
+
 # Increase y-axis limit for more space above bars
 ymax = 0
 for i, uc in enumerate(uc_labels):
@@ -217,7 +218,7 @@ else:
     used = [pretty[p] for p in sorted(source_types)]
     source_str = " & ".join(used)
 plot_title = f"Transferable Courses by Order per UC"
-#plt.title(plot_title, fontsize=50)
+plt.title(plot_title, fontsize=50)
 plt.ylabel("Number of Courses", fontsize=35)
 plt.xlabel("University of California", fontsize=35)
 plt.tight_layout()
@@ -231,7 +232,7 @@ for h, l in zip(handles, labels):
         unique.append((h, l))
         seen.add(l)
 ax.legend([h for h, l in unique], [l for h, l in unique], title="Choices/Requirements",
-          loc='upper right', fontsize=22, title_fontsize=24)
+          loc='upper right', fontsize=16, title_fontsize=18)
 
 # plt.figtext(Add commentMore actions
 #     0.5, -0.05,
