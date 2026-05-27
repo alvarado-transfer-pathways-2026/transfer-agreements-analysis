@@ -88,7 +88,7 @@ ax.set_ylim(0, ymax * 1.18)
 # Axis labels and title
 ax.set_ylabel("Number of Courses", fontsize=35)
 ax.set_xlabel("University of California", fontsize=35)
-plt.title("CS and Math Degree Requirements", fontsize=50)
+#plt.title("CS and Math Degree Requirements", fontsize=50)
 
 ax.set_xticks(x)
 ax.set_xticklabels([uc_display_names[uc] for uc in uc_labels], fontsize=30)
