@@ -8,21 +8,21 @@ transfer_courses = {
     "UCSC": 3.33,
     "UCLA": 4.67,
     "UCB": 4,
-    "UCI": 3.33,
+    "UCI": 4,
     "UCD": 5.33,
     "UCR": 3.33,
-    "UCM": 5
+    "UCM": 6
 }
 after_time_to_degree = {
-    "UCSD": 14.67,
-    "UCSB": 14.67,
+    "UCSD": 15.33,
+    "UCSB": 13.33,
     "UCSC": 12,
-    "UCLA": 18,
-    "UCB": 11,
-    "UCI": 14.67,
-    "UCD": 9.33,
-    "UCR": 16,
-    "UCM": 16
+    "UCLA": 12.67,
+    "UCB": 10,
+    "UCI": 14,
+    "UCD": 10,
+    "UCR": 18,
+    "UCM": 14
 }
 
 # --- Custom UC order: UCB and UCM first ---
@@ -102,7 +102,11 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=24, title_fontsize=26, loc='upper left')
+ax.legend(
+    [h for h, l in unique], [l for h, l in unique],
+    title="Degree Segment", fontsize=24, title_fontsize=26,
+    loc='upper left', bbox_to_anchor=(0.01, 1.02)
+)
 
 # Optional: make the grid lines lighter and the layout tighter
 plt.tight_layout()

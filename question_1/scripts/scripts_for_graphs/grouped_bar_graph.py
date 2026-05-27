@@ -10,7 +10,7 @@ os.makedirs("question1/graphs", exist_ok=True)
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/question_1/csvs/2025/order_3_csvs"
+csv_folder = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/question_1/csvs/2026/order_4"
 
 # Track which prefix was used for each order
 order_sources = []
@@ -67,17 +67,17 @@ semester_values = {
     "UCSC": 3.33, #5 Quarter Courses
     "UCLA": 4.67, #7 Quarter Courses
     "UCB": 4,
-    "UCI": 3.33, #5 Quarter Courses
+    "UCI": 4, #6 Quarter Courses
     "UCD": 5.33, #8 Quarter Courses
     "UCR": 3.33, #5 Quarter Courses
-    "UCM": 5
+    "UCM": 6
 }
 quarter_values = {
     "UCSD": 7,
     "UCSB": 7,
     "UCSC": 5,
     "UCLA": 7,
-    "UCI": 5,
+    "UCI": 6,
     "UCD": 8,
     "UCR": 5
     # UCB and UCM are not quarter, so not included
@@ -182,15 +182,15 @@ uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
 # Mapping for display names
 
 uc_display_names = {
-    "UCD": "UCD*",
-    "UCM": "UCM",
-    "UCSD": "UCSD*",
-    "UCSB": "UCSB*",
-    "UCLA": "UCLA*",
-    "UCB": "UCB",
-    "UCSC": "UCSC*",
-    "UCI": "UCI*",
-    "UCR": "UCR*"
+    "UCD": "UC1*",
+    "UCM": "UC2",
+    "UCSD": "UC3*",
+    "UCSB": "UC4*",
+    "UCLA": "UC5*",
+    "UCB": "UC6",
+    "UCSC": "UC7*",
+    "UCI": "UC8*",
+    "UCR": "UC9*"
 }
 
 # ... rest of your plotting code ...
