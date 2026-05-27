@@ -102,11 +102,7 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend(
-    [h for h, l in unique], [l for h, l in unique],
-    title="Degree Segment", fontsize=24, title_fontsize=26,
-    loc='upper left', bbox_to_anchor=(0.01, 1.02)
-)
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Degree Segment", fontsize=24, title_fontsize=26, loc='upper left')
 
 # Optional: make the grid lines lighter and the layout tighter
 plt.tight_layout()
