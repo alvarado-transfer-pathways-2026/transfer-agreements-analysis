@@ -444,9 +444,9 @@ def create_all_course_graphs(data, output_dir):
             if label is not None:
                 height = rect.get_height()
                 if count > 0:
-                    label_y = height / 2 if height >= 8 else min(height + 2, 98)
-                    label_color = "white" if height >= 8 else "black"
-                    vertical_align = "center" if height >= 8 else "bottom"
+                    label_y = height + 1.5
+                    label_color = "black"
+                    vertical_align = "bottom"
                 else:
                     label_y = 50
                     label_color = "black"
@@ -456,14 +456,14 @@ def create_all_course_graphs(data, output_dir):
                     label_y,
                     label,
                     ha="center", va=vertical_align,
-                    fontsize=8,
+                    fontsize=13,
                     color=label_color
                 )
 
         ax.set_ylim(0, 60)
         ax.set_title(cat.replace('_',' ').title(), fontsize=20)
         ax.set_xticks(np.arange(len(uc_names)))
-        ax.set_xticklabels(uc_names, rotation=20, ha='right')
+        ax.set_xticklabels(uc_names, rotation=20, ha='right', fontsize=13)
         # only the leftmost column gets a ylabel
         if idx % 3 == 0:
             ax.set_ylabel("% of CC Districts", fontsize=18)
@@ -476,19 +476,18 @@ def create_all_course_graphs(data, output_dir):
     from matplotlib.patches import Patch
     legend_items = [
         Patch(facecolor='black', edgecolor='k', label='Colored = % missing'),
-        Patch(facecolor=REQUIRED_NO_GAPS_FACE, edgecolor='black', hatch='///', label='Hatched = required, no gaps'),
         Patch(facecolor=NOT_REQUIRED_FACE, edgecolor='k', label='Gray = not required')
     ]
     fig.legend(
         handles=legend_items,
         loc='lower center',
-        ncol=3,
+        ncol=2,
         frameon=False,
         fontsize=18,
-        bbox_to_anchor=(0.5, -0.08)
+        bbox_to_anchor=(0.5, -0.01)
     )
 
-    plt.tight_layout(rect=[0, 0.10, 1, 0.92])
+    plt.tight_layout(rect=[0, 0.04, 1, 0.92])
     out_path = os.path.join(output_dir, "all_courses_relative.png")
     fig.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)
