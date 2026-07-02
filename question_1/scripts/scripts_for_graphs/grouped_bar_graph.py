@@ -10,13 +10,13 @@ os.makedirs("question1/graphs", exist_ok=True)
 uc_schools = ["UCSD", "UCSB", "UCSC", "UCLA", "UCB", "UCI", "UCD", "UCR", "UCM"]
 
 # Specify the folder containing the CSVs
-csv_folder = "/Users/yasminkabir/transfer-agreements-analysis/question_1/csvs/order_9_csvs"
+csv_folder = "/Users/yasminkabir/Documents/GitHub/transfer-agreements-analysis/question_1/csvs/2026/order_4"
 
 # Track which prefix was used for each order
 order_sources = []
 
 # Set the number of orders you expect (change to 6 if you only have 5 orders, etc.)
-order_range = range(1, 10)
+order_range = range(1, 5)
 
 # Load and extract TRANSFERABLE AVERAGE row from each order CSV
 order_dfs = []
@@ -67,17 +67,17 @@ semester_values = {
     "UCSC": 3.33, #5 Quarter Courses
     "UCLA": 4.67, #7 Quarter Courses
     "UCB": 4,
-    "UCI": 3.33, #5 Quarter Courses
+    "UCI": 4, #6 Quarter Courses
     "UCD": 5.33, #8 Quarter Courses
     "UCR": 3.33, #5 Quarter Courses
-    "UCM": 5
+    "UCM": 6
 }
 quarter_values = {
     "UCSD": 7,
     "UCSB": 7,
     "UCSC": 5,
     "UCLA": 7,
-    "UCI": 5,
+    "UCI": 6,
     "UCD": 8,
     "UCR": 5
     # UCB and UCM are not quarter, so not included
@@ -92,7 +92,7 @@ n_orders = len(order_range)
 total_bars = n_orders + 1  # 1 for CS/Math bar
 bar_width = 0.8 / total_bars
 
-fig, ax = plt.subplots(figsize=(30, 12))
+fig, ax = plt.subplots(figsize=(20, 12))
 
 # Calculate offsets so all bars are centered at each UC
 offsets = np.linspace(-0.4 + bar_width/2, 0.4 - bar_width/2, total_bars)
@@ -138,12 +138,23 @@ order_cmap = cm.get_cmap('Blues', n_orders + 2)
 order_colors = [order_cmap(n_orders + 1 - i) for i in range(n_orders)]  # reverse order
 
 # Plot the rest of the grouped bars (orders)
+choice_names = {
+    1: "1st Choice",
+    2: "2nd Choice",
+    3: "3rd Choice",
+    4: "4th Choice",
+    5: "5th Choice",
+    6: "6th Choice",
+    7: "7th Choice",
+    8: "8th Choice",
+    9: "9th Choice",
+}
 for j, col in enumerate([f"Order {i}" for i in range(1, n_orders + 1)]):
     if col in pivot_df.columns:
         vals = pivot_df[col].loc[uc_labels]
         bar_order = ax.bar(
             x + offsets[j+1], vals, width=bar_width,
-            color=order_colors[j], label=col, zorder=1
+            color=order_colors[j], label=choice_names.get(j + 1, col.replace("Order", "Choice")), zorder=1
         )
         # Annotate values above grouped bars (orders) - vertical, black
         for i, val in enumerate(vals):
@@ -153,6 +164,7 @@ for j, col in enumerate([f"Order {i}" for i in range(1, n_orders + 1)]):
                 rotation=90, zorder=3 
                 #,fontweight = 'bold'
             )
+
 
 # Increase y-axis limit for more space above bars
 ymax = 0
@@ -207,7 +219,7 @@ else:
     source_str = " & ".join(used)
 plot_title = f"Transferable Courses by Order per UC"
 #plt.title(plot_title, fontsize=50)
-plt.ylabel("Average Articulated Courses", fontsize=35)
+plt.ylabel("Number of Courses", fontsize=35)
 plt.xlabel("University of California", fontsize=35)
 plt.tight_layout()
 
@@ -219,8 +231,8 @@ for h, l in zip(handles, labels):
     if l and l not in seen:
         unique.append((h, l))
         seen.add(l)
-ax.legend([h for h, l in unique], [l for h, l in unique], title="Order/Requirement",
-          loc='upper right', fontsize=22, title_fontsize=24)
+ax.legend([h for h, l in unique], [l for h, l in unique], title="Choices/Requirements",
+          loc='upper right', fontsize=16, title_fontsize=18)
 
 # plt.figtext(Add commentMore actions
 #     0.5, -0.05,

@@ -8,21 +8,21 @@ transfer_courses = {
     "UCSC": 3.33,
     "UCLA": 4.67,
     "UCB": 4,
-    "UCI": 3.33,
+    "UCI": 4,
     "UCD": 5.33,
     "UCR": 3.33,
-    "UCM": 5
+    "UCM": 6
 }
 after_time_to_degree = {
-    "UCSD": 14.67,
-    "UCSB": 14.67,
+    "UCSD": 15.33,
+    "UCSB": 13.33,
     "UCSC": 12,
-    "UCLA": 18,
-    "UCB": 11,
-    "UCI": 14.67,
-    "UCD": 9.33,
-    "UCR": 16,
-    "UCM": 16
+    "UCLA": 12.67,
+    "UCB": 10,
+    "UCI": 14,
+    "UCD": 10,
+    "UCR": 18,
+    "UCM": 14
 }
 
 # --- Custom UC order: UCB and UCM first ---
@@ -88,7 +88,7 @@ ax.set_ylim(0, ymax * 1.18)
 # Axis labels and title
 ax.set_ylabel("Number of Courses", fontsize=35)
 ax.set_xlabel("University of California", fontsize=35)
-plt.title("CS and Math Degree Requirements", fontsize=50)
+#plt.title("CS and Math Degree Requirements", fontsize=50)
 
 ax.set_xticks(x)
 ax.set_xticklabels([uc_display_names[uc] for uc in uc_labels], fontsize=30)
