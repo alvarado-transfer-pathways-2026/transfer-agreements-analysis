@@ -113,25 +113,6 @@ for i, uc in enumerate(uc_labels):
             bottom=sem_val, color="#FFF8DC", hatch="//",
             label="", zorder=2  # No legend label
         )
-    # Annotate total above the bar (vertical)
-    if qtr_val > 0:
-        ax.text(
-            x[i] + offsets[0], sem_val + qtr_val + 0.1, f"{(sem_val + qtr_val):.2f}",
-            ha='center', va='bottom', fontsize=20, color='black',
-            rotation=90, zorder=3
-        )
-    else:
-        ax.text(
-            x[i] + offsets[0], sem_val + 0.1, f"{sem_val:.2f}",
-            ha='center', va='bottom', fontsize=20, color='black',
-            rotation=90, zorder=3
-        )
-    # Annotate solid bar (centered, vertical)
-    ax.text(
-        x[i] + offsets[0], sem_val / 2, f"{sem_val:.2f}",
-        ha='center', va='center', fontsize=20, color='black',
-        rotation=90, zorder=3
-    )
 
 # --- Consistent color scheme for orders (reverse) ---
 order_cmap = cm.get_cmap('Blues', n_orders + 2)
@@ -156,14 +137,6 @@ for j, col in enumerate([f"Order {i}" for i in range(1, n_orders + 1)]):
             x + offsets[j+1], vals, width=bar_width,
             color=order_colors[j], label=choice_names.get(j + 1, col.replace("Order", "Choice")), zorder=1
         )
-        # Annotate values above grouped bars (orders) - vertical, black
-        for i, val in enumerate(vals):
-            ax.text(
-                x[i] + offsets[j+1], val + 0.1, f"{val:.2f}",
-                ha='center', va='bottom', fontsize=20, color='black',
-                rotation=90, zorder=3 
-                #,fontweight = 'bold'
-            )
 
 
 # Increase y-axis limit for more space above bars
@@ -176,22 +149,22 @@ for i, uc in enumerate(uc_labels):
         if col in pivot_df.columns:
             bar_tops.append(pivot_df[col].loc[uc])
     ymax = max(ymax, max(bar_tops))
-ax.set_ylim(0, ymax * 1.18)
+ax.set_ylim(0, ymax * 1.3)
 
 # --- Custom UC order: UCB and UCM first ---
 uc_labels = ["UCD", "UCM", "UCSD", "UCSB", "UCLA", "UCB", "UCSC", "UCI", "UCR"]
 # Mapping for display names
 
 uc_display_names = {
-    "UCD": "UC1*",
-    "UCM": "UC2",
-    "UCSD": "UC3*",
-    "UCSB": "UC4*",
-    "UCLA": "UC5*",
-    "UCB": "UC6",
-    "UCSC": "UC7*",
-    "UCI": "UC8*",
-    "UCR": "UC9*"
+    "UCD": "UCD*",
+    "UCM": "UCM",
+    "UCSD": "UCSD*",
+    "UCSB": "UCSB*",
+    "UCLA": "UCLA*",
+    "UCB": "UCB",
+    "UCSC": "UCSC*",
+    "UCI": "UCI*",
+    "UCR": "UCR*"
 }
 
 # ... rest of your plotting code ...
@@ -199,7 +172,7 @@ uc_display_names = {
 # X-axis labels
 ax.set_xticks(x)
 ax.set_xticklabels([uc_display_names[uc] for uc in uc_labels], fontsize=30)
-ax.tick_params(axis='y', labelsize=28)
+ax.tick_params(axis='y', labelsize=34)
 
 # ---- Dynamic title based on sources ----
 source_types = set(order_sources)
@@ -219,8 +192,8 @@ else:
     source_str = " & ".join(used)
 plot_title = f"Transferable Courses by Order per UC"
 #plt.title(plot_title, fontsize=50)
-plt.ylabel("Number of Courses", fontsize=35)
-plt.xlabel("University of California", fontsize=35)
+plt.ylabel("Number of Courses", fontsize=40)
+plt.xlabel("University of California", fontsize=40)
 plt.tight_layout()
 
 # Custom legend (remove duplicates, ensure all bars are present)
@@ -232,7 +205,7 @@ for h, l in zip(handles, labels):
         unique.append((h, l))
         seen.add(l)
 ax.legend([h for h, l in unique], [l for h, l in unique], title="Choices/Requirements",
-          loc='upper right', fontsize=16, title_fontsize=18)
+          loc='upper right', fontsize=26, title_fontsize=28)
 
 # plt.figtext(Add commentMore actions
 #     0.5, -0.05,
