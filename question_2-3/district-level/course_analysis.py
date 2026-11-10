@@ -398,6 +398,7 @@ def create_all_course_graphs(data, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     uc_names, categories, uc_cat_counts = build_uc_category_district_counts(data)
     required_categories_by_uc = build_required_categories_by_uc()
+    campus_labels = {index: campus for campus, index in UC_NAME_INDICES.items()}
     n_districts = data['District'].nunique()
 
     # Create 2×3 grid
@@ -456,14 +457,16 @@ def create_all_course_graphs(data, output_dir):
                     label_y,
                     label,
                     ha="center", va=vertical_align,
-                    fontsize=13,
+                    fontsize=15,
                     color=label_color
                 )
 
         ax.set_ylim(0, 60)
         ax.set_title(cat.replace('_',' ').title(), fontsize=20)
         ax.set_xticks(np.arange(len(uc_names)))
-        ax.set_xticklabels(uc_names, rotation=20, ha='right', fontsize=13)
+        ax.set_xticklabels([campus_labels.get(uc, uc) for uc in uc_names],
+                           rotation=35, ha='right', fontsize=16)
+        ax.tick_params(axis='y', labelsize=18)
         # only the leftmost column gets a ylabel
         if idx % 3 == 0:
             ax.set_ylabel("% of CC Districts", fontsize=18)
@@ -488,8 +491,9 @@ def create_all_course_graphs(data, output_dir):
     )
 
     plt.tight_layout(rect=[0, 0.04, 1, 0.92])
-    out_path = os.path.join(output_dir, "all_courses_relative.png")
-    fig.savefig(out_path, dpi=300, bbox_inches='tight')
+    for extension in ("png", "pdf"):
+        out_path = os.path.join(output_dir, f"all_courses_relative_revised.{extension}")
+        fig.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)
 
 
