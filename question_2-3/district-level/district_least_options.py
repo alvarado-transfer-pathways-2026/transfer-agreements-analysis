@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-from helper import analyze_all_districts
+from helper import analyze_all_districts, UC_NAME_INDICES
 
 def create_bar_plot(data):
     # Calculate total transfer options per district
@@ -96,6 +96,36 @@ def create_horizontal_heatmap(data):
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
 
+def create_sorted_horizontal_heatmap(data):
+    """Paper Figure 2: descending coverage, preserving original district IDs."""
+    heatmap_data = data.pivot(index='UC Index', columns='District', values='counts')
+    # Stable sorting preserves district-ID order among equal-coverage columns.
+    coverage = heatmap_data.sum(axis=0).sort_values(ascending=False, kind='stable')
+    heatmap_data = heatmap_data.loc[:, coverage.index]
+    campus_labels = {index: campus for campus, index in UC_NAME_INDICES.items()}
+
+    fig, ax = plt.subplots(figsize=(15, 3))
+    sns.heatmap(
+        heatmap_data, ax=ax, annot=False, cbar=False,
+        cmap=sns.color_palette(["white", "#1a237e"], as_cmap=True),
+        vmin=0, vmax=1, linewidths=0.4, linecolor='black',
+        xticklabels=True,
+        yticklabels=[campus_labels.get(index, index) for index in heatmap_data.index],
+    )
+    ax.set_xlabel('Community College District', fontsize=14)
+    ax.set_ylabel('UC Campus', fontsize=14)
+    ax.tick_params(axis='x', labelsize=8, rotation=90, length=0)
+    ax.tick_params(axis='y', labelsize=12, rotation=0, length=0)
+    fig.tight_layout()
+    output_dir = os.path.dirname(os.path.abspath(__file__))
+    for extension in ('png', 'pdf'):
+        fig.savefig(
+            os.path.join(output_dir, f'district_transfer_availability_horizontal_heatmap_sorted.{extension}'),
+            dpi=300, bbox_inches='tight',
+        )
+    plt.close(fig)
+
+
 def create_vertical_heatmap(data):
     # Pivot the data for the heatmap
     heatmap_data = data.pivot(index='District', columns='UC Index', values='counts')
@@ -135,6 +165,7 @@ def main():
     create_simple_bar_plot(combined_data)
 
     create_horizontal_heatmap(combined_data)
+    create_sorted_horizontal_heatmap(combined_data)
 
     create_vertical_heatmap(combined_data)
 
