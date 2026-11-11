@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import json
 import os
 
 from helper import analyze_all_districts, UC_NAME_INDICES
+from district_indices import DISTRICT_INDICES
 
 def create_bar_plot(data):
     # Calculate total transfer options per district
@@ -104,12 +106,25 @@ def create_sorted_horizontal_heatmap(data):
     heatmap_data = heatmap_data.loc[:, coverage.index]
     campus_labels = {index: campus for campus, index in UC_NAME_INDICES.items()}
 
+    # Relabel the x axis 1..N in the sorted column order and save the
+    # label -> district name mapping alongside the figure.
+    district_names = {index: name for name, index in DISTRICT_INDICES.items()}
+    figure_labels = list(range(1, len(heatmap_data.columns) + 1))
+    label_to_district = {
+        str(label): district_names[district]
+        for label, district in zip(figure_labels, heatmap_data.columns)
+    }
+
+    output_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(output_dir, 'district_transfer_availability_horizontal_heatmap_sorted_indices.json'), 'w') as f:
+        json.dump(label_to_district, f, indent=2)
+
     fig, ax = plt.subplots(figsize=(15, 3))
     sns.heatmap(
         heatmap_data, ax=ax, annot=False, cbar=False,
         cmap=sns.color_palette(["white", "#1a237e"], as_cmap=True),
         vmin=0, vmax=1, linewidths=0.4, linecolor='black',
-        xticklabels=True,
+        xticklabels=figure_labels,
         yticklabels=[campus_labels.get(index, index) for index in heatmap_data.index],
     )
     ax.set_xlabel('Community College District', fontsize=14)
@@ -117,7 +132,6 @@ def create_sorted_horizontal_heatmap(data):
     ax.tick_params(axis='x', labelsize=8, rotation=90, length=0)
     ax.tick_params(axis='y', labelsize=12, rotation=0, length=0)
     fig.tight_layout()
-    output_dir = os.path.dirname(os.path.abspath(__file__))
     for extension in ('png', 'pdf'):
         fig.savefig(
             os.path.join(output_dir, f'district_transfer_availability_horizontal_heatmap_sorted.{extension}'),
